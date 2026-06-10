@@ -852,8 +852,8 @@ function MissionVision() {
   const visionTags = ["Design", "Develop", "Deliver"];
 
   // Pixel/glitch text animation letters
-  const missionLetters = "FIX. LEARN.".split("");
-  const visionLetters = "PREVENT.".split("");
+  const missionLetters = "SOLVE. EVOLVE.".split("");
+  const visionLetters = "IMPACT.".split("");
 
   const glyphChars = "█▓▒░▄▀■□▪▫";
   const [mGlitch, setMGlitch] = useState<string[]>([]);
@@ -975,7 +975,7 @@ function MissionVision() {
               transition={{ duration: 0.9, delay: 0.45, ease }}
               className="font-mono text-5xl md:text-6xl lg:text-5xl xl:text-6xl font-bold text-[#030304] tracking-tight mb-6 leading-none text-left lg:text-right select-none relative"
             >
-              {mGlitch.length ? mGlitch.join("") : "FIX. LEARN."}
+              {mGlitch.length ? mGlitch.join("") : "SOLVE. EVOLVE."}
               {/* Scanline flicker */}
               <motion.div
                 animate={{ opacity: [0, 0.06, 0], scaleY: [0, 1, 0], y: [0, 30, 60] }}
@@ -1172,7 +1172,7 @@ function MissionVision() {
               transition={{ duration: 0.9, delay: 0.45, ease }}
               className="font-mono text-5xl md:text-6xl lg:text-5xl xl:text-6xl font-bold text-[#030304] tracking-tight mb-6 leading-none select-none relative"
             >
-              {vGlitch.length ? vGlitch.join("") : "PREVENT."}
+              {vGlitch.length ? vGlitch.join("") : "IMPACT."}
               <motion.div
                 animate={{ opacity: [0, 0.06, 0], scaleY: [0, 1, 0], y: [60, 30, 0] }}
                 transition={{ duration: 2.1, repeat: Infinity, ease: "linear" }}
