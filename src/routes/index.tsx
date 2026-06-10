@@ -183,15 +183,17 @@ function Nav() {
 
           {/* Right — Let's Talk + Menu Icon */}
           <div className="flex items-center gap-3 md:gap-5">
-            <Magnetic strength={0.2}>
-              <a href="#contact" className="group relative overflow-hidden inline-flex items-center gap-2 rounded-full bg-[#030304] text-[#F5F5F4] px-6 py-3 text-[11px] uppercase tracking-[0.2em] shadow-soft transition-all hover:shadow-deep">
-                <span className="relative z-10 flex items-center gap-2">
-                  Let&rsquo;s talk
-                  <span className="inline-block transition-transform duration-300 group-hover:rotate-45 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
-                </span>
-                <span className="absolute inset-0 bg-white/20 translate-y-[101%] transition-transform duration-300 ease-out group-hover:translate-y-0 rounded-full" />
-              </a>
-            </Magnetic>
+            <div className="hidden sm:inline-block">
+              <Magnetic strength={0.2}>
+                <a href="#contact" className="group relative overflow-hidden inline-flex items-center gap-2 rounded-full bg-[#030304] text-[#F5F5F4] px-6 py-3 text-[11px] uppercase tracking-[0.2em] shadow-soft transition-all hover:shadow-deep">
+                  <span className="relative z-10 flex items-center gap-2">
+                    Let&rsquo;s talk
+                    <span className="inline-block transition-transform duration-300 group-hover:rotate-45 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
+                  </span>
+                  <span className="absolute inset-0 bg-white/20 translate-y-[101%] transition-transform duration-300 ease-out group-hover:translate-y-0 rounded-full" />
+                </a>
+              </Magnetic>
+            </div>
 
             {/* Hamburger / Close icon */}
             <Magnetic strength={0.25}>
@@ -823,6 +825,435 @@ function Work() {
   );
 }
 
+/* ---------- mission & vision ---------- */
+function MissionVision() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const inView = useInView(sectionRef, { once: true, margin: "-100px" });
+
+  // Track hover state for cards and center circle
+  const [impactHovered, setImpactHovered] = useState(false);
+  const [visionHovered, setVisionHovered] = useState(false);
+
+  const missionTags = ["Research", "Strategy", "Innovation"];
+  const visionTags = ["Design", "Develop", "Deliver"];
+
+  return (
+    <section
+      id="mission"
+      ref={sectionRef}
+      className="relative py-28 md:py-44 overflow-hidden"
+    >
+      {/* ── Split Background ── */}
+      <div className="absolute inset-0 flex flex-col md:flex-row pointer-events-none z-0">
+        <div className="w-full md:w-1/2 h-1/2 md:h-full bg-[#F5F5F4]" />
+        <div className="w-full md:w-1/2 h-1/2 md:h-full bg-[#030304]" />
+      </div>
+
+      {/* ── Background Watermark Text ── */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden select-none z-0">
+        <motion.div
+          animate={{ x: ["-2%", "2%", "-2%"] }}
+          transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+          className="font-display text-[22vw] font-black leading-none text-[#030304]/[0.015] md:text-white/[0.01] whitespace-nowrap tracking-[-0.06em]"
+        >
+          DARK MEDIA
+        </motion.div>
+      </div>
+
+      {/* ── Looping Animated Line Grid (Background) ── */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+        <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="splitGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#030304" stopOpacity="0.2" />
+              <stop offset="50%" stopColor="#888888" stopOpacity="0.35" />
+              <stop offset="100%" stopColor="#F5F5F4" stopOpacity="0.2" />
+            </linearGradient>
+          </defs>
+
+          {/* Horizontal lines */}
+          {[120, 250, 380, 490, 590].map((y, i) => (
+            <motion.line
+              key={`h-${i}`}
+              x1="0" y1={y} x2="1200" y2={y}
+              stroke="url(#splitGradient)" strokeWidth="1"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={inView ? { pathLength: 1, opacity: 1 } : {}}
+              transition={{ duration: 1.8, delay: 0.3 + i * 0.15, ease }}
+            />
+          ))}
+
+          {/* Vertical lines */}
+          {[200, 420, 600, 780, 1000].map((x, i) => (
+            <motion.line
+              key={`v-${i}`}
+              x1={x} y1="0" x2={x} y2="700"
+              stroke="url(#splitGradient)" strokeWidth="1"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={inView ? { pathLength: 1, opacity: 1 } : {}}
+              transition={{ duration: 1.8, delay: 0.6 + i * 0.12, ease }}
+            />
+          ))}
+
+          {/* Infinity Loop Line Animation */}
+          <motion.path
+            d="M 150 350 C 150 180, 450 180, 600 350 C 750 520, 1050 520, 1050 350 C 1050 180, 750 180, 600 350 C 450 520, 150 520, 150 350 Z"
+            stroke="url(#splitGradient)"
+            strokeWidth="2"
+            strokeDasharray="8 16"
+            fill="none"
+            animate={{ strokeDashoffset: [0, -100] }}
+            transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+          />
+
+          <motion.path
+            d="M 150 350 C 150 180, 450 180, 600 350 C 750 520, 1050 520, 1050 350 C 1050 180, 750 180, 600 350 C 450 520, 150 520, 150 350 Z"
+            stroke="url(#splitGradient)"
+            strokeWidth="1"
+            strokeDasharray="30 80"
+            fill="none"
+            animate={{ strokeDashoffset: [0, 150] }}
+            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+          />
+
+          {/* Concentric orbital rings around the center */}
+          <motion.circle
+            cx="600" cy="350" r="110"
+            stroke="url(#splitGradient)" strokeWidth="1.5" strokeDasharray="6 12"
+            fill="none"
+            animate={{ rotate: 360 }}
+            transition={{ duration: 28, repeat: Infinity, ease: "linear" }}
+            style={{ originX: "600px", originY: "350px" }}
+          />
+          <motion.circle
+            cx="600" cy="350" r="160"
+            stroke="url(#splitGradient)" strokeWidth="1" strokeDasharray="10 20"
+            fill="none"
+            animate={{ rotate: -360 }}
+            transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+            style={{ originX: "600px", originY: "350px" }}
+          />
+        </svg>
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-[1600px] px-5 md:px-10">
+        {/* ── Section Header ── */}
+        <Reveal className="text-center mb-16 md:mb-28">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#030304]/15 md:border-white/10 px-4 py-2 text-[11px] uppercase tracking-[0.24em] text-[#030304]/60 md:text-[#F5F5F4]/60 mb-7">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#030304] md:bg-[#F5F5F4]" />
+            Our Core
+          </div>
+          <h2 className="font-display text-5xl md:text-7xl lg:text-8xl leading-[0.9] tracking-[-0.03em] flex flex-col md:flex-row justify-center items-center gap-x-6 gap-y-2">
+            <span className="text-[#030304]">Impact</span>
+            <span className="text-[#030304]/40 md:text-white/20">&amp;</span>
+            <span className="text-[#030304] md:text-[#F5F5F4]">Vision</span>
+          </h2>
+          <p className="mt-6 text-base md:text-lg max-w-xl mx-auto leading-relaxed">
+            <span className="text-[#030304]/60">We create, build, and tell stories </span>
+            <span className="text-[#030304]/60 md:text-[#F5F5F4]/60">that make a difference.</span>
+          </p>
+        </Reveal>
+
+        {/* ── Main 3-column grid ── */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-6 items-center">
+
+          {/* ── LEFT — IMPACT (MISSION) ── */}
+          <div className="flex flex-col gap-6">
+            {/* Impact label pill */}
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              animate={inView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.4, ease }}
+              className="self-start flex items-center gap-3"
+            >
+              <span className="w-2 h-2 rounded-full bg-[#030304] block" />
+              <span className="px-5 py-2.5 rounded-full bg-[#030304] text-[#F5F5F4] text-[11px] uppercase tracking-[0.2em] font-medium">Mission</span>
+              <span className="h-px w-16 bg-[#030304]/20" />
+            </motion.div>
+
+            {/* Stacked hover card — Impact slides back, Contact revealed */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.9, delay: 0.55, ease }}
+              className="relative"
+              style={{ perspective: 1200 }}
+              onMouseEnter={() => setImpactHovered(true)}
+              onMouseLeave={() => setImpactHovered(false)}
+            >
+              {/* BEHIND card — Contact CTA (revealed on hover) */}
+              <div
+                className="absolute inset-0 rounded-3xl bg-[#030304] text-[#F5F5F4] flex flex-col items-center justify-center gap-4 p-8 z-0 overflow-hidden"
+              >
+                <motion.div
+                  animate={{ opacity: impactHovered ? 1 : 0, scale: impactHovered ? 1 : 0.8, y: impactHovered ? 0 : 20 }}
+                  transition={{ duration: 0.5, ease }}
+                  className="flex flex-col items-center gap-4 text-center"
+                >
+                  <span className="text-[11px] uppercase tracking-[0.25em] text-white/50">Ready to build?</span>
+                  <p className="font-display text-3xl leading-tight">Let's create
+                    <em className="italic block opacity-70">something great.</em>
+                  </p>
+                  <a
+                    href="#contact"
+                    className="mt-2 inline-flex items-center gap-2 rounded-full border border-white/20 hover:border-white/60 px-5 py-2.5 text-[11px] uppercase tracking-[0.2em] transition-all duration-300 hover:bg-white/10"
+                  >
+                    Contact us <span>↗</span>
+                  </a>
+                </motion.div>
+                {/* animated bg glow */}
+                <motion.div
+                  animate={{ scale: impactHovered ? [1, 1.3, 1] : 1, opacity: impactHovered ? 0.15 : 0 }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                  className="absolute inset-0 rounded-3xl"
+                  style={{ background: "radial-gradient(circle at 50% 50%, rgba(255,255,255,0.3), transparent 70%)" }}
+                />
+              </div>
+
+              {/* FRONT card — Impact (slides backward on hover) */}
+              <motion.div
+                animate={{
+                  z: impactHovered ? -60 : 0,
+                  y: impactHovered ? 18 : 0,
+                  scale: impactHovered ? 0.93 : 1,
+                  rotateX: impactHovered ? 4 : 0,
+                  boxShadow: impactHovered
+                    ? "0 40px 80px -20px rgba(3,3,4,0.35)"
+                    : "0 8px 30px -10px rgba(3,3,4,0.12)",
+                }}
+                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                className="relative z-10 rounded-3xl bg-white border border-[#030304]/10 p-8 md:p-10 cursor-pointer overflow-hidden"
+                style={{ transformStyle: "preserve-3d" }}
+              >
+                <div className="mb-8">
+                  <div className="text-[11px] uppercase tracking-[0.24em] text-[#030304]/40 mb-3">01 / Focus &amp; Learn</div>
+                  <h3 className="font-display text-[10vw] sm:text-[7vw] md:text-[3.8vw] leading-[0.85] tracking-[-0.04em] text-[#030304]">
+                    Impact
+                    <em className="italic block text-[#030304]/50">Mission.</em>
+                  </h3>
+                </div>
+                <p className="text-[#030304]/60 leading-relaxed text-sm md:text-base mb-6">
+                  We identify real problems, learn deeply, and craft smart solutions that create meaningful impact for every brand we work with.
+                </p>
+                <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-[#030304]/40">
+                  <span className="h-px w-6 bg-[#030304]/30" />
+                  Hover to connect
+                </div>
+                {/* Corner arrow */}
+                <motion.div
+                  animate={{ rotate: impactHovered ? 45 : 0, opacity: impactHovered ? 0.2 : 0.6 }}
+                  className="absolute top-6 right-6 w-8 h-8 flex items-center justify-center rounded-full border border-[#030304]/20 text-sm"
+                >
+                  ↗
+                </motion.div>
+              </motion.div>
+            </motion.div>
+
+            {/* Impact tags */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={inView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.9, ease }}
+              className="flex items-center gap-2 flex-wrap"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-[#030304]/30 block" />
+              {missionTags.map((tag, i) => (
+                <motion.span
+                  key={tag}
+                  initial={{ opacity: 0, scale: 0.7 }}
+                  animate={inView ? { opacity: 1, scale: 1 } : {}}
+                  transition={{ delay: 1 + i * 0.1, duration: 0.5 }}
+                  className="px-3 py-1.5 rounded-full border border-[#030304]/15 text-[11px] uppercase tracking-[0.18em] text-[#030304]/60 hover:border-[#030304]/40 hover:text-[#030304] transition-colors cursor-default"
+                >
+                  {tag}
+                </motion.span>
+              ))}
+              <span className="h-px flex-1 bg-[#030304]/10 min-w-[20px]" />
+            </motion.div>
+          </div>
+
+          {/* ── CENTER — SPLIT CIRCLE ── */}
+          <div className="flex flex-col items-center justify-center gap-10 py-8 relative">
+            <Reveal delay={0.3}>
+              <div className="relative flex items-center justify-center">
+                {/* Pulsing rings */}
+                {[1, 1.4, 1.9].map((scale, i) => (
+                  <motion.div
+                    key={i}
+                    animate={{ scale: [scale, scale * 1.05, scale], opacity: [0.08, 0.03, 0.08] }}
+                    transition={{ duration: 4 + i, repeat: Infinity, delay: i * 0.8, ease: "easeInOut" }}
+                    className="absolute w-36 h-36 md:w-48 md:h-48 rounded-full border border-[#030304]/20 md:border-white/10"
+                  />
+                ))}
+
+                {/* Split circle: Left half white, right half black */}
+                <motion.div
+                  whileHover={{ scale: 1.05, rotate: 180 }}
+                  transition={{ type: "spring", stiffness: 100, damping: 15 }}
+                  className="relative w-36 h-36 md:w-44 md:h-44 rounded-full overflow-hidden shadow-2xl border border-[#030304]/10 cursor-pointer flex items-center justify-center bg-transparent"
+                >
+                  {/* Left half (Light) */}
+                  <div className="absolute top-0 left-0 w-1/2 h-full bg-[#F5F5F4] overflow-hidden" />
+                  
+                  {/* Right half (Dark) */}
+                  <div className="absolute top-0 right-0 w-1/2 h-full bg-[#030304] overflow-hidden" />
+
+                  {/* Inner element that inverts automatically */}
+                  <div className="absolute inset-0 flex items-center justify-center mix-blend-difference pointer-events-none">
+                    <span className="w-5 h-0.5 bg-white rounded-full" />
+                    <span className="h-5 w-0.5 bg-white rounded-full absolute" />
+                  </div>
+
+                  {/* Inner dashed ring */}
+                  <motion.div
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                    className="absolute inset-2 rounded-full border border-dashed border-[#888]/20"
+                  />
+                </motion.div>
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.5}>
+              <p className="text-center text-sm leading-relaxed max-w-[220px]">
+                <span className="text-[#030304]/60">Driven by purpose. </span>
+                <span className="text-[#030304]/60 md:text-[#F5F5F4]/60">Shaped by vision.</span>
+              </p>
+            </Reveal>
+
+            <Reveal delay={0.65}>
+              <Magnetic>
+                <a
+                  href="#work"
+                  className="group inline-flex items-center gap-3 rounded-full bg-[#030304] text-[#F5F5F4] md:bg-[#F5F5F4] md:text-[#030304] px-7 py-4 text-[12px] uppercase tracking-[0.2em] shadow-soft hover:shadow-deep transition-all"
+                >
+                  <span className="inline-block transition-transform duration-300 group-hover:rotate-45 group-hover:-translate-y-0.5 group-hover:translate-x-0.5">↗</span>
+                  See Our Work
+                </a>
+              </Magnetic>
+            </Reveal>
+          </div>
+
+          {/* ── RIGHT — VISION ── */}
+          <div className="flex flex-col gap-6">
+            {/* Vision label pill — right-aligned */}
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              animate={inView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.4, ease }}
+              className="self-end flex items-center gap-3"
+            >
+              <span className="h-px w-16 bg-[#030304]/20 md:bg-white/10" />
+              <span className="px-5 py-2.5 rounded-full bg-[#030304] text-[#F5F5F4] md:bg-[#F5F5F4] md:text-[#030304] text-[11px] uppercase tracking-[0.2em] font-medium">Vision</span>
+              <span className="w-2 h-2 rounded-full bg-[#030304] md:bg-[#F5F5F4] block" />
+            </motion.div>
+
+            {/* Stacked hover card — Vision slides back, Contact revealed */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.9, delay: 0.55, ease }}
+              className="relative"
+              style={{ perspective: 1200 }}
+              onMouseEnter={() => setVisionHovered(true)}
+              onMouseLeave={() => setVisionHovered(false)}
+            >
+              {/* BEHIND card — Contact CTA (revealed on hover) */}
+              <div
+                className="absolute inset-0 rounded-3xl bg-[#F5F5F4] text-[#030304] flex flex-col items-center justify-center gap-4 p-8 z-0 overflow-hidden"
+              >
+                <motion.div
+                  animate={{ opacity: visionHovered ? 1 : 0, scale: visionHovered ? 1 : 0.8, y: visionHovered ? 0 : 20 }}
+                  transition={{ duration: 0.5, ease }}
+                  className="flex flex-col items-center gap-4 text-center"
+                >
+                  <span className="text-[11px] uppercase tracking-[0.25em] text-[#030304]/50">Ready to build?</span>
+                  <p className="font-display text-3xl leading-tight">Let's create
+                    <em className="italic block opacity-70">something great.</em>
+                  </p>
+                  <a
+                    href="#contact"
+                    className="mt-2 inline-flex items-center gap-2 rounded-full border border-[#030304]/20 hover:border-[#030304]/60 px-5 py-2.5 text-[11px] uppercase tracking-[0.2em] transition-all duration-300 hover:bg-[#030304]/10"
+                  >
+                    Contact us <span>↗</span>
+                  </a>
+                </motion.div>
+                {/* animated bg glow */}
+                <motion.div
+                  animate={{ scale: visionHovered ? [1, 1.3, 1] : 1, opacity: visionHovered ? 0.15 : 0 }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                  className="absolute inset-0 rounded-3xl"
+                  style={{ background: "radial-gradient(circle at 50% 50%, rgba(3,3,4,0.15), transparent 70%)" }}
+                />
+              </div>
+
+              {/* FRONT card — Vision (slides backward on hover) */}
+              <motion.div
+                animate={{
+                  z: visionHovered ? -60 : 0,
+                  y: visionHovered ? 18 : 0,
+                  scale: visionHovered ? 0.93 : 1,
+                  rotateX: visionHovered ? 4 : 0,
+                  boxShadow: visionHovered
+                    ? "0 40px 80px -20px rgba(0,0,0,0.4)"
+                    : "0 8px 30px -10px rgba(0,0,0,0.2)",
+                }}
+                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                className="relative z-10 rounded-3xl bg-[#030304] text-[#F5F5F4] p-8 md:p-10 cursor-pointer overflow-hidden border border-white/5"
+                style={{ transformStyle: "preserve-3d" }}
+              >
+                <div className="mb-8">
+                  <div className="text-[11px] uppercase tracking-[0.24em] text-white/30 mb-3">02 / Prevent &amp; Scale</div>
+                  <h3 className="font-display text-[10vw] sm:text-[7vw] md:text-[3.8vw] leading-[0.85] tracking-[-0.04em] text-white">
+                    Vision
+                    <em className="italic block text-white/50">Future.</em>
+                  </h3>
+                </div>
+                <p className="text-white/60 leading-relaxed text-sm md:text-base mb-6">
+                  We build systems, brands, and experiences that prevent problems before they happen and drive long-term lasting value.
+                </p>
+                <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-white/30">
+                  <span className="h-px w-6 bg-white/20" />
+                  Hover to connect
+                </div>
+                {/* Corner arrow */}
+                <motion.div
+                  animate={{ rotate: visionHovered ? 45 : 0, opacity: visionHovered ? 0.2 : 0.6 }}
+                  className="absolute top-6 right-6 w-8 h-8 flex items-center justify-center rounded-full border border-white/15 text-sm"
+                >
+                  ↗
+                </motion.div>
+              </motion.div>
+            </motion.div>
+
+            {/* Vision tags */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={inView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.9, ease }}
+              className="flex items-center gap-2 flex-wrap justify-end"
+            >
+              <span className="h-px flex-1 bg-[#030304]/10 md:bg-white/10 min-w-[20px]" />
+              {visionTags.map((tag, i) => (
+                <motion.span
+                  key={tag}
+                  initial={{ opacity: 0, scale: 0.7 }}
+                  animate={inView ? { opacity: 1, scale: 1 } : {}}
+                  transition={{ delay: 1 + i * 0.1, duration: 0.5 }}
+                  className="px-3 py-1.5 rounded-full border border-[#030304]/15 md:border-white/10 text-[11px] uppercase tracking-[0.18em] text-[#030304]/60 md:text-[#F5F5F4]/60 hover:border-[#030304]/40 md:hover:border-white/30 hover:text-[#030304] md:hover:text-[#F5F5F4] transition-colors cursor-default"
+                >
+                  {tag}
+                </motion.span>
+              ))}
+              <span className="w-1.5 h-1.5 rounded-full bg-[#030304]/30 md:bg-white/20 block" />
+            </motion.div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ---------- contact / footer ---------- */
 function Contact() {
   return (
@@ -931,9 +1362,8 @@ function Index() {
       <StatsStrip />
       <Clients />
       <Services />
+      <MissionVision />
       {/* <Work /> */}
-      <br/>
-      <br/>
       <Contact />
     </main>
   );
