@@ -90,6 +90,10 @@
   letter-spacing: -0.02em;
 }
 
+@utility font-dots {
+  font-family: 'DotGothic16', monospace;
+}
+
 @utility marquee {
   animation: marquee 30s linear infinite;
 }
