@@ -65,6 +65,13 @@ function Magnetic({ children, strength = 0.3 }: { children: React.ReactNode; str
 
 /* ---------- cursor ---------- */
 function Cursor() {
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+
+  useEffect(() => {
+    const isTouch = window.matchMedia("(pointer: coarse)").matches || "ontouchstart" in window;
+    setIsTouchDevice(isTouch);
+  }, []);
+
   const x = useMotionValue(-100);
   const y = useMotionValue(-100);
   
@@ -84,6 +91,8 @@ function Cursor() {
     window.addEventListener("mouseover", over);
     return () => { window.removeEventListener("mousemove", move); window.removeEventListener("mouseover", over); };
   }, [x, y]);
+
+  if (isTouchDevice) return null;
 
   return (
     <>
@@ -598,10 +607,10 @@ function StatsStrip() {
           </motion.div>
         ))}
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.4 }}
-          className="px-6 md:px-10 py-8 md:py-10 flex items-center gap-3 text-[12px] uppercase tracking-[0.22em] text-[#030304] bg-[#030304] text-[#F5F5F4]">
+          className="col-span-2 md:col-span-1 px-6 md:px-10 py-8 md:py-10 flex items-center justify-center md:justify-start gap-3 text-[12px] uppercase tracking-[0.22em] text-[#030304] bg-[#030304] text-[#F5F5F4] " >
           <span className="relative flex h-2 w-2">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#F5F5F4] opacity-70" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-[#F5F5F4]" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-[#F5F5F4] " />
           </span>
           Available for Projects
         </motion.div>
@@ -674,9 +683,9 @@ function Clients() {
 function Services() {
   const items = [
     { n: "01", t: "Brand Strategy", d: "We build digital strategies that align with your goals and create measurable business impact.", span: "col-span-1 md:col-span-2 md:row-span-2 flex-col", art: "radial-gradient(circle at 80% 20%, rgba(255,255,255,0.08), transparent 50%)" },
-    { n: "02", t: "Web Design", d: "High-performing websites that are fast, responsive, and future-ready.", span: "col-span-1 md:col-span-1 md:row-span-1 flex-col", art: "radial-gradient(circle at 20% 80%, rgba(255,255,255,0.05), transparent 70%)" },
+    { n: "02", t: "Web Development", d: "High-performing websites that are fast, responsive, and future-ready.", span: "col-span-1 md:col-span-1 md:row-span-1 flex-col", art: "radial-gradient(circle at 20% 80%, rgba(255,255,255,0.05), transparent 70%)" },
     { n: "03", t: "Video Production", d: "Engaging videos that tell your brand story and connect emotionally.", span: "col-span-1 md:col-span-1 md:row-span-1 flex-col", art: "radial-gradient(circle at 50% 50%, rgba(255,255,255,0.06), transparent 60%)" },
-    { n: "04", t: "Digital Marketing", d: "Data-driven marketing strategies that increase visibility and generate real results.", span: "col-span-1 md:col-span-3 md:row-span-1 flex-col md:flex-row md:items-center", art: "linear-gradient(90deg, rgba(255,255,255,0.03), transparent)" },
+    { n: "04", t: "Graphic Design", d: "Data-driven marketing strategies that increase visibility and generate real results.", span: "col-span-1 md:col-span-3 md:row-span-1 flex-col md:flex-row md:items-center", art: "linear-gradient(90deg, rgba(255,255,255,0.03), transparent)" },
   ];
 
   return (
@@ -852,24 +861,24 @@ function MissionVision() {
   const visionTags = ["Design", "Develop", "Deliver"];
 
   // Pixel/glitch text animation letters
-  const missionLetters = "SOLVE. EVOLVE.".split("");
+  const missionLetters = "SOLVE EVOLVE.".split("");
   const visionLetters = "IMPACT.".split("");
 
-  const glyphChars = "█▓▒░▄▀■□▪▫";
+  const glyphChars = "█▓▒░▄▀■□▪";
   const [mGlitch, setMGlitch] = useState<string[]>([]);
   const [vGlitch, setVGlitch] = useState<string[]>([]);
 
-  useEffect(() => {
-    const randomize = (src: string[]) =>
-      src.map((ch) =>
-        ch === " " ? " " : Math.random() > 0.85 ? glyphChars[Math.floor(Math.random() * glyphChars.length)] : ch
-      );
-    const iv = setInterval(() => {
-      setMGlitch(randomize(missionLetters));
-      setVGlitch(randomize(visionLetters));
-    }, 80);
-    return () => clearInterval(iv);
-  }, []);
+  // useEffect(() => {
+  //   const randomize = (src: string[]) =>
+  //     src.map((ch) =>
+  //       ch === " " ? " " : Math.random() > 0.85 ? glyphChars[Math.floor(Math.random() * glyphChars.length)] : ch
+  //     );
+  //   const iv = setInterval(() => {
+  //     setMGlitch(randomize(missionLetters));
+  //     setVGlitch(randomize(visionLetters));
+  //   }, 80);
+  //   return () => clearInterval(iv);
+  // }, []);
 
   // SVG line dash animation values
   const dash = (p: number, total: number) => {
@@ -1353,10 +1362,10 @@ function Contact() {
 
         <div className="mt-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-[11px] uppercase tracking-[0.22em] opacity-40 pt-8 border-t border-[#F5F5F4]/10">
           <div>© 2026 Dark Media · All rights reserved</div>
-          <div className="flex items-center gap-3">
+          {/* <div className="flex items-center gap-3">
             <img src={logoMark.url} alt="" className="w-5 h-5 rounded-full grayscale opacity-70" />
             Designed in Copenhagen
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

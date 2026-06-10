@@ -152,10 +152,6 @@ const __vite_glob_0_29 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.de
   __proto__: null,
   default: teamarabia
 }, Symbol.toStringTag, { value: "Module" }));
-const url = "/__l5e/assets-v1/91b43b26-0071-4e34-9c71-e8be0524330a/dark-media-mark.jpeg";
-const logoMark = {
-  url
-};
 const whiteLogo = "/assets/Dark%20Media%20Logo%20-%20White-CDTp0BUB.png";
 const ease = [0.22, 1, 0.36, 1];
 function Reveal({
@@ -226,6 +222,11 @@ function Magnetic({
   }, className: "inline-block", children });
 }
 function Cursor() {
+  const [isTouchDevice, setIsTouchDevice] = reactExports.useState(false);
+  reactExports.useEffect(() => {
+    const isTouch = window.matchMedia("(pointer: coarse)").matches || "ontouchstart" in window;
+    setIsTouchDevice(isTouch);
+  }, []);
   const x = useMotionValue(-100);
   const y = useMotionValue(-100);
   const sx = useSpring(x, {
@@ -255,6 +256,7 @@ function Cursor() {
       window.removeEventListener("mouseover", over);
     };
   }, [x, y]);
+  if (isTouchDevice) return null;
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { style: {
       x,
@@ -402,7 +404,7 @@ function Nav() {
     }, transition: {
       duration: 0.9,
       ease: [0.22, 1, 0.36, 1]
-    }, className: "fixed inset-0 z-[60] bg-[#030304] text-[#F5F5F4] overflow-hidden", style: {
+    }, className: "fixed inset-0 z-[60] bg-[#030304] text-[#F5F5F4] overflow-y-auto overflow-x-hidden", style: {
       pointerEvents: menuOpen ? "auto" : "none"
     }, children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute inset-0 overflow-hidden pointer-events-none", children: [
@@ -531,7 +533,7 @@ function Nav() {
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "absolute top-1/2 left-0 w-full h-[1.5px] bg-white/80 -translate-y-1/2 rotate-45 group-hover:bg-white transition-colors" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "absolute top-1/2 left-0 w-full h-[1.5px] bg-white/80 -translate-y-1/2 -rotate-45 group-hover:bg-white transition-colors" })
       ] }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative z-10 flex flex-col items-center justify-center h-full px-8 md:px-16", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative z-10 flex flex-col items-center justify-center min-h-full px-8 md:px-16 pt-24 pb-8", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { initial: false, animate: menuOpen ? {
           opacity: 1,
           y: 0
@@ -564,7 +566,7 @@ function Nav() {
           /* @__PURE__ */ jsxRuntimeExports.jsx(motion.span, { className: "text-2xl md:text-3xl text-white/0 group-hover:text-white/60 transition-all duration-500 group-hover:translate-x-2 group-hover:-translate-y-2", children: "↗" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-[0.22,1,0.36,1] origin-left" })
         ] }) }, link.label)) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute bottom-8 left-8 right-8 md:bottom-10 md:left-10 md:right-10 flex flex-col md:flex-row items-center justify-between gap-6", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mt-auto w-full pt-12 flex flex-col md:flex-row items-center justify-between gap-6", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsxs(motion.div, { initial: false, animate: menuOpen ? {
             opacity: 1,
             y: 0
@@ -655,15 +657,15 @@ function Hero() {
       opacity
     }, className: "relative mx-auto max-w-[1600px] px-5 md:px-10", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-6 items-center", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "lg:col-span-7 relative z-10", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "lg:col-span-7 relative z-10 text-center lg:text-left", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsxs("h1", { className: "font-display text-[18vw] sm:text-[16vw] lg:text-[12.5vw] leading-[0.86] tracking-[-0.045em] text-[#030304]", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "block", children: /* @__PURE__ */ jsxRuntimeExports.jsx(SplitWord, { text: "Build.", delay: 0.3 }) }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "block", children: /* @__PURE__ */ jsxRuntimeExports.jsx(SplitWord, { text: "Brand.", delay: 0.45 }) }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "block italic font-display", children: /* @__PURE__ */ jsxRuntimeExports.jsx(SplitWord, { text: "Impact.", delay: 0.6 }) })
           ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: 1, className: "mt-8 flex items-center gap-3 text-[11px] uppercase tracking-[0.24em] text-[#030304]/60", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "h-px w-10 bg-[#030304]/40" }) })
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: 1, className: "mt-8 flex items-center justify-center lg:justify-start gap-3 text-[11px] uppercase tracking-[0.24em] text-[#030304]/60", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "h-px w-10 bg-[#030304]/40" }) })
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "lg:col-span-5 relative h-[60vw] sm:h-[50vw] lg:h-[42vw] max-h-[640px] flex items-center justify-center", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "lg:col-span-5 relative h-[90vw] md:h-[60vw] lg:h-[42vw] min-h-[320px] max-h-[640px] flex items-center justify-center mt-8 lg:mt-0", children: [
           [1, 1.25, 1.55].map((s, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { initial: {
             opacity: 0,
             scale: 0.6
@@ -729,13 +731,13 @@ function Hero() {
             }, style: {
               top: `${top}%`,
               left: `${left}%`
-            }, className: "absolute -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#F5F5F4] shadow-soft border border-[#030304]/10 px-4 py-2 text-[11px] uppercase tracking-[0.18em] whitespace-nowrap text-[#030304]", children: label }, label);
+            }, className: "absolute -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#F5F5F4] shadow-soft border border-[#030304]/10 px-3 md:px-4 py-1.5 md:py-2 text-[9px] md:text-[11px] uppercase tracking-[0.18em] whitespace-nowrap text-[#030304]", children: label }, label);
           })
         ] })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(Reveal, { delay: 1.1, className: "mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-6 items-end", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "md:col-span-5 text-[#030304]/70 text-base md:text-lg leading-relaxed max-w-md", children: "We craft premium websites, branding systems, graphic design, videography, and digital experiences that help ambitious businesses stand out." }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "md:col-span-4 md:col-start-7 flex items-center gap-4", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(Reveal, { delay: 1.1, className: "mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-6 items-end text-center lg:text-left", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "md:col-span-5 text-[#030304]/70 text-base md:text-lg leading-relaxed max-w-md mx-auto lg:mx-0", children: "We craft premium websites, branding systems, graphic design, videography, and digital experiences that help ambitious businesses stand out." }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "md:col-span-4 md:col-start-7 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(Magnetic, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: "#work", className: "group inline-flex items-center gap-3 rounded-full bg-[#030304] text-[#F5F5F4] px-6 py-4 text-[12px] uppercase tracking-[0.22em] shadow-soft", children: [
             "Explore Our Work",
             /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "inline-block transition-transform group-hover:translate-x-1 group-hover:-translate-y-1", children: "↗" })
@@ -745,7 +747,7 @@ function Hero() {
             "Watch Showreel"
           ] })
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "md:col-span-3 text-[11px] uppercase tracking-[0.24em] text-[#030304]/60 md:text-right", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "md:col-span-3 text-[11px] uppercase tracking-[0.24em] text-[#030304]/60 text-center lg:text-right", children: [
           "Follow —",
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "ml-3 inline-flex gap-2", children: ["Be", "IG", "Li"].map((s) => /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "rounded-full border border-[#030304]/25 px-2 py-1", children: s }, s)) })
         ] })
@@ -799,7 +801,7 @@ function StatsStrip() {
       once: true
     }, transition: {
       delay: 0.4
-    }, className: "px-6 md:px-10 py-8 md:py-10 flex items-center gap-3 text-[12px] uppercase tracking-[0.22em] text-[#030304] bg-[#030304] text-[#F5F5F4]", children: [
+    }, className: "px-6 md:px-10 py-8 md:py-10 flex items-center justify-center md:justify-start gap-3 text-[12px] uppercase tracking-[0.22em] text-[#030304] bg-[#030304] text-[#F5F5F4] col-span-2 md:col-span-1", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "relative flex h-2 w-2", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "absolute inline-flex h-full w-full animate-ping rounded-full bg-[#F5F5F4] opacity-70" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "relative inline-flex h-2 w-2 rounded-full bg-[#F5F5F4]" })
@@ -908,7 +910,7 @@ function Services() {
     art: "radial-gradient(circle at 80% 20%, rgba(255,255,255,0.08), transparent 50%)"
   }, {
     n: "02",
-    t: "Web Design",
+    t: "Web Development",
     d: "High-performing websites that are fast, responsive, and future-ready.",
     span: "col-span-1 md:col-span-1 md:row-span-1 flex-col",
     art: "radial-gradient(circle at 20% 80%, rgba(255,255,255,0.05), transparent 70%)"
@@ -920,7 +922,7 @@ function Services() {
     art: "radial-gradient(circle at 50% 50%, rgba(255,255,255,0.06), transparent 60%)"
   }, {
     n: "04",
-    t: "Digital Marketing",
+    t: "Graphic Design",
     d: "Data-driven marketing strategies that increase visibility and generate real results.",
     span: "col-span-1 md:col-span-3 md:row-span-1 flex-col md:flex-row md:items-center",
     art: "linear-gradient(90deg, rgba(255,255,255,0.03), transparent)"
@@ -1004,6 +1006,13 @@ function MissionVision() {
   });
   const [hoveredSide, setHoveredSide] = reactExports.useState(null);
   const [lineProgress, setLineProgress] = reactExports.useState(0);
+  const [isDesktop, setIsDesktop] = reactExports.useState(true);
+  reactExports.useEffect(() => {
+    const handleResize = () => setIsDesktop(window.innerWidth >= 1024);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   reactExports.useEffect(() => {
     let frame;
     let start = null;
@@ -1019,19 +1028,8 @@ function MissionVision() {
   }, []);
   const missionTags = ["Research", "Strategy", "Innovation"];
   const visionTags = ["Design", "Develop", "Deliver"];
-  const missionLetters = "SOLVE. EVOLVE.".split("");
-  const visionLetters = "IMPACT.".split("");
-  const glyphChars = "█▓▒░▄▀■□▪▫";
   const [mGlitch, setMGlitch] = reactExports.useState([]);
   const [vGlitch, setVGlitch] = reactExports.useState([]);
-  reactExports.useEffect(() => {
-    const randomize = (src) => src.map((ch) => ch === " " ? " " : Math.random() > 0.85 ? glyphChars[Math.floor(Math.random() * glyphChars.length)] : ch);
-    const iv = setInterval(() => {
-      setMGlitch(randomize(missionLetters));
-      setVGlitch(randomize(visionLetters));
-    }, 80);
-    return () => clearInterval(iv);
-  }, []);
   const dash = (p, total) => {
     const drawn = p * total;
     return `${drawn} ${total}`;
@@ -1168,7 +1166,7 @@ function MissionVision() {
             duration: 0.8,
             delay: 0.7,
             ease
-          }, className: "flex items-center gap-3 mt-8 w-full lg:justify-end", children: [
+          }, className: "flex flex-wrap items-center gap-3 mt-8 w-full lg:justify-end", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "w-2.5 h-2.5 rounded-full border-2 border-[#030304]/30 block shrink-0" }),
             missionTags.map((tag, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3", children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx(motion.span, { whileHover: {
@@ -1187,7 +1185,7 @@ function MissionVision() {
           /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { initial: {
             x: 60,
             opacity: 0
-          }, animate: hoveredSide === "mission" ? {
+          }, animate: !isDesktop || hoveredSide === "mission" ? {
             x: 0,
             opacity: 1
           } : {
@@ -1345,7 +1343,7 @@ function MissionVision() {
             duration: 0.8,
             delay: 0.7,
             ease
-          }, className: "flex items-center gap-3 mt-8", children: [
+          }, className: "flex flex-wrap items-center gap-3 mt-8", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "w-2 h-2 rounded-full bg-[#030304]/20 block shrink-0 hidden lg:block" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-px flex-1 bg-[#030304]/20 hidden lg:block" }),
             visionTags.map((tag, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3", children: [
@@ -1364,7 +1362,7 @@ function MissionVision() {
           /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { initial: {
             x: -60,
             opacity: 0
-          }, animate: hoveredSide === "vision" ? {
+          }, animate: !isDesktop || hoveredSide === "vision" ? {
             x: 0,
             opacity: 1
           } : {
@@ -1426,7 +1424,7 @@ function Contact() {
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative mx-auto max-w-[1600px] px-5 md:px-10 pt-32 md:pt-48 pb-10", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-1 md:grid-cols-12 gap-12 items-start", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "md:col-span-8", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "md:col-span-8 text-center md:text-left", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "inline-flex items-center gap-3 rounded-full border border-[#F5F5F4]/20 bg-[#F5F5F4]/5 backdrop-blur-md px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-[#F5F5F4]/80 mb-8", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "relative flex h-1.5 w-1.5", children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "absolute inline-flex h-full w-full animate-ping rounded-full bg-[#F5F5F4] opacity-60" }),
@@ -1440,7 +1438,7 @@ function Contact() {
             /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "relative inline-block mt-2 md:mt-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx("em", { className: "italic text-transparent bg-clip-text bg-gradient-to-r from-white via-white/80 to-white/40", children: "magic." }) })
           ] }) })
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:col-span-4 flex justify-start md:justify-end md:pt-8", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: 0.2, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Magnetic, { strength: 0.3, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: "mailto:hello@darkmedia.studio", className: "group relative flex items-center justify-center w-36 h-36 md:w-48 md:h-48 rounded-full bg-[#F5F5F4] text-[#030304] overflow-hidden transition-transform duration-500 hover:scale-105 shadow-[0_0_40px_rgba(255,255,255,0.1)]", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:col-span-4 flex justify-center md:justify-end md:pt-8 mt-4 md:mt-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: 0.2, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Magnetic, { strength: 0.3, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: "mailto:hello@darkmedia.studio", className: "group relative flex items-center justify-center w-36 h-36 md:w-48 md:h-48 rounded-full bg-[#F5F5F4] text-[#030304] overflow-hidden transition-transform duration-500 hover:scale-105 shadow-[0_0_40px_rgba(255,255,255,0.1)]", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "relative z-10 font-display text-2xl md:text-3xl text-center leading-none group-hover:text-white transition-colors duration-500", children: [
             "Get in",
             /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
@@ -1449,7 +1447,7 @@ function Contact() {
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "absolute inset-0 bg-[#030304] rounded-full scale-0 origin-center transition-transform duration-500 ease-[0.22,1,0.36,1] group-hover:scale-110" })
         ] }) }) }) })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mt-20 md:mt-32 grid grid-cols-1 md:grid-cols-12 gap-10 pt-12 border-t border-[#F5F5F4]/10", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mt-20 md:mt-32 grid grid-cols-1 md:grid-cols-12 gap-10 pt-12 border-t border-[#F5F5F4]/10 text-center md:text-left", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs(Reveal, { delay: 0.15, className: "md:col-span-4", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-[11px] uppercase tracking-[0.24em] opacity-40 mb-5", children: "office" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "opacity-80 leading-relaxed text-sm md:text-base", children: "Mangalore" })
@@ -1464,17 +1462,11 @@ function Contact() {
         ] }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs(Reveal, { delay: 0.25, className: "md:col-span-4", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-[11px] uppercase tracking-[0.24em] opacity-40 mb-5", children: "Socials" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "flex flex-wrap gap-4 md:gap-6", children: ["Behance", "Instagram", "LinkedIn", "Twitter"].map((s) => /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "#", className: "text-sm md:text-base opacity-80 hover:opacity-100 hover:-translate-y-1 inline-block transition-transform duration-300", children: s }) }, s)) })
+          /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "flex flex-wrap justify-center md:justify-start gap-4 md:gap-6", children: ["Behance", "Instagram", "LinkedIn", "Twitter"].map((s) => /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "#", className: "text-sm md:text-base opacity-80 hover:opacity-100 hover:-translate-y-1 inline-block transition-transform duration-300", children: s }) }, s)) })
         ] })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-20 md:mt-28 flex justify-center pb-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: 0.3, children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: whiteLogo, alt: "Dark Media", className: "w-[85vw] md:w-[65vw] max-w-5xl opacity-90 drop-shadow-2xl" }) }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mt-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-[11px] uppercase tracking-[0.22em] opacity-40 pt-8 border-t border-[#F5F5F4]/10", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { children: "© 2026 Dark Media · All rights reserved" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: logoMark.url, alt: "", className: "w-5 h-5 rounded-full grayscale opacity-70" }),
-          "Designed in Copenhagen"
-        ] })
-      ] })
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-20 md:mt-28 flex justify-center pb-4 px-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: 0.3, children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: whiteLogo, alt: "Dark Media", className: "w-[100vw] sm:w-[85vw] md:w-[65vw] max-w-5xl opacity-90 drop-shadow-2xl" }) }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-[11px] uppercase tracking-[0.22em] opacity-40 pt-8 border-t border-[#F5F5F4]/10", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { children: "© 2026 Dark Media · All rights reserved" }) })
     ] })
   ] });
 }
