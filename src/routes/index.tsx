@@ -607,7 +607,7 @@ function StatsStrip() {
           </motion.div>
         ))}
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.4 }}
-          className="col-span-2 md:col-span-1 px-6 md:px-10 py-8 md:py-10 flex items-center justify-center md:justify-start gap-3 text-[12px] uppercase tracking-[0.22em] text-[#030304] bg-[#030304] text-[#F5F5F4] " >
+          className="px-6 md:px-10 py-8 md:py-10 flex items-center gap-3 text-[12px] uppercase tracking-[0.22em] text-[#030304] bg-[#030304] text-[#F5F5F4] sm:w-full" >
           <span className="relative flex h-2 w-2">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#F5F5F4] opacity-70" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-[#F5F5F4] " />
