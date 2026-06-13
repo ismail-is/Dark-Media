@@ -2419,10 +2419,10 @@ function useInView(ref, { root, margin, amount, once = false, initial = false } 
   return isInView;
 }
 export {
-  useTransform as a,
-  useMotionValue as b,
+  useInView as a,
+  useTransform as b,
   useSpring as c,
-  useInView as d,
+  useMotionValue as d,
   motion as m,
   useScroll as u
 };

@@ -1,9 +1,10 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, useScroll, useTransform, useInView, useSpring, useMotionValue } from "motion/react";
 import { useRef, useEffect, useState } from "react";
 import logoMark from "@/assets/dark-media-mark.jpeg.asset.json";
 import whiteLogo from "@/assets/Dark Media Logo - White.png";
 import lumetixImg from "@/assets/images/Lumetix.png";
+import alMasoudiImg from "@/assets/images/ourworks/AlMasoudi/5.webp";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -151,6 +152,7 @@ function Nav() {
 
   const navLinks = [
     { label: "Home", href: "#top" },
+    { label: "Work", href: "/portfolio" },
     { label: "Services", href: "#services" },
     { label: "Contact", href: "#contact" },
   ];
@@ -171,19 +173,12 @@ function Nav() {
         transition={{ duration: 0.9, delay: 0.4, ease }}
         className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 md:px-6 pt-4 md:pt-6 pointer-events-none"
       >
-        <motion.div 
-          animate={{ 
-            width: "100%",
-            maxWidth: scrolled ? "900px" : "1600px",
-            backgroundColor: scrolled ? "rgba(255, 255, 255, 0.85)" : "transparent",
-            backdropFilter: scrolled ? "blur(16px)" : "blur(0px)",
-            boxShadow: scrolled ? "0 10px 40px -10px rgba(0,0,0,0.08)" : "none",
-            borderColor: scrolled ? "rgba(0,0,0,0.05)" : "transparent",
-            paddingTop: scrolled ? "0.75rem" : "1.25rem",
-            paddingBottom: scrolled ? "0.75rem" : "1.25rem",
-          }}
-          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="pointer-events-auto flex items-center justify-between px-6 md:px-8 rounded-full border transition-colors"
+        <div 
+          className={`pointer-events-auto flex items-center justify-between px-6 md:px-8 rounded-full border w-full transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+            scrolled 
+              ? "max-w-[900px] bg-white/85 backdrop-blur-md shadow-soft border-black/5 py-3" 
+              : "max-w-[1600px] bg-transparent backdrop-blur-none shadow-none border-transparent py-5"
+          }`}
         >
           {/* Left — Logo */}
           <a href="#top" className="flex items-center gap-2.5">
@@ -232,7 +227,7 @@ function Nav() {
               </button>
             </Magnetic>
           </div>
-        </motion.div>
+        </div>
       </motion.header>
 
       {/* ── Full-screen Navigation Overlay ── */}
@@ -380,23 +375,43 @@ function Nav() {
                 transition={{ delay: menuOpen ? 0.35 + i * 0.1 : 0, duration: 0.7, ease }}
                 className="overflow-hidden"
               >
-                <a
-                  href={link.href}
-                  onClick={() => setMenuOpen(false)}
-                  className="group relative flex items-center gap-4 md:gap-6 py-3 md:py-4 transition-all duration-500"
-                >
-                  <span className="text-[11px] font-mono text-white/25 tracking-wider self-start pt-2 md:pt-4">0{i + 1}</span>
-                  <span className="font-display text-[12vw] sm:text-[10vw] md:text-[8vw] lg:text-[6vw] leading-[0.9] tracking-[-0.04em] text-white/90 group-hover:text-white transition-colors duration-300">
-                    {link.label}
-                  </span>
-                  <motion.span
-                    className="text-2xl md:text-3xl text-white/0 group-hover:text-white/60 transition-all duration-500 group-hover:translate-x-2 group-hover:-translate-y-2"
+                {link.href.startsWith("/") ? (
+                  <Link
+                    to={link.href}
+                    onClick={() => setMenuOpen(false)}
+                    className="group relative flex items-center gap-4 md:gap-6 py-3 md:py-4 transition-all duration-500"
                   >
-                    ↗
-                  </motion.span>
-                  {/* Hover underline effect */}
-                  <span className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-[0.22,1,0.36,1] origin-left" />
-                </a>
+                    <span className="text-[11px] font-mono text-white/25 tracking-wider self-start pt-2 md:pt-4">0{i + 1}</span>
+                    <span className="font-display text-[12vw] sm:text-[10vw] md:text-[8vw] lg:text-[6vw] leading-[0.9] tracking-[-0.04em] text-white/90 group-hover:text-white transition-colors duration-300">
+                      {link.label}
+                    </span>
+                    <motion.span
+                      className="text-2xl md:text-3xl text-white/0 group-hover:text-white/60 transition-all duration-500 group-hover:translate-x-2 group-hover:-translate-y-2"
+                    >
+                      ↗
+                    </motion.span>
+                    {/* Hover underline effect */}
+                    <span className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-[0.22,1,0.36,1] origin-left" />
+                  </Link>
+                ) : (
+                  <a
+                    href={link.href}
+                    onClick={() => setMenuOpen(false)}
+                    className="group relative flex items-center gap-4 md:gap-6 py-3 md:py-4 transition-all duration-500"
+                  >
+                    <span className="text-[11px] font-mono text-white/25 tracking-wider self-start pt-2 md:pt-4">0{i + 1}</span>
+                    <span className="font-display text-[12vw] sm:text-[10vw] md:text-[8vw] lg:text-[6vw] leading-[0.9] tracking-[-0.04em] text-white/90 group-hover:text-white transition-colors duration-300">
+                      {link.label}
+                    </span>
+                    <motion.span
+                      className="text-2xl md:text-3xl text-white/0 group-hover:text-white/60 transition-all duration-500 group-hover:translate-x-2 group-hover:-translate-y-2"
+                    >
+                      ↗
+                    </motion.span>
+                    {/* Hover underline effect */}
+                    <span className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-[0.22,1,0.36,1] origin-left" />
+                  </a>
+                )}
               </motion.div>
             ))}
           </div>
@@ -456,47 +471,16 @@ function Nav() {
 }
 
 /* ---------- hero ---------- */
-function Hero() {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const yText = useTransform(scrollYProgress, [0, 1], [0, 220]);
-  const opacity = useTransform(scrollYProgress, [0, 0.85], [1, 0]);
-  const sphereY = useTransform(scrollYProgress, [0, 1], [0, -120]);
-  const sphereRot = useTransform(scrollYProgress, [0, 1], [0, 180]);
-
-  // mouse parallax on sphere
-  const mx = useMotionValue(0); const my = useMotionValue(0);
-  const smx = useSpring(mx, { stiffness: 60, damping: 20 });
-  const smy = useSpring(my, { stiffness: 60, damping: 20 });
-  useEffect(() => {
-    const on = (e: MouseEvent) => {
-      const cx = window.innerWidth / 2; const cy = window.innerHeight / 2;
-      mx.set((e.clientX - cx) / cx * 30);
-      my.set((e.clientY - cy) / cy * 30);
-    };
-    window.addEventListener("mousemove", on);
-    return () => window.removeEventListener("mousemove", on);
-  }, [mx, my]);
-
+function MobileHero() {
   const orbit = ["Web Development", "Videography", "Graphic Design", "Branding"];
 
   return (
-    <section id="top" ref={ref} className="relative min-h-screen overflow-hidden pt-28 md:pt-36 pb-10">
+    <section id="top" className="relative min-h-screen overflow-hidden pt-28 md:pt-36 pb-10">
       {/* faint grid */}
       <div aria-hidden className="absolute inset-0 opacity-[0.04] pointer-events-none"
            style={{ backgroundImage: "linear-gradient(#030304 1px,transparent 1px),linear-gradient(90deg,#030304 1px,transparent 1px)", backgroundSize: "80px 80px" }} />
 
-      <motion.div style={{ y: yText, opacity }} className="relative mx-auto max-w-[1600px] px-5 md:px-10">
-        {/* tag */}
-        {/* <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6, duration: 0.8 }}
-          className="inline-flex items-center gap-3 rounded-full border border-[#030304]/15 bg-[#F5F5F4]/60 backdrop-blur px-4 py-2 text-[11px] uppercase tracking-[0.24em] text-[#030304]/70 mb-10 md:mb-14">
-          <span className="relative flex h-1.5 w-1.5">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#030304] opacity-60" />
-            <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#030304]" />
-          </span>
-          Digital Creative Agency
-        </motion.div> */}
-
+      <div className="relative mx-auto max-w-[1600px] px-5 md:px-10">
         {/* heading grid: text + sphere */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-6 items-center">
           <div className="lg:col-span-7 relative z-10">
@@ -526,7 +510,126 @@ function Hero() {
             </motion.div>
 
             {/* sphere */}
-            <motion.div style={{ x: smx, y: useTransform(smy, (v) => v + (sphereY.get())), rotate: sphereRot }}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.6 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.5, duration: 1.4, ease }}
+              className="relative aspect-square w-[58%] rounded-full shadow-deep">
+              <div className="absolute inset-0 rounded-full overflow-hidden">
+                <div className="absolute inset-0" style={{ background: "radial-gradient(circle at 32% 30%, #ffffff 0%, #e8e7e3 35%, #b8b6b0 60%, #030304 95%)" }} />
+                <div className="absolute inset-y-0 right-0 w-1/2 bg-[#030304]" />
+                <div className="absolute inset-0" style={{ background: "radial-gradient(circle at 30% 28%, rgba(255,255,255,0.6), transparent 35%)" }} />
+              </div>
+              <div className="absolute -inset-6 rounded-full" style={{ background: "radial-gradient(circle, rgba(3,3,4,0.18), transparent 65%)", zIndex: -1 }} />
+            </motion.div>
+
+            {/* orbit labels */}
+            {orbit.map((label, i) => {
+              const angle = (i / orbit.length) * Math.PI * 2 - Math.PI / 2;
+              const r = 48; // % of container
+              const top = 50 + Math.sin(angle) * r;
+              const left = 50 + Math.cos(angle) * r;
+              return (
+                <motion.div key={label}
+                  initial={{ opacity: 0, scale: 0.6 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 1.1 + i * 0.12, duration: 0.7, ease }}
+                  style={{ top: `${top}%`, left: `${left}%` }}
+                  className="absolute -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#F5F5F4] shadow-soft border border-[#030304]/10 px-4 py-2 text-[11px] uppercase tracking-[0.18em] whitespace-nowrap text-[#030304]">
+                  {label}
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* bottom row */}
+        <Reveal delay={1.1} className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-6 items-end">
+          <p className="md:col-span-5 text-[#030304]/70 text-base md:text-lg leading-relaxed max-w-md">
+            We craft premium websites, branding systems, graphic design, videography, and digital experiences that help ambitious businesses stand out.
+          </p>
+          <div className="md:col-span-4 md:col-start-7 flex items-center gap-4">
+            <Link to="/portfolio" className="group inline-flex items-center gap-3 rounded-full bg-[#030304] text-[#F5F5F4] px-6 py-4 text-[12px] uppercase tracking-[0.22em] shadow-soft">
+              Explore Our Work
+              <span className="inline-block transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">↗</span>
+            </Link>
+           
+          </div>
+          <div className="md:col-span-3 text-[11px] uppercase tracking-[0.24em] text-[#030304]/60 md:text-right">
+            Follow —
+            <span className="ml-3 inline-flex gap-2">
+              {["Be","IG","Li"].map(s => <span key={s} className="rounded-full border border-[#030304]/25 px-2 py-1">{s}</span>)}
+            </span>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+function DesktopHero() {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
+  const yText = useTransform(scrollYProgress, [0, 1], [0, 220]);
+  const opacity = useTransform(scrollYProgress, [0, 0.85], [1, 0]);
+  const sphereY = useTransform(scrollYProgress, [0, 1], [0, -120]);
+  const sphereRot = useTransform(scrollYProgress, [0, 1], [0, 180]);
+
+  // mouse parallax on sphere
+  const mx = useMotionValue(0); const my = useMotionValue(0);
+  const smx = useSpring(mx, { stiffness: 60, damping: 20 });
+  const smy = useSpring(my, { stiffness: 60, damping: 20 });
+
+  // combine smy and sphereY to avoid Hook violation inside render
+  const combinedSphereY = useTransform([smy, sphereY], ([latestSmy, latestSphereY]) => {
+    return (latestSmy as number) + (latestSphereY as number);
+  });
+
+  useEffect(() => {
+    const on = (e: MouseEvent) => {
+      const cx = window.innerWidth / 2; const cy = window.innerHeight / 2;
+      mx.set((e.clientX - cx) / cx * 30);
+      my.set((e.clientY - cy) / cy * 30);
+    };
+    window.addEventListener("mousemove", on);
+    return () => window.removeEventListener("mousemove", on);
+  }, [mx, my]);
+
+  const orbit = ["Web Development", "Videography", "Graphic Design", "Branding"];
+
+  return (
+    <section id="top" ref={ref} className="relative min-h-screen overflow-hidden pt-28 md:pt-36 pb-10">
+      {/* faint grid */}
+      <div aria-hidden className="absolute inset-0 opacity-[0.04] pointer-events-none"
+           style={{ backgroundImage: "linear-gradient(#030304 1px,transparent 1px),linear-gradient(90deg,#030304 1px,transparent 1px)", backgroundSize: "80px 80px" }} />
+
+      <motion.div style={{ y: yText, opacity }} className="relative mx-auto max-w-[1600px] px-5 md:px-10">
+        {/* heading grid: text + sphere */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-6 items-center">
+          <div className="lg:col-span-7 relative z-10">
+            <h1 className="font-display text-[18vw] sm:text-[16vw] lg:text-[12.5vw] leading-[0.86] tracking-[-0.045em] text-[#030304]">
+              <span className="block"><SplitWord text="Build." delay={0.3} /></span>
+              <span className="block"><SplitWord text="Brand." delay={0.45} /></span>
+              <span className="block italic font-display"><SplitWord text="Impact." delay={0.6} /></span>
+            </h1>
+            <Reveal delay={1} className="mt-8 flex items-center gap-3 text-[11px] uppercase tracking-[0.24em] text-[#030304]/60">
+              <span className="h-px w-10 bg-[#030304]/40" /> 
+            </Reveal>
+          </div>
+
+          {/* sphere */}
+          <div className="lg:col-span-5 relative h-[60vw] sm:h-[50vw] lg:h-[42vw] max-h-[640px] flex items-center justify-center">
+            {/* orbit rings */}
+            {[1, 1.25, 1.55].map((s, i) => (
+              <motion.div key={i}
+                initial={{ opacity: 0, scale: 0.6 }} animate={{ opacity: 1, scale: s }} transition={{ delay: 0.8 + i * 0.15, duration: 1.4, ease }}
+                className="absolute aspect-square w-[70%] rounded-full border border-[#030304]/12" />
+            ))}
+            {/* dot drifting on outer orbit */}
+            <motion.div
+              animate={{ rotate: 360 }} transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
+              className="absolute aspect-square w-[108%] rounded-full">
+              <span className="absolute -top-1 left-1/2 w-2 h-2 -translate-x-1/2 rounded-full bg-[#030304]" />
+            </motion.div>
+
+            {/* sphere */}
+            <motion.div style={{ x: smx, y: combinedSphereY, rotate: sphereRot }}
               initial={{ opacity: 0, scale: 0.6 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.5, duration: 1.4, ease }}
               className="relative aspect-square w-[58%] rounded-full shadow-deep">
               <div className="absolute inset-0 rounded-full overflow-hidden">
@@ -562,15 +665,12 @@ function Hero() {
           </p>
           <div className="md:col-span-4 md:col-start-7 flex items-center gap-4">
             <Magnetic>
-              <a href="#work" className="group inline-flex items-center gap-3 rounded-full bg-[#030304] text-[#F5F5F4] px-6 py-4 text-[12px] uppercase tracking-[0.22em] shadow-soft">
+              <Link to="/portfolio" className="group inline-flex items-center gap-3 rounded-full bg-[#030304] text-[#F5F5F4] px-6 py-4 text-[12px] uppercase tracking-[0.22em] shadow-soft">
                 Explore Our Work
                 <span className="inline-block transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">↗</span>
-              </a>
+              </Link>
             </Magnetic>
-            <a href="#" className="group inline-flex items-center gap-3 text-[12px] uppercase tracking-[0.22em] text-[#030304]">
-              <span className="flex h-10 w-10 items-center justify-center rounded-full border border-[#030304]/30 group-hover:bg-[#030304] group-hover:text-[#F5F5F4] transition-colors">▶</span>
-              Watch Showreel
-            </a>
+           
           </div>
           <div className="md:col-span-3 text-[11px] uppercase tracking-[0.24em] text-[#030304]/60 md:text-right">
             Follow —
@@ -588,6 +688,30 @@ function Hero() {
       </motion.div>
     </section>
   );
+}
+
+function Hero() {
+  const [isMobile, setIsMobile] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024 || window.matchMedia("(pointer: coarse)").matches);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  if (isMobile === null) {
+    return (
+      <section id="top" className="relative min-h-screen overflow-hidden pt-28 md:pt-36 pb-10">
+        <div aria-hidden className="absolute inset-0 opacity-[0.04] pointer-events-none"
+             style={{ backgroundImage: "linear-gradient(#030304 1px,transparent 1px),linear-gradient(90deg,#030304 1px,transparent 1px)", backgroundSize: "80px 80px" }} />
+      </section>
+    );
+  }
+
+  return isMobile ? <MobileHero /> : <DesktopHero />;
 }
 
 /* ---------- stats strip ---------- */
@@ -626,10 +750,17 @@ function Clients() {
 
   return (
     <section className="relative py-24 md:py-36 overflow-hidden bg-[#030304] text-[#F5F5F4] rounded-[40px] md:rounded-[60px] mx-4 md:mx-10 my-20 shadow-2xl">
-      {/* Animated Background */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-[40px] md:rounded-[60px] z-0">
+      {/* Animated Background for Desktop */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-[40px] md:rounded-[60px] z-0 hidden lg:block">
         <motion.div animate={{ rotate: 360, scale: [1, 1.2, 1] }} transition={{ duration: 40, repeat: Infinity, ease: "linear" }} className="absolute -top-[50%] -left-[10%] w-[80vw] h-[80vw] rounded-full blur-[100px] opacity-[0.15]" style={{ background: "radial-gradient(circle, #ffffff 0%, transparent 60%)" }} />
         <motion.div animate={{ rotate: -360, scale: [1, 1.5, 1] }} transition={{ duration: 50, repeat: Infinity, ease: "linear" }} className="absolute -bottom-[40%] -right-[20%] w-[60vw] h-[60vw] rounded-full blur-[120px] opacity-[0.1]" style={{ background: "radial-gradient(circle, #ffffff 0%, transparent 60%)" }} />
+        <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: "radial-gradient(#F5F5F4 1px, transparent 1px)", backgroundSize: "6px 6px" }} />
+      </div>
+
+      {/* Static Background for Mobile/Tablet */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-[40px] md:rounded-[60px] z-0 lg:hidden">
+        {/* Simple single ambient glow, using native radial gradient fade instead of expensive GPU post-process blur */}
+        <div className="absolute -top-[20%] -left-[10%] w-[100vw] h-[100vw] rounded-full opacity-[0.1]" style={{ background: "radial-gradient(circle, #ffffff 0%, transparent 65%)" }} />
         <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: "radial-gradient(#F5F5F4 1px, transparent 1px)", backgroundSize: "6px 6px" }} />
       </div>
 
@@ -690,8 +821,8 @@ function Services() {
 
   return (
     <section id="services" className="relative py-28 md:py-44 bg-[#030304] text-[#F5F5F4] overflow-hidden rounded-[2.5rem] md:rounded-[4rem] mx-2 md:mx-4 my-10 shadow-2xl">
-      {/* Animated Ambient Background & Scrolling Text */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
+      {/* Animated Ambient Background & Scrolling Text for Desktop */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20 hidden lg:block">
         <motion.div
           animate={{ x: ["-10%", "30%", "-10%"], y: ["0%", "20%", "0%"], scale: [1, 1.2, 1] }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
@@ -701,6 +832,14 @@ function Services() {
           animate={{ x: ["20%", "-20%", "20%"], y: ["20%", "0%", "20%"], scale: [1.2, 1, 1.2] }}
           transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
           className="absolute bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] bg-gradient-to-r from-gray-600 to-gray-400 rounded-full blur-[160px] mix-blend-screen"
+        />
+      </div>
+
+      {/* Static Ambient Background & Scrolling Text for Mobile/Tablet */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-10 lg:hidden z-0">
+        <div 
+          className="absolute top-0 left-[-20%] w-[100vw] h-[100vw] rounded-full"
+          style={{ background: "radial-gradient(circle, rgba(100,100,100,0.3) 0%, transparent 65%)" }}
         />
       </div>
 
@@ -764,12 +903,15 @@ function Services() {
 }
 
 /* ---------- work ---------- */
+const MotionLink = motion(Link);
+
 function Work() {
   const projects = [
-    { t: "Lumetix", c: "Fintech Website", y: "2025", big: true, art: "linear-gradient(140deg,#0a0a0b 0%,#2a2a2c 100%)", img: lumetixImg },
-    { t: "Clarity", c: "Brand Identity", y: "2025", big: false, art: "linear-gradient(140deg,#e8e7e3 0%,#c9c7c1 100%)", dark: true },
-    { t: "Pulse Analytics", c: "Dashboard Design", y: "2024", big: false, art: "linear-gradient(140deg,#1a1a1c 0%,#3a3a3c 100%)" },
-    { t: "Nexonom", c: "Mobile App Design", y: "2024", big: true, art: "linear-gradient(140deg,#d8d6d0 0%,#b8b6b0 100%)", dark: true },
+    { t: "Al Masoudi", c: "Contracting & Trading", y: "2026", big: true, art: "linear-gradient(140deg,#EC6303 0%,#030304 100%)", img: alMasoudiImg, href: "/work/al-masoudi" },
+    { t: "Lumetix", c: "Fintech Website", y: "2025", big: false, art: "linear-gradient(140deg,#0a0a0b 0%,#2a2a2c 100%)", img: lumetixImg, href: "#" },
+    { t: "Clarity", c: "Brand Identity", y: "2025", big: false, art: "linear-gradient(140deg,#e8e7e3 0%,#c9c7c1 100%)", dark: true, href: "#" },
+    { t: "Pulse Analytics", c: "Dashboard Design", y: "2024", big: false, art: "linear-gradient(140deg,#1a1a1c 0%,#3a3a3c 100%)", href: "#" },
+    { t: "Nexonom", c: "Mobile App Design", y: "2024", big: true, art: "linear-gradient(140deg,#d8d6d0 0%,#b8b6b0 100%)", dark: true, href: "#" },
   ];
   return (
     <section id="work" className="py-28 md:py-44">
@@ -790,7 +932,7 @@ function Work() {
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-6">
           {projects.map((p, i) => (
-            <motion.a key={p.t} href="#" data-cursor
+            <MotionLink key={p.t} to={p.href} data-cursor
               initial={{ opacity: 0, y: 60 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.9, delay: (i % 2) * 0.1, ease }}
               className={`group relative overflow-hidden rounded-3xl shadow-soft aspect-[5/4] ${p.big ? "md:col-span-7" : "md:col-span-5"} ${p.dark ? "text-[#030304]" : "text-[#F5F5F4]"}`}
@@ -817,16 +959,16 @@ function Work() {
                   <span className="flex h-12 w-12 items-center justify-center rounded-full border border-current/30 backdrop-blur opacity-0 group-hover:opacity-100 transition-all group-hover:rotate-45 text-lg">↗</span>
                 </div>
               </div>
-            </motion.a>
+            </MotionLink>
           ))}
         </div>
 
         <Reveal delay={0.2} className="mt-16 md:mt-20 flex justify-center" >
           <Magnetic>
-            <a href="#" className="group inline-flex items-center gap-3 rounded-full border border-[#030304]/30 px-7 py-4 text-[12px] uppercase tracking-[0.22em] text-[#030304] hover:bg-[#030304] hover:text-[#F5F5F4] transition-colors">
+            <Link to="/portfolio" className="group inline-flex items-center gap-3 rounded-full border border-[#030304]/30 px-7 py-4 text-[12px] uppercase tracking-[0.22em] text-[#030304] hover:bg-[#030304] hover:text-[#F5F5F4] transition-colors">
               View All Projects
               <span className="inline-block transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">↗</span>
-            </a>
+            </Link>
           </Magnetic>
         </Reveal>
       </div>
@@ -892,8 +1034,8 @@ function MissionVision() {
       className="relative py-28 md:py-44 overflow-hidden bg-[#F5F5F4]"
       style={{ perspective: "1200px" }}
     >
-      {/* ── Animated ambient ── */}
-      <div className="absolute inset-0 pointer-events-none">
+      {/* ── Animated ambient for Desktop ── */}
+      <div className="absolute inset-0 pointer-events-none hidden lg:block">
         {/* Slow drifting orbs */}
         <motion.div
           animate={{ x: ["-5%", "15%", "-5%"], y: ["0%", "20%", "0%"] }}
@@ -906,6 +1048,20 @@ function MissionVision() {
           transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
           className="absolute bottom-[-20%] right-[-10%] w-[50vw] h-[50vw] rounded-full blur-[100px] opacity-[0.05]"
           style={{ background: "radial-gradient(circle, #030304, transparent 70%)" }}
+        />
+        {/* Subtle dot grid */}
+        <div
+          className="absolute inset-0 opacity-[0.06]"
+          style={{ backgroundImage: "radial-gradient(#030304 1px, transparent 1px)", backgroundSize: "32px 32px" }}
+        />
+      </div>
+
+      {/* ── Static ambient for Mobile ── */}
+      <div className="absolute inset-0 pointer-events-none lg:hidden">
+        {/* Single static glow */}
+        <div
+          className="absolute top-[-10%] left-[-10%] w-[80vw] h-[80vw] rounded-full opacity-[0.05]"
+          style={{ background: "radial-gradient(circle, #030304 0%, transparent 65%)" }}
         />
         {/* Subtle dot grid */}
         <div
@@ -1278,8 +1434,8 @@ function MissionVision() {
 function Contact() {
   return (
     <section id="contact" className="relative bg-[#030304] text-[#F5F5F4] overflow-hidden rounded-t-[2.5rem] md:rounded-t-[4rem] mt-[-2.5rem] md:mt-[-4rem] z-10 shadow-[0_-20px_60px_rgba(0,0,0,0.6)]">
-      {/* Animated Aurora/Glow Background */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30 mix-blend-screen">
+      {/* Animated Aurora/Glow Background for Desktop */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30 mix-blend-screen hidden lg:block">
         <motion.div
           animate={{ x: ["-10%", "60%", "-20%", "-10%"], y: ["-10%", "40%", "80%", "-10%"], scale: [1, 1.2, 1] }}
           transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
@@ -1289,6 +1445,14 @@ function Contact() {
           animate={{ x: ["100%", "-20%", "100%"], y: ["100%", "-10%", "100%"], scale: [1, 1.4, 1] }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
           className="absolute bottom-0 right-0 w-[70vw] h-[70vw] bg-white/10 rounded-full blur-[100px] md:blur-[160px]"
+        />
+      </div>
+
+      {/* Static Glow Background for Mobile */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-15 mix-blend-screen lg:hidden">
+        <div
+          className="absolute top-0 left-0 w-[90vw] h-[90vw] rounded-full"
+          style={{ background: "radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 65%)" }}
         />
       </div>
 

@@ -1,4 +1,0 @@
-const tsrStartManifest = () => ({ routes: { __root__: { filePath: "D:/Dark Media final/src/routes/__root.tsx", children: ["/", "/about", "/contact"], preloads: ["/assets/index-BxHpo32l.js"], scripts: [{ attrs: { type: "module", async: true, src: "/assets/index-BxHpo32l.js" } }] }, "/": { filePath: "D:/Dark Media final/src/routes/index.tsx", children: void 0, preloads: ["/assets/index-CY8aoZwC.js", "/assets/use-in-view-CEdUzFg_.js", "/assets/proxy-nBkH7Wg8.js"] }, "/about": { filePath: "D:/Dark Media final/src/routes/about.tsx", children: void 0, preloads: ["/assets/about-DASBaktD.js", "/assets/use-in-view-CEdUzFg_.js", "/assets/proxy-nBkH7Wg8.js"] }, "/contact": { filePath: "D:/Dark Media final/src/routes/contact.tsx", children: void 0, preloads: ["/assets/contact-D557coX7.js", "/assets/proxy-nBkH7Wg8.js"] } } });
-export {
-  tsrStartManifest
-};

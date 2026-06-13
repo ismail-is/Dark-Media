@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -34,6 +34,39 @@ function Nav() {
 }
 
 function BgAnimation() {
+  const [isMobile, setIsMobile] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024 || window.matchMedia("(pointer: coarse)").matches);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  if (isMobile === null) {
+    return (
+      <div className="absolute inset-0 overflow-hidden bg-[#030304] z-0 pointer-events-none">
+        <div className="absolute inset-0 opacity-[0.04] mix-blend-overlay" style={{ backgroundImage: "radial-gradient(#F5F5F4 1px, transparent 1px)", backgroundSize: "4px 4px" }} />
+      </div>
+    );
+  }
+
+  if (isMobile) {
+    return (
+      <div className="absolute inset-0 overflow-hidden bg-[#030304] z-0 pointer-events-none">
+        {/* Static single ambient glow for mobile */}
+        <div
+          className="absolute -top-[10%] -left-[10%] w-[90vw] h-[90vw] rounded-full opacity-[0.2]"
+          style={{ background: "radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 75%)" }}
+        />
+        {/* grain texture */}
+        <div className="absolute inset-0 opacity-[0.04] mix-blend-overlay" style={{ backgroundImage: "radial-gradient(#F5F5F4 1px, transparent 1px)", backgroundSize: "4px 4px" }} />
+      </div>
+    );
+  }
+
   return (
     <div className="absolute inset-0 overflow-hidden bg-[#030304] z-0 pointer-events-none">
       <motion.div

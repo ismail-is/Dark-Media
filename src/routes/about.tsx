@@ -73,6 +73,45 @@ function CountUp({ to, suffix = "" }: { to: number; suffix?: string }) {
 
 /* ─── Looping animated background ─── */
 function AnimatedBg({ dark = false }: { dark?: boolean }) {
+  const [isMobile, setIsMobile] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024 || window.matchMedia("(pointer: coarse)").matches);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  if (isMobile === null) {
+    return (
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        <div
+          className="absolute inset-0 opacity-[0.04] mix-blend-overlay"
+          style={{ backgroundImage: "radial-gradient(#030304 1px, transparent 1px)", backgroundSize: "4px 4px" }}
+        />
+      </div>
+    );
+  }
+
+  if (isMobile) {
+    return (
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        {/* Single static glow circle on mobile, no heavy animation or blur filters */}
+        <div
+          className="absolute -top-1/4 -left-1/4 w-[80vw] h-[80vw] rounded-full opacity-60"
+          style={{ background: dark ? "radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 75%)" : "radial-gradient(circle, rgba(3,3,4,0.04) 0%, transparent 75%)" }}
+        />
+        {/* grain */}
+        <div
+          className="absolute inset-0 opacity-[0.04] mix-blend-overlay"
+          style={{ backgroundImage: "radial-gradient(#030304 1px, transparent 1px)", backgroundSize: "4px 4px" }}
+        />
+      </div>
+    );
+  }
+
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
       {/* orb 1 */}
@@ -122,12 +161,19 @@ function Nav() {
           <span className="font-display text-xl text-[#030304] leading-none group-hover:opacity-70 transition-opacity">Dark Media</span>
         </Link>
         <nav className="hidden md:flex items-center gap-7 text-[12px] text-[#030304]/70 uppercase tracking-[0.18em]">
-          {[{ l: "Work", h: "/#work" }, { l: "Services", h: "/#services" }, { l: "Contact", h: "/contact" }].map(n => (
-            <a key={n.l} href={n.h} className="relative group hover:text-[#030304] transition-colors">
-              {n.l}
-              <span className="absolute -bottom-1 left-0 h-px w-0 bg-[#030304] transition-all duration-400 group-hover:w-full" />
-            </a>
-          ))}
+          {[{ l: "Work", h: "/portfolio" }, { l: "Services", h: "/#services" }, { l: "Contact", h: "/contact" }].map(n => 
+            n.h.startsWith("/#") ? (
+              <a key={n.l} href={n.h} className="relative group hover:text-[#030304] transition-colors">
+                {n.l}
+                <span className="absolute -bottom-1 left-0 h-px w-0 bg-[#030304] transition-all duration-400 group-hover:w-full" />
+              </a>
+            ) : (
+              <Link key={n.l} to={n.h} className="relative group hover:text-[#030304] transition-colors">
+                {n.l}
+                <span className="absolute -bottom-1 left-0 h-px w-0 bg-[#030304] transition-all duration-400 group-hover:w-full" />
+              </Link>
+            )
+          )}
           <span className="flex items-center gap-1.5 text-[#030304] font-medium">
             <span className="h-1.5 w-1.5 rounded-full bg-[#030304]" /> About
           </span>
@@ -145,7 +191,67 @@ function Nav() {
 }
 
 /* ─── Hero ─── */
-function Hero() {
+function MobileHero() {
+  const words = ["We", "Are", "Dark", "Media."];
+  return (
+    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-[#F5F5F4]">
+      <AnimatedBg />
+
+      {/* Subtle grid */}
+      <div
+        aria-hidden
+        className="absolute inset-0 opacity-[0.03] pointer-events-none"
+        style={{ backgroundImage: "linear-gradient(#030304 1px,transparent 1px),linear-gradient(90deg,#030304 1px,transparent 1px)", backgroundSize: "80px 80px" }}
+      />
+
+      <Nav />
+
+      <div className="relative z-10 mx-auto max-w-[1600px] px-5 md:px-10 pt-32 pb-20 w-full">
+        {/* label */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.8, ease }}
+          className="inline-flex items-center gap-2 rounded-full border border-[#030304]/15 bg-[#030304]/[0.04] px-4 py-2 text-[11px] uppercase tracking-[0.28em] text-[#030304]/70 mb-12"
+        >
+          <motion.span animate={{ rotate: 360 }} transition={{ duration: 8, repeat: Infinity, ease: "linear" }}>✦</motion.span>
+          Our Story
+        </motion.div>
+
+        {/* Giant heading */}
+        <h1 className="font-display text-[17vw] sm:text-[14vw] lg:text-[11vw] leading-[0.87] tracking-[-0.04em] text-[#030304] mb-12 md:mb-20">
+          {words.map((w, i) => (
+            <span key={w} className="block overflow-hidden">
+              <motion.span
+                className="block"
+                initial={{ y: "110%" }}
+                animate={{ y: "0%" }}
+                transition={{ duration: 1.1, delay: 0.3 + i * 0.12, ease }}
+              >
+                {i === 2 || i === 3 ? <em className="italic">{w}</em> : w}
+              </motion.span>
+            </span>
+          ))}
+        </h1>
+
+        {/* Bottom row */}
+        <Reveal delay={0.9} className="grid grid-cols-1 md:grid-cols-12 gap-8 items-end border-t border-[#030304]/10 pt-10">
+          <p className="md:col-span-5 text-[#030304]/70 text-base md:text-xl leading-relaxed font-light">
+            A creative studio built for the bold. We design, build, and grow brands that refuse to be ignored.
+          </p>
+          <div className="md:col-span-4 md:col-start-9 flex gap-6">
+            <a href="#story" className="group inline-flex items-center gap-2 text-[12px] uppercase tracking-[0.2em] text-[#030304]">
+              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#030304] text-[#F5F5F4] transition-transform group-hover:scale-110">↓</span>
+              Discover More
+            </a>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+function DesktopHero() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const y = useTransform(scrollYProgress, [0, 1], [0, 180]);
@@ -233,6 +339,30 @@ function Hero() {
       </motion.div>
     </section>
   );
+}
+
+function Hero() {
+  const [isMobile, setIsMobile] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024 || window.matchMedia("(pointer: coarse)").matches);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  if (isMobile === null) {
+    return (
+      <section className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-[#F5F5F4]">
+        <div aria-hidden className="absolute inset-0 opacity-[0.03] pointer-events-none"
+             style={{ backgroundImage: "linear-gradient(#030304 1px,transparent 1px),linear-gradient(90deg,#030304 1px,transparent 1px)", backgroundSize: "80px 80px" }} />
+      </section>
+    );
+  }
+
+  return isMobile ? <MobileHero /> : <DesktopHero />;
 }
 
 /* ─── Stats ─── */
@@ -456,7 +586,7 @@ function CTA() {
             <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#030304] text-[#F5F5F4] text-[11px] transition-transform group-hover:rotate-45">↗</span>
           </Link>
           <Link
-            to="/"
+            to="/portfolio"
             className="group inline-flex items-center gap-3 rounded-full border border-[#F5F5F4]/20 text-[#F5F5F4] px-8 py-4 text-[12px] uppercase tracking-[0.2em] hover:border-[#F5F5F4]/50 transition-colors"
           >
             View Our Work
