@@ -32,7 +32,7 @@
   --color-bone: var(--bone);
   --color-ash: var(--ash);
   --font-display: "Space Grotesk", ui-serif, Georgia, serif;
-  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
   --shadow-soft: 0 30px 80px -40px rgba(3, 3, 4, 0.25), 0 8px 24px -12px rgba(3, 3, 4, 0.08);
   --shadow-deep: 0 60px 120px -50px rgba(3, 3, 4, 0.35);
 }

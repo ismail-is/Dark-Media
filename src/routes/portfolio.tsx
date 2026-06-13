@@ -112,7 +112,7 @@ function StackingSection({
     <div
       ref={sectionRef}
       className={`${
-        isMobile ? "relative h-auto py-6 md:py-8 px-4 md:px-8" : "sticky top-0 h-screen overflow-hidden"
+        isMobile ? "relative h-auto py-4 md:py-8" : "sticky top-0 h-screen overflow-hidden"
       } w-full ${bgColor}`}
       style={{ zIndex: isMobile ? undefined : index }}
     >
@@ -274,10 +274,27 @@ function Nav() {
 /* ---------- Contact/Footer ---------- */
 function Contact() {
   return (
-    <section id="contact" className="relative bg-[#030304] text-[#F5F5F4] overflow-hidden rounded-t-[2.5rem] md:rounded-t-[4rem] z-10 shadow-[0_-20px_60px_rgba(0,0,0,0.6)]">
-      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30 mix-blend-screen">
-        <motion.div animate={{ x: ["-10%", "60%", "-20%", "-10%"], y: ["-10%", "40%", "80%", "-10%"], scale: [1, 1.2, 1] }} transition={{ duration: 25, repeat: Infinity, ease: "linear" }} className="absolute top-0 left-0 w-[60vw] h-[60vw] bg-white/10 rounded-full blur-[100px] md:blur-[160px]" />
-        <motion.div animate={{ x: ["100%", "-20%", "100%"], y: ["100%", "-10%", "100%"], scale: [1, 1.4, 1] }} transition={{ duration: 20, repeat: Infinity, ease: "linear" }} className="absolute bottom-0 right-0 w-[70vw] h-[70vw] bg-white/10 rounded-full blur-[100px] md:blur-[160px]" />
+    <section id="contact" className="relative bg-[#030304] text-[#F5F5F4] overflow-hidden rounded-t-[2.5rem] md:rounded-t-[4rem] mt-[-2.5rem] md:mt-[-4rem] z-10 shadow-[0_-20px_60px_rgba(0,0,0,0.6)]">
+      {/* Animated Aurora/Glow Background for Desktop */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30 mix-blend-screen hidden lg:block">
+        <motion.div
+          animate={{ x: ["-10%", "60%", "-20%", "-10%"], y: ["-10%", "40%", "80%", "-10%"], scale: [1, 1.2, 1] }}
+          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+          className="absolute top-0 left-0 w-[60vw] h-[60vw] bg-white/10 rounded-full blur-[100px] md:blur-[160px]"
+        />
+        <motion.div
+          animate={{ x: ["100%", "-20%", "100%"], y: ["100%", "-10%", "100%"], scale: [1, 1.4, 1] }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          className="absolute bottom-0 right-0 w-[70vw] h-[70vw] bg-white/10 rounded-full blur-[100px] md:blur-[160px]"
+        />
+      </div>
+
+      {/* Static Glow Background for Mobile */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-15 mix-blend-screen lg:hidden">
+        <div
+          className="absolute top-0 left-0 w-[90vw] h-[90vw] rounded-full"
+          style={{ background: "radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 65%)" }}
+        />
       </div>
 
       <div className="relative mx-auto max-w-[1600px] px-5 md:px-10 pt-32 md:pt-48 pb-10">
@@ -306,7 +323,7 @@ function Contact() {
           <div className="md:col-span-4 flex justify-start md:justify-end md:pt-8">
             <Reveal delay={0.2}>
               <Magnetic strength={0.3}>
-                <a href="mailto:hello@darkmedia.studio" className="group relative flex items-center justify-center w-36 h-36 md:w-48 md:h-48 rounded-full bg-[#F5F5F4] text-[#030304] overflow-hidden transition-transform duration-500 hover:scale-105 shadow-[0_0_40px_rgba(255,255,255,0.1)]">
+                <a href="https://wa.me/919480889252" target="_blank" rel="noopener noreferrer" className="group relative flex items-center justify-center w-36 h-36 md:w-48 md:h-48 rounded-full bg-[#F5F5F4] text-[#030304] overflow-hidden transition-transform duration-500 hover:scale-105 shadow-[0_0_40px_rgba(255,255,255,0.1)]">
                   <span className="relative z-10 font-display text-2xl md:text-3xl text-center leading-none group-hover:text-white transition-colors duration-500">Get in<br/>Touch</span>
                   <span className="absolute inset-0 bg-[#030304] rounded-full scale-0 origin-center transition-transform duration-500 ease-[0.22,1,0.36,1] group-hover:scale-110" />
                 </a>
@@ -322,21 +339,35 @@ function Contact() {
           </Reveal>
           <Reveal delay={0.2} className="md:col-span-4">
             <div className="text-[11px] uppercase tracking-[0.24em] opacity-40 mb-5">Contact</div>
-            <p className="opacity-80 leading-relaxed text-sm md:text-base">
-              <a href="mailto:hello@darkmedia.studio" className="hover:text-white transition-colors inline-block mb-1">hello@darkmedia.studio</a><br/>
-              <a href="tel:+4512345678" className="hover:text-white transition-colors inline-block">+45 12 34 56 78</a>
+            <p className="opacity-80 leading-relaxed text-sm md:text-base flex flex-col gap-2">
+              <a href="https://wa.me/919480889252" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors inline-flex items-center gap-2">
+                +91 94808 89252
+              </a>
+              <a href="https://wa.me/917483156464" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors inline-flex items-center gap-2">
+                +91 74831 56464
+              </a>
             </p>
           </Reveal>
           <Reveal delay={0.25} className="md:col-span-4">
             <div className="text-[11px] uppercase tracking-[0.24em] opacity-40 mb-5">Socials</div>
             <ul className="flex flex-wrap gap-4 md:gap-6">
-              {["Behance","Instagram","LinkedIn","Twitter"].map(s => (
-                <li key={s}><a href="#" className="text-sm md:text-base opacity-80 hover:opacity-100 hover:-translate-y-1 inline-block transition-transform duration-300">{s}</a></li>
+              {[
+                { name: "Behance", href: "#" },
+                { name: "Instagram", href: "https://www.instagram.com/darkmedia.tech" },
+                { name: "LinkedIn", href: "#" },
+                { name: "Twitter", href: "#" }
+              ].map(s => (
+                <li key={s.name}>
+                  <a href={s.href} target={s.href !== "#" ? "_blank" : undefined} rel={s.href !== "#" ? "noopener noreferrer" : undefined} className="text-sm md:text-base opacity-80 hover:opacity-100 hover:-translate-y-1 inline-block transition-transform duration-300">
+                    {s.name}
+                  </a>
+                </li>
               ))}
             </ul>
           </Reveal>
         </div>
 
+        {/* giant wordmark logo */}
         <div className="mt-20 md:mt-28 flex justify-center pb-4">
           <Reveal delay={0.3}>
             <img src={whiteLogo} alt="Dark Media" className="w-[85vw] md:w-[65vw] max-w-5xl opacity-90 drop-shadow-2xl" />
@@ -345,6 +376,10 @@ function Contact() {
 
         <div className="mt-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-[11px] uppercase tracking-[0.22em] opacity-40 pt-8 border-t border-[#F5F5F4]/10">
           <div>© 2026 Dark Media · All rights reserved</div>
+          {/* <div className="flex items-center gap-3">
+            <img src={logoMark.url} alt="" className="w-5 h-5 rounded-full grayscale opacity-70" />
+            Designed in Copenhagen
+          </div> */}
         </div>
       </div>
     </section>
@@ -358,7 +393,7 @@ function PortfolioPage() {
       <Nav />
       
       {/* ── HERO / HEADING SECTION ── */}
-      <section className="relative min-h-[50vh] md:min-h-[60vh] flex flex-col items-center justify-center pt-32 pb-16 overflow-hidden">
+      <section className="relative min-h-[40vh] md:min-h-[50vh] flex flex-col items-center justify-center pt-32 pb-16 overflow-hidden">
         {/* Background Animations */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-40">
           <motion.div animate={{ x: ["-10%", "30%", "-10%"], y: ["-15%", "25%", "-15%"], scale: [1, 1.4, 1] }} transition={{ duration: 16, repeat: Infinity, ease: "linear" }} className="absolute top-0 -left-[10%] w-[50vw] h-[50vw] rounded-full blur-[140px] opacity-20" style={{ background: "radial-gradient(circle, rgba(255,255,255,0.5), transparent 70%)" }} />
@@ -378,11 +413,11 @@ function PortfolioPage() {
 
       {/* ── PROJECT 1: AL MASOUDI ── */}
       <StackingSection index={1}>
-        <section className="px-4 sm:px-6 md:px-10 lg:p-[220px] py-10 md:py-16 lg:py-20 relative z-10 bg-[#F5F5F4] w-full rounded-[24px] md:rounded-[32px] lg:rounded-t-[48px] lg:rounded-b-none shadow-2xl border border-black/5 lg:border-t lg:border-x-0 lg:border-b-0">
+        <section className="px-4 sm:px-6 md:px-10 lg:p-[220px] py-10 md:py-16 lg:py-20 relative z-10 bg-[#F5F5F4] w-full rounded-[24px] md:rounded-[32px] lg:rounded-t-[48px] lg:rounded-b-none shadow-2xl border border-black/5 lg:border-t lg:border-x-0 lg:border-b-0 ">
           <div className="max-w-[1600px] mx-auto w-full">
             
             {/* Grid Header */}
-            <div className="border-b border-[#030304]/10 pb-4 mb-6 flex flex-col lg:flex-row lg:items-end justify-between gap-6 -mt-16">
+            <div className="border-b border-[#030304]/10 pb-4 mb-6 flex flex-col lg:flex-row lg:items-end justify-between gap-6  md:-mt-16" >
               <div>
                 <span className="text-[11px] font-mono uppercase tracking-[0.25em] text-[#EC6303]">Logofolio</span>
                 <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-[#030304] mt-1 font-semibold">Al Masoudi Company</h2>
@@ -410,25 +445,25 @@ function PortfolioPage() {
               </div>
 
               {/* Card 2: Vertical Mockup */}
-              <div className="min-h-[180px] lg:h-[260px] lg:min-h-0 sm:col-span-1 bg-white rounded-[16px] md:rounded-[20px] overflow-hidden border border-[#030304]/5 shadow-md hover:shadow-xl transition-all duration-500 relative group h-full">
+              <div className="sm:col-span-1 bg-white rounded-[16px] md:rounded-[20px] overflow-hidden border border-[#030304]/5 shadow-md hover:shadow-xl transition-all duration-500 relative group h-auto flex flex-col">
                 <img
                   src={img6}
                   alt="Mockup Presentation"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110 flex-grow"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                  <span className="text-white text-[10px] uppercase tracking-widest font-mono">Brand Merchandising</span>
+                  {/* <span className="text-white text-[10px] uppercase tracking-widest font-mono">Brand Merchandising</span> */}
                 </div>
               </div>
 
               {/* Column 3: Stacked Mockup & Colors */}
               <div className="sm:col-span-1 flex flex-col gap-3">
                 {/* Business cards style mockup */}
-                <div className="bg-white rounded-[16px] md:rounded-[20px] overflow-hidden border border-[#030304]/5 shadow-md hover:shadow-xl transition-all duration-500 flex-1 relative group min-h-[72px] h-[80px] lg:h-auto">
+                <div className="bg-white rounded-[16px] md:rounded-[20px] overflow-hidden border border-[#030304]/5 shadow-md hover:shadow-xl transition-all duration-500 relative group h-auto">
                   <img
                     src={img1}
                     alt="Corporate Stationery"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                 </div>
                 
@@ -461,51 +496,46 @@ function PortfolioPage() {
                 <img
                   src={img2}
                   alt="Logo Geometry breakdown"
-                  className="w-auto object-contain mix-blend-multiply"
+                  className="w-full sm:w-auto h-auto max-h-full max-w-full object-contain mix-blend-multiply transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
 
               {/* Card 6: Primary Typeface */}
-              <div className="bg-white rounded-[16px] md:rounded-[20px] overflow-hidden border border-[#030304]/5 shadow-md hover:shadow-xl transition-all duration-500 flex-1 relative group h-[140px] sm:h-auto min-h-[140px]">
+              <div className="bg-white rounded-[16px] md:rounded-[20px] overflow-hidden border border-[#030304]/5 shadow-md hover:shadow-xl transition-all duration-500 relative group h-auto">
                 <img
                   src={img3}
                   alt="Brand Typography Details"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 ring-1 ring-inset ring-black/5 rounded-[16px] md:rounded-[20px]" />
               </div>
 
               {/* Card 7: Secondary Typeface */}
-              <div className="bg-white rounded-[16px] md:rounded-[20px] overflow-hidden border border-[#030304]/5 shadow-md hover:shadow-xl transition-all duration-500 flex-1 relative group h-[140px] sm:h-auto min-h-[140px]">
+              <div className="bg-white rounded-[16px] md:rounded-[20px] overflow-hidden border border-[#030304]/5 shadow-md hover:shadow-xl transition-all duration-500 relative group h-auto">
                 <img
                   src={img5}
                   alt="Brand Typography Mockup"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 ring-1 ring-inset ring-black/5 rounded-[16px] md:rounded-[20px]" />
               </div>
 
             </div>
 
-            <div className="mt-12 border-t border-[#030304]/10 pt-6 flex justify-between items-center">
-              <Link to="/work/al-masoudi" className="group inline-flex items-center gap-3 rounded-full bg-[#030304] text-[#F5F5F4] px-8 py-4 text-[12px] uppercase tracking-[0.22em] shadow-soft hover:shadow-deep transition-all duration-300">
-                <span>View Full Case Study</span>
-                <span className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">↗</span>
-              </Link>
-            </div>
+          
           </div>
         </section>
       </StackingSection>
 
       {/* ── PROJECT 2: HANEEFZ BRIYANI ── */}
       <StackingSection index={2}>
-        <section className="px-4 sm:px-6 md:px-10 lg:p-[220px] py-10 md:py-16 lg:py-20 relative z-10 bg-[#F5F5F4] w-full rounded-[24px] md:rounded-[32px] lg:rounded-t-[48px] lg:rounded-b-none shadow-2xl border border-black/5 lg:border-t lg:border-x-0 lg:border-b-0">
+        <section className=" px-4 sm:px-6 md:px-10 lg:p-[220px] py-10 md:py-16 lg:py-20 relative z-10 bg-[#F5F5F4] w-full rounded-[24px] md:rounded-[32px] lg:rounded-t-[48px] lg:rounded-b-none shadow-2xl border border-black/5 lg:border-t lg:border-x-0 lg:border-b-0">
           <div className="max-w-[1600px] mx-auto w-full">
             
             {/* Grid Header */}
-            <div className="border-b border-[#030304]/10 pb-4 mb-6 flex flex-col lg:flex-row lg:items-end justify-between gap-6 -mt-16">
+            <div className="border-b border-[#030304]/10 pb-4 mb-6 flex flex-col lg:flex-row lg:items-end justify-between gap-6 md:-mt-16">
               <div>
-                <span className="text-[11px] font-mono uppercase tracking-[0.25em] text-[#D4141C]">Logofolio</span>
+                <span className="text-[11px] font-mono uppercase tracking-[0.25em] text-[#D4141C] ">Logofolio</span>
                 <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-[#030304] mt-1 font-semibold">Haneefz Briyani</h2>
                 <p className="text-[#030304]/50 text-xs uppercase tracking-widest mt-1">Caterers</p>
               </div>
@@ -518,98 +548,98 @@ function PortfolioPage() {
             </div>
 
             {/* Grid Layout */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-3">
-              
-              {/* Card 1: Large Logo Container */}
-              <div className="min-h-[180px] lg:h-[260px] sm:col-span-2 bg-white rounded-[16px] md:rounded-[20px] flex items-center justify-center border border-[#030304]/5 shadow-md hover:shadow-xl transition-all duration-500 relative overflow-hidden group">
-                <div className="absolute inset-0 bg-gradient-to-br from-black/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <img
-                  src={img8}
-                  alt="Haneefz Logo"
-                  className="w-auto object-contain transition-transform duration-700 group-hover:scale-110 drop-shadow-sm"
-                />
-              </div>
+           <div className="grid grid-cols-1 md:grid-cols-12 md:grid-rows-4 gap-4">
 
-              {/* Card 2: Vertical Mockup */}
-              <div className="min-h-[180px] lg:h-[260px] lg:min-h-0 sm:col-span-1 bg-white rounded-[16px] md:rounded-[20px] overflow-hidden border border-[#030304]/5 shadow-md hover:shadow-xl transition-all duration-500 relative group h-full">
-                <img
-                  src={img9}
-                  alt="Mockup Presentation"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                  <span className="text-white text-[10px] uppercase tracking-widest font-mono">Brand Merchandising</span>
-                </div>
-              </div>
+  {/* 1 - Logo */}
+  <div className="md:col-span-5 md:row-span-2 bg-[#1A1A1A] rounded-[20px] flex items-center justify-center border border-[#030304]/5 shadow-md hover:shadow-xl transition-all duration-500 overflow-hidden group ">
+    <img
+      src={img8}
+      alt="Al Masoudi Logo"
+      className="object-contain transition-transform duration-700 group-hover:scale-110"
+    />
+  </div>
 
-              {/* Column 3: Stacked Mockup & Colors */}
-              <div className="sm:col-span-1 flex flex-col gap-3">
-                {/* Business cards style mockup */}
-                <div className="bg-white rounded-[16px] md:rounded-[20px] overflow-hidden border border-[#030304]/5 shadow-md hover:shadow-xl transition-all duration-500 flex-1 relative group min-h-[72px] h-[80px] lg:h-auto">
-                  <img
-                    src={img10}
-                    alt="Corporate Stationery"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                </div>
-                
-                {/* Color swatches box */}
-                <div className="bg-white rounded-[16px] md:rounded-[20px] p-4 border border-[#030304]/5 shadow-md hover:shadow-xl transition-all duration-500 flex flex-col justify-between gap-3 min-h-[72px]">
-                  <div className="text-[9px] uppercase tracking-widest text-[#030304]/50 font-mono flex items-center justify-between">
-                    <span>Brand Palette</span>
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#D5161B] animate-pulse" />
-                  </div>
-                  <div className="grid grid-cols-4 gap-1.5 h-8">
-                    <div className="bg-[#D5161B] rounded-md group relative cursor-pointer hover:scale-110 transition-transform shadow-inner" title="#D5161B">
-                      <span className="absolute -top-7 left-1/2 -translate-x-1/2 bg-[#030304] text-white text-[8px] px-1.5 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none font-mono">#D5161B</span>
-                    </div>
-                    <div className="bg-[#D7AE43] rounded-md group relative cursor-pointer hover:scale-110 transition-transform shadow-inner" title="#D7AE43">
-                      <span className="absolute -top-7 left-1/2 -translate-x-1/2 bg-[#030304] text-white text-[8px] px-1.5 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none font-mono">#D7AE43</span>
-                    </div>
-                    <div className="bg-[#000000] rounded-md group relative cursor-pointer hover:scale-110 transition-transform shadow-inner" title="#000000">
-                      <span className="absolute -top-7 left-1/2 -translate-x-1/2 bg-[#030304] text-white text-[8px] px-1.5 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none font-mono">#000000</span>
-                    </div>
-                    <div className="bg-[#D0D0D0] rounded-md border border-black/5 group relative cursor-pointer hover:scale-110 transition-transform shadow-inner" title="#D0D0D0">
-                      <span className="absolute -top-7 left-1/2 -translate-x-1/2 bg-[#030304] text-white text-[8px] px-1.5 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none font-mono">#D0D0D0</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+  {/* 2 - Vertical Mockup */}
+  <div className="md:col-span-3 md:row-span-2 md:col-start-6 bg-white rounded-[20px] overflow-hidden border border-[#030304]/5 shadow-md hover:shadow-xl transition-all duration-500 group">
+    <img
+      src={img9}
+      alt="Mockup Presentation"
+      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+    />
+    {/* <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+      <span className="text-white text-[10px] uppercase tracking-widest font-mono">
+        Brand Merchandising
+      </span>
+    </div> */}
+  </div>
 
-              {/* Row 2 - Card 5: Logo Construct breakdown */}
-              <div className="min-h-[160px] sm:col-span-2 rounded-[16px] md:rounded-[20px] p-4 md:p-6 flex items-center justify-center border border-[#030304]/5 shadow-md hover:shadow-xl transition-all duration-500 relative overflow-hidden group">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.03)_0%,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <img
-                  src={img11}
-                  alt="Logo Geometry breakdown"
-                  className="w-auto object-contain mix-blend-multiply"
-                />
-              </div>
+  {/* 3 - Business Card Mockup */}
+  <div className="md:col-span-4 md:row-span-2 md:col-start-9 bg-white rounded-[20px] overflow-hidden border border-[#030304]/5 shadow-md hover:shadow-xl transition-all duration-500 group">
+    <img
+      src={img10}
+      alt="Corporate Stationery"
+      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+    />
+  </div>
 
-              {/* Card 6: Primary Typeface */}
-              <div className="bg-white rounded-[16px] md:rounded-[20px] overflow-hidden border border-[#030304]/5 shadow-md hover:shadow-xl transition-all duration-500 flex-1 relative group h-[140px] sm:h-auto min-h-[140px]">
-                <img
-                  src={img12}
-                  alt="Brand Typography Details"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 ring-1 ring-inset ring-black/5 rounded-[16px] md:rounded-[20px]" />
-              </div>
+  {/* 8 - Logo Construction */}
+  <div className="md:col-span-6 md:row-span-2 md:row-start-3 bg-white rounded-[20px] flex items-center justify-center border border-[#030304]/5 shadow-md hover:shadow-xl transition-all duration-500 overflow-hidden group ">
+    <img
+      src={img11}
+      alt="Logo Geometry Breakdown"
+      className="object-contain p-4 transition-transform duration-700 group-hover:scale-105"
+    />
+  </div>
 
-              {/* Card 7: Secondary Typeface */}
-              <div className="bg-white rounded-[16px] md:rounded-[20px] overflow-hidden border border-[#030304]/5 shadow-md hover:shadow-xl transition-all duration-500 flex-1 relative group h-[140px] sm:h-auto min-h-[140px]">
-                <img
-                  src={img5}
-                  alt="Brand Typography Mockup"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 ring-1 ring-inset ring-black/5 rounded-[16px] md:rounded-[20px]" />
-              </div>
+  {/* 9 - Typography */}
+  <div className="md:col-span-4 md:row-span-2 md:col-start-7 md:row-start-3 bg-white rounded-[20px] overflow-hidden border border-[#030304]/5 shadow-md hover:shadow-xl transition-all duration-500 group">
+    <img
+      src={img12}
+      alt="Brand Typography"
+      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+    />
+  </div>
 
-            </div>
+  {/* 7 - Brand Palette */}
+  <div className="md:col-span-2 md:row-span-2 md:col-start-11 md:row-start-3 bg-white rounded-[20px] p-4 border border-[#030304]/5 shadow-md hover:shadow-xl transition-all duration-500 flex flex-col justify-between">
+    
+    <div className="flex items-center justify-between">
+      <span className="text-[10px] uppercase tracking-widest text-[#030304]/50 font-mono">
+        Brand Palette
+      </span>
+      <span className="w-2 h-2 rounded-full bg-[#D5161B] animate-pulse"></span>
+    </div>
+
+    <div className="grid grid-cols-2 gap-3 mt-4">
+      {[
+        "#D5161B",
+        "#D7AE43",
+        "#000000",
+        "#D0D0D0",
+      ].map((color) => (
+        <div
+          key={color}
+          className="flex flex-col items-center gap-1"
+        >
+          <div
+            className="w-full h-14 rounded-lg border border-black/5 shadow-inner hover:scale-105 transition-transform"
+            style={{ backgroundColor: color }}
+          />
+          <span className="text-[9px] font-mono text-[#030304]/70 text-center break-all">
+            {color}
+          </span>
+        </div>
+      ))}
+    </div>
+
+  </div>
+
+</div>
+
           </div>
         </section>
       </StackingSection>
+      <br/>
 
       <Contact />
     </main>

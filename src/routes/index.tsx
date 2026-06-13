@@ -5,6 +5,7 @@ import logoMark from "@/assets/dark-media-mark.jpeg.asset.json";
 import whiteLogo from "@/assets/Dark Media Logo - White.png";
 import lumetixImg from "@/assets/images/Lumetix.png";
 import alMasoudiImg from "@/assets/images/ourworks/AlMasoudi/5.webp";
+import videoSrc from "@/assets/Video/IMG_7797.MOV";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -158,7 +159,7 @@ function Nav() {
   ];
 
   const socials = [
-    { label: "Instagram", abbr: "IG", href: "#" },
+    { label: "Instagram", abbr: "IG", href: "https://www.instagram.com/darkmedia.tech" },
     { label: "Behance", abbr: "Be", href: "#" },
     { label: "LinkedIn", abbr: "Li", href: "#" },
     { label: "Twitter", abbr: "X", href: "#" },
@@ -452,12 +453,12 @@ function Nav() {
               transition={{ delay: menuOpen ? 0.8 : 0, duration: 0.5, ease }}
               className="flex items-center gap-6 text-center md:text-right"
             >
-              <a
+              {/* <a
                 href="mailto:hello@darkmedia.studio"
                 className="text-sm text-white/40 hover:text-white/90 transition-colors duration-300"
               >
                 hello@darkmedia.studio
-              </a>
+              </a> */}
               <span className="hidden md:inline text-white/10">|</span>
               <span className="text-[10px] uppercase tracking-[0.25em] text-white/20">
                 © 2026 Dark Media
@@ -551,12 +552,12 @@ function MobileHero() {
             </Link>
            
           </div>
-          <div className="md:col-span-3 text-[11px] uppercase tracking-[0.24em] text-[#030304]/60 md:text-right">
+          {/* <div className="md:col-span-3 text-[11px] uppercase tracking-[0.24em] text-[#030304]/60 md:text-right">
             Follow —
             <span className="ml-3 inline-flex gap-2">
               {["Be","IG","Li"].map(s => <span key={s} className="rounded-full border border-[#030304]/25 px-2 py-1">{s}</span>)}
             </span>
-          </div>
+          </div> */}
         </Reveal>
       </div>
     </section>
@@ -749,6 +750,8 @@ function Clients() {
   const logos = Object.values(logoModules).map((mod: any) => mod.default as string);
 
   return (
+    <div>
+      
     <section className="relative py-24 md:py-36 overflow-hidden bg-[#030304] text-[#F5F5F4] rounded-[40px] md:rounded-[60px] mx-4 md:mx-10 my-20 shadow-2xl">
       {/* Animated Background for Desktop */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-[40px] md:rounded-[60px] z-0 hidden lg:block">
@@ -807,6 +810,7 @@ function Clients() {
         })}
       </div>
     </section>
+    </div>
   );
 }
 
@@ -820,7 +824,7 @@ function Services() {
   ];
 
   return (
-    <section id="services" className="relative py-28 md:py-44 bg-[#030304] text-[#F5F5F4] overflow-hidden rounded-[2.5rem] md:rounded-[4rem] mx-2 md:mx-4 my-10 shadow-2xl">
+    <section id="services" className="relative py-28 md:py-44 bg-[#030304] text-[#F5F5F4] overflow-hidden  rounded-[1.5rem] md:rounded-[4rem] mx-2 md:mx-4 my-10 shadow-2xl">
       {/* Animated Ambient Background & Scrolling Text for Desktop */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20 hidden lg:block">
         <motion.div
@@ -1031,7 +1035,7 @@ function MissionVision() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-28 md:py-44 overflow-hidden bg-[#F5F5F4]"
+      className="relative py-28 md:py-44 overflow-hidden bg-[#F5F5F4] -mt-20 -mb-30"
       style={{ perspective: "1200px" }}
     >
       {/* ── Animated ambient for Desktop ── */}
@@ -1413,7 +1417,7 @@ function MissionVision() {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 1.1, ease }}
-          className="mt-24 md:mt-32 overflow-hidden border-y border-[#030304]/10 py-5 relative"
+          className="mt-6 md:mt-12  overflow-hidden border-y border-[#030304]/10 py-5 relative"
         >
           <motion.div
             animate={{ x: ["0%", "-50%"] }}
@@ -1482,7 +1486,7 @@ function Contact() {
           <div className="md:col-span-4 flex justify-start md:justify-end md:pt-8">
             <Reveal delay={0.2}>
               <Magnetic strength={0.3}>
-                <a href="mailto:hello@darkmedia.studio" className="group relative flex items-center justify-center w-36 h-36 md:w-48 md:h-48 rounded-full bg-[#F5F5F4] text-[#030304] overflow-hidden transition-transform duration-500 hover:scale-105 shadow-[0_0_40px_rgba(255,255,255,0.1)]">
+                <a href="https://wa.me/919480889252" target="_blank" rel="noopener noreferrer" className="group relative flex items-center justify-center w-36 h-36 md:w-48 md:h-48 rounded-full bg-[#F5F5F4] text-[#030304] overflow-hidden transition-transform duration-500 hover:scale-105 shadow-[0_0_40px_rgba(255,255,255,0.1)]">
                   <span className="relative z-10 font-display text-2xl md:text-3xl text-center leading-none group-hover:text-white transition-colors duration-500">Get in<br/>Touch</span>
                   <span className="absolute inset-0 bg-[#030304] rounded-full scale-0 origin-center transition-transform duration-500 ease-[0.22,1,0.36,1] group-hover:scale-110" />
                 </a>
@@ -1498,18 +1502,27 @@ function Contact() {
           </Reveal>
           <Reveal delay={0.2} className="md:col-span-4">
             <div className="text-[11px] uppercase tracking-[0.24em] opacity-40 mb-5">Contact</div>
-            <p className="opacity-80 leading-relaxed text-sm md:text-base">
-              <a href="mailto:hello@darkmedia.studio" className="hover:text-white transition-colors inline-block mb-1">hello@darkmedia.studio</a><br/>
-              <a href="tel:+4512345678" className="hover:text-white transition-colors inline-block">+45 12 34 56 78</a>
+            <p className="opacity-80 leading-relaxed text-sm md:text-base flex flex-col gap-2">
+              <a href="https://wa.me/919480889252" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors inline-flex items-center gap-2">
+                +91 94808 89252
+              </a>
+              <a href="https://wa.me/917483156464" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors inline-flex items-center gap-2">
+                +91 74831 56464
+              </a>
             </p>
           </Reveal>
           <Reveal delay={0.25} className="md:col-span-4">
             <div className="text-[11px] uppercase tracking-[0.24em] opacity-40 mb-5">Socials</div>
             <ul className="flex flex-wrap gap-4 md:gap-6">
-              {["Behance","Instagram","LinkedIn","Twitter"].map(s => (
-                <li key={s}>
-                  <a href="#" className="text-sm md:text-base opacity-80 hover:opacity-100 hover:-translate-y-1 inline-block transition-transform duration-300">
-                    {s}
+              {[
+                { name: "Behance", href: "#" },
+                { name: "Instagram", href: "https://www.instagram.com/darkmedia.tech" },
+                { name: "LinkedIn", href: "#" },
+                { name: "Twitter", href: "#" }
+              ].map(s => (
+                <li key={s.name}>
+                  <a href={s.href} target={s.href !== "#" ? "_blank" : undefined} rel={s.href !== "#" ? "noopener noreferrer" : undefined} className="text-sm md:text-base opacity-80 hover:opacity-100 hover:-translate-y-1 inline-block transition-transform duration-300">
+                    {s.name}
                   </a>
                 </li>
               ))}
@@ -1536,6 +1549,88 @@ function Contact() {
   );
 }
 
+/* ---------- video section ---------- */
+function VideoSection() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [isMuted, setIsMuted] = useState(true);
+
+  const togglePlay = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !isMuted;
+      setIsMuted(!isMuted);
+    }
+  };
+
+  return (
+    <motion.section 
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+      className="relative w-auto h-[60vh] md:h-screen overflow-hidden bg-[#030304] rounded-[40px] md:rounded-[60px] mx-4 md:mx-10 my-20 shadow-2xl border border-white/10"
+    >
+      <motion.video
+        ref={videoRef}
+        src={videoSrc}
+        autoPlay
+        loop
+        muted={isMuted}
+        playsInline
+        initial={{ scale: 1.1 }}
+        whileInView={{ scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+      <div className="absolute inset-0 bg-black/10 pointer-events-none" />
+      
+      {/* Custom Controllers */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex items-center gap-4 z-20">
+        <button
+          onClick={togglePlay}
+          className="group relative flex items-center justify-center w-14 h-14 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white hover:text-black transition-all duration-300"
+        >
+          {isPlaying ? (
+            <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+              <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+            </svg>
+          ) : (
+            <svg className="w-5 h-5 fill-current ml-1" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+          )}
+        </button>
+        <button
+          onClick={toggleMute}
+          className="group relative flex items-center justify-center w-14 h-14 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white hover:text-black transition-all duration-300"
+        >
+          {isMuted ? (
+            <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+              <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.73v2.06c2.89.86 5 3.54 5 6.67zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+            </svg>
+          ) : (
+            <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+              <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+            </svg>
+          )}
+        </button>
+      </div>
+    </motion.section>
+  );
+}
+
 /* ---------- root ---------- */
 function Index() {
   return (
@@ -1543,11 +1638,14 @@ function Index() {
       <Cursor />
       <Nav />
       <Hero />
+      
       <StatsStrip />
-      <Clients />
+       <VideoSection />
+     
+     <MissionVision />
       <Services />
       {/* <Work /> */}
-      <MissionVision />
+       <Clients />
       <Contact />
     </main>
   );
