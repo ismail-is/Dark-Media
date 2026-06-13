@@ -76,11 +76,11 @@ function Cursor() {
 
   const x = useMotionValue(-100);
   const y = useMotionValue(-100);
-  
+
   // Smooth jelly-like trailing animation
   const sx = useSpring(x, { stiffness: 120, damping: 14, mass: 0.2 });
   const sy = useSpring(y, { stiffness: 120, damping: 14, mass: 0.2 });
-  
+
   const [hover, setHover] = useState(false);
 
   useEffect(() => {
@@ -101,22 +101,22 @@ function Cursor() {
       {/* Snappy inner dot */}
       <motion.div
         style={{ x, y }}
-        className="pointer-events-none fixed top-0 left-0 z-[110] hidden md:block mix-blend-difference"
+        className="pointer-events-none fixed top-0 left-0 z-110 hidden md:block mix-blend-difference"
       >
-        <motion.div 
+        <motion.div
           animate={{ scale: hover ? 0 : 1, opacity: hover ? 0 : 1 }}
           transition={{ duration: 0.2 }}
           className="-translate-x-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-white"
         />
       </motion.div>
-      
+
       {/* Smooth trailing outer ring */}
       <motion.div
         style={{ x: sx, y: sy }}
-        className="pointer-events-none fixed top-0 left-0 z-[100] hidden md:block mix-blend-difference"
+        className="pointer-events-none fixed top-0 left-0 z-100 hidden md:block mix-blend-difference"
       >
         <motion.div
-          animate={{ 
+          animate={{
             scale: hover ? 1.8 : 1,
             backgroundColor: hover ? "rgba(255, 255, 255, 1)" : "rgba(255, 255, 255, 0)",
             borderWidth: hover ? "0px" : "1.5px",
@@ -134,7 +134,7 @@ function Nav() {
   const { scrollY } = useScroll();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  
+
   useEffect(() => {
     return scrollY.on("change", (latest) => {
       setScrolled(latest > 60);
@@ -169,17 +169,16 @@ function Nav() {
     <>
       {/* ── Top Bar ── */}
       <motion.header
-        initial={{ y: -50, opacity: 0 }} 
-        animate={{ y: 0, opacity: 1 }} 
+        initial={{ y: -50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.9, delay: 0.4, ease }}
         className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 md:px-6 pt-4 md:pt-6 pointer-events-none"
       >
-        <div 
-          className={`pointer-events-auto flex items-center justify-between px-6 md:px-8 rounded-full border w-full transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-            scrolled 
-              ? "max-w-[900px] bg-white/85 backdrop-blur-md shadow-soft border-black/5 py-3" 
-              : "max-w-[1600px] bg-transparent backdrop-blur-none shadow-none border-transparent py-5"
-          }`}
+        <div
+          className={`pointer-events-auto flex items-center justify-between px-6 md:px-8 rounded-full border w-full transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${scrolled
+            ? "max-w-225 bg-white/85 backdrop-blur-md shadow-soft border-black/5 py-3"
+            : "max-w-400 bg-transparent backdrop-blur-none shadow-none border-transparent py-5"
+            }`}
         >
           {/* Left — Logo */}
           <a href="#top" className="flex items-center gap-2.5">
@@ -234,18 +233,18 @@ function Nav() {
       {/* ── Full-screen Navigation Overlay ── */}
       <motion.nav
         initial={false}
-        animate={{ 
-          clipPath: menuOpen 
-            ? "circle(150% at 95% 5%)" 
+        animate={{
+          clipPath: menuOpen
+            ? "circle(150% at 95% 5%)"
             : "circle(0% at 95% 5%)",
         }}
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-        className="fixed inset-0 z-[60] bg-[#030304] text-[#F5F5F4] overflow-hidden"
+        className="fixed inset-0 z-60 bg-[#030304] text-[#F5F5F4] overflow-hidden"
         style={{ pointerEvents: menuOpen ? "auto" : "none" }}
       >
         {/* ── Animated Background Layers ── */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          
+
           {/* Aurora orb 1 — top-left, warm */}
           <motion.div
             animate={{
@@ -254,7 +253,7 @@ function Nav() {
               scale: [1, 1.4, 1],
             }}
             transition={{ duration: 16, repeat: Infinity, ease: "linear" }}
-            className="absolute -top-[20%] -left-[10%] w-[60vw] h-[60vw] rounded-full blur-[140px] opacity-[0.12]"
+            className="absolute top-[-20%] left-[-10%] w-[60vw] h-[60vw] rounded-full blur-[140px] opacity-[0.12]"
             style={{ background: "radial-gradient(circle, rgba(120,100,255,0.5), rgba(255,120,200,0.3), transparent 70%)" }}
           />
 
@@ -266,7 +265,7 @@ function Nav() {
               scale: [1.2, 1, 1.2],
             }}
             transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
-            className="absolute -bottom-[15%] -right-[15%] w-[70vw] h-[70vw] rounded-full blur-[160px] opacity-[0.1]"
+            className="absolute bottom-[-15%] right-[-15%] w-[70vw] h-[70vw] rounded-full blur-[160px] opacity-[0.1]"
             style={{ background: "radial-gradient(circle, rgba(60,180,255,0.4), rgba(100,255,200,0.2), transparent 70%)" }}
           />
 
@@ -285,9 +284,9 @@ function Nav() {
           {/* Grid lines */}
           <div
             className="absolute inset-0 opacity-[0.03]"
-            style={{ 
-              backgroundImage: "linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)", 
-              backgroundSize: "80px 80px" 
+            style={{
+              backgroundImage: "linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)",
+              backgroundSize: "80px 80px"
             }}
           />
 
@@ -295,7 +294,7 @@ function Nav() {
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vmin] h-[70vmin] rounded-full border border-white/[0.04]"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vmin] h-[70vmin] rounded-full border border-white/4"
           >
             <span className="absolute -top-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-white/20" />
             <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-white/10" />
@@ -305,7 +304,7 @@ function Nav() {
           <motion.div
             animate={{ rotate: -360 }}
             transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vmin] h-[90vmin] rounded-full border border-white/[0.025]"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vmin] h-[90vmin] rounded-full border border-white/2.5"
           >
             <span className="absolute top-1/2 -right-1 -translate-y-1/2 w-1 h-1 rounded-full bg-white/15" />
           </motion.div>
@@ -321,8 +320,8 @@ function Nav() {
           ].map((p, idx) => (
             <motion.span
               key={idx}
-              animate={{ 
-                y: [0, -20, 0], 
+              animate={{
+                y: [0, -20, 0],
                 opacity: [0.15, 0.4, 0.15],
                 scale: [1, 1.3, 1],
               }}
@@ -353,7 +352,7 @@ function Nav() {
 
         {/* ── Centered Content ── */}
         <div className="relative z-10 flex flex-col items-center justify-center h-full px-8 md:px-16">
-          
+
           {/* Top label */}
           <motion.div
             initial={false}
@@ -392,7 +391,7 @@ function Nav() {
                       ↗
                     </motion.span>
                     {/* Hover underline effect */}
-                    <span className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-[0.22,1,0.36,1] origin-left" />
+                    <span className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-white/20 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-[0.22,1,0.36,1] origin-left" />
                   </Link>
                 ) : (
                   <a
@@ -410,7 +409,7 @@ function Nav() {
                       ↗
                     </motion.span>
                     {/* Hover underline effect */}
-                    <span className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-[0.22,1,0.36,1] origin-left" />
+                    <span className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-white/20 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-[0.22,1,0.36,1] origin-left" />
                   </a>
                 )}
               </motion.div>
@@ -419,7 +418,7 @@ function Nav() {
 
           {/* Bottom bar — Social Icons + Info */}
           <div className="absolute bottom-8 left-8 right-8 md:bottom-10 md:left-10 md:right-10 flex flex-col md:flex-row items-center justify-between gap-6">
-            
+
             {/* Social Media Icons */}
             <motion.div
               initial={false}
@@ -479,9 +478,9 @@ function MobileHero() {
     <section id="top" className="relative min-h-screen overflow-hidden pt-28 md:pt-36 pb-10">
       {/* faint grid */}
       <div aria-hidden className="absolute inset-0 opacity-[0.04] pointer-events-none"
-           style={{ backgroundImage: "linear-gradient(#030304 1px,transparent 1px),linear-gradient(90deg,#030304 1px,transparent 1px)", backgroundSize: "80px 80px" }} />
+        style={{ backgroundImage: "linear-gradient(#030304 1px,transparent 1px),linear-gradient(90deg,#030304 1px,transparent 1px)", backgroundSize: "80px 80px" }} />
 
-      <div className="relative mx-auto max-w-[1600px] px-5 md:px-10">
+      <div className="relative mx-auto max-w-400 px-5 md:px-10">
         {/* heading grid: text + sphere */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-6 items-center">
           <div className="lg:col-span-7 relative z-10">
@@ -491,12 +490,12 @@ function MobileHero() {
               <span className="block italic font-display"><SplitWord text="Impact." delay={0.6} /></span>
             </h1>
             <Reveal delay={1} className="mt-8 flex items-center gap-3 text-[11px] uppercase tracking-[0.24em] text-[#030304]/60">
-              <span className="h-px w-10 bg-[#030304]/40" /> 
+              <span className="h-px w-10 bg-[#030304]/40" />
             </Reveal>
           </div>
 
           {/* sphere */}
-          <div className="lg:col-span-5 relative h-[60vw] sm:h-[50vw] lg:h-[42vw] max-h-[640px] flex items-center justify-center">
+          <div className="lg:col-span-5 relative h-[60vw] sm:h-[50vw] lg:h-[42vw] max-h-160 flex items-center justify-center">
             {/* orbit rings */}
             {[1, 1.25, 1.55].map((s, i) => (
               <motion.div key={i}
@@ -550,7 +549,7 @@ function MobileHero() {
               Explore Our Work
               <span className="inline-block transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">↗</span>
             </Link>
-           
+
           </div>
           {/* <div className="md:col-span-3 text-[11px] uppercase tracking-[0.24em] text-[#030304]/60 md:text-right">
             Follow —
@@ -598,9 +597,9 @@ function DesktopHero() {
     <section id="top" ref={ref} className="relative min-h-screen overflow-hidden pt-28 md:pt-36 pb-10">
       {/* faint grid */}
       <div aria-hidden className="absolute inset-0 opacity-[0.04] pointer-events-none"
-           style={{ backgroundImage: "linear-gradient(#030304 1px,transparent 1px),linear-gradient(90deg,#030304 1px,transparent 1px)", backgroundSize: "80px 80px" }} />
+        style={{ backgroundImage: "linear-gradient(#030304 1px,transparent 1px),linear-gradient(90deg,#030304 1px,transparent 1px)", backgroundSize: "80px 80px" }} />
 
-      <motion.div style={{ y: yText, opacity }} className="relative mx-auto max-w-[1600px] px-5 md:px-10">
+      <motion.div style={{ y: yText, opacity }} className="relative mx-auto max-w-400 px-5 md:px-10">
         {/* heading grid: text + sphere */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-6 items-center">
           <div className="lg:col-span-7 relative z-10">
@@ -610,12 +609,12 @@ function DesktopHero() {
               <span className="block italic font-display"><SplitWord text="Impact." delay={0.6} /></span>
             </h1>
             <Reveal delay={1} className="mt-8 flex items-center gap-3 text-[11px] uppercase tracking-[0.24em] text-[#030304]/60">
-              <span className="h-px w-10 bg-[#030304]/40" /> 
+              <span className="h-px w-10 bg-[#030304]/40" />
             </Reveal>
           </div>
 
           {/* sphere */}
-          <div className="lg:col-span-5 relative h-[60vw] sm:h-[50vw] lg:h-[42vw] max-h-[640px] flex items-center justify-center">
+          <div className="lg:col-span-5 relative h-[60vw] sm:h-[50vw] lg:h-[42vw] max-h-160 flex items-center justify-center">
             {/* orbit rings */}
             {[1, 1.25, 1.55].map((s, i) => (
               <motion.div key={i}
@@ -671,12 +670,12 @@ function DesktopHero() {
                 <span className="inline-block transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">↗</span>
               </Link>
             </Magnetic>
-           
+
           </div>
           <div className="md:col-span-3 text-[11px] uppercase tracking-[0.24em] text-[#030304]/60 md:text-right">
             Follow —
             <span className="ml-3 inline-flex gap-2">
-              {["Be","IG","Li"].map(s => <span key={s} className="rounded-full border border-[#030304]/25 px-2 py-1">{s}</span>)}
+              {["Be", "IG", "Li"].map(s => <span key={s} className="rounded-full border border-[#030304]/25 px-2 py-1">{s}</span>)}
             </span>
           </div>
         </Reveal>
@@ -707,7 +706,7 @@ function Hero() {
     return (
       <section id="top" className="relative min-h-screen overflow-hidden pt-28 md:pt-36 pb-10">
         <div aria-hidden className="absolute inset-0 opacity-[0.04] pointer-events-none"
-             style={{ backgroundImage: "linear-gradient(#030304 1px,transparent 1px),linear-gradient(90deg,#030304 1px,transparent 1px)", backgroundSize: "80px 80px" }} />
+          style={{ backgroundImage: "linear-gradient(#030304 1px,transparent 1px),linear-gradient(90deg,#030304 1px,transparent 1px)", backgroundSize: "80px 80px" }} />
       </section>
     );
   }
@@ -722,7 +721,7 @@ function StatsStrip() {
   ];
   return (
     <section className="border-y border-[#030304]/10 bg-[#F5F5F4]">
-      <div className="mx-auto max-w-[1600px] grid grid-cols-2 md:grid-cols-5">
+      <div className="mx-auto max-w-400 grid grid-cols-2 md:grid-cols-5">
         {stats.map((s, i) => (
           <motion.div key={s.l}
             initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: i * 0.08, ease }}
@@ -732,7 +731,7 @@ function StatsStrip() {
           </motion.div>
         ))}
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.4 }}
-          className="px-6 md:px-10 py-8 md:py-10 flex items-center gap-3 text-[12px] uppercase tracking-[0.22em] text-[#030304] bg-[#030304] text-[#F5F5F4] sm:w-full" >
+          className="px-6 md:px-10 py-8 md:py-10 flex items-center gap-3 text-[12px] uppercase tracking-[0.22em] bg-[#030304] text-[#F5F5F4] sm:w-full" >
           <span className="relative flex h-2 w-2">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#F5F5F4] opacity-70" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-[#F5F5F4] " />
@@ -751,65 +750,65 @@ function Clients() {
 
   return (
     <div>
-      
-    <section className="relative py-24 md:py-36 overflow-hidden bg-[#030304] text-[#F5F5F4] rounded-[40px] md:rounded-[60px] mx-4 md:mx-10 my-20 shadow-2xl">
-      {/* Animated Background for Desktop */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-[40px] md:rounded-[60px] z-0 hidden lg:block">
-        <motion.div animate={{ rotate: 360, scale: [1, 1.2, 1] }} transition={{ duration: 40, repeat: Infinity, ease: "linear" }} className="absolute -top-[50%] -left-[10%] w-[80vw] h-[80vw] rounded-full blur-[100px] opacity-[0.15]" style={{ background: "radial-gradient(circle, #ffffff 0%, transparent 60%)" }} />
-        <motion.div animate={{ rotate: -360, scale: [1, 1.5, 1] }} transition={{ duration: 50, repeat: Infinity, ease: "linear" }} className="absolute -bottom-[40%] -right-[20%] w-[60vw] h-[60vw] rounded-full blur-[120px] opacity-[0.1]" style={{ background: "radial-gradient(circle, #ffffff 0%, transparent 60%)" }} />
-        <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: "radial-gradient(#F5F5F4 1px, transparent 1px)", backgroundSize: "6px 6px" }} />
-      </div>
 
-      {/* Static Background for Mobile/Tablet */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-[40px] md:rounded-[60px] z-0 lg:hidden">
-        {/* Simple single ambient glow, using native radial gradient fade instead of expensive GPU post-process blur */}
-        <div className="absolute -top-[20%] -left-[10%] w-[100vw] h-[100vw] rounded-full opacity-[0.1]" style={{ background: "radial-gradient(circle, #ffffff 0%, transparent 65%)" }} />
-        <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: "radial-gradient(#F5F5F4 1px, transparent 1px)", backgroundSize: "6px 6px" }} />
-      </div>
+      <section className="relative py-24 md:py-36 overflow-hidden bg-[#030304] text-[#F5F5F4] rounded-[40px] md:rounded-[60px] mx-4 md:mx-10 my-20 shadow-2xl">
+        {/* Animated Background for Desktop */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-[40px] md:rounded-[60px] z-0 hidden lg:block">
+          <motion.div animate={{ rotate: 360, scale: [1, 1.2, 1] }} transition={{ duration: 40, repeat: Infinity, ease: "linear" }} className="absolute top-[-50%] left-[-10%] w-[80vw] h-[80vw] rounded-full blur-[100px] opacity-[0.15]" style={{ background: "radial-gradient(circle, #ffffff 0%, transparent 60%)" }} />
+          <motion.div animate={{ rotate: -360, scale: [1, 1.5, 1] }} transition={{ duration: 50, repeat: Infinity, ease: "linear" }} className="absolute bottom-[-40%] right-[-20%] w-[60vw] h-[60vw] rounded-full blur-[120px] opacity-[0.1]" style={{ background: "radial-gradient(circle, #ffffff 0%, transparent 60%)" }} />
+          <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: "radial-gradient(#F5F5F4 1px, transparent 1px)", backgroundSize: "6px 6px" }} />
+        </div>
 
-      <div className="relative z-10 mx-auto max-w-[1600px] px-5 md:px-10 mb-16 md:mb-24 grid grid-cols-1 md:grid-cols-12 gap-10 items-end">
-        <Reveal className="md:col-span-8">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#F5F5F4]/15 bg-[#F5F5F4]/5 backdrop-blur px-4 py-2 text-[11px] uppercase tracking-[0.24em] text-[#F5F5F4]/70 mb-8 shadow-soft">
-            <span className="relative flex h-1.5 w-1.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#F5F5F4] opacity-60" />
-              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#F5F5F4]" />
-            </span>
-            Our Partners
-          </div>
-          <h2 className="font-display text-5xl md:text-7xl lg:text-8xl leading-[0.95] text-[#F5F5F4] tracking-tight">
-            Trusted by the <br/><em className="italic text-[#F5F5F4]/70">industry leaders.</em>
-          </h2>
-        </Reveal>
-        <Reveal delay={0.1} className="md:col-span-4 text-[#F5F5F4]/60 text-base md:text-lg leading-relaxed">
-          We partner with forward-thinking companies across industries to create digital experiences that matter and drive real growth.
-        </Reveal>
-      </div>
+        {/* Static Background for Mobile/Tablet */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-[40px] md:rounded-[60px] z-0 lg:hidden">
+          {/* Simple single ambient glow, using native radial gradient fade instead of expensive GPU post-process blur */}
+          <div className="absolute top-[-20%] left-[-10%] w-screen h-[100vw] rounded-full opacity-[0.1]" style={{ background: "radial-gradient(circle, #ffffff 0%, transparent 65%)" }} />
+          <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: "radial-gradient(#F5F5F4 1px, transparent 1px)", backgroundSize: "6px 6px" }} />
+        </div>
 
-      {/* Marquee Grids */}
-      <div className="relative z-10 space-y-6 md:space-y-8 mt-10">
-        {[0, 1].map(row => {
-          // Split logos into two roughly equal chunks for the two rows
-          const half = Math.ceil(logos.length / 2);
-          const rowLogos = row === 0 ? logos.slice(0, half) : logos.slice(half);
-
-          return (
-            <div key={row} className="overflow-hidden py-2 flex">
-              <motion.div 
-                animate={{ x: row === 0 ? [0, -3000] : [-3000, 0] }}
-                transition={{ duration: row === 0 ? 50 : 60, repeat: Infinity, ease: "linear" }}
-                className="flex gap-6 md:gap-8 pr-6 md:pr-8 w-max"
-              >
-                {[...rowLogos, ...rowLogos, ...rowLogos, ...rowLogos].map((logo, i) => (
-                  <div key={`${row}-${i}`} className="group relative flex items-center justify-center h-24 md:h-32 min-w-[200px] md:min-w-[260px] px-8 md:px-10 rounded-3xl bg-[#F5F5F4]/[0.03] border border-[#F5F5F4]/10 backdrop-blur-md hover:bg-[#F5F5F4]/10 hover:border-[#F5F5F4]/30 hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 cursor-pointer overflow-hidden">
-                    <img src={logo} alt="Client Logo" className="relative z-10 max-h-12 md:max-h-16 w-auto object-contain opacity-60 group-hover:opacity-100 transition-all duration-500 filter grayscale brightness-200 group-hover:filter-none" />
-                  </div>
-                ))}
-              </motion.div>
+        <div className="relative z-10 mx-auto max-w-400 px-5 md:px-10 mb-16 md:mb-24 grid grid-cols-1 md:grid-cols-12 gap-10 items-end">
+          <Reveal className="md:col-span-8">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#F5F5F4]/15 bg-[#F5F5F4]/5 backdrop-blur px-4 py-2 text-[11px] uppercase tracking-[0.24em] text-[#F5F5F4]/70 mb-8 shadow-soft">
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#F5F5F4] opacity-60" />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#F5F5F4]" />
+              </span>
+              Our Partners
             </div>
-          );
-        })}
-      </div>
-    </section>
+            <h2 className="font-display text-5xl md:text-7xl lg:text-8xl leading-[0.95] text-[#F5F5F4] tracking-tight">
+              Trusted by the <br /><em className="italic text-[#F5F5F4]/70">industry leaders.</em>
+            </h2>
+          </Reveal>
+          <Reveal delay={0.1} className="md:col-span-4 text-[#F5F5F4]/60 text-base md:text-lg leading-relaxed">
+            We partner with forward-thinking companies across industries to create digital experiences that matter and drive real growth.
+          </Reveal>
+        </div>
+
+        {/* Marquee Grids */}
+        <div className="relative z-10 space-y-6 md:space-y-8 mt-10">
+          {[0, 1].map(row => {
+            // Split logos into two roughly equal chunks for the two rows
+            const half = Math.ceil(logos.length / 2);
+            const rowLogos = row === 0 ? logos.slice(0, half) : logos.slice(half);
+
+            return (
+              <div key={row} className="overflow-hidden py-2 flex">
+                <motion.div
+                  animate={{ x: row === 0 ? [0, -3000] : [-3000, 0] }}
+                  transition={{ duration: row === 0 ? 50 : 60, repeat: Infinity, ease: "linear" }}
+                  className="flex gap-6 md:gap-8 pr-6 md:pr-8 w-max"
+                >
+                  {[...rowLogos, ...rowLogos, ...rowLogos, ...rowLogos].map((logo, i) => (
+                    <div key={`${row}-${i}`} className="group relative flex items-center justify-center h-24 md:h-32 min-w-50 md:min-w-65 px-8 md:px-10 rounded-3xl bg-[#F5F5F4]/3 border border-[#F5F5F4]/10 backdrop-blur-md hover:bg-[#F5F5F4]/10 hover:border-[#F5F5F4]/30 hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 cursor-pointer overflow-hidden">
+                      <img src={logo} alt="Client Logo" className="relative z-10 max-h-12 md:max-h-16 w-auto object-contain opacity-60 group-hover:opacity-100 transition-all duration-500 filter grayscale brightness-200 group-hover:filter-none" />
+                    </div>
+                  ))}
+                </motion.div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
     </div>
   );
 }
@@ -824,25 +823,25 @@ function Services() {
   ];
 
   return (
-    <section id="services" className="relative py-28 md:py-44 bg-[#030304] text-[#F5F5F4] overflow-hidden  rounded-[1.5rem] md:rounded-[4rem] mx-2 md:mx-4 my-10 shadow-2xl">
+    <section id="services" className="relative py-28 md:py-44 bg-[#030304] text-[#F5F5F4] overflow-hidden  rounded-3xl md:rounded-[4rem] mx-2 md:mx-4 my-10 shadow-2xl">
       {/* Animated Ambient Background & Scrolling Text for Desktop */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20 hidden lg:block">
         <motion.div
           animate={{ x: ["-10%", "30%", "-10%"], y: ["0%", "20%", "0%"], scale: [1, 1.2, 1] }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute top-0 left-[-10%] w-[50vw] h-[50vw] bg-gradient-to-r from-gray-500 to-gray-700 rounded-full blur-[140px] mix-blend-screen"
+          className="absolute top-0 left-[-10%] w-[50vw] h-[50vw] bg-linear-to-r from-gray-500 to-gray-700 rounded-full blur-[140px] mix-blend-screen"
         />
         <motion.div
           animate={{ x: ["20%", "-20%", "20%"], y: ["20%", "0%", "20%"], scale: [1.2, 1, 1.2] }}
           transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          className="absolute bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] bg-gradient-to-r from-gray-600 to-gray-400 rounded-full blur-[160px] mix-blend-screen"
+          className="absolute bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] bg-linear-to-r from-gray-600 to-gray-400 rounded-full blur-[160px] mix-blend-screen"
         />
       </div>
 
       {/* Static Ambient Background & Scrolling Text for Mobile/Tablet */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-10 lg:hidden z-0">
-        <div 
-          className="absolute top-0 left-[-20%] w-[100vw] h-[100vw] rounded-full"
+        <div
+          className="absolute top-0 left-[-20%] w-screen h-[100vw] rounded-full"
           style={{ background: "radial-gradient(circle, rgba(100,100,100,0.3) 0%, transparent 65%)" }}
         />
       </div>
@@ -854,11 +853,11 @@ function Services() {
           transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
           className="font-display text-[25vw] leading-none tracking-tight flex shrink-0"
         >
-          WHAT WE DO — WHAT WE DO — WHAT WE DO — WHAT WE DO — 
+          WHAT WE DO — WHAT WE DO — WHAT WE DO — WHAT WE DO —
         </motion.div>
       </div>
 
-      <div className="relative z-10 mx-auto max-w-[1600px] px-5 md:px-10">
+      <div className="relative z-10 mx-auto max-w-400 px-5 md:px-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-end mb-16 md:mb-24">
           <Reveal className="md:col-span-7">
             <div className="text-[11px] uppercase tracking-[0.24em] opacity-60 mb-5 flex items-center gap-2">
@@ -882,16 +881,16 @@ function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.8, delay: i * 0.1, ease }}
-              className={`group relative overflow-hidden rounded-[2rem] bg-[#0a0a0b] border border-white/5 p-8 md:p-12 hover:border-white/20 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] flex justify-between ${s.span}`}
+              className={`group relative overflow-hidden rounded-4xl bg-[#0a0a0b] border border-white/5 p-8 md:p-12 hover:border-white/20 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] flex justify-between ${s.span}`}
             >
               {/* Card internal gradient */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700" style={{ background: s.art }} />
-              
+
               <div className="relative z-10">
                 <div className="text-[11px] uppercase tracking-[0.22em] opacity-50 mb-8 inline-block border border-white/10 rounded-full px-4 py-1">{s.n}</div>
                 <h3 className="font-display text-4xl md:text-5xl leading-tight mb-4">{s.t}</h3>
               </div>
-              
+
               <div className={`relative z-10 flex items-end justify-between gap-6 mt-10 md:mt-auto ${s.span.includes("md:flex-row") ? "md:w-1/2 md:mt-0" : ""}`}>
                 <p className="text-[#F5F5F4]/60 leading-relaxed max-w-sm">{s.d}</p>
                 <div className="shrink-0 flex h-14 w-14 items-center justify-center rounded-full border border-white/10 group-hover:bg-white group-hover:text-black transition-all duration-500 transform group-hover:-rotate-45 shadow-lg">
@@ -919,7 +918,7 @@ function Work() {
   ];
   return (
     <section id="work" className="py-28 md:py-44">
-      <div className="mx-auto max-w-[1600px] px-5 md:px-10">
+      <div className="mx-auto max-w-400 px-5 md:px-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-end mb-16 md:mb-24">
           <Reveal className="md:col-span-8">
             <div className="text-[11px] uppercase tracking-[0.24em] text-[#030304]/60 mb-5 flex items-center gap-2">
@@ -939,12 +938,12 @@ function Work() {
             <MotionLink key={p.t} to={p.href} data-cursor
               initial={{ opacity: 0, y: 60 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.9, delay: (i % 2) * 0.1, ease }}
-              className={`group relative overflow-hidden rounded-3xl shadow-soft aspect-[5/4] ${p.big ? "md:col-span-7" : "md:col-span-5"} ${p.dark ? "text-[#030304]" : "text-[#F5F5F4]"}`}
+              className={`group relative overflow-hidden rounded-3xl shadow-soft aspect-5/4 ${p.big ? "md:col-span-7" : "md:col-span-5"} ${p.dark ? "text-[#030304]" : "text-[#F5F5F4]"}`}
               style={{ background: p.art }}>
               {p.img && (
                 <div className="absolute inset-0 overflow-hidden pointer-events-none">
                   <img src={p.img} alt={p.t} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-[0.22,1,0.36,1]" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent" />
                 </div>
               )}
               {!p.img && (
@@ -1074,7 +1073,7 @@ function MissionVision() {
         />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-[1600px] px-5 md:px-10">
+      <div className="relative z-10 mx-auto max-w-400 px-5 md:px-10">
         {/* ── Section heading ── */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -1190,7 +1189,7 @@ function MissionVision() {
                 </div>
               ))}
               <div className="h-px flex-1 bg-[#030304]/20 hidden lg:block" />
-              <span className="w-2 h-2 rounded-full bg-[#030304]/20 block shrink-0 hidden lg:block" />
+              <span className="w-2 h-2 rounded-full bg-[#030304]/20 shrink-0 hidden lg:block" />
             </motion.div>
 
             {/* ── Hover reveal: slide-back "contact" strip ── */}
@@ -1237,13 +1236,13 @@ function MissionVision() {
               animate={inView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 1, delay: 0.5, ease }}
               whileHover={{ scale: 1.06, rotate: 3 }}
-              className="relative z-10 w-36 h-36 md:w-44 md:h-44 rounded-[2.5rem] bg-gradient-to-br from-white to-[#e8e7e3] shadow-[0_20px_60px_rgba(0,0,0,0.12)] flex items-center justify-center border border-[#030304]/08"
+              className="relative z-10 w-36 h-36 md:w-44 md:h-44 rounded-[2.5rem] bg-linear-to-br from-white to-[#e8e7e3] shadow-[0_20px_60px_rgba(0,0,0,0.12)] flex items-center justify-center border border-[#030304]/08"
             >
               {/* Rotating ring */}
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-3 rounded-[2rem] border border-dashed border-[#030304]/12"
+                className="absolute inset-3 rounded-4xl border border-dashed border-[#030304]/12"
               />
               {/* Dark Media icon — four rounded squares */}
               <div className="relative grid grid-cols-2 gap-2">
@@ -1273,7 +1272,7 @@ function MissionVision() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.8, ease }}
-              className="mt-8 text-center text-[12px] text-[#030304]/50 tracking-[0.15em] uppercase max-w-[180px] leading-relaxed"
+              className="mt-8 text-center text-[12px] text-[#030304]/50 tracking-[0.15em] uppercase max-w-45 leading-relaxed"
             >
               From ideas to impact. We're a creative agency that solves, builds, and prevents.
             </motion.p>
@@ -1366,7 +1365,7 @@ function MissionVision() {
               transition={{ duration: 0.8, delay: 0.7, ease }}
               className="flex items-center gap-3 mt-8"
             >
-              <span className="w-2 h-2 rounded-full bg-[#030304]/20 block shrink-0 hidden lg:block" />
+              <span className="w-2 h-2 rounded-full bg-[#030304]/20 shrink-0 hidden lg:block" />
               <div className="h-px flex-1 bg-[#030304]/20 hidden lg:block" />
               {visionTags.map((tag, i) => (
                 <div key={tag} className="flex items-center gap-3">
@@ -1437,7 +1436,7 @@ function MissionVision() {
 /* ---------- contact / footer ---------- */
 function Contact() {
   return (
-    <section id="contact" className="relative bg-[#030304] text-[#F5F5F4] overflow-hidden rounded-t-[2.5rem] md:rounded-t-[4rem] mt-[-2.5rem] md:mt-[-4rem] z-10 shadow-[0_-20px_60px_rgba(0,0,0,0.6)]">
+    <section id="contact" className="relative bg-[#030304] text-[#F5F5F4] overflow-hidden rounded-t-[2.5rem] md:rounded-t-[4rem] -mt-10 md:-mt-16 z-10 shadow-[0_-20px_60px_rgba(0,0,0,0.6)]">
       {/* Animated Aurora/Glow Background for Desktop */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30 mix-blend-screen hidden lg:block">
         <motion.div
@@ -1460,7 +1459,7 @@ function Contact() {
         />
       </div>
 
-      <div className="relative mx-auto max-w-[1600px] px-5 md:px-10 pt-32 md:pt-48 pb-10">
+      <div className="relative mx-auto max-w-400 px-5 md:px-10 pt-32 md:pt-48 pb-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
           <div className="md:col-span-8">
             <Reveal>
@@ -1477,7 +1476,7 @@ function Contact() {
                 Let's make some
                 <br />
                 <span className="relative inline-block mt-2 md:mt-0">
-                  <em className="italic text-transparent bg-clip-text bg-gradient-to-r from-white via-white/80 to-white/40">magic.</em>
+                  <em className="italic text-transparent bg-clip-text bg-linear-to-r from-white via-white/80 to-white/40">magic.</em>
                 </span>
               </h2>
             </Reveal>
@@ -1487,7 +1486,7 @@ function Contact() {
             <Reveal delay={0.2}>
               <Magnetic strength={0.3}>
                 <a href="https://wa.me/919480889252" target="_blank" rel="noopener noreferrer" className="group relative flex items-center justify-center w-36 h-36 md:w-48 md:h-48 rounded-full bg-[#F5F5F4] text-[#030304] overflow-hidden transition-transform duration-500 hover:scale-105 shadow-[0_0_40px_rgba(255,255,255,0.1)]">
-                  <span className="relative z-10 font-display text-2xl md:text-3xl text-center leading-none group-hover:text-white transition-colors duration-500">Get in<br/>Touch</span>
+                  <span className="relative z-10 font-display text-2xl md:text-3xl text-center leading-none group-hover:text-white transition-colors duration-500">Get in<br />Touch</span>
                   <span className="absolute inset-0 bg-[#030304] rounded-full scale-0 origin-center transition-transform duration-500 ease-[0.22,1,0.36,1] group-hover:scale-110" />
                 </a>
               </Magnetic>
@@ -1574,7 +1573,7 @@ function VideoSection() {
   };
 
   return (
-    <motion.section 
+    <motion.section
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
@@ -1595,7 +1594,7 @@ function VideoSection() {
         className="absolute inset-0 w-full h-full object-cover"
       />
       <div className="absolute inset-0 bg-black/10 pointer-events-none" />
-      
+
       {/* Custom Controllers */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex items-center gap-4 z-20">
         <button
@@ -1604,11 +1603,11 @@ function VideoSection() {
         >
           {isPlaying ? (
             <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-              <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+              <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
             </svg>
           ) : (
             <svg className="w-5 h-5 fill-current ml-1" viewBox="0 0 24 24">
-              <path d="M8 5v14l11-7z"/>
+              <path d="M8 5v14l11-7z" />
             </svg>
           )}
         </button>
@@ -1618,11 +1617,11 @@ function VideoSection() {
         >
           {isMuted ? (
             <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-              <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.73v2.06c2.89.86 5 3.54 5 6.67zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+              <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.73v2.06c2.89.86 5 3.54 5 6.67zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z" />
             </svg>
           ) : (
             <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-              <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+              <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
             </svg>
           )}
         </button>
@@ -1638,14 +1637,14 @@ function Index() {
       <Cursor />
       <Nav />
       <Hero />
-      
+
       <StatsStrip />
-       <VideoSection />
-     
-     <MissionVision />
+      <VideoSection />
+
+      <MissionVision />
       <Services />
       {/* <Work /> */}
-       <Clients />
+      <Clients />
       <Contact />
     </main>
   );
