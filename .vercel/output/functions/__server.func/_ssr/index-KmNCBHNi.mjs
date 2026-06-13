@@ -1,7 +1,7 @@
 import { j as jsxRuntimeExports, r as reactExports } from "../_libs/react.mjs";
 import { L as Link } from "../_libs/tanstack__react-router.mjs";
 import { w as whiteLogo } from "./Dark Media Logo - White-QbckA3oL.mjs";
-import { d as useMotionValue, c as useSpring, m as motion, u as useScroll, b as useTransform, a as useInView } from "../_libs/framer-motion.mjs";
+import { d as useMotionValue, c as useSpring, m as motion, u as useScroll, a as useInView, b as useTransform } from "../_libs/framer-motion.mjs";
 import "../_libs/tanstack__router-core.mjs";
 import "../_libs/tanstack__history.mjs";
 import "../_libs/cookie-es.mjs";
@@ -167,6 +167,7 @@ const __vite_glob_0_29 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.de
   __proto__: null,
   default: teamarabia
 }, Symbol.toStringTag, { value: "Module" }));
+const videoSrc = "/assets/IMG_7797-CqZrtVSi.MOV";
 const ease = [0.22, 1, 0.36, 1];
 function Reveal({
   children,
@@ -275,7 +276,7 @@ function Cursor() {
     /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { style: {
       x,
       y
-    }, className: "pointer-events-none fixed top-0 left-0 z-[110] hidden md:block mix-blend-difference", children: /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { animate: {
+    }, className: "pointer-events-none fixed top-0 left-0 z-110 hidden md:block mix-blend-difference", children: /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { animate: {
       scale: hover ? 0 : 1,
       opacity: hover ? 0 : 1
     }, transition: {
@@ -284,7 +285,7 @@ function Cursor() {
     /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { style: {
       x: sx,
       y: sy
-    }, className: "pointer-events-none fixed top-0 left-0 z-[100] hidden md:block mix-blend-difference", children: /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { animate: {
+    }, className: "pointer-events-none fixed top-0 left-0 z-100 hidden md:block mix-blend-difference", children: /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { animate: {
       scale: hover ? 1.8 : 1,
       backgroundColor: hover ? "rgba(255, 255, 255, 1)" : "rgba(255, 255, 255, 0)",
       borderWidth: hover ? "0px" : "1.5px",
@@ -332,7 +333,7 @@ function Nav() {
   const socials = [{
     label: "Instagram",
     abbr: "IG",
-    href: "#"
+    href: "https://www.instagram.com/darkmedia.tech"
   }, {
     label: "Behance",
     abbr: "Be",
@@ -357,19 +358,7 @@ function Nav() {
       duration: 0.9,
       delay: 0.4,
       ease
-    }, className: "fixed top-0 left-0 right-0 z-50 flex justify-center px-4 md:px-6 pt-4 md:pt-6 pointer-events-none", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(motion.div, { animate: {
-      width: "100%",
-      maxWidth: scrolled ? "900px" : "1600px",
-      backgroundColor: scrolled ? "rgba(255, 255, 255, 0.85)" : "transparent",
-      backdropFilter: scrolled ? "blur(16px)" : "blur(0px)",
-      boxShadow: scrolled ? "0 10px 40px -10px rgba(0,0,0,0.08)" : "none",
-      borderColor: scrolled ? "rgba(0,0,0,0.05)" : "transparent",
-      paddingTop: scrolled ? "0.75rem" : "1.25rem",
-      paddingBottom: scrolled ? "0.75rem" : "1.25rem"
-    }, transition: {
-      duration: 0.5,
-      ease: [0.22, 1, 0.36, 1]
-    }, className: "pointer-events-auto flex items-center justify-between px-6 md:px-8 rounded-full border transition-colors", children: [
+    }, className: "fixed top-0 left-0 right-0 z-50 flex justify-center px-4 md:px-6 pt-4 md:pt-6 pointer-events-none", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `pointer-events-auto flex items-center justify-between px-6 md:px-8 rounded-full border w-full transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${scrolled ? "max-w-225 bg-white/85 backdrop-blur-md shadow-soft border-black/5 py-3" : "max-w-400 bg-transparent backdrop-blur-none shadow-none border-transparent py-5"}`, children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "#top", className: "flex items-center gap-2.5", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: whiteLogo, alt: "Dark Media", className: "h-6 md:h-8 w-auto invert opacity-90 transition-transform hover:scale-105 origin-left" }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3 md:gap-5", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "hidden sm:inline-block", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Magnetic, { strength: 0.2, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: "#contact", className: "group relative overflow-hidden inline-flex items-center gap-2 rounded-full bg-[#030304] text-[#F5F5F4] px-6 py-3 text-[11px] uppercase tracking-[0.2em] shadow-soft transition-all hover:shadow-deep", children: [
@@ -421,7 +410,7 @@ function Nav() {
     }, transition: {
       duration: 0.9,
       ease: [0.22, 1, 0.36, 1]
-    }, className: "fixed inset-0 z-[60] bg-[#030304] text-[#F5F5F4] overflow-hidden", style: {
+    }, className: "fixed inset-0 z-60 bg-[#030304] text-[#F5F5F4] overflow-hidden", style: {
       pointerEvents: menuOpen ? "auto" : "none"
     }, children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute inset-0 overflow-hidden pointer-events-none", children: [
@@ -433,7 +422,7 @@ function Nav() {
           duration: 16,
           repeat: Infinity,
           ease: "linear"
-        }, className: "absolute -top-[20%] -left-[10%] w-[60vw] h-[60vw] rounded-full blur-[140px] opacity-[0.12]", style: {
+        }, className: "absolute top-[-20%] left-[-10%] w-[60vw] h-[60vw] rounded-full blur-[140px] opacity-[0.12]", style: {
           background: "radial-gradient(circle, rgba(120,100,255,0.5), rgba(255,120,200,0.3), transparent 70%)"
         } }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { animate: {
@@ -444,7 +433,7 @@ function Nav() {
           duration: 22,
           repeat: Infinity,
           ease: "linear"
-        }, className: "absolute -bottom-[15%] -right-[15%] w-[70vw] h-[70vw] rounded-full blur-[160px] opacity-[0.1]", style: {
+        }, className: "absolute bottom-[-15%] right-[-15%] w-[70vw] h-[70vw] rounded-full blur-[160px] opacity-[0.1]", style: {
           background: "radial-gradient(circle, rgba(60,180,255,0.4), rgba(100,255,200,0.2), transparent 70%)"
         } }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { animate: {
@@ -468,7 +457,7 @@ function Nav() {
           duration: 40,
           repeat: Infinity,
           ease: "linear"
-        }, className: "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vmin] h-[70vmin] rounded-full border border-white/[0.04]", children: [
+        }, className: "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vmin] h-[70vmin] rounded-full border border-white/4", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "absolute -top-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-white/20" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-white/10" })
         ] }),
@@ -478,7 +467,7 @@ function Nav() {
           duration: 60,
           repeat: Infinity,
           ease: "linear"
-        }, className: "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vmin] h-[90vmin] rounded-full border border-white/[0.025]", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "absolute top-1/2 -right-1 -translate-y-1/2 w-1 h-1 rounded-full bg-white/15" }) }),
+        }, className: "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vmin] h-[90vmin] rounded-full border border-white/2.5", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "absolute top-1/2 -right-1 -translate-y-1/2 w-1 h-1 rounded-full bg-white/15" }) }),
         [{
           top: "12%",
           left: "18%",
@@ -581,7 +570,7 @@ function Nav() {
           ] }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-display text-[12vw] sm:text-[10vw] md:text-[8vw] lg:text-[6vw] leading-[0.9] tracking-[-0.04em] text-white/90 group-hover:text-white transition-colors duration-300", children: link.label }),
           /* @__PURE__ */ jsxRuntimeExports.jsx(motion.span, { className: "text-2xl md:text-3xl text-white/0 group-hover:text-white/60 transition-all duration-500 group-hover:translate-x-2 group-hover:-translate-y-2", children: "↗" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-[0.22,1,0.36,1] origin-left" })
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-white/20 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-[0.22,1,0.36,1] origin-left" })
         ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: link.href, onClick: () => setMenuOpen(false), className: "group relative flex items-center gap-4 md:gap-6 py-3 md:py-4 transition-all duration-500", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-[11px] font-mono text-white/25 tracking-wider self-start pt-2 md:pt-4", children: [
             "0",
@@ -589,7 +578,7 @@ function Nav() {
           ] }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-display text-[12vw] sm:text-[10vw] md:text-[8vw] lg:text-[6vw] leading-[0.9] tracking-[-0.04em] text-white/90 group-hover:text-white transition-colors duration-300", children: link.label }),
           /* @__PURE__ */ jsxRuntimeExports.jsx(motion.span, { className: "text-2xl md:text-3xl text-white/0 group-hover:text-white/60 transition-all duration-500 group-hover:translate-x-2 group-hover:-translate-y-2", children: "↗" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-[0.22,1,0.36,1] origin-left" })
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-white/20 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-[0.22,1,0.36,1] origin-left" })
         ] }) }, link.label)) }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute bottom-8 left-8 right-8 md:bottom-10 md:left-10 md:right-10 flex flex-col md:flex-row items-center justify-between gap-6", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsxs(motion.div, { initial: false, animate: menuOpen ? {
@@ -630,7 +619,6 @@ function Nav() {
             duration: 0.5,
             ease
           }, className: "flex items-center gap-6 text-center md:text-right", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "mailto:hello@darkmedia.studio", className: "text-sm text-white/40 hover:text-white/90 transition-colors duration-300", children: "hello@darkmedia.studio" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "hidden md:inline text-white/10", children: "|" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-[10px] uppercase tracking-[0.25em] text-white/20", children: "© 2026 Dark Media" })
           ] })
@@ -639,7 +627,100 @@ function Nav() {
     ] })
   ] });
 }
-function Hero() {
+function MobileHero() {
+  const orbit = ["Web Development", "Videography", "Graphic Design", "Branding"];
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { id: "top", className: "relative min-h-screen overflow-hidden pt-28 md:pt-36 pb-10", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { "aria-hidden": true, className: "absolute inset-0 opacity-[0.04] pointer-events-none", style: {
+      backgroundImage: "linear-gradient(#030304 1px,transparent 1px),linear-gradient(90deg,#030304 1px,transparent 1px)",
+      backgroundSize: "80px 80px"
+    } }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative mx-auto max-w-400 px-5 md:px-10", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-6 items-center", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "lg:col-span-7 relative z-10", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("h1", { className: "font-display text-[18vw] sm:text-[16vw] lg:text-[12.5vw] leading-[0.86] tracking-[-0.045em] text-[#030304]", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "block", children: /* @__PURE__ */ jsxRuntimeExports.jsx(SplitWord, { text: "Build.", delay: 0.3 }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "block", children: /* @__PURE__ */ jsxRuntimeExports.jsx(SplitWord, { text: "Brand.", delay: 0.45 }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "block italic font-display", children: /* @__PURE__ */ jsxRuntimeExports.jsx(SplitWord, { text: "Impact.", delay: 0.6 }) })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: 1, className: "mt-8 flex items-center gap-3 text-[11px] uppercase tracking-[0.24em] text-[#030304]/60", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "h-px w-10 bg-[#030304]/40" }) })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "lg:col-span-5 relative h-[60vw] sm:h-[50vw] lg:h-[42vw] max-h-160 flex items-center justify-center", children: [
+          [1, 1.25, 1.55].map((s, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { initial: {
+            opacity: 0,
+            scale: 0.6
+          }, animate: {
+            opacity: 1,
+            scale: s
+          }, transition: {
+            delay: 0.8 + i * 0.15,
+            duration: 1.4,
+            ease
+          }, className: "absolute aspect-square w-[70%] rounded-full border border-[#030304]/12" }, i)),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { animate: {
+            rotate: 360
+          }, transition: {
+            duration: 24,
+            repeat: Infinity,
+            ease: "linear"
+          }, className: "absolute aspect-square w-[108%] rounded-full", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "absolute -top-1 left-1/2 w-2 h-2 -translate-x-1/2 rounded-full bg-[#030304]" }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(motion.div, { initial: {
+            opacity: 0,
+            scale: 0.6
+          }, animate: {
+            opacity: 1,
+            scale: 1
+          }, transition: {
+            delay: 0.5,
+            duration: 1.4,
+            ease
+          }, className: "relative aspect-square w-[58%] rounded-full shadow-deep", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute inset-0 rounded-full overflow-hidden", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0", style: {
+                background: "radial-gradient(circle at 32% 30%, #ffffff 0%, #e8e7e3 35%, #b8b6b0 60%, #030304 95%)"
+              } }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-y-0 right-0 w-1/2 bg-[#030304]" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0", style: {
+                background: "radial-gradient(circle at 30% 28%, rgba(255,255,255,0.6), transparent 35%)"
+              } })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute -inset-6 rounded-full", style: {
+              background: "radial-gradient(circle, rgba(3,3,4,0.18), transparent 65%)",
+              zIndex: -1
+            } })
+          ] }),
+          orbit.map((label, i) => {
+            const angle = i / orbit.length * Math.PI * 2 - Math.PI / 2;
+            const r = 48;
+            const top = 50 + Math.sin(angle) * r;
+            const left = 50 + Math.cos(angle) * r;
+            return /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { initial: {
+              opacity: 0,
+              scale: 0.6
+            }, animate: {
+              opacity: 1,
+              scale: 1
+            }, transition: {
+              delay: 1.1 + i * 0.12,
+              duration: 0.7,
+              ease
+            }, style: {
+              top: `${top}%`,
+              left: `${left}%`
+            }, className: "absolute -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#F5F5F4] shadow-soft border border-[#030304]/10 px-4 py-2 text-[11px] uppercase tracking-[0.18em] whitespace-nowrap text-[#030304]", children: label }, label);
+          })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(Reveal, { delay: 1.1, className: "mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-6 items-end", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "md:col-span-5 text-[#030304]/70 text-base md:text-lg leading-relaxed max-w-md", children: "We craft premium websites, branding systems, graphic design, videography, and digital experiences that help ambitious businesses stand out." }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:col-span-4 md:col-start-7 flex items-center gap-4", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/portfolio", className: "group inline-flex items-center gap-3 rounded-full bg-[#030304] text-[#F5F5F4] px-6 py-4 text-[12px] uppercase tracking-[0.22em] shadow-soft", children: [
+          "Explore Our Work",
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "inline-block transition-transform group-hover:translate-x-1 group-hover:-translate-y-1", children: "↗" })
+        ] }) })
+      ] })
+    ] })
+  ] });
+}
+function DesktopHero() {
   const ref = reactExports.useRef(null);
   const {
     scrollYProgress
@@ -661,6 +742,9 @@ function Hero() {
     stiffness: 60,
     damping: 20
   });
+  const combinedSphereY = useTransform([smy, sphereY], ([latestSmy, latestSphereY]) => {
+    return latestSmy + latestSphereY;
+  });
   reactExports.useEffect(() => {
     const on = (e) => {
       const cx = window.innerWidth / 2;
@@ -680,7 +764,7 @@ function Hero() {
     /* @__PURE__ */ jsxRuntimeExports.jsxs(motion.div, { style: {
       y: yText,
       opacity
-    }, className: "relative mx-auto max-w-[1600px] px-5 md:px-10", children: [
+    }, className: "relative mx-auto max-w-400 px-5 md:px-10", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-6 items-center", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "lg:col-span-7 relative z-10", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsxs("h1", { className: "font-display text-[18vw] sm:text-[16vw] lg:text-[12.5vw] leading-[0.86] tracking-[-0.045em] text-[#030304]", children: [
@@ -690,7 +774,7 @@ function Hero() {
           ] }),
           /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: 1, className: "mt-8 flex items-center gap-3 text-[11px] uppercase tracking-[0.24em] text-[#030304]/60", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "h-px w-10 bg-[#030304]/40" }) })
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "lg:col-span-5 relative h-[60vw] sm:h-[50vw] lg:h-[42vw] max-h-[640px] flex items-center justify-center", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "lg:col-span-5 relative h-[60vw] sm:h-[50vw] lg:h-[42vw] max-h-160 flex items-center justify-center", children: [
           [1, 1.25, 1.55].map((s, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { initial: {
             opacity: 0,
             scale: 0.6
@@ -711,7 +795,7 @@ function Hero() {
           }, className: "absolute aspect-square w-[108%] rounded-full", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "absolute -top-1 left-1/2 w-2 h-2 -translate-x-1/2 rounded-full bg-[#030304]" }) }),
           /* @__PURE__ */ jsxRuntimeExports.jsxs(motion.div, { style: {
             x: smx,
-            y: useTransform(smy, (v) => v + sphereY.get()),
+            y: combinedSphereY,
             rotate: sphereRot
           }, initial: {
             opacity: 0,
@@ -762,13 +846,10 @@ function Hero() {
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs(Reveal, { delay: 1.1, className: "mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-6 items-end", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "md:col-span-5 text-[#030304]/70 text-base md:text-lg leading-relaxed max-w-md", children: "We craft premium websites, branding systems, graphic design, videography, and digital experiences that help ambitious businesses stand out." }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "md:col-span-4 md:col-start-7 flex items-center gap-4", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(Magnetic, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/portfolio", className: "group inline-flex items-center gap-3 rounded-full bg-[#030304] text-[#F5F5F4] px-6 py-4 text-[12px] uppercase tracking-[0.22em] shadow-soft", children: [
-            "Explore Our Work",
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "inline-block transition-transform group-hover:translate-x-1 group-hover:-translate-y-1", children: "↗" })
-          ] }) }),
-          
-        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:col-span-4 md:col-start-7 flex items-center gap-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Magnetic, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/portfolio", className: "group inline-flex items-center gap-3 rounded-full bg-[#030304] text-[#F5F5F4] px-6 py-4 text-[12px] uppercase tracking-[0.22em] shadow-soft", children: [
+          "Explore Our Work",
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "inline-block transition-transform group-hover:translate-x-1 group-hover:-translate-y-1", children: "↗" })
+        ] }) }) }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "md:col-span-3 text-[11px] uppercase tracking-[0.24em] text-[#030304]/60 md:text-right", children: [
           "Follow —",
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "ml-3 inline-flex gap-2", children: ["Be", "IG", "Li"].map((s) => /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "rounded-full border border-[#030304]/25 px-2 py-1", children: s }, s)) })
@@ -784,6 +865,24 @@ function Hero() {
     }, className: "absolute bottom-6 right-6 md:right-10 hidden md:flex items-center gap-3 text-[10px] uppercase tracking-[0.3em] text-[#030304]/60 [writing-mode:vertical-rl] rotate-180", children: "Scroll to Explore" })
   ] });
 }
+function Hero() {
+  const [isMobile, setIsMobile] = reactExports.useState(null);
+  reactExports.useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024 || window.matchMedia("(pointer: coarse)").matches);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+  if (isMobile === null) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsx("section", { id: "top", className: "relative min-h-screen overflow-hidden pt-28 md:pt-36 pb-10", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { "aria-hidden": true, className: "absolute inset-0 opacity-[0.04] pointer-events-none", style: {
+      backgroundImage: "linear-gradient(#030304 1px,transparent 1px),linear-gradient(90deg,#030304 1px,transparent 1px)",
+      backgroundSize: "80px 80px"
+    } }) });
+  }
+  return isMobile ? /* @__PURE__ */ jsxRuntimeExports.jsx(MobileHero, {}) : /* @__PURE__ */ jsxRuntimeExports.jsx(DesktopHero, {});
+}
 function StatsStrip() {
   const stats = [{
     n: "150+",
@@ -798,7 +897,7 @@ function StatsStrip() {
     n: "12",
     l: "Awards"
   }];
-  return /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "border-y border-[#030304]/10 bg-[#F5F5F4]", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mx-auto max-w-[1600px] grid grid-cols-2 md:grid-cols-5", children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "border-y border-[#030304]/10 bg-[#F5F5F4]", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mx-auto max-w-400 grid grid-cols-2 md:grid-cols-5", children: [
     stats.map((s, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs(motion.div, { initial: {
       opacity: 0,
       y: 30
@@ -823,7 +922,7 @@ function StatsStrip() {
       once: true
     }, transition: {
       delay: 0.4
-    }, className: "px-6 md:px-10 py-8 md:py-10 flex items-center gap-3 text-[12px] uppercase tracking-[0.22em] text-[#030304] bg-[#030304] text-[#F5F5F4] sm:w-full", children: [
+    }, className: "px-6 md:px-10 py-8 md:py-10 flex items-center gap-3 text-[12px] uppercase tracking-[0.22em] bg-[#030304] text-[#F5F5F4] sm:w-full", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "relative flex h-2 w-2", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "absolute inline-flex h-full w-full animate-ping rounded-full bg-[#F5F5F4] opacity-70" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "relative inline-flex h-2 w-2 rounded-full bg-[#F5F5F4] " })
@@ -866,8 +965,8 @@ function Clients() {
     "../assets/images/Clientslogos/teamarabia.png": __vite_glob_0_29
   });
   const logos = Object.values(logoModules).map((mod) => mod.default);
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "relative py-24 md:py-36 overflow-hidden bg-[#030304] text-[#F5F5F4] rounded-[40px] md:rounded-[60px] mx-4 md:mx-10 my-20 shadow-2xl", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute inset-0 pointer-events-none overflow-hidden rounded-[40px] md:rounded-[60px] z-0", children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "relative py-24 md:py-36 overflow-hidden bg-[#030304] text-[#F5F5F4] rounded-[40px] md:rounded-[60px] mx-4 md:mx-10 my-20 shadow-2xl", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute inset-0 pointer-events-none overflow-hidden rounded-[40px] md:rounded-[60px] z-0 hidden lg:block", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { animate: {
         rotate: 360,
         scale: [1, 1.2, 1]
@@ -875,7 +974,7 @@ function Clients() {
         duration: 40,
         repeat: Infinity,
         ease: "linear"
-      }, className: "absolute -top-[50%] -left-[10%] w-[80vw] h-[80vw] rounded-full blur-[100px] opacity-[0.15]", style: {
+      }, className: "absolute top-[-50%] left-[-10%] w-[80vw] h-[80vw] rounded-full blur-[100px] opacity-[0.15]", style: {
         background: "radial-gradient(circle, #ffffff 0%, transparent 60%)"
       } }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { animate: {
@@ -885,7 +984,7 @@ function Clients() {
         duration: 50,
         repeat: Infinity,
         ease: "linear"
-      }, className: "absolute -bottom-[40%] -right-[20%] w-[60vw] h-[60vw] rounded-full blur-[120px] opacity-[0.1]", style: {
+      }, className: "absolute bottom-[-40%] right-[-20%] w-[60vw] h-[60vw] rounded-full blur-[120px] opacity-[0.1]", style: {
         background: "radial-gradient(circle, #ffffff 0%, transparent 60%)"
       } }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 opacity-[0.05]", style: {
@@ -893,7 +992,16 @@ function Clients() {
         backgroundSize: "6px 6px"
       } })
     ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative z-10 mx-auto max-w-[1600px] px-5 md:px-10 mb-16 md:mb-24 grid grid-cols-1 md:grid-cols-12 gap-10 items-end", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute inset-0 pointer-events-none overflow-hidden rounded-[40px] md:rounded-[60px] z-0 lg:hidden", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute top-[-20%] left-[-10%] w-screen h-[100vw] rounded-full opacity-[0.1]", style: {
+        background: "radial-gradient(circle, #ffffff 0%, transparent 65%)"
+      } }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 opacity-[0.05]", style: {
+        backgroundImage: "radial-gradient(#F5F5F4 1px, transparent 1px)",
+        backgroundSize: "6px 6px"
+      } })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative z-10 mx-auto max-w-400 px-5 md:px-10 mb-16 md:mb-24 grid grid-cols-1 md:grid-cols-12 gap-10 items-end", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs(Reveal, { className: "md:col-span-8", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "inline-flex items-center gap-2 rounded-full border border-[#F5F5F4]/15 bg-[#F5F5F4]/5 backdrop-blur px-4 py-2 text-[11px] uppercase tracking-[0.24em] text-[#F5F5F4]/70 mb-8 shadow-soft", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "relative flex h-1.5 w-1.5", children: [
@@ -919,9 +1027,9 @@ function Clients() {
         duration: row === 0 ? 50 : 60,
         repeat: Infinity,
         ease: "linear"
-      }, className: "flex gap-6 md:gap-8 pr-6 md:pr-8 w-max", children: [...rowLogos, ...rowLogos, ...rowLogos, ...rowLogos].map((logo, i) => /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "group relative flex items-center justify-center h-24 md:h-32 min-w-[200px] md:min-w-[260px] px-8 md:px-10 rounded-3xl bg-[#F5F5F4]/[0.03] border border-[#F5F5F4]/10 backdrop-blur-md hover:bg-[#F5F5F4]/10 hover:border-[#F5F5F4]/30 hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 cursor-pointer overflow-hidden", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: logo, alt: "Client Logo", className: "relative z-10 max-h-12 md:max-h-16 w-auto object-contain opacity-60 group-hover:opacity-100 transition-all duration-500 filter grayscale brightness-200 group-hover:filter-none" }) }, `${row}-${i}`)) }) }, row);
+      }, className: "flex gap-6 md:gap-8 pr-6 md:pr-8 w-max", children: [...rowLogos, ...rowLogos, ...rowLogos, ...rowLogos].map((logo, i) => /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "group relative flex items-center justify-center h-24 md:h-32 min-w-50 md:min-w-65 px-8 md:px-10 rounded-3xl bg-[#F5F5F4]/3 border border-[#F5F5F4]/10 backdrop-blur-md hover:bg-[#F5F5F4]/10 hover:border-[#F5F5F4]/30 hover:-translate-y-2 hover:shadow-2xl transition-all duration-500 cursor-pointer overflow-hidden", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: logo, alt: "Client Logo", className: "relative z-10 max-h-12 md:max-h-16 w-auto object-contain opacity-60 group-hover:opacity-100 transition-all duration-500 filter grayscale brightness-200 group-hover:filter-none" }) }, `${row}-${i}`)) }) }, row);
     }) })
-  ] });
+  ] }) });
 }
 function Services() {
   const items = [{
@@ -949,8 +1057,8 @@ function Services() {
     span: "col-span-1 md:col-span-3 md:row-span-1 flex-col md:flex-row md:items-center",
     art: "linear-gradient(90deg, rgba(255,255,255,0.03), transparent)"
   }];
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { id: "services", className: "relative py-28 md:py-44 bg-[#030304] text-[#F5F5F4] overflow-hidden rounded-[2.5rem] md:rounded-[4rem] mx-2 md:mx-4 my-10 shadow-2xl", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute inset-0 overflow-hidden pointer-events-none opacity-20", children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { id: "services", className: "relative py-28 md:py-44 bg-[#030304] text-[#F5F5F4] overflow-hidden  rounded-3xl md:rounded-[4rem] mx-2 md:mx-4 my-10 shadow-2xl", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute inset-0 overflow-hidden pointer-events-none opacity-20 hidden lg:block", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { animate: {
         x: ["-10%", "30%", "-10%"],
         y: ["0%", "20%", "0%"],
@@ -959,7 +1067,7 @@ function Services() {
         duration: 20,
         repeat: Infinity,
         ease: "linear"
-      }, className: "absolute top-0 left-[-10%] w-[50vw] h-[50vw] bg-gradient-to-r from-gray-500 to-gray-700 rounded-full blur-[140px] mix-blend-screen" }),
+      }, className: "absolute top-0 left-[-10%] w-[50vw] h-[50vw] bg-linear-to-r from-gray-500 to-gray-700 rounded-full blur-[140px] mix-blend-screen" }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { animate: {
         x: ["20%", "-20%", "20%"],
         y: ["20%", "0%", "20%"],
@@ -968,8 +1076,11 @@ function Services() {
         duration: 25,
         repeat: Infinity,
         ease: "linear"
-      }, className: "absolute bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] bg-gradient-to-r from-gray-600 to-gray-400 rounded-full blur-[160px] mix-blend-screen" })
+      }, className: "absolute bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] bg-linear-to-r from-gray-600 to-gray-400 rounded-full blur-[160px] mix-blend-screen" })
     ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 overflow-hidden pointer-events-none opacity-10 lg:hidden z-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute top-0 left-[-20%] w-screen h-[100vw] rounded-full", style: {
+      background: "radial-gradient(circle, rgba(100,100,100,0.3) 0%, transparent 65%)"
+    } }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute top-1/2 -translate-y-1/2 left-0 right-0 overflow-hidden pointer-events-none opacity-[0.03] flex whitespace-nowrap z-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { animate: {
       x: ["0%", "-50%"]
     }, transition: {
@@ -977,7 +1088,7 @@ function Services() {
       repeat: Infinity,
       ease: "linear"
     }, className: "font-display text-[25vw] leading-none tracking-tight flex shrink-0", children: "WHAT WE DO — WHAT WE DO — WHAT WE DO — WHAT WE DO —" }) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative z-10 mx-auto max-w-[1600px] px-5 md:px-10", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative z-10 mx-auto max-w-400 px-5 md:px-10", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-1 md:grid-cols-12 gap-8 items-end mb-16 md:mb-24", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs(Reveal, { className: "md:col-span-7", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-[11px] uppercase tracking-[0.24em] opacity-60 mb-5 flex items-center gap-2", children: [
@@ -1004,7 +1115,7 @@ function Services() {
         duration: 0.8,
         delay: i * 0.1,
         ease
-      }, className: `group relative overflow-hidden rounded-[2rem] bg-[#0a0a0b] border border-white/5 p-8 md:p-12 hover:border-white/20 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] flex justify-between ${s.span}`, children: [
+      }, className: `group relative overflow-hidden rounded-4xl bg-[#0a0a0b] border border-white/5 p-8 md:p-12 hover:border-white/20 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] flex justify-between ${s.span}`, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700", style: {
           background: s.art
         } }),
@@ -1050,10 +1161,10 @@ function MissionVision() {
     const drawn = p * total;
     return `${drawn} ${total}`;
   };
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { ref: sectionRef, className: "relative py-28 md:py-44 overflow-hidden bg-[#F5F5F4]", style: {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { ref: sectionRef, className: "relative py-28 md:py-44 overflow-hidden bg-[#F5F5F4] -mt-20 -mb-30", style: {
     perspective: "1200px"
   }, children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute inset-0 pointer-events-none", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute inset-0 pointer-events-none hidden lg:block", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { animate: {
         x: ["-5%", "15%", "-5%"],
         y: ["0%", "20%", "0%"]
@@ -1079,7 +1190,16 @@ function MissionVision() {
         backgroundSize: "32px 32px"
       } })
     ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative z-10 mx-auto max-w-[1600px] px-5 md:px-10", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute inset-0 pointer-events-none lg:hidden", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute top-[-10%] left-[-10%] w-[80vw] h-[80vw] rounded-full opacity-[0.05]", style: {
+        background: "radial-gradient(circle, #030304 0%, transparent 65%)"
+      } }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 opacity-[0.06]", style: {
+        backgroundImage: "radial-gradient(#030304 1px, transparent 1px)",
+        backgroundSize: "32px 32px"
+      } })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative z-10 mx-auto max-w-400 px-5 md:px-10", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs(motion.div, { initial: {
         opacity: 0,
         y: 50
@@ -1196,7 +1316,7 @@ function MissionVision() {
               } }) })
             ] }, tag)),
             /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-px flex-1 bg-[#030304]/20 hidden lg:block" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "w-2 h-2 rounded-full bg-[#030304]/20 block shrink-0 hidden lg:block" })
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "w-2 h-2 rounded-full bg-[#030304]/20 shrink-0 hidden lg:block" })
           ] }),
           /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { initial: {
             x: 60,
@@ -1238,14 +1358,14 @@ function MissionVision() {
           }, whileHover: {
             scale: 1.06,
             rotate: 3
-          }, className: "relative z-10 w-36 h-36 md:w-44 md:h-44 rounded-[2.5rem] bg-gradient-to-br from-white to-[#e8e7e3] shadow-[0_20px_60px_rgba(0,0,0,0.12)] flex items-center justify-center border border-[#030304]/08", children: [
+          }, className: "relative z-10 w-36 h-36 md:w-44 md:h-44 rounded-[2.5rem] bg-linear-to-br from-white to-[#e8e7e3] shadow-[0_20px_60px_rgba(0,0,0,0.12)] flex items-center justify-center border border-[#030304]/08", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { animate: {
               rotate: 360
             }, transition: {
               duration: 20,
               repeat: Infinity,
               ease: "linear"
-            }, className: "absolute inset-3 rounded-[2rem] border border-dashed border-[#030304]/12" }),
+            }, className: "absolute inset-3 rounded-4xl border border-dashed border-[#030304]/12" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative grid grid-cols-2 gap-2", children: [0, 1, 2, 3].map((i) => /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { animate: {
               scale: [1, 1.1, 1],
               borderRadius: ["30%", "50%", "30%"]
@@ -1274,7 +1394,7 @@ function MissionVision() {
             duration: 0.8,
             delay: 0.8,
             ease
-          }, className: "mt-8 text-center text-[12px] text-[#030304]/50 tracking-[0.15em] uppercase max-w-[180px] leading-relaxed", children: "From ideas to impact. We're a creative agency that solves, builds, and prevents." }),
+          }, className: "mt-8 text-center text-[12px] text-[#030304]/50 tracking-[0.15em] uppercase max-w-45 leading-relaxed", children: "From ideas to impact. We're a creative agency that solves, builds, and prevents." }),
           /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { initial: {
             opacity: 0,
             y: 20
@@ -1360,7 +1480,7 @@ function MissionVision() {
             delay: 0.7,
             ease
           }, className: "flex items-center gap-3 mt-8", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "w-2 h-2 rounded-full bg-[#030304]/20 block shrink-0 hidden lg:block" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "w-2 h-2 rounded-full bg-[#030304]/20 shrink-0 hidden lg:block" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-px flex-1 bg-[#030304]/20 hidden lg:block" }),
             visionTags.map((tag, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3", children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx(motion.span, { whileHover: {
@@ -1406,7 +1526,7 @@ function MissionVision() {
         duration: 0.8,
         delay: 1.1,
         ease
-      }, className: "mt-24 md:mt-32 overflow-hidden border-y border-[#030304]/10 py-5 relative", children: /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { animate: {
+      }, className: "mt-6 md:mt-12  overflow-hidden border-y border-[#030304]/10 py-5 relative", children: /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { animate: {
         x: ["0%", "-50%"]
       }, transition: {
         duration: 22,
@@ -1417,8 +1537,8 @@ function MissionVision() {
   ] });
 }
 function Contact() {
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { id: "contact", className: "relative bg-[#030304] text-[#F5F5F4] overflow-hidden rounded-t-[2.5rem] md:rounded-t-[4rem] mt-[-2.5rem] md:mt-[-4rem] z-10 shadow-[0_-20px_60px_rgba(0,0,0,0.6)]", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute inset-0 overflow-hidden pointer-events-none opacity-30 mix-blend-screen", children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { id: "contact", className: "relative bg-[#030304] text-[#F5F5F4] overflow-hidden rounded-t-[2.5rem] md:rounded-t-[4rem] -mt-10 md:-mt-16 z-10 shadow-[0_-20px_60px_rgba(0,0,0,0.6)]", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute inset-0 overflow-hidden pointer-events-none opacity-30 mix-blend-screen hidden lg:block", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { animate: {
         x: ["-10%", "60%", "-20%", "-10%"],
         y: ["-10%", "40%", "80%", "-10%"],
@@ -1438,7 +1558,10 @@ function Contact() {
         ease: "linear"
       }, className: "absolute bottom-0 right-0 w-[70vw] h-[70vw] bg-white/10 rounded-full blur-[100px] md:blur-[160px]" })
     ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative mx-auto max-w-[1600px] px-5 md:px-10 pt-32 md:pt-48 pb-10", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 overflow-hidden pointer-events-none opacity-15 mix-blend-screen lg:hidden", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute top-0 left-0 w-[90vw] h-[90vw] rounded-full", style: {
+      background: "radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 65%)"
+    } }) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative mx-auto max-w-400 px-5 md:px-10 pt-32 md:pt-48 pb-10", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-1 md:grid-cols-12 gap-12 items-start", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "md:col-span-8", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "inline-flex items-center gap-3 rounded-full border border-[#F5F5F4]/20 bg-[#F5F5F4]/5 backdrop-blur-md px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-[#F5F5F4]/80 mb-8", children: [
@@ -1451,10 +1574,10 @@ function Contact() {
           /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: 0.1, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { className: "font-display text-[15vw] md:text-[10vw] leading-[0.85] tracking-[-0.04em]", children: [
             "Let's make some",
             /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "relative inline-block mt-2 md:mt-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx("em", { className: "italic text-transparent bg-clip-text bg-gradient-to-r from-white via-white/80 to-white/40", children: "magic." }) })
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "relative inline-block mt-2 md:mt-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx("em", { className: "italic text-transparent bg-clip-text bg-linear-to-r from-white via-white/80 to-white/40", children: "magic." }) })
           ] }) })
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:col-span-4 flex justify-start md:justify-end md:pt-8", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: 0.2, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Magnetic, { strength: 0.3, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: "mailto:hello@darkmedia.studio", className: "group relative flex items-center justify-center w-36 h-36 md:w-48 md:h-48 rounded-full bg-[#F5F5F4] text-[#030304] overflow-hidden transition-transform duration-500 hover:scale-105 shadow-[0_0_40px_rgba(255,255,255,0.1)]", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:col-span-4 flex justify-start md:justify-end md:pt-8", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: 0.2, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Magnetic, { strength: 0.3, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: "https://wa.me/919480889252", target: "_blank", rel: "noopener noreferrer", className: "group relative flex items-center justify-center w-36 h-36 md:w-48 md:h-48 rounded-full bg-[#F5F5F4] text-[#030304] overflow-hidden transition-transform duration-500 hover:scale-105 shadow-[0_0_40px_rgba(255,255,255,0.1)]", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "relative z-10 font-display text-2xl md:text-3xl text-center leading-none group-hover:text-white transition-colors duration-500", children: [
             "Get in",
             /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
@@ -1470,19 +1593,80 @@ function Contact() {
         ] }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs(Reveal, { delay: 0.2, className: "md:col-span-4", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-[11px] uppercase tracking-[0.24em] opacity-40 mb-5", children: "Contact" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "opacity-80 leading-relaxed text-sm md:text-base", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "mailto:hello@darkmedia.studio", className: "hover:text-white transition-colors inline-block mb-1", children: "hello@darkmedia.studio" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "tel:+4512345678", className: "hover:text-white transition-colors inline-block", children: "+45 12 34 56 78" })
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "opacity-80 leading-relaxed text-sm md:text-base flex flex-col gap-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://wa.me/919480889252", target: "_blank", rel: "noopener noreferrer", className: "hover:text-white transition-colors inline-flex items-center gap-2", children: "+91 94808 89252" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://wa.me/917483156464", target: "_blank", rel: "noopener noreferrer", className: "hover:text-white transition-colors inline-flex items-center gap-2", children: "+91 74831 56464" })
           ] })
         ] }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs(Reveal, { delay: 0.25, className: "md:col-span-4", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-[11px] uppercase tracking-[0.24em] opacity-40 mb-5", children: "Socials" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "flex flex-wrap gap-4 md:gap-6", children: ["Behance", "Instagram", "LinkedIn", "Twitter"].map((s) => /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "#", className: "text-sm md:text-base opacity-80 hover:opacity-100 hover:-translate-y-1 inline-block transition-transform duration-300", children: s }) }, s)) })
+          /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "flex flex-wrap gap-4 md:gap-6", children: [{
+            name: "Behance",
+            href: "#"
+          }, {
+            name: "Instagram",
+            href: "https://www.instagram.com/darkmedia.tech"
+          }, {
+            name: "LinkedIn",
+            href: "#"
+          }, {
+            name: "Twitter",
+            href: "#"
+          }].map((s) => /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: s.href, target: s.href !== "#" ? "_blank" : void 0, rel: s.href !== "#" ? "noopener noreferrer" : void 0, className: "text-sm md:text-base opacity-80 hover:opacity-100 hover:-translate-y-1 inline-block transition-transform duration-300", children: s.name }) }, s.name)) })
         ] })
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-20 md:mt-28 flex justify-center pb-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: 0.3, children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: whiteLogo, alt: "Dark Media", className: "w-[85vw] md:w-[65vw] max-w-5xl opacity-90 drop-shadow-2xl" }) }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-[11px] uppercase tracking-[0.22em] opacity-40 pt-8 border-t border-[#F5F5F4]/10", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { children: "© 2026 Dark Media · All rights reserved" }) })
+    ] })
+  ] });
+}
+function VideoSection() {
+  const videoRef = reactExports.useRef(null);
+  const [isPlaying, setIsPlaying] = reactExports.useState(true);
+  const [isMuted, setIsMuted] = reactExports.useState(true);
+  const togglePlay = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !isMuted;
+      setIsMuted(!isMuted);
+    }
+  };
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(motion.section, { initial: {
+    opacity: 0,
+    y: 50
+  }, whileInView: {
+    opacity: 1,
+    y: 0
+  }, viewport: {
+    once: true,
+    margin: "-100px"
+  }, transition: {
+    duration: 0.9,
+    ease: [0.22, 1, 0.36, 1]
+  }, className: "relative w-auto h-[60vh] md:h-screen overflow-hidden bg-[#030304] rounded-[40px] md:rounded-[60px] mx-4 md:mx-10 my-20 shadow-2xl border border-white/10", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(motion.video, { ref: videoRef, src: videoSrc, autoPlay: true, loop: true, muted: isMuted, playsInline: true, initial: {
+      scale: 1.1
+    }, whileInView: {
+      scale: 1
+    }, viewport: {
+      once: true
+    }, transition: {
+      duration: 1.5,
+      ease: [0.22, 1, 0.36, 1]
+    }, className: "absolute inset-0 w-full h-full object-cover" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-black/10 pointer-events-none" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute bottom-10 left-1/2 -translate-x-1/2 flex items-center gap-4 z-20", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: togglePlay, className: "group relative flex items-center justify-center w-14 h-14 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white hover:text-black transition-all duration-300", children: isPlaying ? /* @__PURE__ */ jsxRuntimeExports.jsx("svg", { className: "w-5 h-5 fill-current", viewBox: "0 0 24 24", children: /* @__PURE__ */ jsxRuntimeExports.jsx("path", { d: "M6 19h4V5H6v14zm8-14v14h4V5h-4z" }) }) : /* @__PURE__ */ jsxRuntimeExports.jsx("svg", { className: "w-5 h-5 fill-current ml-1", viewBox: "0 0 24 24", children: /* @__PURE__ */ jsxRuntimeExports.jsx("path", { d: "M8 5v14l11-7z" }) }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: toggleMute, className: "group relative flex items-center justify-center w-14 h-14 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white hover:text-black transition-all duration-300", children: isMuted ? /* @__PURE__ */ jsxRuntimeExports.jsx("svg", { className: "w-5 h-5 fill-current", viewBox: "0 0 24 24", children: /* @__PURE__ */ jsxRuntimeExports.jsx("path", { d: "M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.73v2.06c2.89.86 5 3.54 5 6.67zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z" }) }) : /* @__PURE__ */ jsxRuntimeExports.jsx("svg", { className: "w-5 h-5 fill-current", viewBox: "0 0 24 24", children: /* @__PURE__ */ jsxRuntimeExports.jsx("path", { d: "M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" }) }) })
     ] })
   ] });
 }
@@ -1492,9 +1676,10 @@ function Index() {
     /* @__PURE__ */ jsxRuntimeExports.jsx(Nav, {}),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Hero, {}),
     /* @__PURE__ */ jsxRuntimeExports.jsx(StatsStrip, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(Clients, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(Services, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(VideoSection, {}),
     /* @__PURE__ */ jsxRuntimeExports.jsx(MissionVision, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Services, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Clients, {}),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Contact, {})
   ] });
 }

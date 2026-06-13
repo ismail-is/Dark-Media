@@ -35,6 +35,32 @@ function Nav() {
   ] }) });
 }
 function BgAnimation() {
+  const [isMobile, setIsMobile] = reactExports.useState(null);
+  reactExports.useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024 || window.matchMedia("(pointer: coarse)").matches);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+  if (isMobile === null) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 overflow-hidden bg-[#030304] z-0 pointer-events-none", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 opacity-[0.04] mix-blend-overlay", style: {
+      backgroundImage: "radial-gradient(#F5F5F4 1px, transparent 1px)",
+      backgroundSize: "4px 4px"
+    } }) });
+  }
+  if (isMobile) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute inset-0 overflow-hidden bg-[#030304] z-0 pointer-events-none", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute -top-[10%] -left-[10%] w-[90vw] h-[90vw] rounded-full opacity-[0.2]", style: {
+        background: "radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 75%)"
+      } }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 opacity-[0.04] mix-blend-overlay", style: {
+        backgroundImage: "radial-gradient(#F5F5F4 1px, transparent 1px)",
+        backgroundSize: "4px 4px"
+      } })
+    ] });
+  }
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute inset-0 overflow-hidden bg-[#030304] z-0 pointer-events-none", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { animate: {
       scale: [1, 1.25, 1],

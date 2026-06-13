@@ -18,7 +18,7 @@ import "stream";
 import "../_libs/isbot.mjs";
 import "../_libs/motion-dom.mjs";
 import "../_libs/motion-utils.mjs";
-const appCss = "/assets/styles-CoV2JpVz.css";
+const appCss = "/assets/styles-BFiZ1l2a.css";
 const faviconUrl = "/assets/icon-R8k6vMZX.jpeg";
 function reportLovableError(error, context = {}) {
   if (typeof window === "undefined") return;
@@ -106,7 +106,7 @@ const Route$5 = createRootRouteWithContext()({
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=DotGothic16&family=Playfair+Display:ital,wght@0,400..800;1,400..800&family=Outfit:wght@300;400;500;600;700&display=swap" }
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" }
     ]
   }),
   shellComponent: RootShell,
@@ -127,7 +127,7 @@ function RootComponent() {
   const { queryClient } = Route$5.useRouteContext();
   return /* @__PURE__ */ jsxRuntimeExports.jsx(QueryClientProvider, { client: queryClient, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Outlet, {}) });
 }
-const $$splitComponentImporter$4 = () => import("./portfolio-Bn4ifucW.mjs");
+const $$splitComponentImporter$4 = () => import("./portfolio-B3R65Pq3.mjs");
 const Route$4 = createFileRoute("/portfolio")({
   head: () => ({
     meta: [{
@@ -139,7 +139,7 @@ const Route$4 = createFileRoute("/portfolio")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$4, "component")
 });
-const $$splitComponentImporter$3 = () => import("./contact-DSbkmrpr.mjs");
+const $$splitComponentImporter$3 = () => import("./contact-BEQ-_pkZ.mjs");
 const Route$3 = createFileRoute("/contact")({
   head: () => ({
     meta: [{
@@ -151,7 +151,7 @@ const Route$3 = createFileRoute("/contact")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$3, "component")
 });
-const $$splitComponentImporter$2 = () => import("./about-DA7taAY_.mjs");
+const $$splitComponentImporter$2 = () => import("./about-BHz7kcqg.mjs");
 const Route$2 = createFileRoute("/about")({
   head: () => ({
     meta: [{
@@ -163,7 +163,7 @@ const Route$2 = createFileRoute("/about")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$2, "component")
 });
-const $$splitComponentImporter$1 = () => import("./index-sT_SQ0CS.mjs");
+const $$splitComponentImporter$1 = () => import("./index-KmNCBHNi.mjs");
 const Route$1 = createFileRoute("/")({
   head: () => ({
     meta: [{

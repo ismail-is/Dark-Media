@@ -1,6 +1,6 @@
 import { j as jsxRuntimeExports, r as reactExports } from "../_libs/react.mjs";
 import { L as Link } from "../_libs/tanstack__react-router.mjs";
-import { u as useScroll, b as useTransform, d as useMotionValue, c as useSpring, m as motion, a as useInView } from "../_libs/framer-motion.mjs";
+import { u as useScroll, b as useTransform, m as motion, d as useMotionValue, c as useSpring, a as useInView } from "../_libs/framer-motion.mjs";
 import "../_libs/tanstack__router-core.mjs";
 import "../_libs/tanstack__history.mjs";
 import "../_libs/cookie-es.mjs";
@@ -70,6 +70,32 @@ function CountUp({
 function AnimatedBg({
   dark = false
 }) {
+  const [isMobile, setIsMobile] = reactExports.useState(null);
+  reactExports.useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024 || window.matchMedia("(pointer: coarse)").matches);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+  if (isMobile === null) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 overflow-hidden pointer-events-none z-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 opacity-[0.04] mix-blend-overlay", style: {
+      backgroundImage: "radial-gradient(#030304 1px, transparent 1px)",
+      backgroundSize: "4px 4px"
+    } }) });
+  }
+  if (isMobile) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute inset-0 overflow-hidden pointer-events-none z-0", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute -top-1/4 -left-1/4 w-[80vw] h-[80vw] rounded-full opacity-60", style: {
+        background: dark ? "radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 75%)" : "radial-gradient(circle, rgba(3,3,4,0.04) 0%, transparent 75%)"
+      } }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 opacity-[0.04] mix-blend-overlay", style: {
+        backgroundImage: "radial-gradient(#030304 1px, transparent 1px)",
+        backgroundSize: "4px 4px"
+      } })
+    ] });
+  }
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute inset-0 overflow-hidden pointer-events-none z-0", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(motion.div, { animate: {
       x: [0, 60, -40, 0],
@@ -154,7 +180,56 @@ function Nav() {
     ] })
   ] }) });
 }
-function Hero() {
+function MobileHero() {
+  const words = ["We", "Are", "Dark", "Media."];
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "relative min-h-screen flex flex-col justify-center overflow-hidden bg-[#F5F5F4]", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(AnimatedBg, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { "aria-hidden": true, className: "absolute inset-0 opacity-[0.03] pointer-events-none", style: {
+      backgroundImage: "linear-gradient(#030304 1px,transparent 1px),linear-gradient(90deg,#030304 1px,transparent 1px)",
+      backgroundSize: "80px 80px"
+    } }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Nav, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative z-10 mx-auto max-w-[1600px] px-5 md:px-10 pt-32 pb-20 w-full", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(motion.div, { initial: {
+        opacity: 0,
+        y: 20
+      }, animate: {
+        opacity: 1,
+        y: 0
+      }, transition: {
+        delay: 0.5,
+        duration: 0.8,
+        ease
+      }, className: "inline-flex items-center gap-2 rounded-full border border-[#030304]/15 bg-[#030304]/[0.04] px-4 py-2 text-[11px] uppercase tracking-[0.28em] text-[#030304]/70 mb-12", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(motion.span, { animate: {
+          rotate: 360
+        }, transition: {
+          duration: 8,
+          repeat: Infinity,
+          ease: "linear"
+        }, children: "✦" }),
+        "Our Story"
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "font-display text-[17vw] sm:text-[14vw] lg:text-[11vw] leading-[0.87] tracking-[-0.04em] text-[#030304] mb-12 md:mb-20", children: words.map((w, i) => /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "block overflow-hidden", children: /* @__PURE__ */ jsxRuntimeExports.jsx(motion.span, { className: "block", initial: {
+        y: "110%"
+      }, animate: {
+        y: "0%"
+      }, transition: {
+        duration: 1.1,
+        delay: 0.3 + i * 0.12,
+        ease
+      }, children: i === 2 || i === 3 ? /* @__PURE__ */ jsxRuntimeExports.jsx("em", { className: "italic", children: w }) : w }) }, w)) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(Reveal, { delay: 0.9, className: "grid grid-cols-1 md:grid-cols-12 gap-8 items-end border-t border-[#030304]/10 pt-10", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "md:col-span-5 text-[#030304]/70 text-base md:text-xl leading-relaxed font-light", children: "A creative studio built for the bold. We design, build, and grow brands that refuse to be ignored." }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:col-span-4 md:col-start-9 flex gap-6", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: "#story", className: "group inline-flex items-center gap-2 text-[12px] uppercase tracking-[0.2em] text-[#030304]", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "flex h-10 w-10 items-center justify-center rounded-full bg-[#030304] text-[#F5F5F4] transition-transform group-hover:scale-110", children: "↓" }),
+          "Discover More"
+        ] }) })
+      ] })
+    ] })
+  ] });
+}
+function DesktopHero() {
   const ref = reactExports.useRef(null);
   const {
     scrollYProgress
@@ -248,6 +323,24 @@ function Hero() {
       ease: "easeInOut"
     }, className: "w-5 h-8 rounded-full border border-[#030304]/25 flex items-start justify-center pt-1.5", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-1 h-1.5 rounded-full bg-[#030304]/50" }) }) })
   ] });
+}
+function Hero() {
+  const [isMobile, setIsMobile] = reactExports.useState(null);
+  reactExports.useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024 || window.matchMedia("(pointer: coarse)").matches);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+  if (isMobile === null) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "relative min-h-screen flex flex-col justify-center overflow-hidden bg-[#F5F5F4]", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { "aria-hidden": true, className: "absolute inset-0 opacity-[0.03] pointer-events-none", style: {
+      backgroundImage: "linear-gradient(#030304 1px,transparent 1px),linear-gradient(90deg,#030304 1px,transparent 1px)",
+      backgroundSize: "80px 80px"
+    } }) });
+  }
+  return isMobile ? /* @__PURE__ */ jsxRuntimeExports.jsx(MobileHero, {}) : /* @__PURE__ */ jsxRuntimeExports.jsx(DesktopHero, {});
 }
 function Stats() {
   const stats = [{
