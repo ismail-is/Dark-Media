@@ -767,10 +767,7 @@ function Hero() {
             "Explore Our Work",
             /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "inline-block transition-transform group-hover:translate-x-1 group-hover:-translate-y-1", children: "↗" })
           ] }) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: "#", className: "group inline-flex items-center gap-3 text-[12px] uppercase tracking-[0.22em] text-[#030304]", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "flex h-10 w-10 items-center justify-center rounded-full border border-[#030304]/30 group-hover:bg-[#030304] group-hover:text-[#F5F5F4] transition-colors", children: "▶" }),
-            "Watch Showreel"
-          ] })
+          
         ] }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "md:col-span-3 text-[11px] uppercase tracking-[0.24em] text-[#030304]/60 md:text-right", children: [
           "Follow —",
