@@ -1538,10 +1538,10 @@ function Contact() {
 
         <div className="mt-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-[11px] uppercase tracking-[0.22em] opacity-40 pt-8 border-t border-[#F5F5F4]/10">
           <div>© 2026 Dark Media · All rights reserved</div>
-          {/* <div className="flex items-center gap-3">
-            <img src={logoMark.url} alt="" className="w-5 h-5 rounded-full grayscale opacity-70" />
+          <div className="flex items-center gap-3">
+            <img src={whiteLogo} alt="" className="w-auto h-4 grayscale opacity-70" />
             Designed in Copenhagen
-          </div> */}
+          </div>
         </div>
       </div>
     </section>
