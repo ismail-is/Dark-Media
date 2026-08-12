@@ -11,11 +11,11 @@ export const Route = createFileRoute('/google-ads-ppc-management')({
       { property: 'og:title', content: "Google Ads & PPC Management Services | Dark Media" },
       { property: 'og:description', content: "Certified PPC experts running high-ROI Google Ads campaigns for businesses in India & UAE." },
       { property: 'og:type', content: 'website' },
-      { property: 'og:url', content: 'https://darkmedia.tech' + slug },
+      { property: 'og:url', content: 'https://darkmedia.tech/google-ads-ppc-management' },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: "Google Ads & PPC Management Services | Dark Media" },
       { name: 'twitter:description', content: "Certified PPC experts running high-ROI Google Ads campaigns for businesses in India & UAE." },
-      { rel: 'canonical', href: 'https://darkmedia.tech' + slug },
+      { rel: 'canonical', href: 'https://darkmedia.tech/google-ads-ppc-management' },
       ...[]
     ],
     scripts: [

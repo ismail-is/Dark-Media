@@ -11,11 +11,11 @@ export const Route = createFileRoute('/digital-marketing-mangalore')({
       { property: 'og:title', content: "Best Digital Marketing Agency in Mangalore | Dark Media" },
       { property: 'og:description', content: "SEO, social media & PPC experts helping Mangalore businesses grow online. Free consultation — call Dark Media today." },
       { property: 'og:type', content: 'website' },
-      { property: 'og:url', content: 'https://darkmedia.tech' + slug },
+      { property: 'og:url', content: 'https://darkmedia.tech/digital-marketing-mangalore' },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: "Best Digital Marketing Agency in Mangalore | Dark Media" },
       { name: 'twitter:description', content: "SEO, social media & PPC experts helping Mangalore businesses grow online. Free consultation — call Dark Media today." },
-      { rel: 'canonical', href: 'https://darkmedia.tech' + slug },
+      { rel: 'canonical', href: 'https://darkmedia.tech/digital-marketing-mangalore' },
       ...[{"name":"geo.region","content":"IN-KA"},{"name":"geo.placename","content":"Mangalore, Karnataka, India"},{"name":"geo.position","content":"12.9141;74.8560"},{"name":"ICBM","content":"12.9141, 74.8560"}]
     ],
     scripts: [

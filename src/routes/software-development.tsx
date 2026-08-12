@@ -11,11 +11,11 @@ export const Route = createFileRoute('/software-development')({
       { property: 'og:title', content: "Custom Software Development Company | Dark Media" },
       { property: 'og:description', content: "Enterprise & startup software solutions — SaaS, automation tools & custom platforms built to scale." },
       { property: 'og:type', content: 'website' },
-      { property: 'og:url', content: 'https://darkmedia.tech' + slug },
+      { property: 'og:url', content: 'https://darkmedia.tech/software-development' },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: "Custom Software Development Company | Dark Media" },
       { name: 'twitter:description', content: "Enterprise & startup software solutions — SaaS, automation tools & custom platforms built to scale." },
-      { rel: 'canonical', href: 'https://darkmedia.tech' + slug },
+      { rel: 'canonical', href: 'https://darkmedia.tech/software-development' },
       ...[]
     ],
     scripts: [

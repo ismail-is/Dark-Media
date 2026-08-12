@@ -11,11 +11,11 @@ export const Route = createFileRoute('/app-development-bangalore')({
       { property: 'og:title', content: "Mobile App Development Company in Bangalore | Dark Media" },
       { property: 'og:description', content: "Android & iOS app developers in Bangalore — from idea to App Store launch." },
       { property: 'og:type', content: 'website' },
-      { property: 'og:url', content: 'https://darkmedia.tech' + slug },
+      { property: 'og:url', content: 'https://darkmedia.tech/app-development-bangalore' },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: "Mobile App Development Company in Bangalore | Dark Media" },
       { name: 'twitter:description', content: "Android & iOS app developers in Bangalore — from idea to App Store launch." },
-      { rel: 'canonical', href: 'https://darkmedia.tech' + slug },
+      { rel: 'canonical', href: 'https://darkmedia.tech/app-development-bangalore' },
       ...[{"name":"geo.region","content":"IN-KA"},{"name":"geo.placename","content":"Bengaluru, Karnataka, India"},{"name":"geo.position","content":"12.9716;77.5946"},{"name":"ICBM","content":"12.9716, 77.5946"}]
     ],
     scripts: [

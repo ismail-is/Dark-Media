@@ -11,11 +11,11 @@ export const Route = createFileRoute('/app-development-dubai')({
       { property: 'og:title', content: "App Development Company in Dubai | Dark Media" },
       { property: 'og:description', content: "iOS & Android app development for UAE businesses — scalable, secure, and App Store ready." },
       { property: 'og:type', content: 'website' },
-      { property: 'og:url', content: 'https://darkmedia.tech' + slug },
+      { property: 'og:url', content: 'https://darkmedia.tech/app-development-dubai' },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: "App Development Company in Dubai | Dark Media" },
       { name: 'twitter:description', content: "iOS & Android app development for UAE businesses — scalable, secure, and App Store ready." },
-      { rel: 'canonical', href: 'https://darkmedia.tech' + slug },
+      { rel: 'canonical', href: 'https://darkmedia.tech/app-development-dubai' },
       ...[{"name":"geo.region","content":"AE-DU"},{"name":"geo.placename","content":"Dubai, UAE"},{"name":"geo.position","content":"25.2048;55.2708"},{"name":"ICBM","content":"25.2048, 55.2708"}]
     ],
     scripts: [

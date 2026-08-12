@@ -11,11 +11,11 @@ export const Route = createFileRoute('/ecommerce-website-development-dubai')({
       { property: 'og:title', content: "Ecommerce Website Development in Dubai | Dark Media" },
       { property: 'og:description', content: "UAE ecommerce store development with local payment gateway integration & Arabic/English support." },
       { property: 'og:type', content: 'website' },
-      { property: 'og:url', content: 'https://darkmedia.tech' + slug },
+      { property: 'og:url', content: 'https://darkmedia.tech/ecommerce-website-development-dubai' },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: "Ecommerce Website Development in Dubai | Dark Media" },
       { name: 'twitter:description', content: "UAE ecommerce store development with local payment gateway integration & Arabic/English support." },
-      { rel: 'canonical', href: 'https://darkmedia.tech' + slug },
+      { rel: 'canonical', href: 'https://darkmedia.tech/ecommerce-website-development-dubai' },
       ...[{"name":"geo.region","content":"AE-DU"},{"name":"geo.placename","content":"Dubai, UAE"},{"name":"geo.position","content":"25.2048;55.2708"},{"name":"ICBM","content":"25.2048, 55.2708"}]
     ],
     scripts: [

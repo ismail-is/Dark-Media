@@ -11,11 +11,11 @@ export const Route = createFileRoute('/digital-marketing-dubai')({
       { property: 'og:title', content: "Digital Marketing Agency in Dubai | Dark Media" },
       { property: 'og:description', content: "Dubai-based digital marketing services — SEO, paid ads & branding for UAE businesses. Book a free strategy call." },
       { property: 'og:type', content: 'website' },
-      { property: 'og:url', content: 'https://darkmedia.tech' + slug },
+      { property: 'og:url', content: 'https://darkmedia.tech/digital-marketing-dubai' },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: "Digital Marketing Agency in Dubai | Dark Media" },
       { name: 'twitter:description', content: "Dubai-based digital marketing services — SEO, paid ads & branding for UAE businesses. Book a free strategy call." },
-      { rel: 'canonical', href: 'https://darkmedia.tech' + slug },
+      { rel: 'canonical', href: 'https://darkmedia.tech/digital-marketing-dubai' },
       ...[{"name":"geo.region","content":"AE-DU"},{"name":"geo.placename","content":"Dubai, UAE"},{"name":"geo.position","content":"25.2048;55.2708"},{"name":"ICBM","content":"25.2048, 55.2708"}]
     ],
     scripts: [

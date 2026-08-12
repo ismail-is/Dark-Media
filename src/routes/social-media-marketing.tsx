@@ -11,11 +11,11 @@ export const Route = createFileRoute('/social-media-marketing')({
       { property: 'og:title', content: "Social Media Marketing Agency | Dark Media" },
       { property: 'og:description', content: "Grow your brand on Instagram, Facebook & LinkedIn with strategy-led social media management." },
       { property: 'og:type', content: 'website' },
-      { property: 'og:url', content: 'https://darkmedia.tech' + slug },
+      { property: 'og:url', content: 'https://darkmedia.tech/social-media-marketing' },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: "Social Media Marketing Agency | Dark Media" },
       { name: 'twitter:description', content: "Grow your brand on Instagram, Facebook & LinkedIn with strategy-led social media management." },
-      { rel: 'canonical', href: 'https://darkmedia.tech' + slug },
+      { rel: 'canonical', href: 'https://darkmedia.tech/social-media-marketing' },
       ...[]
     ],
     scripts: [

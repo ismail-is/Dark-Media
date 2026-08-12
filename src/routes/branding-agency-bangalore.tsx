@@ -11,11 +11,11 @@ export const Route = createFileRoute('/branding-agency-bangalore')({
       { property: 'og:title', content: "Branding & Logo Design Agency in Bangalore | Dark Media" },
       { property: 'og:description', content: "Build a brand that stands out — strategy, logo & identity design for Bangalore companies." },
       { property: 'og:type', content: 'website' },
-      { property: 'og:url', content: 'https://darkmedia.tech' + slug },
+      { property: 'og:url', content: 'https://darkmedia.tech/branding-agency-bangalore' },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: "Branding & Logo Design Agency in Bangalore | Dark Media" },
       { name: 'twitter:description', content: "Build a brand that stands out — strategy, logo & identity design for Bangalore companies." },
-      { rel: 'canonical', href: 'https://darkmedia.tech' + slug },
+      { rel: 'canonical', href: 'https://darkmedia.tech/branding-agency-bangalore' },
       ...[{"name":"geo.region","content":"IN-KA"},{"name":"geo.placename","content":"Bengaluru, Karnataka, India"},{"name":"geo.position","content":"12.9716;77.5946"},{"name":"ICBM","content":"12.9716, 77.5946"}]
     ],
     scripts: [

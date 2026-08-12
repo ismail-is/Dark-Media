@@ -11,11 +11,11 @@ export const Route = createFileRoute('/branding-agency-mangalore')({
       { property: 'og:title', content: "Branding Agency in Mangalore | Logo & Identity Design | Dark Media" },
       { property: 'og:description', content: "Complete brand identity design — logos, guidelines & brand strategy for Mangalore businesses." },
       { property: 'og:type', content: 'website' },
-      { property: 'og:url', content: 'https://darkmedia.tech' + slug },
+      { property: 'og:url', content: 'https://darkmedia.tech/branding-agency-mangalore' },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: "Branding Agency in Mangalore | Logo & Identity Design | Dark Media" },
       { name: 'twitter:description', content: "Complete brand identity design — logos, guidelines & brand strategy for Mangalore businesses." },
-      { rel: 'canonical', href: 'https://darkmedia.tech' + slug },
+      { rel: 'canonical', href: 'https://darkmedia.tech/branding-agency-mangalore' },
       ...[{"name":"geo.region","content":"IN-KA"},{"name":"geo.placename","content":"Mangalore, Karnataka, India"},{"name":"geo.position","content":"12.9141;74.8560"},{"name":"ICBM","content":"12.9141, 74.8560"}]
     ],
     scripts: [

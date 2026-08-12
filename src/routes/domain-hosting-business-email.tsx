@@ -11,11 +11,11 @@ export const Route = createFileRoute('/domain-hosting-business-email')({
       { property: 'og:title', content: "Domain Registration, Business Email & Hosting Setup | Dark Media" },
       { property: 'og:description', content: "Get your domain, professional business email (@yourcompany.com) & fast hosting set up — done for you." },
       { property: 'og:type', content: 'website' },
-      { property: 'og:url', content: 'https://darkmedia.tech' + slug },
+      { property: 'og:url', content: 'https://darkmedia.tech/domain-hosting-business-email' },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: "Domain Registration, Business Email & Hosting Setup | Dark Media" },
       { name: 'twitter:description', content: "Get your domain, professional business email (@yourcompany.com) & fast hosting set up — done for you." },
-      { rel: 'canonical', href: 'https://darkmedia.tech' + slug },
+      { rel: 'canonical', href: 'https://darkmedia.tech/domain-hosting-business-email' },
       ...[]
     ],
     scripts: [

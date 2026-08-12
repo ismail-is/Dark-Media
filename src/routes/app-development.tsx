@@ -11,11 +11,11 @@ export const Route = createFileRoute('/app-development')({
       { property: 'og:title', content: "App Development Company – Android & iOS | Dark Media" },
       { property: 'og:description', content: "Custom Android, iOS & cross-platform app development for startups & enterprises. Mangalore · Bangalore · Dubai." },
       { property: 'og:type', content: 'website' },
-      { property: 'og:url', content: 'https://darkmedia.tech' + slug },
+      { property: 'og:url', content: 'https://darkmedia.tech/app-development' },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: "App Development Company – Android & iOS | Dark Media" },
       { name: 'twitter:description', content: "Custom Android, iOS & cross-platform app development for startups & enterprises. Mangalore · Bangalore · Dubai." },
-      { rel: 'canonical', href: 'https://darkmedia.tech' + slug },
+      { rel: 'canonical', href: 'https://darkmedia.tech/app-development' },
       ...[]
     ],
     scripts: [

@@ -11,11 +11,11 @@ export const Route = createFileRoute('/ecommerce-website-development')({
       { property: 'og:title', content: "Ecommerce Website Development Company | Shopify & WooCommerce | Dark Media" },
       { property: 'og:description', content: "Build a high-converting online store — Shopify, WooCommerce & custom ecommerce development for Mangalore, Bangalore & Dubai." },
       { property: 'og:type', content: 'website' },
-      { property: 'og:url', content: 'https://darkmedia.tech' + slug },
+      { property: 'og:url', content: 'https://darkmedia.tech/ecommerce-website-development' },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: "Ecommerce Website Development Company | Shopify & WooCommerce | Dark Media" },
       { name: 'twitter:description', content: "Build a high-converting online store — Shopify, WooCommerce & custom ecommerce development for Mangalore, Bangalore & Dubai." },
-      { rel: 'canonical', href: 'https://darkmedia.tech' + slug },
+      { rel: 'canonical', href: 'https://darkmedia.tech/ecommerce-website-development' },
       ...[]
     ],
     scripts: [

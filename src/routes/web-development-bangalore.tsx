@@ -11,11 +11,11 @@ export const Route = createFileRoute('/web-development-bangalore')({
       { property: 'og:title', content: "Web Design & Development Company in Bangalore | Dark Media" },
       { property: 'og:description', content: "Professional website design & development agency in Bangalore — responsive, fast, SEO-optimised." },
       { property: 'og:type', content: 'website' },
-      { property: 'og:url', content: 'https://darkmedia.tech' + slug },
+      { property: 'og:url', content: 'https://darkmedia.tech/web-development-bangalore' },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: "Web Design & Development Company in Bangalore | Dark Media" },
       { name: 'twitter:description', content: "Professional website design & development agency in Bangalore — responsive, fast, SEO-optimised." },
-      { rel: 'canonical', href: 'https://darkmedia.tech' + slug },
+      { rel: 'canonical', href: 'https://darkmedia.tech/web-development-bangalore' },
       ...[{"name":"geo.region","content":"IN-KA"},{"name":"geo.placename","content":"Bengaluru, Karnataka, India"},{"name":"geo.position","content":"12.9716;77.5946"},{"name":"ICBM","content":"12.9716, 77.5946"}]
     ],
     scripts: [

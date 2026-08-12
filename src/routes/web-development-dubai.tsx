@@ -11,11 +11,11 @@ export const Route = createFileRoute('/web-development-dubai')({
       { property: 'og:title', content: "Website Development Company in Dubai | Dark Media" },
       { property: 'og:description', content: "UAE-focused website design & development — bilingual, fast, and built for local search." },
       { property: 'og:type', content: 'website' },
-      { property: 'og:url', content: 'https://darkmedia.tech' + slug },
+      { property: 'og:url', content: 'https://darkmedia.tech/web-development-dubai' },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: "Website Development Company in Dubai | Dark Media" },
       { name: 'twitter:description', content: "UAE-focused website design & development — bilingual, fast, and built for local search." },
-      { rel: 'canonical', href: 'https://darkmedia.tech' + slug },
+      { rel: 'canonical', href: 'https://darkmedia.tech/web-development-dubai' },
       ...[{"name":"geo.region","content":"AE-DU"},{"name":"geo.placename","content":"Dubai, UAE"},{"name":"geo.position","content":"25.2048;55.2708"},{"name":"ICBM","content":"25.2048, 55.2708"}]
     ],
     scripts: [

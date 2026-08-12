@@ -170,11 +170,11 @@ export const Route = createFileRoute('${slug}')({
       { property: 'og:title', content: ${JSON.stringify(title)} },
       { property: 'og:description', content: ${JSON.stringify(desc)} },
       { property: 'og:type', content: 'website' },
-      { property: 'og:url', content: 'https://darkmedia.tech' + slug },
+      { property: 'og:url', content: 'https://darkmedia.tech${slug}' },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: ${JSON.stringify(title)} },
       { name: 'twitter:description', content: ${JSON.stringify(desc)} },
-      { rel: 'canonical', href: 'https://darkmedia.tech' + slug },
+      { rel: 'canonical', href: 'https://darkmedia.tech${slug}' },
       ...${JSON.stringify(geoTags)}
     ],
     scripts: ${JSON.stringify(jsonLdScripts, null, 2)}

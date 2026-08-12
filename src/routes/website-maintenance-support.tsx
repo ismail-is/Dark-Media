@@ -11,11 +11,11 @@ export const Route = createFileRoute('/website-maintenance-support')({
       { property: 'og:title', content: "Website Maintenance & Support Plans | Dark Media" },
       { property: 'og:description', content: "Ongoing website updates, security monitoring & speed optimisation — keep your site running smoothly." },
       { property: 'og:type', content: 'website' },
-      { property: 'og:url', content: 'https://darkmedia.tech' + slug },
+      { property: 'og:url', content: 'https://darkmedia.tech/website-maintenance-support' },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: "Website Maintenance & Support Plans | Dark Media" },
       { name: 'twitter:description', content: "Ongoing website updates, security monitoring & speed optimisation — keep your site running smoothly." },
-      { rel: 'canonical', href: 'https://darkmedia.tech' + slug },
+      { rel: 'canonical', href: 'https://darkmedia.tech/website-maintenance-support' },
       ...[]
     ],
     scripts: [

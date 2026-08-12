@@ -11,11 +11,11 @@ export const Route = createFileRoute('/sales-landing-page-design')({
       { property: 'og:title', content: "Sales Page & Landing Page Design Services | Dark Media" },
       { property: 'og:description', content: "High-converting sales pages & landing pages designed to turn traffic into leads and customers." },
       { property: 'og:type', content: 'website' },
-      { property: 'og:url', content: 'https://darkmedia.tech' + slug },
+      { property: 'og:url', content: 'https://darkmedia.tech/sales-landing-page-design' },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: "Sales Page & Landing Page Design Services | Dark Media" },
       { name: 'twitter:description', content: "High-converting sales pages & landing pages designed to turn traffic into leads and customers." },
-      { rel: 'canonical', href: 'https://darkmedia.tech' + slug },
+      { rel: 'canonical', href: 'https://darkmedia.tech/sales-landing-page-design' },
       ...[]
     ],
     scripts: [

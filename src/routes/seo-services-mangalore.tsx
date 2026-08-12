@@ -11,11 +11,11 @@ export const Route = createFileRoute('/seo-services-mangalore')({
       { property: 'og:title', content: "SEO Company in Mangalore | Rank #1 on Google | Dark Media" },
       { property: 'og:description', content: "Local SEO experts in Mangalore. On-page, off-page & technical SEO that gets real rankings. Free SEO audit available." },
       { property: 'og:type', content: 'website' },
-      { property: 'og:url', content: 'https://darkmedia.tech' + slug },
+      { property: 'og:url', content: 'https://darkmedia.tech/seo-services-mangalore' },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: "SEO Company in Mangalore | Rank #1 on Google | Dark Media" },
       { name: 'twitter:description', content: "Local SEO experts in Mangalore. On-page, off-page & technical SEO that gets real rankings. Free SEO audit available." },
-      { rel: 'canonical', href: 'https://darkmedia.tech' + slug },
+      { rel: 'canonical', href: 'https://darkmedia.tech/seo-services-mangalore' },
       ...[{"name":"geo.region","content":"IN-KA"},{"name":"geo.placename","content":"Mangalore, Karnataka, India"},{"name":"geo.position","content":"12.9141;74.8560"},{"name":"ICBM","content":"12.9141, 74.8560"}]
     ],
     scripts: [

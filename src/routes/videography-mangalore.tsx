@@ -11,11 +11,11 @@ export const Route = createFileRoute('/videography-mangalore')({
       { property: 'og:title', content: "Videography & Video Production Company in Mangalore | Dark Media" },
       { property: 'og:description', content: "Corporate, brand & promotional video production in Mangalore. Professional crew, fast turnaround." },
       { property: 'og:type', content: 'website' },
-      { property: 'og:url', content: 'https://darkmedia.tech' + slug },
+      { property: 'og:url', content: 'https://darkmedia.tech/videography-mangalore' },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: "Videography & Video Production Company in Mangalore | Dark Media" },
       { name: 'twitter:description', content: "Corporate, brand & promotional video production in Mangalore. Professional crew, fast turnaround." },
-      { rel: 'canonical', href: 'https://darkmedia.tech' + slug },
+      { rel: 'canonical', href: 'https://darkmedia.tech/videography-mangalore' },
       ...[{"name":"geo.region","content":"IN-KA"},{"name":"geo.placename","content":"Mangalore, Karnataka, India"},{"name":"geo.position","content":"12.9141;74.8560"},{"name":"ICBM","content":"12.9141, 74.8560"}]
     ],
     scripts: [

@@ -11,11 +11,11 @@ export const Route = createFileRoute('/digital-marketing-bangalore')({
       { property: 'og:title', content: "Digital Marketing Company in Bangalore | Dark Media" },
       { property: 'og:description', content: "Result-driven digital marketing agency in Bangalore — SEO, ads, content & social media that convert. Get a free audit." },
       { property: 'og:type', content: 'website' },
-      { property: 'og:url', content: 'https://darkmedia.tech' + slug },
+      { property: 'og:url', content: 'https://darkmedia.tech/digital-marketing-bangalore' },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: "Digital Marketing Company in Bangalore | Dark Media" },
       { name: 'twitter:description', content: "Result-driven digital marketing agency in Bangalore — SEO, ads, content & social media that convert. Get a free audit." },
-      { rel: 'canonical', href: 'https://darkmedia.tech' + slug },
+      { rel: 'canonical', href: 'https://darkmedia.tech/digital-marketing-bangalore' },
       ...[{"name":"geo.region","content":"IN-KA"},{"name":"geo.placename","content":"Bengaluru, Karnataka, India"},{"name":"geo.position","content":"12.9716;77.5946"},{"name":"ICBM","content":"12.9716, 77.5946"}]
     ],
     scripts: [

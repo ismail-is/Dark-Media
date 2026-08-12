@@ -11,11 +11,11 @@ export const Route = createFileRoute('/wordpress-development')({
       { property: 'og:title', content: "WordPress Website Developer | Custom WordPress Design | Dark Media" },
       { property: 'og:description', content: "Expert WordPress developers — custom themes, plugins, speed optimisation & migrations for businesses in India & UAE." },
       { property: 'og:type', content: 'website' },
-      { property: 'og:url', content: 'https://darkmedia.tech' + slug },
+      { property: 'og:url', content: 'https://darkmedia.tech/wordpress-development' },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: "WordPress Website Developer | Custom WordPress Design | Dark Media" },
       { name: 'twitter:description', content: "Expert WordPress developers — custom themes, plugins, speed optimisation & migrations for businesses in India & UAE." },
-      { rel: 'canonical', href: 'https://darkmedia.tech' + slug },
+      { rel: 'canonical', href: 'https://darkmedia.tech/wordpress-development' },
       ...[]
     ],
     scripts: [

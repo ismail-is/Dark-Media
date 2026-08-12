@@ -11,11 +11,11 @@ export const Route = createFileRoute('/ui-ux-design')({
       { property: 'og:title', content: "UI/UX Design Services | Dark Media" },
       { property: 'og:description', content: "User-centred UI/UX design for websites & apps that's beautiful and easy to use." },
       { property: 'og:type', content: 'website' },
-      { property: 'og:url', content: 'https://darkmedia.tech' + slug },
+      { property: 'og:url', content: 'https://darkmedia.tech/ui-ux-design' },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: "UI/UX Design Services | Dark Media" },
       { name: 'twitter:description', content: "User-centred UI/UX design for websites & apps that's beautiful and easy to use." },
-      { rel: 'canonical', href: 'https://darkmedia.tech' + slug },
+      { rel: 'canonical', href: 'https://darkmedia.tech/ui-ux-design' },
       ...[]
     ],
     scripts: [

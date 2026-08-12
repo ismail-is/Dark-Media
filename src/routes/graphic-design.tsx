@@ -11,11 +11,11 @@ export const Route = createFileRoute('/graphic-design')({
       { property: 'og:title', content: "Graphic Design Services | Dark Media" },
       { property: 'og:description', content: "Creative graphic design for print & digital — social media creatives, brochures, packaging & more." },
       { property: 'og:type', content: 'website' },
-      { property: 'og:url', content: 'https://darkmedia.tech' + slug },
+      { property: 'og:url', content: 'https://darkmedia.tech/graphic-design' },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: "Graphic Design Services | Dark Media" },
       { name: 'twitter:description', content: "Creative graphic design for print & digital — social media creatives, brochures, packaging & more." },
-      { rel: 'canonical', href: 'https://darkmedia.tech' + slug },
+      { rel: 'canonical', href: 'https://darkmedia.tech/graphic-design' },
       ...[]
     ],
     scripts: [

@@ -11,11 +11,11 @@ export const Route = createFileRoute('/web-development-mangalore')({
       { property: 'og:title', content: "Website Development Company in Mangalore | Dark Media" },
       { property: 'og:description', content: "Custom, fast, SEO-ready websites built in Mangalore. Get a modern website that converts visitors into customers." },
       { property: 'og:type', content: 'website' },
-      { property: 'og:url', content: 'https://darkmedia.tech' + slug },
+      { property: 'og:url', content: 'https://darkmedia.tech/web-development-mangalore' },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: "Website Development Company in Mangalore | Dark Media" },
       { name: 'twitter:description', content: "Custom, fast, SEO-ready websites built in Mangalore. Get a modern website that converts visitors into customers." },
-      { rel: 'canonical', href: 'https://darkmedia.tech' + slug },
+      { rel: 'canonical', href: 'https://darkmedia.tech/web-development-mangalore' },
       ...[{"name":"geo.region","content":"IN-KA"},{"name":"geo.placename","content":"Mangalore, Karnataka, India"},{"name":"geo.position","content":"12.9141;74.8560"},{"name":"ICBM","content":"12.9141, 74.8560"}]
     ],
     scripts: [
