@@ -4,6 +4,7 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
@@ -132,6 +133,15 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const location = useRouterState({ select: (s) => s.location });
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && typeof (window as any).gtag === "function") {
+      (window as any).gtag("event", "page_view", {
+        page_path: location.pathname + location.search,
+      });
+    }
+  }, [location.pathname, location.search]);
 
   return (
     <QueryClientProvider client={queryClient}>

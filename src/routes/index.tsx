@@ -153,7 +153,7 @@ function Nav() {
 
   const navLinks = [
     { label: "Home", href: "#top" },
-    { label: "Work", href: "/portfolio" },
+    // { label: "Work", href: "/portfolio" },
     { label: "Services", href: "#services" },
     { label: "Contact", href: "#contact" },
   ];
