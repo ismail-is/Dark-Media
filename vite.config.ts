@@ -1,7 +1,9 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
-  base: "/Dark-Media/",
+  vite: {
+    base: "/Dark-Media/",
+  },
   nitro: false,
   tanstackStart: {
     server: { entry: "src/server.ts" },
