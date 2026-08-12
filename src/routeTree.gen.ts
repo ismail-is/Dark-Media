@@ -9,20 +9,190 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WordpressDevelopmentMangaloreRouteImport } from './routes/wordpress-development-mangalore'
+import { Route as WordpressDevelopmentRouteImport } from './routes/wordpress-development'
+import { Route as WebsiteMaintenanceSupportRouteImport } from './routes/website-maintenance-support'
+import { Route as WebDevelopmentMangaloreRouteImport } from './routes/web-development-mangalore'
+import { Route as WebDevelopmentDubaiRouteImport } from './routes/web-development-dubai'
+import { Route as WebDevelopmentBangaloreRouteImport } from './routes/web-development-bangalore'
+import { Route as VideographyMangaloreRouteImport } from './routes/videography-mangalore'
+import { Route as UiUxDesignRouteImport } from './routes/ui-ux-design'
+import { Route as SoftwareDevelopmentRouteImport } from './routes/software-development'
+import { Route as SocialMediaMarketingRouteImport } from './routes/social-media-marketing'
+import { Route as SeoServicesMangaloreRouteImport } from './routes/seo-services-mangalore'
+import { Route as SeoServicesBangaloreRouteImport } from './routes/seo-services-bangalore'
+import { Route as SalesLandingPageDesignRouteImport } from './routes/sales-landing-page-design'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
+import { Route as GraphicDesignRouteImport } from './routes/graphic-design'
+import { Route as GoogleAdsPpcManagementRouteImport } from './routes/google-ads-ppc-management'
+import { Route as EcommerceWebsiteDevelopmentDubaiRouteImport } from './routes/ecommerce-website-development-dubai'
+import { Route as EcommerceWebsiteDevelopmentBangaloreRouteImport } from './routes/ecommerce-website-development-bangalore'
+import { Route as EcommerceWebsiteDevelopmentRouteImport } from './routes/ecommerce-website-development'
+import { Route as DomainHostingBusinessEmailRouteImport } from './routes/domain-hosting-business-email'
+import { Route as DigitalMarketingMangaloreRouteImport } from './routes/digital-marketing-mangalore'
+import { Route as DigitalMarketingDubaiRouteImport } from './routes/digital-marketing-dubai'
+import { Route as DigitalMarketingBangaloreRouteImport } from './routes/digital-marketing-bangalore'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as BrandingAgencyMangaloreRouteImport } from './routes/branding-agency-mangalore'
+import { Route as BrandingAgencyBangaloreRouteImport } from './routes/branding-agency-bangalore'
+import { Route as AppDevelopmentDubaiRouteImport } from './routes/app-development-dubai'
+import { Route as AppDevelopmentBangaloreRouteImport } from './routes/app-development-bangalore'
+import { Route as AppDevelopmentRouteImport } from './routes/app-development'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as WorkAlMasoudiRouteImport } from './routes/work/al-masoudi'
 
+const WordpressDevelopmentMangaloreRoute =
+  WordpressDevelopmentMangaloreRouteImport.update({
+    id: '/wordpress-development-mangalore',
+    path: '/wordpress-development-mangalore',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const WordpressDevelopmentRoute = WordpressDevelopmentRouteImport.update({
+  id: '/wordpress-development',
+  path: '/wordpress-development',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WebsiteMaintenanceSupportRoute =
+  WebsiteMaintenanceSupportRouteImport.update({
+    id: '/website-maintenance-support',
+    path: '/website-maintenance-support',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const WebDevelopmentMangaloreRoute = WebDevelopmentMangaloreRouteImport.update({
+  id: '/web-development-mangalore',
+  path: '/web-development-mangalore',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WebDevelopmentDubaiRoute = WebDevelopmentDubaiRouteImport.update({
+  id: '/web-development-dubai',
+  path: '/web-development-dubai',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WebDevelopmentBangaloreRoute = WebDevelopmentBangaloreRouteImport.update({
+  id: '/web-development-bangalore',
+  path: '/web-development-bangalore',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VideographyMangaloreRoute = VideographyMangaloreRouteImport.update({
+  id: '/videography-mangalore',
+  path: '/videography-mangalore',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UiUxDesignRoute = UiUxDesignRouteImport.update({
+  id: '/ui-ux-design',
+  path: '/ui-ux-design',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SoftwareDevelopmentRoute = SoftwareDevelopmentRouteImport.update({
+  id: '/software-development',
+  path: '/software-development',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SocialMediaMarketingRoute = SocialMediaMarketingRouteImport.update({
+  id: '/social-media-marketing',
+  path: '/social-media-marketing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SeoServicesMangaloreRoute = SeoServicesMangaloreRouteImport.update({
+  id: '/seo-services-mangalore',
+  path: '/seo-services-mangalore',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SeoServicesBangaloreRoute = SeoServicesBangaloreRouteImport.update({
+  id: '/seo-services-bangalore',
+  path: '/seo-services-bangalore',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SalesLandingPageDesignRoute = SalesLandingPageDesignRouteImport.update({
+  id: '/sales-landing-page-design',
+  path: '/sales-landing-page-design',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PortfolioRoute = PortfolioRouteImport.update({
   id: '/portfolio',
   path: '/portfolio',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GraphicDesignRoute = GraphicDesignRouteImport.update({
+  id: '/graphic-design',
+  path: '/graphic-design',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GoogleAdsPpcManagementRoute = GoogleAdsPpcManagementRouteImport.update({
+  id: '/google-ads-ppc-management',
+  path: '/google-ads-ppc-management',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EcommerceWebsiteDevelopmentDubaiRoute =
+  EcommerceWebsiteDevelopmentDubaiRouteImport.update({
+    id: '/ecommerce-website-development-dubai',
+    path: '/ecommerce-website-development-dubai',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const EcommerceWebsiteDevelopmentBangaloreRoute =
+  EcommerceWebsiteDevelopmentBangaloreRouteImport.update({
+    id: '/ecommerce-website-development-bangalore',
+    path: '/ecommerce-website-development-bangalore',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const EcommerceWebsiteDevelopmentRoute =
+  EcommerceWebsiteDevelopmentRouteImport.update({
+    id: '/ecommerce-website-development',
+    path: '/ecommerce-website-development',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const DomainHostingBusinessEmailRoute =
+  DomainHostingBusinessEmailRouteImport.update({
+    id: '/domain-hosting-business-email',
+    path: '/domain-hosting-business-email',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const DigitalMarketingMangaloreRoute =
+  DigitalMarketingMangaloreRouteImport.update({
+    id: '/digital-marketing-mangalore',
+    path: '/digital-marketing-mangalore',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const DigitalMarketingDubaiRoute = DigitalMarketingDubaiRouteImport.update({
+  id: '/digital-marketing-dubai',
+  path: '/digital-marketing-dubai',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DigitalMarketingBangaloreRoute =
+  DigitalMarketingBangaloreRouteImport.update({
+    id: '/digital-marketing-bangalore',
+    path: '/digital-marketing-bangalore',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BrandingAgencyMangaloreRoute = BrandingAgencyMangaloreRouteImport.update({
+  id: '/branding-agency-mangalore',
+  path: '/branding-agency-mangalore',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BrandingAgencyBangaloreRoute = BrandingAgencyBangaloreRouteImport.update({
+  id: '/branding-agency-bangalore',
+  path: '/branding-agency-bangalore',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppDevelopmentDubaiRoute = AppDevelopmentDubaiRouteImport.update({
+  id: '/app-development-dubai',
+  path: '/app-development-dubai',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppDevelopmentBangaloreRoute = AppDevelopmentBangaloreRouteImport.update({
+  id: '/app-development-bangalore',
+  path: '/app-development-bangalore',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppDevelopmentRoute = AppDevelopmentRouteImport.update({
+  id: '/app-development',
+  path: '/app-development',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -44,49 +214,339 @@ const WorkAlMasoudiRoute = WorkAlMasoudiRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/app-development': typeof AppDevelopmentRoute
+  '/app-development-bangalore': typeof AppDevelopmentBangaloreRoute
+  '/app-development-dubai': typeof AppDevelopmentDubaiRoute
+  '/branding-agency-bangalore': typeof BrandingAgencyBangaloreRoute
+  '/branding-agency-mangalore': typeof BrandingAgencyMangaloreRoute
   '/contact': typeof ContactRoute
+  '/digital-marketing-bangalore': typeof DigitalMarketingBangaloreRoute
+  '/digital-marketing-dubai': typeof DigitalMarketingDubaiRoute
+  '/digital-marketing-mangalore': typeof DigitalMarketingMangaloreRoute
+  '/domain-hosting-business-email': typeof DomainHostingBusinessEmailRoute
+  '/ecommerce-website-development': typeof EcommerceWebsiteDevelopmentRoute
+  '/ecommerce-website-development-bangalore': typeof EcommerceWebsiteDevelopmentBangaloreRoute
+  '/ecommerce-website-development-dubai': typeof EcommerceWebsiteDevelopmentDubaiRoute
+  '/google-ads-ppc-management': typeof GoogleAdsPpcManagementRoute
+  '/graphic-design': typeof GraphicDesignRoute
   '/portfolio': typeof PortfolioRoute
+  '/sales-landing-page-design': typeof SalesLandingPageDesignRoute
+  '/seo-services-bangalore': typeof SeoServicesBangaloreRoute
+  '/seo-services-mangalore': typeof SeoServicesMangaloreRoute
+  '/social-media-marketing': typeof SocialMediaMarketingRoute
+  '/software-development': typeof SoftwareDevelopmentRoute
+  '/ui-ux-design': typeof UiUxDesignRoute
+  '/videography-mangalore': typeof VideographyMangaloreRoute
+  '/web-development-bangalore': typeof WebDevelopmentBangaloreRoute
+  '/web-development-dubai': typeof WebDevelopmentDubaiRoute
+  '/web-development-mangalore': typeof WebDevelopmentMangaloreRoute
+  '/website-maintenance-support': typeof WebsiteMaintenanceSupportRoute
+  '/wordpress-development': typeof WordpressDevelopmentRoute
+  '/wordpress-development-mangalore': typeof WordpressDevelopmentMangaloreRoute
   '/work/al-masoudi': typeof WorkAlMasoudiRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/app-development': typeof AppDevelopmentRoute
+  '/app-development-bangalore': typeof AppDevelopmentBangaloreRoute
+  '/app-development-dubai': typeof AppDevelopmentDubaiRoute
+  '/branding-agency-bangalore': typeof BrandingAgencyBangaloreRoute
+  '/branding-agency-mangalore': typeof BrandingAgencyMangaloreRoute
   '/contact': typeof ContactRoute
+  '/digital-marketing-bangalore': typeof DigitalMarketingBangaloreRoute
+  '/digital-marketing-dubai': typeof DigitalMarketingDubaiRoute
+  '/digital-marketing-mangalore': typeof DigitalMarketingMangaloreRoute
+  '/domain-hosting-business-email': typeof DomainHostingBusinessEmailRoute
+  '/ecommerce-website-development': typeof EcommerceWebsiteDevelopmentRoute
+  '/ecommerce-website-development-bangalore': typeof EcommerceWebsiteDevelopmentBangaloreRoute
+  '/ecommerce-website-development-dubai': typeof EcommerceWebsiteDevelopmentDubaiRoute
+  '/google-ads-ppc-management': typeof GoogleAdsPpcManagementRoute
+  '/graphic-design': typeof GraphicDesignRoute
   '/portfolio': typeof PortfolioRoute
+  '/sales-landing-page-design': typeof SalesLandingPageDesignRoute
+  '/seo-services-bangalore': typeof SeoServicesBangaloreRoute
+  '/seo-services-mangalore': typeof SeoServicesMangaloreRoute
+  '/social-media-marketing': typeof SocialMediaMarketingRoute
+  '/software-development': typeof SoftwareDevelopmentRoute
+  '/ui-ux-design': typeof UiUxDesignRoute
+  '/videography-mangalore': typeof VideographyMangaloreRoute
+  '/web-development-bangalore': typeof WebDevelopmentBangaloreRoute
+  '/web-development-dubai': typeof WebDevelopmentDubaiRoute
+  '/web-development-mangalore': typeof WebDevelopmentMangaloreRoute
+  '/website-maintenance-support': typeof WebsiteMaintenanceSupportRoute
+  '/wordpress-development': typeof WordpressDevelopmentRoute
+  '/wordpress-development-mangalore': typeof WordpressDevelopmentMangaloreRoute
   '/work/al-masoudi': typeof WorkAlMasoudiRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/app-development': typeof AppDevelopmentRoute
+  '/app-development-bangalore': typeof AppDevelopmentBangaloreRoute
+  '/app-development-dubai': typeof AppDevelopmentDubaiRoute
+  '/branding-agency-bangalore': typeof BrandingAgencyBangaloreRoute
+  '/branding-agency-mangalore': typeof BrandingAgencyMangaloreRoute
   '/contact': typeof ContactRoute
+  '/digital-marketing-bangalore': typeof DigitalMarketingBangaloreRoute
+  '/digital-marketing-dubai': typeof DigitalMarketingDubaiRoute
+  '/digital-marketing-mangalore': typeof DigitalMarketingMangaloreRoute
+  '/domain-hosting-business-email': typeof DomainHostingBusinessEmailRoute
+  '/ecommerce-website-development': typeof EcommerceWebsiteDevelopmentRoute
+  '/ecommerce-website-development-bangalore': typeof EcommerceWebsiteDevelopmentBangaloreRoute
+  '/ecommerce-website-development-dubai': typeof EcommerceWebsiteDevelopmentDubaiRoute
+  '/google-ads-ppc-management': typeof GoogleAdsPpcManagementRoute
+  '/graphic-design': typeof GraphicDesignRoute
   '/portfolio': typeof PortfolioRoute
+  '/sales-landing-page-design': typeof SalesLandingPageDesignRoute
+  '/seo-services-bangalore': typeof SeoServicesBangaloreRoute
+  '/seo-services-mangalore': typeof SeoServicesMangaloreRoute
+  '/social-media-marketing': typeof SocialMediaMarketingRoute
+  '/software-development': typeof SoftwareDevelopmentRoute
+  '/ui-ux-design': typeof UiUxDesignRoute
+  '/videography-mangalore': typeof VideographyMangaloreRoute
+  '/web-development-bangalore': typeof WebDevelopmentBangaloreRoute
+  '/web-development-dubai': typeof WebDevelopmentDubaiRoute
+  '/web-development-mangalore': typeof WebDevelopmentMangaloreRoute
+  '/website-maintenance-support': typeof WebsiteMaintenanceSupportRoute
+  '/wordpress-development': typeof WordpressDevelopmentRoute
+  '/wordpress-development-mangalore': typeof WordpressDevelopmentMangaloreRoute
   '/work/al-masoudi': typeof WorkAlMasoudiRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/contact' | '/portfolio' | '/work/al-masoudi'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/app-development'
+    | '/app-development-bangalore'
+    | '/app-development-dubai'
+    | '/branding-agency-bangalore'
+    | '/branding-agency-mangalore'
+    | '/contact'
+    | '/digital-marketing-bangalore'
+    | '/digital-marketing-dubai'
+    | '/digital-marketing-mangalore'
+    | '/domain-hosting-business-email'
+    | '/ecommerce-website-development'
+    | '/ecommerce-website-development-bangalore'
+    | '/ecommerce-website-development-dubai'
+    | '/google-ads-ppc-management'
+    | '/graphic-design'
+    | '/portfolio'
+    | '/sales-landing-page-design'
+    | '/seo-services-bangalore'
+    | '/seo-services-mangalore'
+    | '/social-media-marketing'
+    | '/software-development'
+    | '/ui-ux-design'
+    | '/videography-mangalore'
+    | '/web-development-bangalore'
+    | '/web-development-dubai'
+    | '/web-development-mangalore'
+    | '/website-maintenance-support'
+    | '/wordpress-development'
+    | '/wordpress-development-mangalore'
+    | '/work/al-masoudi'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/contact' | '/portfolio' | '/work/al-masoudi'
+  to:
+    | '/'
+    | '/about'
+    | '/app-development'
+    | '/app-development-bangalore'
+    | '/app-development-dubai'
+    | '/branding-agency-bangalore'
+    | '/branding-agency-mangalore'
+    | '/contact'
+    | '/digital-marketing-bangalore'
+    | '/digital-marketing-dubai'
+    | '/digital-marketing-mangalore'
+    | '/domain-hosting-business-email'
+    | '/ecommerce-website-development'
+    | '/ecommerce-website-development-bangalore'
+    | '/ecommerce-website-development-dubai'
+    | '/google-ads-ppc-management'
+    | '/graphic-design'
+    | '/portfolio'
+    | '/sales-landing-page-design'
+    | '/seo-services-bangalore'
+    | '/seo-services-mangalore'
+    | '/social-media-marketing'
+    | '/software-development'
+    | '/ui-ux-design'
+    | '/videography-mangalore'
+    | '/web-development-bangalore'
+    | '/web-development-dubai'
+    | '/web-development-mangalore'
+    | '/website-maintenance-support'
+    | '/wordpress-development'
+    | '/wordpress-development-mangalore'
+    | '/work/al-masoudi'
   id:
     | '__root__'
     | '/'
     | '/about'
+    | '/app-development'
+    | '/app-development-bangalore'
+    | '/app-development-dubai'
+    | '/branding-agency-bangalore'
+    | '/branding-agency-mangalore'
     | '/contact'
+    | '/digital-marketing-bangalore'
+    | '/digital-marketing-dubai'
+    | '/digital-marketing-mangalore'
+    | '/domain-hosting-business-email'
+    | '/ecommerce-website-development'
+    | '/ecommerce-website-development-bangalore'
+    | '/ecommerce-website-development-dubai'
+    | '/google-ads-ppc-management'
+    | '/graphic-design'
     | '/portfolio'
+    | '/sales-landing-page-design'
+    | '/seo-services-bangalore'
+    | '/seo-services-mangalore'
+    | '/social-media-marketing'
+    | '/software-development'
+    | '/ui-ux-design'
+    | '/videography-mangalore'
+    | '/web-development-bangalore'
+    | '/web-development-dubai'
+    | '/web-development-mangalore'
+    | '/website-maintenance-support'
+    | '/wordpress-development'
+    | '/wordpress-development-mangalore'
     | '/work/al-masoudi'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AppDevelopmentRoute: typeof AppDevelopmentRoute
+  AppDevelopmentBangaloreRoute: typeof AppDevelopmentBangaloreRoute
+  AppDevelopmentDubaiRoute: typeof AppDevelopmentDubaiRoute
+  BrandingAgencyBangaloreRoute: typeof BrandingAgencyBangaloreRoute
+  BrandingAgencyMangaloreRoute: typeof BrandingAgencyMangaloreRoute
   ContactRoute: typeof ContactRoute
+  DigitalMarketingBangaloreRoute: typeof DigitalMarketingBangaloreRoute
+  DigitalMarketingDubaiRoute: typeof DigitalMarketingDubaiRoute
+  DigitalMarketingMangaloreRoute: typeof DigitalMarketingMangaloreRoute
+  DomainHostingBusinessEmailRoute: typeof DomainHostingBusinessEmailRoute
+  EcommerceWebsiteDevelopmentRoute: typeof EcommerceWebsiteDevelopmentRoute
+  EcommerceWebsiteDevelopmentBangaloreRoute: typeof EcommerceWebsiteDevelopmentBangaloreRoute
+  EcommerceWebsiteDevelopmentDubaiRoute: typeof EcommerceWebsiteDevelopmentDubaiRoute
+  GoogleAdsPpcManagementRoute: typeof GoogleAdsPpcManagementRoute
+  GraphicDesignRoute: typeof GraphicDesignRoute
   PortfolioRoute: typeof PortfolioRoute
+  SalesLandingPageDesignRoute: typeof SalesLandingPageDesignRoute
+  SeoServicesBangaloreRoute: typeof SeoServicesBangaloreRoute
+  SeoServicesMangaloreRoute: typeof SeoServicesMangaloreRoute
+  SocialMediaMarketingRoute: typeof SocialMediaMarketingRoute
+  SoftwareDevelopmentRoute: typeof SoftwareDevelopmentRoute
+  UiUxDesignRoute: typeof UiUxDesignRoute
+  VideographyMangaloreRoute: typeof VideographyMangaloreRoute
+  WebDevelopmentBangaloreRoute: typeof WebDevelopmentBangaloreRoute
+  WebDevelopmentDubaiRoute: typeof WebDevelopmentDubaiRoute
+  WebDevelopmentMangaloreRoute: typeof WebDevelopmentMangaloreRoute
+  WebsiteMaintenanceSupportRoute: typeof WebsiteMaintenanceSupportRoute
+  WordpressDevelopmentRoute: typeof WordpressDevelopmentRoute
+  WordpressDevelopmentMangaloreRoute: typeof WordpressDevelopmentMangaloreRoute
   WorkAlMasoudiRoute: typeof WorkAlMasoudiRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/wordpress-development-mangalore': {
+      id: '/wordpress-development-mangalore'
+      path: '/wordpress-development-mangalore'
+      fullPath: '/wordpress-development-mangalore'
+      preLoaderRoute: typeof WordpressDevelopmentMangaloreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/wordpress-development': {
+      id: '/wordpress-development'
+      path: '/wordpress-development'
+      fullPath: '/wordpress-development'
+      preLoaderRoute: typeof WordpressDevelopmentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/website-maintenance-support': {
+      id: '/website-maintenance-support'
+      path: '/website-maintenance-support'
+      fullPath: '/website-maintenance-support'
+      preLoaderRoute: typeof WebsiteMaintenanceSupportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/web-development-mangalore': {
+      id: '/web-development-mangalore'
+      path: '/web-development-mangalore'
+      fullPath: '/web-development-mangalore'
+      preLoaderRoute: typeof WebDevelopmentMangaloreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/web-development-dubai': {
+      id: '/web-development-dubai'
+      path: '/web-development-dubai'
+      fullPath: '/web-development-dubai'
+      preLoaderRoute: typeof WebDevelopmentDubaiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/web-development-bangalore': {
+      id: '/web-development-bangalore'
+      path: '/web-development-bangalore'
+      fullPath: '/web-development-bangalore'
+      preLoaderRoute: typeof WebDevelopmentBangaloreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/videography-mangalore': {
+      id: '/videography-mangalore'
+      path: '/videography-mangalore'
+      fullPath: '/videography-mangalore'
+      preLoaderRoute: typeof VideographyMangaloreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ui-ux-design': {
+      id: '/ui-ux-design'
+      path: '/ui-ux-design'
+      fullPath: '/ui-ux-design'
+      preLoaderRoute: typeof UiUxDesignRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/software-development': {
+      id: '/software-development'
+      path: '/software-development'
+      fullPath: '/software-development'
+      preLoaderRoute: typeof SoftwareDevelopmentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/social-media-marketing': {
+      id: '/social-media-marketing'
+      path: '/social-media-marketing'
+      fullPath: '/social-media-marketing'
+      preLoaderRoute: typeof SocialMediaMarketingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/seo-services-mangalore': {
+      id: '/seo-services-mangalore'
+      path: '/seo-services-mangalore'
+      fullPath: '/seo-services-mangalore'
+      preLoaderRoute: typeof SeoServicesMangaloreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/seo-services-bangalore': {
+      id: '/seo-services-bangalore'
+      path: '/seo-services-bangalore'
+      fullPath: '/seo-services-bangalore'
+      preLoaderRoute: typeof SeoServicesBangaloreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sales-landing-page-design': {
+      id: '/sales-landing-page-design'
+      path: '/sales-landing-page-design'
+      fullPath: '/sales-landing-page-design'
+      preLoaderRoute: typeof SalesLandingPageDesignRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/portfolio': {
       id: '/portfolio'
       path: '/portfolio'
@@ -94,11 +554,109 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PortfolioRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/graphic-design': {
+      id: '/graphic-design'
+      path: '/graphic-design'
+      fullPath: '/graphic-design'
+      preLoaderRoute: typeof GraphicDesignRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/google-ads-ppc-management': {
+      id: '/google-ads-ppc-management'
+      path: '/google-ads-ppc-management'
+      fullPath: '/google-ads-ppc-management'
+      preLoaderRoute: typeof GoogleAdsPpcManagementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ecommerce-website-development-dubai': {
+      id: '/ecommerce-website-development-dubai'
+      path: '/ecommerce-website-development-dubai'
+      fullPath: '/ecommerce-website-development-dubai'
+      preLoaderRoute: typeof EcommerceWebsiteDevelopmentDubaiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ecommerce-website-development-bangalore': {
+      id: '/ecommerce-website-development-bangalore'
+      path: '/ecommerce-website-development-bangalore'
+      fullPath: '/ecommerce-website-development-bangalore'
+      preLoaderRoute: typeof EcommerceWebsiteDevelopmentBangaloreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ecommerce-website-development': {
+      id: '/ecommerce-website-development'
+      path: '/ecommerce-website-development'
+      fullPath: '/ecommerce-website-development'
+      preLoaderRoute: typeof EcommerceWebsiteDevelopmentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/domain-hosting-business-email': {
+      id: '/domain-hosting-business-email'
+      path: '/domain-hosting-business-email'
+      fullPath: '/domain-hosting-business-email'
+      preLoaderRoute: typeof DomainHostingBusinessEmailRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/digital-marketing-mangalore': {
+      id: '/digital-marketing-mangalore'
+      path: '/digital-marketing-mangalore'
+      fullPath: '/digital-marketing-mangalore'
+      preLoaderRoute: typeof DigitalMarketingMangaloreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/digital-marketing-dubai': {
+      id: '/digital-marketing-dubai'
+      path: '/digital-marketing-dubai'
+      fullPath: '/digital-marketing-dubai'
+      preLoaderRoute: typeof DigitalMarketingDubaiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/digital-marketing-bangalore': {
+      id: '/digital-marketing-bangalore'
+      path: '/digital-marketing-bangalore'
+      fullPath: '/digital-marketing-bangalore'
+      preLoaderRoute: typeof DigitalMarketingBangaloreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/branding-agency-mangalore': {
+      id: '/branding-agency-mangalore'
+      path: '/branding-agency-mangalore'
+      fullPath: '/branding-agency-mangalore'
+      preLoaderRoute: typeof BrandingAgencyMangaloreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/branding-agency-bangalore': {
+      id: '/branding-agency-bangalore'
+      path: '/branding-agency-bangalore'
+      fullPath: '/branding-agency-bangalore'
+      preLoaderRoute: typeof BrandingAgencyBangaloreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/app-development-dubai': {
+      id: '/app-development-dubai'
+      path: '/app-development-dubai'
+      fullPath: '/app-development-dubai'
+      preLoaderRoute: typeof AppDevelopmentDubaiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/app-development-bangalore': {
+      id: '/app-development-bangalore'
+      path: '/app-development-bangalore'
+      fullPath: '/app-development-bangalore'
+      preLoaderRoute: typeof AppDevelopmentBangaloreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/app-development': {
+      id: '/app-development'
+      path: '/app-development'
+      fullPath: '/app-development'
+      preLoaderRoute: typeof AppDevelopmentRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -128,8 +686,36 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AppDevelopmentRoute: AppDevelopmentRoute,
+  AppDevelopmentBangaloreRoute: AppDevelopmentBangaloreRoute,
+  AppDevelopmentDubaiRoute: AppDevelopmentDubaiRoute,
+  BrandingAgencyBangaloreRoute: BrandingAgencyBangaloreRoute,
+  BrandingAgencyMangaloreRoute: BrandingAgencyMangaloreRoute,
   ContactRoute: ContactRoute,
+  DigitalMarketingBangaloreRoute: DigitalMarketingBangaloreRoute,
+  DigitalMarketingDubaiRoute: DigitalMarketingDubaiRoute,
+  DigitalMarketingMangaloreRoute: DigitalMarketingMangaloreRoute,
+  DomainHostingBusinessEmailRoute: DomainHostingBusinessEmailRoute,
+  EcommerceWebsiteDevelopmentRoute: EcommerceWebsiteDevelopmentRoute,
+  EcommerceWebsiteDevelopmentBangaloreRoute:
+    EcommerceWebsiteDevelopmentBangaloreRoute,
+  EcommerceWebsiteDevelopmentDubaiRoute: EcommerceWebsiteDevelopmentDubaiRoute,
+  GoogleAdsPpcManagementRoute: GoogleAdsPpcManagementRoute,
+  GraphicDesignRoute: GraphicDesignRoute,
   PortfolioRoute: PortfolioRoute,
+  SalesLandingPageDesignRoute: SalesLandingPageDesignRoute,
+  SeoServicesBangaloreRoute: SeoServicesBangaloreRoute,
+  SeoServicesMangaloreRoute: SeoServicesMangaloreRoute,
+  SocialMediaMarketingRoute: SocialMediaMarketingRoute,
+  SoftwareDevelopmentRoute: SoftwareDevelopmentRoute,
+  UiUxDesignRoute: UiUxDesignRoute,
+  VideographyMangaloreRoute: VideographyMangaloreRoute,
+  WebDevelopmentBangaloreRoute: WebDevelopmentBangaloreRoute,
+  WebDevelopmentDubaiRoute: WebDevelopmentDubaiRoute,
+  WebDevelopmentMangaloreRoute: WebDevelopmentMangaloreRoute,
+  WebsiteMaintenanceSupportRoute: WebsiteMaintenanceSupportRoute,
+  WordpressDevelopmentRoute: WordpressDevelopmentRoute,
+  WordpressDevelopmentMangaloreRoute: WordpressDevelopmentMangaloreRoute,
   WorkAlMasoudiRoute: WorkAlMasoudiRoute,
 }
 export const routeTree = rootRouteImport

@@ -163,11 +163,11 @@ function Contact() {
         ] }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "uppercase tracking-widest text-[10px] mb-1.5 opacity-50 font-medium", children: "Phone" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "tel:+923001234567", className: "hover:text-[#F5F5F4] transition-colors", children: "+92 300 1234567" })
+          /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "tel:+919480889252", className: "hover:text-[#F5F5F4] transition-colors", children: "+91 948 0889 252" })
         ] }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "uppercase tracking-widest text-[10px] mb-1.5 opacity-50 font-medium", children: "Location" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Lahore, Pakistan" })
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Mangalore,karnataka" })
         ] })
       ] })
     ] })

@@ -148,11 +148,11 @@ function Contact() {
           </div>
           <div>
             <div className="uppercase tracking-widest text-[10px] mb-1.5 opacity-50 font-medium">Phone</div>
-            <a href="tel:+923001234567" className="hover:text-[#F5F5F4] transition-colors">+92 300 1234567</a>
+            <a href="tel:+919480889252" className="hover:text-[#F5F5F4] transition-colors">+91 9480 889 2527</a>
           </div>
           <div>
             <div className="uppercase tracking-widest text-[10px] mb-1.5 opacity-50 font-medium">Location</div>
-            <span>Lahore, Pakistan</span>
+            <span>Mangalore,karnataka</span>
           </div>
         </motion.div>
       </div>
