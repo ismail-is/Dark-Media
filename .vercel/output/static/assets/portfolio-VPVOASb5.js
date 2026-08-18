@@ -1,1 +1,1048 @@
-import{j as e,m as r,r as d,L as h}from"./index-CB8rnhGJ.js";import{w as f}from"./Dark Media Logo - White-22CXgR5m.js";import{i as k,a as F,b as C,c as D,d as L,e as M}from"./6-HPJrKd3y.js";import{u as j,a as g}from"./use-transform-DQRyPbrk.js";import{u as y,a as w}from"./use-in-view-CnXpW2sw.js";const B="/assets/1-BD_ANLIa.webp",_="/assets/3-C6Qh9llH.webp",z="/assets/4-Bt5-Zj6D.webp",I="/assets/5-CQ9W4k7k.webp",S="/assets/6-DHMkQnLX.webp",x=[.22,1,.36,1];function m({children:a,delay:i=0,y:o=40,className:t=""}){const s=d.useRef(null),l=y(s,{once:!0,margin:"-80px"});return e.jsx(r.div,{ref:s,initial:{opacity:0,y:o},animate:l?{opacity:1,y:0}:{},transition:{duration:.9,delay:i,ease:x},className:t,children:a})}function E({text:a,delay:i=0,className:o=""}){const t=d.useRef(null),s=y(t,{once:!0});return e.jsx("span",{ref:t,className:`inline-block overflow-hidden align-bottom ${o}`,children:e.jsx(r.span,{className:"inline-block",initial:{y:"110%"},animate:s?{y:"0%"}:{},transition:{duration:1.1,delay:i,ease:x},children:a})})}function b({children:a,strength:i=.3}){const o=d.useRef(null),t=w(0,{stiffness:200,damping:18}),s=w(0,{stiffness:200,damping:18});return e.jsx(r.div,{ref:o,style:{x:t,y:s},onMouseMove:l=>{const c=o.current.getBoundingClientRect();t.set((l.clientX-c.left-c.width/2)*i),s.set((l.clientY-c.top-c.height/2)*i)},onMouseLeave:()=>{t.set(0),s.set(0)},className:"inline-block",children:a})}function v({children:a,index:i,bgColor:o="bg-[#030304]"}){const t=d.useRef(null),{scrollYProgress:s}=j({target:t,offset:["start start","end start"]}),[l,c]=d.useState(!1);d.useEffect(()=>{const u=()=>{c(window.innerWidth<1024)};return u(),window.addEventListener("resize",u),()=>window.removeEventListener("resize",u)},[]);const n=g(s,[0,1],[1,.92]),p=g(s,[0,.85],[1,.2]),N=g(s,[0,1],["0%","-10%"]);return e.jsx("div",{ref:t,className:`${l?"relative h-auto py-4 md:py-8":"sticky top-0 h-screen overflow-hidden"} w-full ${o}`,style:{zIndex:l?void 0:i},children:e.jsx(r.div,{style:l?{}:{scale:n,opacity:p,y:N},className:"w-full h-full relative",children:a})})}function A(){const{scrollY:a}=j(),[i,o]=d.useState(!1),[t,s]=d.useState(!1);d.useEffect(()=>a.on("change",n=>{o(n>60)}),[a]),d.useEffect(()=>(t?document.body.style.overflow="hidden":document.body.style.overflow="",()=>{document.body.style.overflow=""}),[t]);const l=[{label:"Home",href:"/"},{label:"Work",href:"/portfolio"},{label:"Services",href:"/#services"},{label:"Contact",href:"/#contact"}],c=[{label:"Instagram",abbr:"IG",href:"#"},{label:"Behance",abbr:"Be",href:"#"},{label:"LinkedIn",abbr:"Li",href:"#"},{label:"Twitter",abbr:"X",href:"#"}];return e.jsxs(e.Fragment,{children:[e.jsx(r.header,{initial:{y:-50,opacity:0},animate:{y:0,opacity:1},transition:{duration:.9,delay:.4,ease:x},className:"fixed top-0 left-0 right-0 z-50 flex justify-center px-4 md:px-6 pt-4 md:pt-6 pointer-events-none",children:e.jsxs("div",{className:`pointer-events-auto flex items-center justify-between px-6 md:px-8 rounded-full border w-full transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${i?"max-w-[900px] bg-[#030304]/85 backdrop-blur-md shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)] border-white/5 py-3":"max-w-[1600px] bg-transparent backdrop-blur-none shadow-none border-transparent py-5"}`,children:[e.jsx(h,{to:"/",className:"flex items-center gap-2.5",children:e.jsx("img",{src:f,alt:"Dark Media",className:"h-6 md:h-8 w-auto opacity-90 transition-transform hover:scale-105 origin-left"})}),e.jsxs("div",{className:"flex items-center gap-3 md:gap-5",children:[e.jsx("div",{className:"hidden sm:inline-block",children:e.jsx(b,{strength:.2,children:e.jsxs(h,{to:"/",hash:"contact",className:"group relative overflow-hidden inline-flex items-center gap-2 rounded-full bg-[#F5F5F4] text-[#030304] px-6 py-3 text-[11px] uppercase tracking-[0.2em] shadow-soft transition-all hover:shadow-deep",children:[e.jsxs("span",{className:"relative z-10 flex items-center gap-2",children:["Let’s talk",e.jsx("span",{className:"inline-block transition-transform duration-300 group-hover:rotate-45 group-hover:translate-x-0.5 group-hover:-translate-y-0.5",children:"↗"})]}),e.jsx("span",{className:"absolute inset-0 bg-black/10 translate-y-[101%] transition-transform duration-300 ease-out group-hover:translate-y-0 rounded-full"})]})})}),e.jsx(b,{strength:.25,children:e.jsx("button",{onClick:()=>s(!t),className:"relative flex items-center justify-center w-12 h-12 rounded-full border border-white/20 bg-transparent hover:bg-white/10 group transition-colors duration-300","aria-label":t?"Close menu":"Open menu",children:e.jsxs("div",{className:"relative w-5 h-3.5 flex flex-col justify-between",children:[e.jsx(r.span,{animate:t?{rotate:45,y:5,width:"100%"}:{rotate:0,y:0,width:"100%"},transition:{duration:.4,ease:[.22,1,.36,1]},className:"block h-[1.5px] bg-white rounded-full origin-center transition-colors duration-300"}),e.jsx(r.span,{animate:t?{opacity:0,x:-10}:{opacity:1,x:0},transition:{duration:.3},className:"block h-[1.5px] w-3/4 bg-white rounded-full transition-colors duration-300"}),e.jsx(r.span,{animate:t?{rotate:-45,y:-5,width:"100%"}:{rotate:0,y:0,width:"60%"},transition:{duration:.4,ease:[.22,1,.36,1]},className:"block h-[1.5px] bg-white rounded-full origin-center transition-colors duration-300"})]})})})]})]})}),e.jsxs(r.nav,{initial:!1,animate:{clipPath:t?"circle(150% at 95% 5%)":"circle(0% at 95% 5%)"},transition:{duration:.9,ease:[.22,1,.36,1]},className:"fixed inset-0 z-[60] bg-[#030304] text-[#F5F5F4] overflow-hidden",style:{pointerEvents:t?"auto":"none"},children:[e.jsxs("div",{className:"absolute inset-0 overflow-hidden pointer-events-none",children:[e.jsx(r.div,{animate:{x:["-10%","30%","-10%"],y:["-15%","25%","-15%"],scale:[1,1.4,1]},transition:{duration:16,repeat:1/0,ease:"linear"},className:"absolute -top-[20%] -left-[10%] w-[60vw] h-[60vw] rounded-full blur-[140px] opacity-[0.12]",style:{background:"radial-gradient(circle, rgba(120,100,255,0.5), rgba(255,120,200,0.3), transparent 70%)"}}),e.jsx(r.div,{animate:{x:["20%","-25%","20%"],y:["20%","-15%","20%"],scale:[1.2,1,1.2]},transition:{duration:22,repeat:1/0,ease:"linear"},className:"absolute -bottom-[15%] -right-[15%] w-[70vw] h-[70vw] rounded-full blur-[160px] opacity-[0.1]",style:{background:"radial-gradient(circle, rgba(60,180,255,0.4), rgba(100,255,200,0.2), transparent 70%)"}}),e.jsx("div",{className:"absolute inset-0 opacity-[0.03]",style:{backgroundImage:"linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)",backgroundSize:"80px 80px"}})]}),e.jsx(r.button,{initial:!1,animate:t?{opacity:1,scale:1,rotate:0}:{opacity:0,scale:.5,rotate:-90},transition:{delay:t?.4:0,duration:.5,ease:x},onClick:()=>s(!1),className:"absolute top-6 right-6 md:top-10 md:right-10 z-20 flex items-center justify-center w-14 h-14 rounded-full border border-white/15 hover:border-white/40 hover:bg-white/10 transition-all duration-300 group",children:e.jsxs("span",{className:"relative w-5 h-5",children:[e.jsx("span",{className:"absolute top-1/2 left-0 w-full h-[1.5px] bg-white/80 -translate-y-1/2 rotate-45 group-hover:bg-white"}),e.jsx("span",{className:"absolute top-1/2 left-0 w-full h-[1.5px] bg-white/80 -translate-y-1/2 -rotate-45 group-hover:bg-white"})]})}),e.jsxs("div",{className:"relative z-10 flex flex-col items-center justify-center h-full px-8 md:px-16",children:[e.jsx(r.div,{initial:!1,animate:t?{opacity:1,y:0}:{opacity:0,y:-20},transition:{delay:t?.35:0,duration:.6,ease:x},className:"absolute top-8 left-8 md:top-10 md:left-10",children:e.jsx(h,{to:"/",onClick:()=>s(!1),className:"inline-block",children:e.jsx("img",{src:f,alt:"Dark Media",className:"h-7 md:h-9 w-auto opacity-80 hover:opacity-100 transition-opacity"})})}),e.jsx("div",{className:"flex flex-col items-center gap-2 md:gap-3",children:l.map((n,p)=>e.jsx(r.div,{initial:!1,animate:t?{opacity:1,y:0,filter:"blur(0px)"}:{opacity:0,y:50,filter:"blur(8px)"},transition:{delay:t?.35+p*.1:0,duration:.7,ease:x},className:"overflow-hidden",children:e.jsxs(h,{to:n.href,onClick:()=>s(!1),className:"group relative flex items-center gap-4 md:gap-6 py-3 md:py-4 transition-all duration-500",children:[e.jsxs("span",{className:"text-[11px] font-mono text-white/25 tracking-wider self-start pt-2 md:pt-4",children:["0",p+1]}),e.jsx("span",{className:"font-display text-[12vw] sm:text-[10vw] md:text-[8vw] lg:text-[6vw] leading-[0.9] tracking-[-0.04em] text-white/90 group-hover:text-white transition-colors duration-300",children:n.label})]})},n.label))}),e.jsx("div",{className:"absolute bottom-8 left-8 right-8 md:bottom-10 md:left-10 md:right-10 flex flex-col md:flex-row items-center justify-between gap-6",children:e.jsxs(r.div,{initial:!1,animate:t?{opacity:1,y:0}:{opacity:0,y:30},transition:{delay:t?.65:0,duration:.6,ease:x},className:"flex items-center gap-2",children:[e.jsx("span",{className:"text-[10px] uppercase tracking-[0.3em] text-white/25 mr-4 hidden md:inline",children:"Follow"}),c.map((n,p)=>e.jsx(r.a,{href:n.href,initial:!1,animate:t?{opacity:1,scale:1}:{opacity:0,scale:.5},transition:{delay:t?.7+p*.07:0,duration:.5,ease:x},className:"group relative flex items-center justify-center w-11 h-11 md:w-12 md:h-12 rounded-full border border-white/10 hover:border-white/40 hover:bg-white/10 transition-all duration-300",title:n.label,children:e.jsx("span",{className:"text-[11px] font-medium tracking-wider text-white/60 group-hover:text-white transition-colors duration-300",children:n.abbr})},n.label))]})})]})]})]})}function P(){return e.jsxs("section",{id:"contact",className:"relative bg-[#030304] text-[#F5F5F4] overflow-hidden rounded-t-[2.5rem] md:rounded-t-[4rem] mt-[-2.5rem] md:mt-[-4rem] z-10 shadow-[0_-20px_60px_rgba(0,0,0,0.6)]",children:[e.jsxs("div",{className:"absolute inset-0 overflow-hidden pointer-events-none opacity-30 mix-blend-screen hidden lg:block",children:[e.jsx(r.div,{animate:{x:["-10%","60%","-20%","-10%"],y:["-10%","40%","80%","-10%"],scale:[1,1.2,1]},transition:{duration:25,repeat:1/0,ease:"linear"},className:"absolute top-0 left-0 w-[60vw] h-[60vw] bg-white/10 rounded-full blur-[100px] md:blur-[160px]"}),e.jsx(r.div,{animate:{x:["100%","-20%","100%"],y:["100%","-10%","100%"],scale:[1,1.4,1]},transition:{duration:20,repeat:1/0,ease:"linear"},className:"absolute bottom-0 right-0 w-[70vw] h-[70vw] bg-white/10 rounded-full blur-[100px] md:blur-[160px]"})]}),e.jsx("div",{className:"absolute inset-0 overflow-hidden pointer-events-none opacity-15 mix-blend-screen lg:hidden",children:e.jsx("div",{className:"absolute top-0 left-0 w-[90vw] h-[90vw] rounded-full",style:{background:"radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 65%)"}})}),e.jsxs("div",{className:"relative mx-auto max-w-[1600px] px-5 md:px-10 pt-32 md:pt-48 pb-10",children:[e.jsxs("div",{className:"grid grid-cols-1 md:grid-cols-12 gap-12 items-start",children:[e.jsxs("div",{className:"md:col-span-8",children:[e.jsx(m,{children:e.jsxs("div",{className:"inline-flex items-center gap-3 rounded-full border border-[#F5F5F4]/20 bg-[#F5F5F4]/5 backdrop-blur-md px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-[#F5F5F4]/80 mb-8",children:[e.jsxs("span",{className:"relative flex h-1.5 w-1.5",children:[e.jsx("span",{className:"absolute inline-flex h-full w-full animate-ping rounded-full bg-[#F5F5F4] opacity-60"}),e.jsx("span",{className:"relative inline-flex h-1.5 w-1.5 rounded-full bg-[#F5F5F4]"})]}),"Ready to create?"]})}),e.jsx(m,{delay:.1,children:e.jsxs("h2",{className:"font-display text-[15vw] md:text-[10vw] leading-[0.85] tracking-[-0.04em]",children:["Let's make some",e.jsx("br",{}),e.jsx("span",{className:"relative inline-block mt-2 md:mt-0",children:e.jsx("em",{className:"italic text-transparent bg-clip-text bg-gradient-to-r from-white via-white/80 to-white/40",children:"magic."})})]})})]}),e.jsx("div",{className:"md:col-span-4 flex justify-start md:justify-end md:pt-8",children:e.jsx(m,{delay:.2,children:e.jsx(b,{strength:.3,children:e.jsxs("a",{href:"https://wa.me/919480889252",target:"_blank",rel:"noopener noreferrer",className:"group relative flex items-center justify-center w-36 h-36 md:w-48 md:h-48 rounded-full bg-[#F5F5F4] text-[#030304] overflow-hidden transition-transform duration-500 hover:scale-105 shadow-[0_0_40px_rgba(255,255,255,0.1)]",children:[e.jsxs("span",{className:"relative z-10 font-display text-2xl md:text-3xl text-center leading-none group-hover:text-white transition-colors duration-500",children:["Get in",e.jsx("br",{}),"Touch"]}),e.jsx("span",{className:"absolute inset-0 bg-[#030304] rounded-full scale-0 origin-center transition-transform duration-500 ease-[0.22,1,0.36,1] group-hover:scale-110"})]})})})})]}),e.jsxs("div",{className:"mt-20 md:mt-32 grid grid-cols-1 md:grid-cols-12 gap-10 pt-12 border-t border-[#F5F5F4]/10",children:[e.jsxs(m,{delay:.15,className:"md:col-span-4",children:[e.jsx("div",{className:"text-[11px] uppercase tracking-[0.24em] opacity-40 mb-5",children:"office"}),e.jsx("p",{className:"opacity-80 leading-relaxed text-sm md:text-base",children:"Mangalore"})]}),e.jsxs(m,{delay:.2,className:"md:col-span-4",children:[e.jsx("div",{className:"text-[11px] uppercase tracking-[0.24em] opacity-40 mb-5",children:"Contact"}),e.jsxs("p",{className:"opacity-80 leading-relaxed text-sm md:text-base flex flex-col gap-2",children:[e.jsx("a",{href:"https://wa.me/919480889252",target:"_blank",rel:"noopener noreferrer",className:"hover:text-white transition-colors inline-flex items-center gap-2",children:"+91 94808 89252"}),e.jsx("a",{href:"https://wa.me/917483156464",target:"_blank",rel:"noopener noreferrer",className:"hover:text-white transition-colors inline-flex items-center gap-2",children:"+91 74831 56464"})]})]}),e.jsxs(m,{delay:.25,className:"md:col-span-4",children:[e.jsx("div",{className:"text-[11px] uppercase tracking-[0.24em] opacity-40 mb-5",children:"Socials"}),e.jsx("ul",{className:"flex flex-wrap gap-4 md:gap-6",children:[{name:"Behance",href:"#"},{name:"Instagram",href:"https://www.instagram.com/darkmedia.tech"},{name:"LinkedIn",href:"#"},{name:"Twitter",href:"#"}].map(a=>e.jsx("li",{children:e.jsx("a",{href:a.href,target:a.href!=="#"?"_blank":void 0,rel:a.href!=="#"?"noopener noreferrer":void 0,className:"text-sm md:text-base opacity-80 hover:opacity-100 hover:-translate-y-1 inline-block transition-transform duration-300",children:a.name})},a.name))})]})]}),e.jsx("div",{className:"mt-20 md:mt-28 flex justify-center pb-4",children:e.jsx(m,{delay:.3,children:e.jsx("img",{src:f,alt:"Dark Media",className:"w-[85vw] md:w-[65vw] max-w-5xl opacity-90 drop-shadow-2xl"})})}),e.jsx("div",{className:"mt-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-[11px] uppercase tracking-[0.22em] opacity-40 pt-8 border-t border-[#F5F5F4]/10",children:e.jsx("div",{children:"© 2026 Dark Media · All rights reserved"})})]})]})}function G(){return e.jsxs("main",{className:"relative bg-[#030304] text-[#F5F5F4] min-h-screen",children:[e.jsx(A,{}),e.jsxs("section",{className:"relative min-h-[40vh] md:min-h-[50vh] flex flex-col items-center justify-center pt-32 pb-16 overflow-hidden",children:[e.jsxs("div",{className:"absolute inset-0 overflow-hidden pointer-events-none opacity-40",children:[e.jsx(r.div,{animate:{x:["-10%","30%","-10%"],y:["-15%","25%","-15%"],scale:[1,1.4,1]},transition:{duration:16,repeat:1/0,ease:"linear"},className:"absolute top-0 -left-[10%] w-[50vw] h-[50vw] rounded-full blur-[140px] opacity-20",style:{background:"radial-gradient(circle, rgba(255,255,255,0.5), transparent 70%)"}}),e.jsx(r.div,{animate:{x:["20%","-25%","20%"],y:["20%","-15%","20%"],scale:[1.2,1,1.2]},transition:{duration:22,repeat:1/0,ease:"linear"},className:"absolute bottom-0 -right-[10%] w-[60vw] h-[60vw] rounded-full blur-[160px] opacity-10",style:{background:"radial-gradient(circle, rgba(200,200,200,0.4), transparent 70%)"}}),e.jsx("div",{className:"absolute inset-0 opacity-[0.03]",style:{backgroundImage:"linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)",backgroundSize:"80px 80px"}})]}),e.jsxs("div",{className:"relative z-10 text-center px-6",children:[e.jsx(m,{delay:.2,children:e.jsx("span",{className:"text-[11px] md:text-xs uppercase tracking-[0.25em] text-white/50 font-semibold mb-4 block",children:"Selected Projects"})}),e.jsx("h1",{className:"font-display text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tight leading-[0.95] text-white",children:e.jsx(E,{text:"Our Works",delay:.4})})]})]}),e.jsx(v,{index:1,children:e.jsx("section",{className:"px-4 sm:px-6 md:px-10 lg:p-[220px] py-10 md:py-16 lg:py-20 relative z-10 bg-[#F5F5F4] w-full rounded-[24px] md:rounded-[32px] lg:rounded-t-[48px] lg:rounded-b-none shadow-2xl border border-black/5 lg:border-t lg:border-x-0 lg:border-b-0 ",children:e.jsxs("div",{className:"max-w-[1600px] mx-auto w-full",children:[e.jsxs("div",{className:"border-b border-[#030304]/10 pb-4 mb-6 flex flex-col lg:flex-row lg:items-end justify-between gap-6  md:-mt-16",children:[e.jsxs("div",{children:[e.jsx("span",{className:"text-[11px] font-mono uppercase tracking-[0.25em] text-[#EC6303]",children:"Logofolio"}),e.jsx("h2",{className:"font-display text-3xl md:text-4xl lg:text-5xl text-[#030304] mt-1 font-semibold",children:"Al Masoudi Company"}),e.jsx("p",{className:"text-[#030304]/50 text-xs uppercase tracking-widest mt-1",children:"Contracting and trading"})]}),e.jsxs("div",{className:"flex flex-col sm:flex-row items-start sm:items-end gap-6 lg:gap-10 lg:max-w-xl",children:[e.jsx("p",{className:"text-[#030304]/70 text-sm md:text-base leading-relaxed",children:"AL MASOUDI Contracting and Trading is a Saudi-owned company providing comprehensive solutions. Crafted with precise geometries representing heritage, reliability, and growth."}),e.jsx("span",{className:"font-display text-6xl md:text-8xl font-bold leading-none tracking-tighter text-[#EC6304]/15 self-end lg:self-auto",children:"01"})]})]}),e.jsxs("div",{className:"grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-3",children:[e.jsxs("div",{className:"min-h-[180px] lg:h-[260px] sm:col-span-2 bg-white rounded-[16px] md:rounded-[20px] flex items-center justify-center border border-[#030304]/5 shadow-md hover:shadow-xl transition-all duration-500 relative overflow-hidden group",children:[e.jsx("div",{className:"absolute inset-0 bg-gradient-to-br from-black/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"}),e.jsx("img",{src:k,alt:"Al Masoudi Logo",className:"w-auto object-contain transition-transform duration-700 group-hover:scale-110 drop-shadow-sm"})]}),e.jsxs("div",{className:"sm:col-span-1 bg-white rounded-[16px] md:rounded-[20px] overflow-hidden border border-[#030304]/5 shadow-md hover:shadow-xl transition-all duration-500 relative group h-auto flex flex-col",children:[e.jsx("img",{src:F,alt:"Mockup Presentation",className:"w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110 flex-grow"}),e.jsx("div",{className:"absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4"})]}),e.jsxs("div",{className:"sm:col-span-1 flex flex-col gap-3",children:[e.jsx("div",{className:"bg-white rounded-[16px] md:rounded-[20px] overflow-hidden border border-[#030304]/5 shadow-md hover:shadow-xl transition-all duration-500 relative group h-auto",children:e.jsx("img",{src:C,alt:"Corporate Stationery",className:"w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110"})}),e.jsxs("div",{className:"bg-white rounded-[16px] md:rounded-[20px] p-4 border border-[#030304]/5 shadow-md hover:shadow-xl transition-all duration-500 flex flex-col justify-between gap-3 min-h-[72px]",children:[e.jsxs("div",{className:"text-[9px] uppercase tracking-widest text-[#030304]/50 font-mono flex items-center justify-between",children:[e.jsx("span",{children:"Brand Palette"}),e.jsx("span",{className:"w-1.5 h-1.5 rounded-full bg-[#EC6303] animate-pulse"})]}),e.jsxs("div",{className:"grid grid-cols-4 gap-1.5 h-8",children:[e.jsx("div",{className:"bg-[#EC6303] rounded-md group relative cursor-pointer hover:scale-110 transition-transform shadow-inner",title:"#EC6303",children:e.jsx("span",{className:"absolute -top-7 left-1/2 -translate-x-1/2 bg-[#030304] text-white text-[8px] px-1.5 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none font-mono",children:"#EC6303"})}),e.jsx("div",{className:"bg-[#000000] rounded-md group relative cursor-pointer hover:scale-110 transition-transform shadow-inner",title:"#000000",children:e.jsx("span",{className:"absolute -top-7 left-1/2 -translate-x-1/2 bg-[#030304] text-white text-[8px] px-1.5 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none font-mono",children:"#000000"})}),e.jsx("div",{className:"bg-[#58585B] rounded-md group relative cursor-pointer hover:scale-110 transition-transform shadow-inner",title:"#58585B",children:e.jsx("span",{className:"absolute -top-7 left-1/2 -translate-x-1/2 bg-[#030304] text-white text-[8px] px-1.5 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none font-mono",children:"#58585B"})}),e.jsx("div",{className:"bg-[#D0D0D0] rounded-md border border-black/5 group relative cursor-pointer hover:scale-110 transition-transform shadow-inner",title:"#D0D0D0",children:e.jsx("span",{className:"absolute -top-7 left-1/2 -translate-x-1/2 bg-[#030304] text-white text-[8px] px-1.5 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none font-mono",children:"#D0D0D0"})})]})]})]}),e.jsxs("div",{className:"min-h-[160px] sm:col-span-2 rounded-[16px] md:rounded-[20px] p-4 md:p-6 flex items-center justify-center border border-[#030304]/5 shadow-md hover:shadow-xl transition-all duration-500 relative overflow-hidden group",children:[e.jsx("div",{className:"absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.03)_0%,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500"}),e.jsx("img",{src:D,alt:"Logo Geometry breakdown",className:"w-full sm:w-auto h-auto max-h-full max-w-full object-contain mix-blend-multiply transition-transform duration-700 group-hover:scale-105"})]}),e.jsxs("div",{className:"bg-white rounded-[16px] md:rounded-[20px] overflow-hidden border border-[#030304]/5 shadow-md hover:shadow-xl transition-all duration-500 relative group h-auto",children:[e.jsx("img",{src:L,alt:"Brand Typography Details",className:"w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110"}),e.jsx("div",{className:"absolute inset-0 ring-1 ring-inset ring-black/5 rounded-[16px] md:rounded-[20px]"})]}),e.jsxs("div",{className:"bg-white rounded-[16px] md:rounded-[20px] overflow-hidden border border-[#030304]/5 shadow-md hover:shadow-xl transition-all duration-500 relative group h-auto",children:[e.jsx("img",{src:M,alt:"Brand Typography Mockup",className:"w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110"}),e.jsx("div",{className:"absolute inset-0 ring-1 ring-inset ring-black/5 rounded-[16px] md:rounded-[20px]"})]})]})]})})}),e.jsx(v,{index:2,children:e.jsx("section",{className:" px-4 sm:px-6 md:px-10 lg:p-[220px] py-10 md:py-16 lg:py-20 relative z-10 bg-[#F5F5F4] w-full rounded-[24px] md:rounded-[32px] lg:rounded-t-[48px] lg:rounded-b-none shadow-2xl border border-black/5 lg:border-t lg:border-x-0 lg:border-b-0",children:e.jsxs("div",{className:"max-w-[1600px] mx-auto w-full",children:[e.jsxs("div",{className:"border-b border-[#030304]/10 pb-4 mb-6 flex flex-col lg:flex-row lg:items-end justify-between gap-6 md:-mt-16",children:[e.jsxs("div",{children:[e.jsx("span",{className:"text-[11px] font-mono uppercase tracking-[0.25em] text-[#D4141C] ",children:"Logofolio"}),e.jsx("h2",{className:"font-display text-3xl md:text-4xl lg:text-5xl text-[#030304] mt-1 font-semibold",children:"Haneefz Briyani"}),e.jsx("p",{className:"text-[#030304]/50 text-xs uppercase tracking-widest mt-1",children:"Caterers"})]}),e.jsxs("div",{className:"flex flex-col sm:flex-row items-start sm:items-end gap-6 lg:gap-10 lg:max-w-xl",children:[e.jsx("p",{className:"text-[#030304]/70 text-sm md:text-base leading-relaxed",children:"Haneefz Briyani is a Kerala-based caterers company providing comprehensive solutions. Crafted with precise geometries representing heritage, reliability, and growth."}),e.jsx("span",{className:"font-display text-6xl md:text-8xl font-bold leading-none tracking-tighter text-[#D4141C]/15 self-end lg:self-auto",children:"02"})]})]}),e.jsxs("div",{className:"grid grid-cols-1 md:grid-cols-12 md:grid-rows-4 gap-4",children:[e.jsx("div",{className:"md:col-span-5 md:row-span-2 bg-[#1A1A1A] rounded-[20px] flex items-center justify-center border border-[#030304]/5 shadow-md hover:shadow-xl transition-all duration-500 overflow-hidden group ",children:e.jsx("img",{src:B,alt:"Al Masoudi Logo",className:"object-contain transition-transform duration-700 group-hover:scale-110"})}),e.jsx("div",{className:"md:col-span-3 md:row-span-2 md:col-start-6 bg-white rounded-[20px] overflow-hidden border border-[#030304]/5 shadow-md hover:shadow-xl transition-all duration-500 group",children:e.jsx("img",{src:_,alt:"Mockup Presentation",className:"w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"})}),e.jsx("div",{className:"md:col-span-4 md:row-span-2 md:col-start-9 bg-white rounded-[20px] overflow-hidden border border-[#030304]/5 shadow-md hover:shadow-xl transition-all duration-500 group",children:e.jsx("img",{src:z,alt:"Corporate Stationery",className:"w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"})}),e.jsx("div",{className:"md:col-span-6 md:row-span-2 md:row-start-3 bg-white rounded-[20px] flex items-center justify-center border border-[#030304]/5 shadow-md hover:shadow-xl transition-all duration-500 overflow-hidden group ",children:e.jsx("img",{src:I,alt:"Logo Geometry Breakdown",className:"object-contain p-4 transition-transform duration-700 group-hover:scale-105"})}),e.jsx("div",{className:"md:col-span-4 md:row-span-2 md:col-start-7 md:row-start-3 bg-white rounded-[20px] overflow-hidden border border-[#030304]/5 shadow-md hover:shadow-xl transition-all duration-500 group",children:e.jsx("img",{src:S,alt:"Brand Typography",className:"w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"})}),e.jsxs("div",{className:"md:col-span-2 md:row-span-2 md:col-start-11 md:row-start-3 bg-white rounded-[20px] p-4 border border-[#030304]/5 shadow-md hover:shadow-xl transition-all duration-500 flex flex-col justify-between",children:[e.jsxs("div",{className:"flex items-center justify-between",children:[e.jsx("span",{className:"text-[10px] uppercase tracking-widest text-[#030304]/50 font-mono",children:"Brand Palette"}),e.jsx("span",{className:"w-2 h-2 rounded-full bg-[#D5161B] animate-pulse"})]}),e.jsx("div",{className:"grid grid-cols-2 gap-3 mt-4",children:["#D5161B","#D7AE43","#000000","#D0D0D0"].map(a=>e.jsxs("div",{className:"flex flex-col items-center gap-1",children:[e.jsx("div",{className:"w-full h-14 rounded-lg border border-black/5 shadow-inner hover:scale-105 transition-transform",style:{backgroundColor:a}}),e.jsx("span",{className:"text-[9px] font-mono text-[#030304]/70 text-center break-all",children:a})]},a))})]})]})]})})}),e.jsx("br",{}),e.jsx(P,{})]})}export{G as component};
+import { j as e, m as r, r as d, L as h } from "./index-CB8rnhGJ.js";
+import { w as f } from "./Dark Media Logo - White-22CXgR5m.js";
+import { i as k, a as F, b as C, c as D, d as L, e as M } from "./6-HPJrKd3y.js";
+import { u as j, a as g } from "./use-transform-DQRyPbrk.js";
+import { u as y, a as w } from "./use-in-view-CnXpW2sw.js";
+const B = "/assets/1-BD_ANLIa.webp",
+  _ = "/assets/3-C6Qh9llH.webp",
+  z = "/assets/4-Bt5-Zj6D.webp",
+  I = "/assets/5-CQ9W4k7k.webp",
+  S = "/assets/6-DHMkQnLX.webp",
+  x = [0.22, 1, 0.36, 1];
+function m({ children: a, delay: i = 0, y: o = 40, className: t = "" }) {
+  const s = d.useRef(null),
+    l = y(s, { once: !0, margin: "-80px" });
+  return e.jsx(r.div, {
+    ref: s,
+    initial: { opacity: 0, y: o },
+    animate: l ? { opacity: 1, y: 0 } : {},
+    transition: { duration: 0.9, delay: i, ease: x },
+    className: t,
+    children: a,
+  });
+}
+function E({ text: a, delay: i = 0, className: o = "" }) {
+  const t = d.useRef(null),
+    s = y(t, { once: !0 });
+  return e.jsx("span", {
+    ref: t,
+    className: `inline-block overflow-hidden align-bottom ${o}`,
+    children: e.jsx(r.span, {
+      className: "inline-block",
+      initial: { y: "110%" },
+      animate: s ? { y: "0%" } : {},
+      transition: { duration: 1.1, delay: i, ease: x },
+      children: a,
+    }),
+  });
+}
+function b({ children: a, strength: i = 0.3 }) {
+  const o = d.useRef(null),
+    t = w(0, { stiffness: 200, damping: 18 }),
+    s = w(0, { stiffness: 200, damping: 18 });
+  return e.jsx(r.div, {
+    ref: o,
+    style: { x: t, y: s },
+    onMouseMove: (l) => {
+      const c = o.current.getBoundingClientRect();
+      (t.set((l.clientX - c.left - c.width / 2) * i),
+        s.set((l.clientY - c.top - c.height / 2) * i));
+    },
+    onMouseLeave: () => {
+      (t.set(0), s.set(0));
+    },
+    className: "inline-block",
+    children: a,
+  });
+}
+function v({ children: a, index: i, bgColor: o = "bg-[#030304]" }) {
+  const t = d.useRef(null),
+    { scrollYProgress: s } = j({ target: t, offset: ["start start", "end start"] }),
+    [l, c] = d.useState(!1);
+  d.useEffect(() => {
+    const u = () => {
+      c(window.innerWidth < 1024);
+    };
+    return (
+      u(),
+      window.addEventListener("resize", u),
+      () => window.removeEventListener("resize", u)
+    );
+  }, []);
+  const n = g(s, [0, 1], [1, 0.92]),
+    p = g(s, [0, 0.85], [1, 0.2]),
+    N = g(s, [0, 1], ["0%", "-10%"]);
+  return e.jsx("div", {
+    ref: t,
+    className: `${l ? "relative h-auto py-4 md:py-8" : "sticky top-0 h-screen overflow-hidden"} w-full ${o}`,
+    style: { zIndex: l ? void 0 : i },
+    children: e.jsx(r.div, {
+      style: l ? {} : { scale: n, opacity: p, y: N },
+      className: "w-full h-full relative",
+      children: a,
+    }),
+  });
+}
+function A() {
+  const { scrollY: a } = j(),
+    [i, o] = d.useState(!1),
+    [t, s] = d.useState(!1);
+  (d.useEffect(
+    () =>
+      a.on("change", (n) => {
+        o(n > 60);
+      }),
+    [a],
+  ),
+    d.useEffect(
+      () => (
+        t ? (document.body.style.overflow = "hidden") : (document.body.style.overflow = ""),
+        () => {
+          document.body.style.overflow = "";
+        }
+      ),
+      [t],
+    ));
+  const l = [
+      { label: "Home", href: "/" },
+      { label: "Work", href: "/portfolio" },
+      { label: "Services", href: "/#services" },
+      { label: "Contact", href: "/#contact" },
+    ],
+    c = [
+      { label: "Instagram", abbr: "IG", href: "#" },
+      { label: "Behance", abbr: "Be", href: "#" },
+      { label: "LinkedIn", abbr: "Li", href: "#" },
+      { label: "Twitter", abbr: "X", href: "#" },
+    ];
+  return e.jsxs(e.Fragment, {
+    children: [
+      e.jsx(r.header, {
+        initial: { y: -50, opacity: 0 },
+        animate: { y: 0, opacity: 1 },
+        transition: { duration: 0.9, delay: 0.4, ease: x },
+        className:
+          "fixed top-0 left-0 right-0 z-50 flex justify-center px-4 md:px-6 pt-4 md:pt-6 pointer-events-none",
+        children: e.jsxs("div", {
+          className: `pointer-events-auto flex items-center justify-between px-6 md:px-8 rounded-full border w-full transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${i ? "max-w-[900px] bg-[#030304]/85 backdrop-blur-md shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)] border-white/5 py-3" : "max-w-[1600px] bg-transparent backdrop-blur-none shadow-none border-transparent py-5"}`,
+          children: [
+            e.jsx(h, {
+              to: "/",
+              className: "flex items-center gap-2.5",
+              children: e.jsx("img", {
+                src: f,
+                alt: "Dark Media",
+                className:
+                  "h-6 md:h-8 w-auto opacity-90 transition-transform hover:scale-105 origin-left",
+              }),
+            }),
+            e.jsxs("div", {
+              className: "flex items-center gap-3 md:gap-5",
+              children: [
+                e.jsx("div", {
+                  className: "hidden sm:inline-block",
+                  children: e.jsx(b, {
+                    strength: 0.2,
+                    children: e.jsxs(h, {
+                      to: "/",
+                      hash: "contact",
+                      className:
+                        "group relative overflow-hidden inline-flex items-center gap-2 rounded-full bg-[#F5F5F4] text-[#030304] px-6 py-3 text-[11px] uppercase tracking-[0.2em] shadow-soft transition-all hover:shadow-deep",
+                      children: [
+                        e.jsxs("span", {
+                          className: "relative z-10 flex items-center gap-2",
+                          children: [
+                            "Let’s talk",
+                            e.jsx("span", {
+                              className:
+                                "inline-block transition-transform duration-300 group-hover:rotate-45 group-hover:translate-x-0.5 group-hover:-translate-y-0.5",
+                              children: "↗",
+                            }),
+                          ],
+                        }),
+                        e.jsx("span", {
+                          className:
+                            "absolute inset-0 bg-black/10 translate-y-[101%] transition-transform duration-300 ease-out group-hover:translate-y-0 rounded-full",
+                        }),
+                      ],
+                    }),
+                  }),
+                }),
+                e.jsx(b, {
+                  strength: 0.25,
+                  children: e.jsx("button", {
+                    onClick: () => s(!t),
+                    className:
+                      "relative flex items-center justify-center w-12 h-12 rounded-full border border-white/20 bg-transparent hover:bg-white/10 group transition-colors duration-300",
+                    "aria-label": t ? "Close menu" : "Open menu",
+                    children: e.jsxs("div", {
+                      className: "relative w-5 h-3.5 flex flex-col justify-between",
+                      children: [
+                        e.jsx(r.span, {
+                          animate: t
+                            ? { rotate: 45, y: 5, width: "100%" }
+                            : { rotate: 0, y: 0, width: "100%" },
+                          transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] },
+                          className:
+                            "block h-[1.5px] bg-white rounded-full origin-center transition-colors duration-300",
+                        }),
+                        e.jsx(r.span, {
+                          animate: t ? { opacity: 0, x: -10 } : { opacity: 1, x: 0 },
+                          transition: { duration: 0.3 },
+                          className:
+                            "block h-[1.5px] w-3/4 bg-white rounded-full transition-colors duration-300",
+                        }),
+                        e.jsx(r.span, {
+                          animate: t
+                            ? { rotate: -45, y: -5, width: "100%" }
+                            : { rotate: 0, y: 0, width: "60%" },
+                          transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] },
+                          className:
+                            "block h-[1.5px] bg-white rounded-full origin-center transition-colors duration-300",
+                        }),
+                      ],
+                    }),
+                  }),
+                }),
+              ],
+            }),
+          ],
+        }),
+      }),
+      e.jsxs(r.nav, {
+        initial: !1,
+        animate: { clipPath: t ? "circle(150% at 95% 5%)" : "circle(0% at 95% 5%)" },
+        transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] },
+        className: "fixed inset-0 z-[60] bg-[#030304] text-[#F5F5F4] overflow-hidden",
+        style: { pointerEvents: t ? "auto" : "none" },
+        children: [
+          e.jsxs("div", {
+            className: "absolute inset-0 overflow-hidden pointer-events-none",
+            children: [
+              e.jsx(r.div, {
+                animate: {
+                  x: ["-10%", "30%", "-10%"],
+                  y: ["-15%", "25%", "-15%"],
+                  scale: [1, 1.4, 1],
+                },
+                transition: { duration: 16, repeat: 1 / 0, ease: "linear" },
+                className:
+                  "absolute -top-[20%] -left-[10%] w-[60vw] h-[60vw] rounded-full blur-[140px] opacity-[0.12]",
+                style: {
+                  background:
+                    "radial-gradient(circle, rgba(120,100,255,0.5), rgba(255,120,200,0.3), transparent 70%)",
+                },
+              }),
+              e.jsx(r.div, {
+                animate: {
+                  x: ["20%", "-25%", "20%"],
+                  y: ["20%", "-15%", "20%"],
+                  scale: [1.2, 1, 1.2],
+                },
+                transition: { duration: 22, repeat: 1 / 0, ease: "linear" },
+                className:
+                  "absolute -bottom-[15%] -right-[15%] w-[70vw] h-[70vw] rounded-full blur-[160px] opacity-[0.1]",
+                style: {
+                  background:
+                    "radial-gradient(circle, rgba(60,180,255,0.4), rgba(100,255,200,0.2), transparent 70%)",
+                },
+              }),
+              e.jsx("div", {
+                className: "absolute inset-0 opacity-[0.03]",
+                style: {
+                  backgroundImage:
+                    "linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)",
+                  backgroundSize: "80px 80px",
+                },
+              }),
+            ],
+          }),
+          e.jsx(r.button, {
+            initial: !1,
+            animate: t
+              ? { opacity: 1, scale: 1, rotate: 0 }
+              : { opacity: 0, scale: 0.5, rotate: -90 },
+            transition: { delay: t ? 0.4 : 0, duration: 0.5, ease: x },
+            onClick: () => s(!1),
+            className:
+              "absolute top-6 right-6 md:top-10 md:right-10 z-20 flex items-center justify-center w-14 h-14 rounded-full border border-white/15 hover:border-white/40 hover:bg-white/10 transition-all duration-300 group",
+            children: e.jsxs("span", {
+              className: "relative w-5 h-5",
+              children: [
+                e.jsx("span", {
+                  className:
+                    "absolute top-1/2 left-0 w-full h-[1.5px] bg-white/80 -translate-y-1/2 rotate-45 group-hover:bg-white",
+                }),
+                e.jsx("span", {
+                  className:
+                    "absolute top-1/2 left-0 w-full h-[1.5px] bg-white/80 -translate-y-1/2 -rotate-45 group-hover:bg-white",
+                }),
+              ],
+            }),
+          }),
+          e.jsxs("div", {
+            className:
+              "relative z-10 flex flex-col items-center justify-center h-full px-8 md:px-16",
+            children: [
+              e.jsx(r.div, {
+                initial: !1,
+                animate: t ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 },
+                transition: { delay: t ? 0.35 : 0, duration: 0.6, ease: x },
+                className: "absolute top-8 left-8 md:top-10 md:left-10",
+                children: e.jsx(h, {
+                  to: "/",
+                  onClick: () => s(!1),
+                  className: "inline-block",
+                  children: e.jsx("img", {
+                    src: f,
+                    alt: "Dark Media",
+                    className: "h-7 md:h-9 w-auto opacity-80 hover:opacity-100 transition-opacity",
+                  }),
+                }),
+              }),
+              e.jsx("div", {
+                className: "flex flex-col items-center gap-2 md:gap-3",
+                children: l.map((n, p) =>
+                  e.jsx(
+                    r.div,
+                    {
+                      initial: !1,
+                      animate: t
+                        ? { opacity: 1, y: 0, filter: "blur(0px)" }
+                        : { opacity: 0, y: 50, filter: "blur(8px)" },
+                      transition: { delay: t ? 0.35 + p * 0.1 : 0, duration: 0.7, ease: x },
+                      className: "overflow-hidden",
+                      children: e.jsxs(h, {
+                        to: n.href,
+                        onClick: () => s(!1),
+                        className:
+                          "group relative flex items-center gap-4 md:gap-6 py-3 md:py-4 transition-all duration-500",
+                        children: [
+                          e.jsxs("span", {
+                            className:
+                              "text-[11px] font-mono text-white/25 tracking-wider self-start pt-2 md:pt-4",
+                            children: ["0", p + 1],
+                          }),
+                          e.jsx("span", {
+                            className:
+                              "font-display text-[12vw] sm:text-[10vw] md:text-[8vw] lg:text-[6vw] leading-[0.9] tracking-[-0.04em] text-white/90 group-hover:text-white transition-colors duration-300",
+                            children: n.label,
+                          }),
+                        ],
+                      }),
+                    },
+                    n.label,
+                  ),
+                ),
+              }),
+              e.jsx("div", {
+                className:
+                  "absolute bottom-8 left-8 right-8 md:bottom-10 md:left-10 md:right-10 flex flex-col md:flex-row items-center justify-between gap-6",
+                children: e.jsxs(r.div, {
+                  initial: !1,
+                  animate: t ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 },
+                  transition: { delay: t ? 0.65 : 0, duration: 0.6, ease: x },
+                  className: "flex items-center gap-2",
+                  children: [
+                    e.jsx("span", {
+                      className:
+                        "text-[10px] uppercase tracking-[0.3em] text-white/25 mr-4 hidden md:inline",
+                      children: "Follow",
+                    }),
+                    c.map((n, p) =>
+                      e.jsx(
+                        r.a,
+                        {
+                          href: n.href,
+                          initial: !1,
+                          animate: t ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 },
+                          transition: { delay: t ? 0.7 + p * 0.07 : 0, duration: 0.5, ease: x },
+                          className:
+                            "group relative flex items-center justify-center w-11 h-11 md:w-12 md:h-12 rounded-full border border-white/10 hover:border-white/40 hover:bg-white/10 transition-all duration-300",
+                          title: n.label,
+                          children: e.jsx("span", {
+                            className:
+                              "text-[11px] font-medium tracking-wider text-white/60 group-hover:text-white transition-colors duration-300",
+                            children: n.abbr,
+                          }),
+                        },
+                        n.label,
+                      ),
+                    ),
+                  ],
+                }),
+              }),
+            ],
+          }),
+        ],
+      }),
+    ],
+  });
+}
+function P() {
+  return e.jsxs("section", {
+    id: "contact",
+    className:
+      "relative bg-[#030304] text-[#F5F5F4] overflow-hidden rounded-t-[2.5rem] md:rounded-t-[4rem] mt-[-2.5rem] md:mt-[-4rem] z-10 shadow-[0_-20px_60px_rgba(0,0,0,0.6)]",
+    children: [
+      e.jsxs("div", {
+        className:
+          "absolute inset-0 overflow-hidden pointer-events-none opacity-30 mix-blend-screen hidden lg:block",
+        children: [
+          e.jsx(r.div, {
+            animate: {
+              x: ["-10%", "60%", "-20%", "-10%"],
+              y: ["-10%", "40%", "80%", "-10%"],
+              scale: [1, 1.2, 1],
+            },
+            transition: { duration: 25, repeat: 1 / 0, ease: "linear" },
+            className:
+              "absolute top-0 left-0 w-[60vw] h-[60vw] bg-white/10 rounded-full blur-[100px] md:blur-[160px]",
+          }),
+          e.jsx(r.div, {
+            animate: {
+              x: ["100%", "-20%", "100%"],
+              y: ["100%", "-10%", "100%"],
+              scale: [1, 1.4, 1],
+            },
+            transition: { duration: 20, repeat: 1 / 0, ease: "linear" },
+            className:
+              "absolute bottom-0 right-0 w-[70vw] h-[70vw] bg-white/10 rounded-full blur-[100px] md:blur-[160px]",
+          }),
+        ],
+      }),
+      e.jsx("div", {
+        className:
+          "absolute inset-0 overflow-hidden pointer-events-none opacity-15 mix-blend-screen lg:hidden",
+        children: e.jsx("div", {
+          className: "absolute top-0 left-0 w-[90vw] h-[90vw] rounded-full",
+          style: {
+            background: "radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 65%)",
+          },
+        }),
+      }),
+      e.jsxs("div", {
+        className: "relative mx-auto max-w-[1600px] px-5 md:px-10 pt-32 md:pt-48 pb-10",
+        children: [
+          e.jsxs("div", {
+            className: "grid grid-cols-1 md:grid-cols-12 gap-12 items-start",
+            children: [
+              e.jsxs("div", {
+                className: "md:col-span-8",
+                children: [
+                  e.jsx(m, {
+                    children: e.jsxs("div", {
+                      className:
+                        "inline-flex items-center gap-3 rounded-full border border-[#F5F5F4]/20 bg-[#F5F5F4]/5 backdrop-blur-md px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-[#F5F5F4]/80 mb-8",
+                      children: [
+                        e.jsxs("span", {
+                          className: "relative flex h-1.5 w-1.5",
+                          children: [
+                            e.jsx("span", {
+                              className:
+                                "absolute inline-flex h-full w-full animate-ping rounded-full bg-[#F5F5F4] opacity-60",
+                            }),
+                            e.jsx("span", {
+                              className:
+                                "relative inline-flex h-1.5 w-1.5 rounded-full bg-[#F5F5F4]",
+                            }),
+                          ],
+                        }),
+                        "Ready to create?",
+                      ],
+                    }),
+                  }),
+                  e.jsx(m, {
+                    delay: 0.1,
+                    children: e.jsxs("h2", {
+                      className:
+                        "font-display text-[15vw] md:text-[10vw] leading-[0.85] tracking-[-0.04em]",
+                      children: [
+                        "Let's make some",
+                        e.jsx("br", {}),
+                        e.jsx("span", {
+                          className: "relative inline-block mt-2 md:mt-0",
+                          children: e.jsx("em", {
+                            className:
+                              "italic text-transparent bg-clip-text bg-gradient-to-r from-white via-white/80 to-white/40",
+                            children: "magic.",
+                          }),
+                        }),
+                      ],
+                    }),
+                  }),
+                ],
+              }),
+              e.jsx("div", {
+                className: "md:col-span-4 flex justify-start md:justify-end md:pt-8",
+                children: e.jsx(m, {
+                  delay: 0.2,
+                  children: e.jsx(b, {
+                    strength: 0.3,
+                    children: e.jsxs("a", {
+                      href: "https://wa.me/919480889252",
+                      target: "_blank",
+                      rel: "noopener noreferrer",
+                      className:
+                        "group relative flex items-center justify-center w-36 h-36 md:w-48 md:h-48 rounded-full bg-[#F5F5F4] text-[#030304] overflow-hidden transition-transform duration-500 hover:scale-105 shadow-[0_0_40px_rgba(255,255,255,0.1)]",
+                      children: [
+                        e.jsxs("span", {
+                          className:
+                            "relative z-10 font-display text-2xl md:text-3xl text-center leading-none group-hover:text-white transition-colors duration-500",
+                          children: ["Get in", e.jsx("br", {}), "Touch"],
+                        }),
+                        e.jsx("span", {
+                          className:
+                            "absolute inset-0 bg-[#030304] rounded-full scale-0 origin-center transition-transform duration-500 ease-[0.22,1,0.36,1] group-hover:scale-110",
+                        }),
+                      ],
+                    }),
+                  }),
+                }),
+              }),
+            ],
+          }),
+          e.jsxs("div", {
+            className:
+              "mt-20 md:mt-32 grid grid-cols-1 md:grid-cols-12 gap-10 pt-12 border-t border-[#F5F5F4]/10",
+            children: [
+              e.jsxs(m, {
+                delay: 0.15,
+                className: "md:col-span-4",
+                children: [
+                  e.jsx("div", {
+                    className: "text-[11px] uppercase tracking-[0.24em] opacity-40 mb-5",
+                    children: "office",
+                  }),
+                  e.jsx("p", {
+                    className: "opacity-80 leading-relaxed text-sm md:text-base",
+                    children: "Mangalore",
+                  }),
+                ],
+              }),
+              e.jsxs(m, {
+                delay: 0.2,
+                className: "md:col-span-4",
+                children: [
+                  e.jsx("div", {
+                    className: "text-[11px] uppercase tracking-[0.24em] opacity-40 mb-5",
+                    children: "Contact",
+                  }),
+                  e.jsxs("p", {
+                    className:
+                      "opacity-80 leading-relaxed text-sm md:text-base flex flex-col gap-2",
+                    children: [
+                      e.jsx("a", {
+                        href: "https://wa.me/919480889252",
+                        target: "_blank",
+                        rel: "noopener noreferrer",
+                        className:
+                          "hover:text-white transition-colors inline-flex items-center gap-2",
+                        children: "+91 94808 89252",
+                      }),
+                      e.jsx("a", {
+                        href: "https://wa.me/917483156464",
+                        target: "_blank",
+                        rel: "noopener noreferrer",
+                        className:
+                          "hover:text-white transition-colors inline-flex items-center gap-2",
+                        children: "+91 74831 56464",
+                      }),
+                    ],
+                  }),
+                ],
+              }),
+              e.jsxs(m, {
+                delay: 0.25,
+                className: "md:col-span-4",
+                children: [
+                  e.jsx("div", {
+                    className: "text-[11px] uppercase tracking-[0.24em] opacity-40 mb-5",
+                    children: "Socials",
+                  }),
+                  e.jsx("ul", {
+                    className: "flex flex-wrap gap-4 md:gap-6",
+                    children: [
+                      { name: "Behance", href: "#" },
+                      { name: "Instagram", href: "https://www.instagram.com/darkmedia.tech" },
+                      { name: "LinkedIn", href: "#" },
+                      { name: "Twitter", href: "#" },
+                    ].map((a) =>
+                      e.jsx(
+                        "li",
+                        {
+                          children: e.jsx("a", {
+                            href: a.href,
+                            target: a.href !== "#" ? "_blank" : void 0,
+                            rel: a.href !== "#" ? "noopener noreferrer" : void 0,
+                            className:
+                              "text-sm md:text-base opacity-80 hover:opacity-100 hover:-translate-y-1 inline-block transition-transform duration-300",
+                            children: a.name,
+                          }),
+                        },
+                        a.name,
+                      ),
+                    ),
+                  }),
+                ],
+              }),
+            ],
+          }),
+          e.jsx("div", {
+            className: "mt-20 md:mt-28 flex justify-center pb-4",
+            children: e.jsx(m, {
+              delay: 0.3,
+              children: e.jsx("img", {
+                src: f,
+                alt: "Dark Media",
+                className: "w-[85vw] md:w-[65vw] max-w-5xl opacity-90 drop-shadow-2xl",
+              }),
+            }),
+          }),
+          e.jsx("div", {
+            className:
+              "mt-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-[11px] uppercase tracking-[0.22em] opacity-40 pt-8 border-t border-[#F5F5F4]/10",
+            children: e.jsx("div", { children: "© 2026 Dark Media · All rights reserved" }),
+          }),
+        ],
+      }),
+    ],
+  });
+}
+function G() {
+  return e.jsxs("main", {
+    className: "relative bg-[#030304] text-[#F5F5F4] min-h-screen",
+    children: [
+      e.jsx(A, {}),
+      e.jsxs("section", {
+        className:
+          "relative min-h-[40vh] md:min-h-[50vh] flex flex-col items-center justify-center pt-32 pb-16 overflow-hidden",
+        children: [
+          e.jsxs("div", {
+            className: "absolute inset-0 overflow-hidden pointer-events-none opacity-40",
+            children: [
+              e.jsx(r.div, {
+                animate: {
+                  x: ["-10%", "30%", "-10%"],
+                  y: ["-15%", "25%", "-15%"],
+                  scale: [1, 1.4, 1],
+                },
+                transition: { duration: 16, repeat: 1 / 0, ease: "linear" },
+                className:
+                  "absolute top-0 -left-[10%] w-[50vw] h-[50vw] rounded-full blur-[140px] opacity-20",
+                style: {
+                  background: "radial-gradient(circle, rgba(255,255,255,0.5), transparent 70%)",
+                },
+              }),
+              e.jsx(r.div, {
+                animate: {
+                  x: ["20%", "-25%", "20%"],
+                  y: ["20%", "-15%", "20%"],
+                  scale: [1.2, 1, 1.2],
+                },
+                transition: { duration: 22, repeat: 1 / 0, ease: "linear" },
+                className:
+                  "absolute bottom-0 -right-[10%] w-[60vw] h-[60vw] rounded-full blur-[160px] opacity-10",
+                style: {
+                  background: "radial-gradient(circle, rgba(200,200,200,0.4), transparent 70%)",
+                },
+              }),
+              e.jsx("div", {
+                className: "absolute inset-0 opacity-[0.03]",
+                style: {
+                  backgroundImage:
+                    "linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)",
+                  backgroundSize: "80px 80px",
+                },
+              }),
+            ],
+          }),
+          e.jsxs("div", {
+            className: "relative z-10 text-center px-6",
+            children: [
+              e.jsx(m, {
+                delay: 0.2,
+                children: e.jsx("span", {
+                  className:
+                    "text-[11px] md:text-xs uppercase tracking-[0.25em] text-white/50 font-semibold mb-4 block",
+                  children: "Selected Projects",
+                }),
+              }),
+              e.jsx("h1", {
+                className:
+                  "font-display text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tight leading-[0.95] text-white",
+                children: e.jsx(E, { text: "Our Works", delay: 0.4 }),
+              }),
+            ],
+          }),
+        ],
+      }),
+      e.jsx(v, {
+        index: 1,
+        children: e.jsx("section", {
+          className:
+            "px-4 sm:px-6 md:px-10 lg:p-[220px] py-10 md:py-16 lg:py-20 relative z-10 bg-[#F5F5F4] w-full rounded-[24px] md:rounded-[32px] lg:rounded-t-[48px] lg:rounded-b-none shadow-2xl border border-black/5 lg:border-t lg:border-x-0 lg:border-b-0 ",
+          children: e.jsxs("div", {
+            className: "max-w-[1600px] mx-auto w-full",
+            children: [
+              e.jsxs("div", {
+                className:
+                  "border-b border-[#030304]/10 pb-4 mb-6 flex flex-col lg:flex-row lg:items-end justify-between gap-6  md:-mt-16",
+                children: [
+                  e.jsxs("div", {
+                    children: [
+                      e.jsx("span", {
+                        className:
+                          "text-[11px] font-mono uppercase tracking-[0.25em] text-[#EC6303]",
+                        children: "Logofolio",
+                      }),
+                      e.jsx("h2", {
+                        className:
+                          "font-display text-3xl md:text-4xl lg:text-5xl text-[#030304] mt-1 font-semibold",
+                        children: "Al Masoudi Company",
+                      }),
+                      e.jsx("p", {
+                        className: "text-[#030304]/50 text-xs uppercase tracking-widest mt-1",
+                        children: "Contracting and trading",
+                      }),
+                    ],
+                  }),
+                  e.jsxs("div", {
+                    className:
+                      "flex flex-col sm:flex-row items-start sm:items-end gap-6 lg:gap-10 lg:max-w-xl",
+                    children: [
+                      e.jsx("p", {
+                        className: "text-[#030304]/70 text-sm md:text-base leading-relaxed",
+                        children:
+                          "AL MASOUDI Contracting and Trading is a Saudi-owned company providing comprehensive solutions. Crafted with precise geometries representing heritage, reliability, and growth.",
+                      }),
+                      e.jsx("span", {
+                        className:
+                          "font-display text-6xl md:text-8xl font-bold leading-none tracking-tighter text-[#EC6304]/15 self-end lg:self-auto",
+                        children: "01",
+                      }),
+                    ],
+                  }),
+                ],
+              }),
+              e.jsxs("div", {
+                className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-3",
+                children: [
+                  e.jsxs("div", {
+                    className:
+                      "min-h-[180px] lg:h-[260px] sm:col-span-2 bg-white rounded-[16px] md:rounded-[20px] flex items-center justify-center border border-[#030304]/5 shadow-md hover:shadow-xl transition-all duration-500 relative overflow-hidden group",
+                    children: [
+                      e.jsx("div", {
+                        className:
+                          "absolute inset-0 bg-gradient-to-br from-black/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500",
+                      }),
+                      e.jsx("img", {
+                        src: k,
+                        alt: "Al Masoudi Logo",
+                        className:
+                          "w-auto object-contain transition-transform duration-700 group-hover:scale-110 drop-shadow-sm",
+                      }),
+                    ],
+                  }),
+                  e.jsxs("div", {
+                    className:
+                      "sm:col-span-1 bg-white rounded-[16px] md:rounded-[20px] overflow-hidden border border-[#030304]/5 shadow-md hover:shadow-xl transition-all duration-500 relative group h-auto flex flex-col",
+                    children: [
+                      e.jsx("img", {
+                        src: F,
+                        alt: "Mockup Presentation",
+                        className:
+                          "w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110 flex-grow",
+                      }),
+                      e.jsx("div", {
+                        className:
+                          "absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4",
+                      }),
+                    ],
+                  }),
+                  e.jsxs("div", {
+                    className: "sm:col-span-1 flex flex-col gap-3",
+                    children: [
+                      e.jsx("div", {
+                        className:
+                          "bg-white rounded-[16px] md:rounded-[20px] overflow-hidden border border-[#030304]/5 shadow-md hover:shadow-xl transition-all duration-500 relative group h-auto",
+                        children: e.jsx("img", {
+                          src: C,
+                          alt: "Corporate Stationery",
+                          className:
+                            "w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110",
+                        }),
+                      }),
+                      e.jsxs("div", {
+                        className:
+                          "bg-white rounded-[16px] md:rounded-[20px] p-4 border border-[#030304]/5 shadow-md hover:shadow-xl transition-all duration-500 flex flex-col justify-between gap-3 min-h-[72px]",
+                        children: [
+                          e.jsxs("div", {
+                            className:
+                              "text-[9px] uppercase tracking-widest text-[#030304]/50 font-mono flex items-center justify-between",
+                            children: [
+                              e.jsx("span", { children: "Brand Palette" }),
+                              e.jsx("span", {
+                                className: "w-1.5 h-1.5 rounded-full bg-[#EC6303] animate-pulse",
+                              }),
+                            ],
+                          }),
+                          e.jsxs("div", {
+                            className: "grid grid-cols-4 gap-1.5 h-8",
+                            children: [
+                              e.jsx("div", {
+                                className:
+                                  "bg-[#EC6303] rounded-md group relative cursor-pointer hover:scale-110 transition-transform shadow-inner",
+                                title: "#EC6303",
+                                children: e.jsx("span", {
+                                  className:
+                                    "absolute -top-7 left-1/2 -translate-x-1/2 bg-[#030304] text-white text-[8px] px-1.5 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none font-mono",
+                                  children: "#EC6303",
+                                }),
+                              }),
+                              e.jsx("div", {
+                                className:
+                                  "bg-[#000000] rounded-md group relative cursor-pointer hover:scale-110 transition-transform shadow-inner",
+                                title: "#000000",
+                                children: e.jsx("span", {
+                                  className:
+                                    "absolute -top-7 left-1/2 -translate-x-1/2 bg-[#030304] text-white text-[8px] px-1.5 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none font-mono",
+                                  children: "#000000",
+                                }),
+                              }),
+                              e.jsx("div", {
+                                className:
+                                  "bg-[#58585B] rounded-md group relative cursor-pointer hover:scale-110 transition-transform shadow-inner",
+                                title: "#58585B",
+                                children: e.jsx("span", {
+                                  className:
+                                    "absolute -top-7 left-1/2 -translate-x-1/2 bg-[#030304] text-white text-[8px] px-1.5 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none font-mono",
+                                  children: "#58585B",
+                                }),
+                              }),
+                              e.jsx("div", {
+                                className:
+                                  "bg-[#D0D0D0] rounded-md border border-black/5 group relative cursor-pointer hover:scale-110 transition-transform shadow-inner",
+                                title: "#D0D0D0",
+                                children: e.jsx("span", {
+                                  className:
+                                    "absolute -top-7 left-1/2 -translate-x-1/2 bg-[#030304] text-white text-[8px] px-1.5 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none font-mono",
+                                  children: "#D0D0D0",
+                                }),
+                              }),
+                            ],
+                          }),
+                        ],
+                      }),
+                    ],
+                  }),
+                  e.jsxs("div", {
+                    className:
+                      "min-h-[160px] sm:col-span-2 rounded-[16px] md:rounded-[20px] p-4 md:p-6 flex items-center justify-center border border-[#030304]/5 shadow-md hover:shadow-xl transition-all duration-500 relative overflow-hidden group",
+                    children: [
+                      e.jsx("div", {
+                        className:
+                          "absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.03)_0%,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500",
+                      }),
+                      e.jsx("img", {
+                        src: D,
+                        alt: "Logo Geometry breakdown",
+                        className:
+                          "w-full sm:w-auto h-auto max-h-full max-w-full object-contain mix-blend-multiply transition-transform duration-700 group-hover:scale-105",
+                      }),
+                    ],
+                  }),
+                  e.jsxs("div", {
+                    className:
+                      "bg-white rounded-[16px] md:rounded-[20px] overflow-hidden border border-[#030304]/5 shadow-md hover:shadow-xl transition-all duration-500 relative group h-auto",
+                    children: [
+                      e.jsx("img", {
+                        src: L,
+                        alt: "Brand Typography Details",
+                        className:
+                          "w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110",
+                      }),
+                      e.jsx("div", {
+                        className:
+                          "absolute inset-0 ring-1 ring-inset ring-black/5 rounded-[16px] md:rounded-[20px]",
+                      }),
+                    ],
+                  }),
+                  e.jsxs("div", {
+                    className:
+                      "bg-white rounded-[16px] md:rounded-[20px] overflow-hidden border border-[#030304]/5 shadow-md hover:shadow-xl transition-all duration-500 relative group h-auto",
+                    children: [
+                      e.jsx("img", {
+                        src: M,
+                        alt: "Brand Typography Mockup",
+                        className:
+                          "w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110",
+                      }),
+                      e.jsx("div", {
+                        className:
+                          "absolute inset-0 ring-1 ring-inset ring-black/5 rounded-[16px] md:rounded-[20px]",
+                      }),
+                    ],
+                  }),
+                ],
+              }),
+            ],
+          }),
+        }),
+      }),
+      e.jsx(v, {
+        index: 2,
+        children: e.jsx("section", {
+          className:
+            " px-4 sm:px-6 md:px-10 lg:p-[220px] py-10 md:py-16 lg:py-20 relative z-10 bg-[#F5F5F4] w-full rounded-[24px] md:rounded-[32px] lg:rounded-t-[48px] lg:rounded-b-none shadow-2xl border border-black/5 lg:border-t lg:border-x-0 lg:border-b-0",
+          children: e.jsxs("div", {
+            className: "max-w-[1600px] mx-auto w-full",
+            children: [
+              e.jsxs("div", {
+                className:
+                  "border-b border-[#030304]/10 pb-4 mb-6 flex flex-col lg:flex-row lg:items-end justify-between gap-6 md:-mt-16",
+                children: [
+                  e.jsxs("div", {
+                    children: [
+                      e.jsx("span", {
+                        className:
+                          "text-[11px] font-mono uppercase tracking-[0.25em] text-[#D4141C] ",
+                        children: "Logofolio",
+                      }),
+                      e.jsx("h2", {
+                        className:
+                          "font-display text-3xl md:text-4xl lg:text-5xl text-[#030304] mt-1 font-semibold",
+                        children: "Haneefz Briyani",
+                      }),
+                      e.jsx("p", {
+                        className: "text-[#030304]/50 text-xs uppercase tracking-widest mt-1",
+                        children: "Caterers",
+                      }),
+                    ],
+                  }),
+                  e.jsxs("div", {
+                    className:
+                      "flex flex-col sm:flex-row items-start sm:items-end gap-6 lg:gap-10 lg:max-w-xl",
+                    children: [
+                      e.jsx("p", {
+                        className: "text-[#030304]/70 text-sm md:text-base leading-relaxed",
+                        children:
+                          "Haneefz Briyani is a Kerala-based caterers company providing comprehensive solutions. Crafted with precise geometries representing heritage, reliability, and growth.",
+                      }),
+                      e.jsx("span", {
+                        className:
+                          "font-display text-6xl md:text-8xl font-bold leading-none tracking-tighter text-[#D4141C]/15 self-end lg:self-auto",
+                        children: "02",
+                      }),
+                    ],
+                  }),
+                ],
+              }),
+              e.jsxs("div", {
+                className: "grid grid-cols-1 md:grid-cols-12 md:grid-rows-4 gap-4",
+                children: [
+                  e.jsx("div", {
+                    className:
+                      "md:col-span-5 md:row-span-2 bg-[#1A1A1A] rounded-[20px] flex items-center justify-center border border-[#030304]/5 shadow-md hover:shadow-xl transition-all duration-500 overflow-hidden group ",
+                    children: e.jsx("img", {
+                      src: B,
+                      alt: "Al Masoudi Logo",
+                      className:
+                        "object-contain transition-transform duration-700 group-hover:scale-110",
+                    }),
+                  }),
+                  e.jsx("div", {
+                    className:
+                      "md:col-span-3 md:row-span-2 md:col-start-6 bg-white rounded-[20px] overflow-hidden border border-[#030304]/5 shadow-md hover:shadow-xl transition-all duration-500 group",
+                    children: e.jsx("img", {
+                      src: _,
+                      alt: "Mockup Presentation",
+                      className:
+                        "w-full h-full object-cover transition-transform duration-700 group-hover:scale-110",
+                    }),
+                  }),
+                  e.jsx("div", {
+                    className:
+                      "md:col-span-4 md:row-span-2 md:col-start-9 bg-white rounded-[20px] overflow-hidden border border-[#030304]/5 shadow-md hover:shadow-xl transition-all duration-500 group",
+                    children: e.jsx("img", {
+                      src: z,
+                      alt: "Corporate Stationery",
+                      className:
+                        "w-full h-full object-cover transition-transform duration-700 group-hover:scale-110",
+                    }),
+                  }),
+                  e.jsx("div", {
+                    className:
+                      "md:col-span-6 md:row-span-2 md:row-start-3 bg-white rounded-[20px] flex items-center justify-center border border-[#030304]/5 shadow-md hover:shadow-xl transition-all duration-500 overflow-hidden group ",
+                    children: e.jsx("img", {
+                      src: I,
+                      alt: "Logo Geometry Breakdown",
+                      className:
+                        "object-contain p-4 transition-transform duration-700 group-hover:scale-105",
+                    }),
+                  }),
+                  e.jsx("div", {
+                    className:
+                      "md:col-span-4 md:row-span-2 md:col-start-7 md:row-start-3 bg-white rounded-[20px] overflow-hidden border border-[#030304]/5 shadow-md hover:shadow-xl transition-all duration-500 group",
+                    children: e.jsx("img", {
+                      src: S,
+                      alt: "Brand Typography",
+                      className:
+                        "w-full h-full object-cover transition-transform duration-700 group-hover:scale-110",
+                    }),
+                  }),
+                  e.jsxs("div", {
+                    className:
+                      "md:col-span-2 md:row-span-2 md:col-start-11 md:row-start-3 bg-white rounded-[20px] p-4 border border-[#030304]/5 shadow-md hover:shadow-xl transition-all duration-500 flex flex-col justify-between",
+                    children: [
+                      e.jsxs("div", {
+                        className: "flex items-center justify-between",
+                        children: [
+                          e.jsx("span", {
+                            className:
+                              "text-[10px] uppercase tracking-widest text-[#030304]/50 font-mono",
+                            children: "Brand Palette",
+                          }),
+                          e.jsx("span", {
+                            className: "w-2 h-2 rounded-full bg-[#D5161B] animate-pulse",
+                          }),
+                        ],
+                      }),
+                      e.jsx("div", {
+                        className: "grid grid-cols-2 gap-3 mt-4",
+                        children: ["#D5161B", "#D7AE43", "#000000", "#D0D0D0"].map((a) =>
+                          e.jsxs(
+                            "div",
+                            {
+                              className: "flex flex-col items-center gap-1",
+                              children: [
+                                e.jsx("div", {
+                                  className:
+                                    "w-full h-14 rounded-lg border border-black/5 shadow-inner hover:scale-105 transition-transform",
+                                  style: { backgroundColor: a },
+                                }),
+                                e.jsx("span", {
+                                  className:
+                                    "text-[9px] font-mono text-[#030304]/70 text-center break-all",
+                                  children: a,
+                                }),
+                              ],
+                            },
+                            a,
+                          ),
+                        ),
+                      }),
+                    ],
+                  }),
+                ],
+              }),
+            ],
+          }),
+        }),
+      }),
+      e.jsx("br", {}),
+      e.jsx(P, {}),
+    ],
+  });
+}
+export { G as component };

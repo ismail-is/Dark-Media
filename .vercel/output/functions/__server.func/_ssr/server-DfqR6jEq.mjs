@@ -1,10 +1,37 @@
 import { AsyncLocalStorage } from "node:async_hooks";
 import { H as H3Event, t as toResponse } from "../_libs/h3-v2.mjs";
-import { y as defineHandlerCallback, z as resolveManifestAssetLink, u as resolveManifestCssLink, k as rootRouteId, A as getNormalizedURL, C as getOrigin, D as normalizeSsrResponse, E as attachRouterServerSsrUtils, F as createSerializationAdapter, G as createRawStreamRPCPlugin, i as invariant, g as isNotFound, m as isRedirect, H as isResolvedRedirect, I as replaceSsrResponse, J as mergeHeaders, K as executeRewriteInput, L as stripSsrResponseBody, M as defaultSerovalPlugins, N as makeSerovalPlugin, s as getScriptPreloadAttrs, O as getStylesheetHref, P as isSsrResponse } from "../_libs/tanstack__router-core.mjs";
+import {
+  y as defineHandlerCallback,
+  z as resolveManifestAssetLink,
+  u as resolveManifestCssLink,
+  k as rootRouteId,
+  A as getNormalizedURL,
+  C as getOrigin,
+  D as normalizeSsrResponse,
+  E as attachRouterServerSsrUtils,
+  F as createSerializationAdapter,
+  G as createRawStreamRPCPlugin,
+  i as invariant,
+  g as isNotFound,
+  m as isRedirect,
+  H as isResolvedRedirect,
+  I as replaceSsrResponse,
+  J as mergeHeaders,
+  K as executeRewriteInput,
+  L as stripSsrResponseBody,
+  M as defaultSerovalPlugins,
+  N as makeSerovalPlugin,
+  s as getScriptPreloadAttrs,
+  O as getStylesheetHref,
+  P as isSsrResponse,
+} from "../_libs/tanstack__router-core.mjs";
 import { i as iu, P as Pu, s as su } from "../_libs/seroval.mjs";
 import { c as createMemoryHistory } from "../_libs/tanstack__history.mjs";
 import { j as jsxRuntimeExports } from "../_libs/react.mjs";
-import { r as renderRouterToStream, R as RouterProvider } from "../_libs/tanstack__react-router.mjs";
+import {
+  r as renderRouterToStream,
+  R as RouterProvider,
+} from "../_libs/tanstack__react-router.mjs";
 import "../_libs/rou3.mjs";
 import "../_libs/srvx.mjs";
 import "node:stream";
@@ -20,22 +47,26 @@ import "../_libs/isbot.mjs";
 function StartServer(props) {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(RouterProvider, { router: props.router });
 }
-var defaultStreamHandler = defineHandlerCallback(({ request, router, responseHeaders }) => renderRouterToStream({
-  request,
-  router,
-  responseHeaders,
-  children: /* @__PURE__ */ jsxRuntimeExports.jsx(StartServer, { router })
-}));
+var defaultStreamHandler = defineHandlerCallback(({ request, router, responseHeaders }) =>
+  renderRouterToStream({
+    request,
+    router,
+    responseHeaders,
+    children: /* @__PURE__ */ jsxRuntimeExports.jsx(StartServer, { router }),
+  }),
+);
 var GLOBAL_EVENT_STORAGE_KEY = /* @__PURE__ */ Symbol.for("tanstack-start:event-storage");
 var globalObj$1 = globalThis;
-if (!globalObj$1[GLOBAL_EVENT_STORAGE_KEY]) globalObj$1[GLOBAL_EVENT_STORAGE_KEY] = new AsyncLocalStorage();
+if (!globalObj$1[GLOBAL_EVENT_STORAGE_KEY])
+  globalObj$1[GLOBAL_EVENT_STORAGE_KEY] = new AsyncLocalStorage();
 var eventStorage = globalObj$1[GLOBAL_EVENT_STORAGE_KEY];
 function isPromiseLike(value) {
   return typeof value.then === "function";
 }
 function getSetCookieValues(headers) {
   const headersWithSetCookie = headers;
-  if (typeof headersWithSetCookie.getSetCookie === "function") return headersWithSetCookie.getSetCookie();
+  if (typeof headersWithSetCookie.getSetCookie === "function")
+    return headersWithSetCookie.getSetCookie();
   const value = headers.get("set-cookie");
   return value ? [value] : [];
 }
@@ -49,10 +80,11 @@ function mergeEventResponseHeaders(response, event) {
   for (const cookie of eventSetCookies) response.headers.append("set-cookie", cookie);
 }
 function attachResponseHeaders(value, event) {
-  if (isPromiseLike(value)) return value.then((resolved) => {
-    if (resolved instanceof Response) mergeEventResponseHeaders(resolved, event);
-    return resolved;
-  });
+  if (isPromiseLike(value))
+    return value.then((resolved) => {
+      if (resolved instanceof Response) mergeEventResponseHeaders(resolved, event);
+      return resolved;
+    });
   if (value instanceof Response) mergeEventResponseHeaders(value, event);
   return value;
 }
@@ -62,18 +94,28 @@ function requestHandler(handler) {
     try {
       h3Event = new H3Event(request);
     } catch (error) {
-      if (error instanceof URIError) return new Response(null, {
-        status: 400,
-        statusText: "Bad Request"
-      });
+      if (error instanceof URIError)
+        return new Response(null, {
+          status: 400,
+          statusText: "Bad Request",
+        });
       throw error;
     }
-    return toResponse(attachResponseHeaders(eventStorage.run({ h3Event }, () => handler(request, requestOpts)), h3Event), h3Event);
+    return toResponse(
+      attachResponseHeaders(
+        eventStorage.run({ h3Event }, () => handler(request, requestOpts)),
+        h3Event,
+      ),
+      h3Event,
+    );
   };
 }
 function getH3Event() {
   const event = eventStorage.getStore();
-  if (!event) throw new Error(`No StartEvent found in AsyncLocalStorage. Make sure you are using the function within the server runtime.`);
+  if (!event)
+    throw new Error(
+      `No StartEvent found in AsyncLocalStorage. Make sure you are using the function within the server runtime.`,
+    );
   return event.h3Event;
 }
 function getResponse() {
@@ -95,9 +137,9 @@ async function getStartManifest(matchedRoutes) {
     if (result.preloads || result.scripts || result.css) manifestRoutes[k] = result;
   }
   return {
-    ...startManifest.scriptFormat ? { scriptFormat: startManifest.scriptFormat } : {},
-    ...startManifest.inlineCss ? { inlineCss: startManifest.inlineCss } : {},
-    routes: manifestRoutes
+    ...(startManifest.scriptFormat ? { scriptFormat: startManifest.scriptFormat } : {}),
+    ...(startManifest.inlineCss ? { inlineCss: startManifest.inlineCss } : {}),
+    routes: manifestRoutes,
   };
 }
 const manifest = {};
@@ -106,7 +148,7 @@ async function getServerFnById(id, access) {
   if (!serverFnInfo) {
     throw new Error("Server function info not found for " + id);
   }
-  const fnModule = serverFnInfo.module ?? await serverFnInfo.importer();
+  const fnModule = serverFnInfo.module ?? (await serverFnInfo.importer());
   if (!fnModule) {
     throw new Error("Server function module not resolved for " + id);
   }
@@ -129,7 +171,7 @@ var FrameType = {
   /** Raw stream end (EOF) */
   END: 2,
   /** Raw stream error */
-  ERROR: 3
+  ERROR: 3,
 };
 var FRAME_HEADER_SIZE = 9;
 var TSS_CONTENT_TYPE_FRAMED_VERSIONED = `${TSS_CONTENT_TYPE_FRAMED}; v=1`;
@@ -161,7 +203,10 @@ async function runWithStartContext(context, fn) {
 }
 function getStartContext(opts) {
   const context = startStorage.getStore();
-  if (!context && opts?.throwIfNotFound !== false) throw new Error(`No Start context found in AsyncLocalStorage. Make sure you are using the function within the server runtime.`);
+  if (!context && opts?.throwIfNotFound !== false)
+    throw new Error(
+      `No Start context found in AsyncLocalStorage. Make sure you are using the function within the server runtime.`,
+    );
   return context;
 }
 var getStartOptions = () => getStartContext().startOptions;
@@ -169,7 +214,10 @@ function flattenMiddlewares(middlewares, maxDepth = 100) {
   const seen = /* @__PURE__ */ new Set();
   const flattened = [];
   const recurse = (middleware, depth) => {
-    if (depth > maxDepth) throw new Error(`Middleware nesting depth exceeded maximum of ${maxDepth}. Check for circular references.`);
+    if (depth > maxDepth)
+      throw new Error(
+        `Middleware nesting depth exceeded maximum of ${maxDepth}. Check for circular references.`,
+      );
     middleware.forEach((m) => {
       if (m.options.middleware) recurse(m.options.middleware, depth + 1);
       if (!seen.has(m)) {
@@ -184,13 +232,16 @@ function flattenMiddlewares(middlewares, maxDepth = 100) {
 var createMiddleware = (options, __opts) => {
   const resolvedOptions = {
     type: "request",
-    ...__opts || options
+    ...(__opts || options),
   };
   const setValidator = (validator) => {
-    return createMiddleware({}, Object.assign(resolvedOptions, {
-      validator,
-      inputValidator: validator
-    }));
+    return createMiddleware(
+      {},
+      Object.assign(resolvedOptions, {
+        validator,
+        inputValidator: validator,
+      }),
+    );
   };
   return {
     options: resolvedOptions,
@@ -204,13 +255,13 @@ var createMiddleware = (options, __opts) => {
     },
     server: (server2) => {
       return createMiddleware({}, Object.assign(resolvedOptions, { server: server2 }));
-    }
+    },
   };
 };
 var innerCreateCsrfMiddleware = (opts = {}) => {
   const middleware = createMiddleware().server(async (ctx) => {
     const csrfCtx = ctx;
-    if (opts.filter && !await opts.filter(csrfCtx)) return ctx.next();
+    if (opts.filter && !(await opts.filter(csrfCtx))) return ctx.next();
     if (await isCsrfRequestAllowed(opts, csrfCtx)) return ctx.next();
     return getFailureResponse(opts, csrfCtx);
   });
@@ -219,7 +270,7 @@ var innerCreateCsrfMiddleware = (opts = {}) => {
 var createCsrfMiddleware = innerCreateCsrfMiddleware;
 async function isCsrfRequestAllowed(opts, ctx) {
   const result = await getCsrfRequestValidationResult(opts, ctx);
-  return result === true || result === void 0 && opts.allowRequestsWithoutOriginCheck === true;
+  return result === true || (result === void 0 && opts.allowRequestsWithoutOriginCheck === true);
 }
 async function getCsrfRequestValidationResult(opts, ctx) {
   const fetchSite = ctx.request.headers.get("Sec-Fetch-Site");
@@ -259,25 +310,31 @@ function isRefererSameOrigin(referer, requestOrigin) {
 }
 async function getFailureResponse(opts, ctx) {
   if (typeof opts.failureResponse === "function") return opts.failureResponse(ctx);
-  return opts.failureResponse?.clone() ?? new Response("Forbidden", {
-    status: 403
-  });
+  return (
+    opts.failureResponse?.clone() ??
+    new Response("Forbidden", {
+      status: 403,
+    })
+  );
 }
 function getDefaultSerovalPlugins() {
-  return [...getStartOptions()?.serializationAdapters?.map(makeSerovalPlugin) ?? [], ...defaultSerovalPlugins];
+  return [
+    ...(getStartOptions()?.serializationAdapters?.map(makeSerovalPlugin) ?? []),
+    ...defaultSerovalPlugins,
+  ];
 }
 var textEncoder = new TextEncoder();
 var EMPTY_PAYLOAD = new Uint8Array(0);
 function encodeFrame(type, streamId, payload) {
   const frame = new Uint8Array(FRAME_HEADER_SIZE + payload.length);
   frame[0] = type;
-  frame[1] = streamId >>> 24 & 255;
-  frame[2] = streamId >>> 16 & 255;
-  frame[3] = streamId >>> 8 & 255;
+  frame[1] = (streamId >>> 24) & 255;
+  frame[2] = (streamId >>> 16) & 255;
+  frame[3] = (streamId >>> 8) & 255;
   frame[4] = streamId & 255;
-  frame[5] = payload.length >>> 24 & 255;
-  frame[6] = payload.length >>> 16 & 255;
-  frame[7] = payload.length >>> 8 & 255;
+  frame[5] = (payload.length >>> 24) & 255;
+  frame[6] = (payload.length >>> 16) & 255;
+  frame[7] = (payload.length >>> 8) & 255;
   frame[8] = payload.length & 255;
   frame.set(payload, FRAME_HEADER_SIZE);
   return frame;
@@ -313,10 +370,8 @@ function createMultiplexedStream(jsonStream, rawStreams, lateStreamSource) {
     cancelled = true;
     try {
       controller.error(error);
-    } catch {
-    }
-    for (const reader of readers) reader.cancel().catch(() => {
-    });
+    } catch {}
+    for (const reader of readers) reader.cancel().catch(() => {});
   };
   async function pumpRawStream(streamId, stream) {
     const reader = stream.getReader();
@@ -377,19 +432,17 @@ function createMultiplexedStream(jsonStream, rawStreams, lateStreamSource) {
       try {
         const latePumps = (await Promise.all(pumps)).find(Array.isArray);
         if (latePumps && latePumps.length > 0) await Promise.all(latePumps);
-        if (!cancelled) try {
-          controller.close();
-        } catch {
-        }
-      } catch {
-      }
+        if (!cancelled)
+          try {
+            controller.close();
+          } catch {}
+      } catch {}
     },
     cancel() {
       cancelled = true;
-      for (const reader of readers) reader.cancel().catch(() => {
-      });
+      for (const reader of readers) reader.cancel().catch(() => {});
       readers.length = 0;
-    }
+    },
   });
 }
 var serovalPlugins = void 0;
@@ -399,10 +452,11 @@ var handleServerAction = async ({ request, context, serverFnId }) => {
   const methodUpper = request.method.toUpperCase();
   const url = new URL(request.url);
   const action = await getServerFnById(serverFnId);
-  if (action.method && methodUpper !== action.method) return new Response(`expected ${action.method} method. Got ${methodUpper}`, {
-    status: 405,
-    headers: { Allow: action.method }
-  });
+  if (action.method && methodUpper !== action.method)
+    return new Response(`expected ${action.method} method. Got ${methodUpper}`, {
+      status: 405,
+      headers: { Allow: action.method },
+    });
   const isServerFn = request.headers.get("x-tsr-serverFn") === "true";
   if (!serovalPlugins) serovalPlugins = getDefaultSerovalPlugins();
   const contentType = request.headers.get("Content-Type");
@@ -411,7 +465,7 @@ var handleServerAction = async ({ request, context, serverFnId }) => {
   }
   return await (async () => {
     try {
-      let serializeResult = function(res2) {
+      let serializeResult = function (res2) {
         let nonStreamingBody = void 0;
         const alsResponse = getResponse();
         if (res2 !== void 0) {
@@ -420,24 +474,28 @@ var handleServerAction = async ({ request, context, serverFnId }) => {
           let lateStreamWriter;
           let lateStreamReadable = void 0;
           const pendingLateStreams = [];
-          const plugins = [createRawStreamRPCPlugin((id, stream) => {
-            if (initialPhase) {
-              rawStreams.set(id, stream);
-              return;
-            }
-            if (lateStreamWriter) {
-              lateStreamWriter.write({
+          const plugins = [
+            createRawStreamRPCPlugin((id, stream) => {
+              if (initialPhase) {
+                rawStreams.set(id, stream);
+                return;
+              }
+              if (lateStreamWriter) {
+                lateStreamWriter
+                  .write({
+                    id,
+                    stream,
+                  })
+                  .catch(() => {});
+                return;
+              }
+              pendingLateStreams.push({
                 id,
-                stream
-              }).catch(() => {
+                stream,
               });
-              return;
-            }
-            pendingLateStreams.push({
-              id,
-              stream
-            });
-          }), ...serovalPlugins || []];
+            }),
+            ...(serovalPlugins || []),
+          ];
           let done = false;
           const callbacks = {
             onParse: (value) => {
@@ -448,7 +506,7 @@ var handleServerAction = async ({ request, context, serverFnId }) => {
             },
             onError: (error) => {
               throw error;
-            }
+            },
           };
           iu(res2, {
             refs: /* @__PURE__ */ new Map(),
@@ -461,72 +519,79 @@ var handleServerAction = async ({ request, context, serverFnId }) => {
             },
             onError: (error) => {
               callbacks.onError(error);
-            }
+            },
           });
           initialPhase = false;
-          if (done && rawStreams.size === 0) return new Response(nonStreamingBody ? JSON.stringify(nonStreamingBody) : void 0, {
-            status: alsResponse.status,
-            statusText: alsResponse.statusText,
-            headers: {
-              "Content-Type": "application/json",
-              [X_TSS_SERIALIZED]: "true"
-            }
-          });
+          if (done && rawStreams.size === 0)
+            return new Response(nonStreamingBody ? JSON.stringify(nonStreamingBody) : void 0, {
+              status: alsResponse.status,
+              statusText: alsResponse.statusText,
+              headers: {
+                "Content-Type": "application/json",
+                [X_TSS_SERIALIZED]: "true",
+              },
+            });
           const { readable, writable } = new TransformStream();
           lateStreamReadable = readable;
           lateStreamWriter = writable.getWriter();
-          for (const registration of pendingLateStreams) lateStreamWriter.write(registration).catch(() => {
-          });
+          for (const registration of pendingLateStreams)
+            lateStreamWriter.write(registration).catch(() => {});
           pendingLateStreams.length = 0;
-          const multiplexedStream = createMultiplexedStream(new ReadableStream({
-            start(controller) {
-              callbacks.onParse = (value) => {
-                controller.enqueue(JSON.stringify(value) + "\n");
-              };
-              callbacks.onDone = () => {
-                try {
-                  controller.close();
-                } catch {
-                }
-                lateStreamWriter?.close().catch(() => {
-                }).finally(() => {
-                  lateStreamWriter = void 0;
-                });
-              };
-              callbacks.onError = (error) => {
-                controller.error(error);
-                lateStreamWriter?.abort(error).catch(() => {
-                }).finally(() => {
-                  lateStreamWriter = void 0;
-                });
-              };
-              if (nonStreamingBody !== void 0) callbacks.onParse(nonStreamingBody);
-              if (done) callbacks.onDone();
-            },
-            cancel() {
-              lateStreamWriter?.abort().catch(() => {
-              });
-              lateStreamWriter = void 0;
-            }
-          }), rawStreams, lateStreamReadable);
+          const multiplexedStream = createMultiplexedStream(
+            new ReadableStream({
+              start(controller) {
+                callbacks.onParse = (value) => {
+                  controller.enqueue(JSON.stringify(value) + "\n");
+                };
+                callbacks.onDone = () => {
+                  try {
+                    controller.close();
+                  } catch {}
+                  lateStreamWriter
+                    ?.close()
+                    .catch(() => {})
+                    .finally(() => {
+                      lateStreamWriter = void 0;
+                    });
+                };
+                callbacks.onError = (error) => {
+                  controller.error(error);
+                  lateStreamWriter
+                    ?.abort(error)
+                    .catch(() => {})
+                    .finally(() => {
+                      lateStreamWriter = void 0;
+                    });
+                };
+                if (nonStreamingBody !== void 0) callbacks.onParse(nonStreamingBody);
+                if (done) callbacks.onDone();
+              },
+              cancel() {
+                lateStreamWriter?.abort().catch(() => {});
+                lateStreamWriter = void 0;
+              },
+            }),
+            rawStreams,
+            lateStreamReadable,
+          );
           return new Response(multiplexedStream, {
             status: alsResponse.status,
             statusText: alsResponse.statusText,
             headers: {
               "Content-Type": TSS_CONTENT_TYPE_FRAMED_VERSIONED,
-              [X_TSS_SERIALIZED]: "true"
-            }
+              [X_TSS_SERIALIZED]: "true",
+            },
           });
         }
         return new Response(void 0, {
           status: alsResponse.status,
-          statusText: alsResponse.statusText
+          statusText: alsResponse.statusText,
         });
       };
       let res = await (async () => {
         if (FORM_DATA_CONTENT_TYPES.some((type) => contentType && contentType.includes(type))) {
           if (methodUpper === "GET") {
-            if (false) ;
+            if (false);
             invariant();
           }
           const formData = await request.formData();
@@ -535,19 +600,24 @@ var handleServerAction = async ({ request, context, serverFnId }) => {
           const params = {
             context,
             data: formData,
-            method: methodUpper
+            method: methodUpper,
           };
-          if (typeof serializedContext === "string") try {
-            const deserializedContext = Pu(JSON.parse(serializedContext), { plugins: serovalPlugins });
-            if (typeof deserializedContext === "object" && deserializedContext) params.context = safeObjectMerge(deserializedContext, context);
-          } catch (e) {
-            if (false) ;
-          }
+          if (typeof serializedContext === "string")
+            try {
+              const deserializedContext = Pu(JSON.parse(serializedContext), {
+                plugins: serovalPlugins,
+              });
+              if (typeof deserializedContext === "object" && deserializedContext)
+                params.context = safeObjectMerge(deserializedContext, context);
+            } catch (e) {
+              if (false);
+            }
           return await action(params);
         }
         if (methodUpper === "GET") {
           const payloadParam = url.searchParams.get("payload");
-          if (payloadParam && payloadParam.length > MAX_PAYLOAD_SIZE) throw new Error("Payload too large");
+          if (payloadParam && payloadParam.length > MAX_PAYLOAD_SIZE)
+            throw new Error("Payload too large");
           const payload2 = payloadParam ? parsePayload(JSON.parse(payloadParam)) : {};
           payload2.context = safeObjectMerge(payload2.context, context);
           payload2.method = methodUpper;
@@ -577,18 +647,22 @@ var handleServerAction = async ({ request, context, serverFnId }) => {
       console.info();
       console.error(error);
       console.info();
-      const serializedError = JSON.stringify(await Promise.resolve(su(error, {
-        refs: /* @__PURE__ */ new Map(),
-        plugins: serovalPlugins
-      })));
+      const serializedError = JSON.stringify(
+        await Promise.resolve(
+          su(error, {
+            refs: /* @__PURE__ */ new Map(),
+            plugins: serovalPlugins,
+          }),
+        ),
+      );
       const response = getResponse();
       return new Response(serializedError, {
         status: response.status ?? 500,
         statusText: response.statusText,
         headers: {
           "Content-Type": "application/json",
-          [X_TSS_SERIALIZED]: "true"
-        }
+          [X_TSS_SERIALIZED]: "true",
+        },
       });
     }
   })();
@@ -599,8 +673,8 @@ function isNotFoundResponse(error) {
     status: 404,
     headers: {
       "Content-Type": "application/json",
-      ...headers || {}
-    }
+      ...(headers || {}),
+    },
   });
 }
 var LINK_PARAM_TOKEN_RE = /^[!#$%&'*+\-.^_`|~0-9A-Za-z]+$/;
@@ -610,7 +684,7 @@ var PRELOAD_AS_VALUES = /* @__PURE__ */ new Set([
   "image",
   "script",
   "style",
-  "track"
+  "track",
 ]);
 function buildLinkParam(name, value) {
   if (value === void 0) return name;
@@ -620,7 +694,8 @@ function buildLinkParam(name, value) {
 function serializeEarlyHint(hint) {
   const parts = [`<${hint.href}>`, buildLinkParam("rel", hint.rel)];
   if (hint.as) parts.push(buildLinkParam("as", hint.as));
-  if (hint.crossOrigin !== void 0) parts.push(buildLinkParam("crossorigin", hint.crossOrigin || void 0));
+  if (hint.crossOrigin !== void 0)
+    parts.push(buildLinkParam("crossorigin", hint.crossOrigin || void 0));
   if (hint.type) parts.push(buildLinkParam("type", hint.type));
   if (hint.integrity) parts.push(buildLinkParam("integrity", hint.integrity));
   if (hint.referrerPolicy) parts.push(buildLinkParam("referrerpolicy", hint.referrerPolicy));
@@ -674,7 +749,7 @@ function linkAttrsToEarlyHint(attrs) {
   if (!hintRel) return void 0;
   const hint = {
     href,
-    rel: hintRel
+    rel: hintRel,
   };
   if (hintAs) hint.as = hintAs;
   addEarlyHintFetchAttrs(hint, attrs);
@@ -690,7 +765,7 @@ function collectStaticHintsFromManifest(manifest2, matchedRoutes) {
       const hint = {
         href: attrs.href,
         rel: attrs.rel,
-        as: "script"
+        as: "script",
       };
       if (attrs.crossOrigin !== void 0) hint.crossOrigin = attrs.crossOrigin;
       hints.push(hint);
@@ -702,7 +777,7 @@ function collectStaticHintsFromManifest(manifest2, matchedRoutes) {
       const hint = {
         href: stylesheetHref,
         rel: "preload",
-        as: "style"
+        as: "style",
       };
       if (resolvedLink.crossOrigin !== void 0) hint.crossOrigin = resolvedLink.crossOrigin;
       hints.push(hint);
@@ -739,7 +814,7 @@ function createEarlyHintsEvent(opts) {
     hints: nextHints,
     links: nextLinks,
     allHints: opts.sentHints.slice(),
-    allLinks: Array.from(opts.sentLinks)
+    allLinks: Array.from(opts.sentLinks),
   };
 }
 function createResponseLinkHeaderEntries(opts) {
@@ -750,7 +825,7 @@ function createResponseLinkHeaderEntries(opts) {
     opts.entries.push({
       phase: opts.phase,
       hint,
-      link
+      link,
     });
   }
 }
@@ -768,9 +843,10 @@ function getResponseLinkHeaderEntries(opts) {
 function notifyEarlyHints(phase, event, onEarlyHints) {
   try {
     const result = onEarlyHints(event);
-    if (result) Promise.resolve(result).catch((err) => {
-      console.error(`Error sending ${phase} early hints:`, err);
-    });
+    if (result)
+      Promise.resolve(result).catch((err) => {
+        console.error(`Error sending ${phase} early hints:`, err);
+      });
   } catch (err) {
     console.error(`Error sending ${phase} early hints:`, err);
   }
@@ -783,26 +859,29 @@ function appendResponseLinkHeaders(opts) {
   for (const link of getResponseLinkHeaderEntries(opts)) opts.responseHeaders.append("Link", link);
 }
 function collectResponseLinkHeaderEntries(opts) {
-  for (let index = 0; index < opts.event.hints.length; index++) opts.entries.push({
-    phase: opts.phase,
-    hint: opts.event.hints[index],
-    link: opts.event.links[index]
-  });
+  for (let index = 0; index < opts.event.hints.length; index++)
+    opts.entries.push({
+      phase: opts.phase,
+      hint: opts.event.hints[index],
+      link: opts.event.links[index],
+    });
 }
 function collectEarlyHintsPhase(opts) {
-  const event = opts.onEarlyHints ? createEarlyHintsEvent({
-    phase: opts.phase,
-    hints: opts.hints,
-    sentLinks: opts.sentLinks,
-    sentHints: opts.sentHints
-  }) : void 0;
+  const event = opts.onEarlyHints
+    ? createEarlyHintsEvent({
+        phase: opts.phase,
+        hints: opts.hints,
+        sentLinks: opts.sentLinks,
+        sentHints: opts.sentHints,
+      })
+    : void 0;
   if (event) notifyEarlyHints(opts.phase, event, opts.onEarlyHints);
   if (!opts.responseLinkHeaderEntries) return;
   if (event) {
     collectResponseLinkHeaderEntries({
       phase: opts.phase,
       event,
-      entries: opts.responseLinkHeaderEntries
+      entries: opts.responseLinkHeaderEntries,
     });
     return;
   }
@@ -810,7 +889,7 @@ function collectEarlyHintsPhase(opts) {
     phase: opts.phase,
     hints: opts.hints,
     sentLinks: opts.sentLinks,
-    entries: opts.responseLinkHeaderEntries
+    entries: opts.responseLinkHeaderEntries,
   });
 }
 function createEarlyHintsCollector(opts) {
@@ -828,7 +907,7 @@ function createEarlyHintsCollector(opts) {
         sentLinks,
         sentHints,
         onEarlyHints: opts.onEarlyHints,
-        responseLinkHeaderEntries
+        responseLinkHeaderEntries,
       });
     },
     collectDynamic: (matches) => {
@@ -838,7 +917,7 @@ function createEarlyHintsCollector(opts) {
         sentLinks,
         sentHints,
         onEarlyHints: opts.onEarlyHints,
-        responseLinkHeaderEntries
+        responseLinkHeaderEntries,
       });
     },
     appendResponseHeaders: (headers) => {
@@ -846,9 +925,9 @@ function createEarlyHintsCollector(opts) {
       appendResponseLinkHeaders({
         responseHeaders: headers,
         entries: responseLinkHeaderEntries,
-        filter: responseLinkHeaderFilter
+        filter: responseLinkHeaderFilter,
       });
-    }
+    },
   };
 }
 function normalizeTransformAssetResult(result) {
@@ -856,36 +935,51 @@ function normalizeTransformAssetResult(result) {
   return result;
 }
 function escapeCssString(value) {
-  return value.replace(/\\/g, "\\\\").replace(/"/g, '\\"').replace(/\n/g, "\\a ").replace(/\r/g, "\\d ").replace(/\f/g, "\\c ");
+  return value
+    .replace(/\\/g, "\\\\")
+    .replace(/"/g, '\\"')
+    .replace(/\n/g, "\\a ")
+    .replace(/\r/g, "\\d ")
+    .replace(/\f/g, "\\c ");
 }
 async function transformInlineCssTemplate(options) {
   const { strings, urls } = options.template;
-  if (strings.length !== urls.length + 1) throw new Error(`TanStack Start inlineCss template for ${options.stylesheetHref} is invalid`);
+  if (strings.length !== urls.length + 1)
+    throw new Error(`TanStack Start inlineCss template for ${options.stylesheetHref} is invalid`);
   let css = strings[0];
   for (let index = 0; index < urls.length; index++) {
-    const transformed = normalizeTransformAssetResult(await options.transformFn({
-      kind: "css-url",
-      url: urls[index],
-      stylesheetHref: options.stylesheetHref
-    }));
+    const transformed = normalizeTransformAssetResult(
+      await options.transformFn({
+        kind: "css-url",
+        url: urls[index],
+        stylesheetHref: options.stylesheetHref,
+      }),
+    );
     css += escapeCssString(transformed.href) + strings[index + 1];
   }
   return css;
 }
 async function transformInlineCssStyles(inlineCss, transformFn) {
   const transformedStyles = {};
-  const transformedEntries = await Promise.all(Object.entries(inlineCss.styles).map(async ([stylesheetHref, css]) => {
-    const template = inlineCss.templates?.[stylesheetHref];
-    return [stylesheetHref, template ? await transformInlineCssTemplate({
-      stylesheetHref,
-      template,
-      transformFn
-    }) : css];
-  }));
+  const transformedEntries = await Promise.all(
+    Object.entries(inlineCss.styles).map(async ([stylesheetHref, css]) => {
+      const template = inlineCss.templates?.[stylesheetHref];
+      return [
+        stylesheetHref,
+        template
+          ? await transformInlineCssTemplate({
+              stylesheetHref,
+              template,
+              transformFn,
+            })
+          : css,
+      ];
+    }),
+  );
   for (const [stylesheetHref, css] of transformedEntries) transformedStyles[stylesheetHref] = css;
   return {
     styles: transformedStyles,
-    ...inlineCss.templates ? { templates: inlineCss.templates } : {}
+    ...(inlineCss.templates ? { templates: inlineCss.templates } : {}),
   };
 }
 function resolveTransformAssetsCrossOrigin(config, kind) {
@@ -902,14 +996,15 @@ function resolveTransformAssetsConfig(transform) {
     return {
       type: "transform",
       transformFn: ({ url }) => ({ href: `${prefix}${url}` }),
-      cache: true
+      cache: true,
     };
   }
-  if (typeof transform === "function") return {
-    type: "transform",
-    transformFn: transform,
-    cache: true
-  };
+  if (typeof transform === "function")
+    return {
+      type: "transform",
+      transformFn: transform,
+      cache: true,
+    };
   if (isObjectShorthand(transform)) {
     const { prefix, crossOrigin } = transform;
     return {
@@ -918,30 +1013,36 @@ function resolveTransformAssetsConfig(transform) {
         const href = `${prefix}${url}`;
         if (kind === "css-url") return { href };
         const co = resolveTransformAssetsCrossOrigin(crossOrigin, kind);
-        return co ? {
-          href,
-          crossOrigin: co
-        } : { href };
+        return co
+          ? {
+              href,
+              crossOrigin: co,
+            }
+          : { href };
       },
-      cache: true
+      cache: true,
     };
   }
-  if ("createTransform" in transform && transform.createTransform) return {
-    type: "createTransform",
-    createTransform: transform.createTransform,
-    cache: transform.cache !== false
-  };
+  if ("createTransform" in transform && transform.createTransform)
+    return {
+      type: "createTransform",
+      createTransform: transform.createTransform,
+      cache: transform.cache !== false,
+    };
   return {
     type: "transform",
-    transformFn: typeof transform.transform === "string" ? (({ url }) => ({ href: `${transform.transform}${url}` })) : transform.transform,
-    cache: transform.cache !== false
+    transformFn:
+      typeof transform.transform === "string"
+        ? ({ url }) => ({ href: `${transform.transform}${url}` })
+        : transform.transform,
+    cache: transform.cache !== false,
   };
 }
 function assignManifestLink(link, next) {
   if (typeof link === "string") return next.crossOrigin ? next : next.href;
   const nextLink = {
     ...link,
-    href: next.href
+    href: next.href,
   };
   if (next.crossOrigin) nextLink.crossOrigin = next.crossOrigin;
   else delete nextLink.crossOrigin;
@@ -954,52 +1055,66 @@ async function transformManifestAssets(source, transformFn, _opts) {
   const transformScript = (url) => {
     const cached = scriptTransforms.get(url);
     if (cached) return cached;
-    const transformed = Promise.resolve(transformFn({
-      url,
-      kind: "script"
-    })).then(normalizeTransformAssetResult);
+    const transformed = Promise.resolve(
+      transformFn({
+        url,
+        kind: "script",
+      }),
+    ).then(normalizeTransformAssetResult);
     scriptTransforms.set(url, transformed);
     return transformed;
   };
   if (!inlineCssEnabled) delete manifest2.inlineCss;
-  else if (manifest2.inlineCss) manifest2.inlineCss = await transformInlineCssStyles(manifest2.inlineCss, transformFn);
+  else if (manifest2.inlineCss)
+    manifest2.inlineCss = await transformInlineCssStyles(manifest2.inlineCss, transformFn);
   for (const route of Object.values(manifest2.routes)) {
-    if (route.preloads?.length) route.preloads = await Promise.all(route.preloads.map(async (link) => {
-      const result = await transformScript(resolveManifestAssetLink(link).href);
-      return assignManifestLink(link, {
-        href: result.href,
-        crossOrigin: result.crossOrigin
-      });
-    }));
-    if (route.css?.length && !manifest2.inlineCss) route.css = await Promise.all(route.css.map(async (link) => {
-      const result = normalizeTransformAssetResult(await transformFn({
-        url: resolveManifestCssLink(link).href,
-        kind: "stylesheet"
-      }));
-      return assignManifestLink(link, {
-        href: result.href,
-        crossOrigin: result.crossOrigin
-      });
-    }));
-    if (route.scripts?.length) for (const script of route.scripts) {
-      const src = script.attrs?.src;
-      if (typeof src !== "string") continue;
-      const result = await transformScript(src);
-      script.attrs = {
-        ...script.attrs,
-        src: result.href
-      };
-      if (result.crossOrigin) script.attrs.crossOrigin = result.crossOrigin;
-      else delete script.attrs.crossOrigin;
-    }
+    if (route.preloads?.length)
+      route.preloads = await Promise.all(
+        route.preloads.map(async (link) => {
+          const result = await transformScript(resolveManifestAssetLink(link).href);
+          return assignManifestLink(link, {
+            href: result.href,
+            crossOrigin: result.crossOrigin,
+          });
+        }),
+      );
+    if (route.css?.length && !manifest2.inlineCss)
+      route.css = await Promise.all(
+        route.css.map(async (link) => {
+          const result = normalizeTransformAssetResult(
+            await transformFn({
+              url: resolveManifestCssLink(link).href,
+              kind: "stylesheet",
+            }),
+          );
+          return assignManifestLink(link, {
+            href: result.href,
+            crossOrigin: result.crossOrigin,
+          });
+        }),
+      );
+    if (route.scripts?.length)
+      for (const script of route.scripts) {
+        const src = script.attrs?.src;
+        if (typeof src !== "string") continue;
+        const result = await transformScript(src);
+        script.attrs = {
+          ...script.attrs,
+          src: result.href,
+        };
+        if (result.crossOrigin) script.attrs.crossOrigin = result.crossOrigin;
+        else delete script.attrs.crossOrigin;
+      }
   }
   return manifest2;
 }
 function buildManifest(source, opts) {
   return {
-    ...source.scriptFormat ? { scriptFormat: source.scriptFormat } : {},
-    ...opts?.inlineCss !== false && source.inlineCss ? { inlineCss: structuredClone(source.inlineCss) } : {},
-    routes: { ...source.routes }
+    ...(source.scriptFormat ? { scriptFormat: source.scriptFormat } : {}),
+    ...(opts?.inlineCss !== false && source.inlineCss
+      ? { inlineCss: structuredClone(source.inlineCss) }
+      : {}),
+    routes: { ...source.routes },
   };
 }
 function getStaticHandlerInlineCssDefault(handlerInlineCss) {
@@ -1008,23 +1123,30 @@ function getStaticHandlerInlineCssDefault(handlerInlineCss) {
 }
 async function resolveInlineCssForRequest(opts) {
   if (opts.requestInlineCss !== void 0) return opts.requestInlineCss;
-  if (typeof opts.handlerInlineCss === "function") return await opts.handlerInlineCss({ request: opts.request });
+  if (typeof opts.handlerInlineCss === "function")
+    return await opts.handlerInlineCss({ request: opts.request });
   return opts.handlerInlineCss ?? true;
 }
 function createCachedBaseManifestLoader(loadBaseManifest) {
   let baseManifestPromise;
   return () => {
-    if (!baseManifestPromise) baseManifestPromise = loadBaseManifest().catch((error) => {
-      baseManifestPromise = void 0;
-      throw error;
-    });
+    if (!baseManifestPromise)
+      baseManifestPromise = loadBaseManifest().catch((error) => {
+        baseManifestPromise = void 0;
+        throw error;
+      });
     return baseManifestPromise;
   };
 }
 function createFinalManifestTransformResolver(transformAssets, opts) {
-  const transformConfig = transformAssets !== void 0 ? resolveTransformAssetsConfig(transformAssets) : void 0;
+  const transformConfig =
+    transformAssets !== void 0 ? resolveTransformAssetsConfig(transformAssets) : void 0;
   const cache = transformConfig ? transformConfig.cache : true;
-  const warmup = !!transformAssets && typeof transformAssets === "object" && "warmup" in transformAssets && transformAssets.warmup === true;
+  const warmup =
+    !!transformAssets &&
+    typeof transformAssets === "object" &&
+    "warmup" in transformAssets &&
+    transformAssets.warmup === true;
   let cachedCreateTransformPromise;
   const clearCachedCreateTransform = () => {
     cachedCreateTransformPromise = void 0;
@@ -1037,12 +1159,15 @@ function createFinalManifestTransformResolver(transformAssets, opts) {
       if (!transformConfig) return void 0;
       if (transformConfig.type !== "createTransform") return transformConfig.transformFn;
       if (!cache || false) return transformConfig.createTransform(ctx);
-      if (!cachedCreateTransformPromise) cachedCreateTransformPromise = Promise.resolve(transformConfig.createTransform(ctx)).catch((error) => {
-        clearCachedCreateTransform();
-        throw error;
-      });
+      if (!cachedCreateTransformPromise)
+        cachedCreateTransformPromise = Promise.resolve(transformConfig.createTransform(ctx)).catch(
+          (error) => {
+            clearCachedCreateTransform();
+            throw error;
+          },
+        );
       return cachedCreateTransformPromise;
-    }
+    },
   };
 }
 function createFinalManifestResolver(opts) {
@@ -1052,38 +1177,39 @@ function createFinalManifestResolver(opts) {
   const getRequestManifestOptions = async (requestOpts) => {
     const transformFn = await transformResolver.getTransformFn({
       warmup: false,
-      request: requestOpts.request
+      request: requestOpts.request,
     });
     const inlineCss = await resolveInlineCssForRequest({
       request: requestOpts.request,
       handlerInlineCss: opts.inlineCss,
-      requestInlineCss: requestOpts.requestInlineCss
+      requestInlineCss: requestOpts.requestInlineCss,
     });
     return {
       getBaseManifest: requestOpts.getBaseManifest,
       transformFn,
       cache: transformResolver.cache,
-      inlineCss
+      inlineCss,
     };
   };
   const resolveRequest = async (requestOpts, cache) => {
     return resolveFinalManifest({
-      ...await getRequestManifestOptions(requestOpts),
-      finalManifestCache: cache
+      ...(await getRequestManifestOptions(requestOpts)),
+      finalManifestCache: cache,
     });
   };
   return {
-    warmup: ({ getBaseManifest: getBaseManifest2 }) => warmupFinalManifest({
-      enabled: transformResolver.warmup,
-      handlerDefaultInlineCss,
-      cache: transformResolver.cache,
-      finalManifestCache,
-      getBaseManifest: getBaseManifest2,
-      getTransformFn: () => transformResolver.getTransformFn({ warmup: true }),
-      onError: transformResolver.clearCachedCreateTransform
-    }),
+    warmup: ({ getBaseManifest: getBaseManifest2 }) =>
+      warmupFinalManifest({
+        enabled: transformResolver.warmup,
+        handlerDefaultInlineCss,
+        cache: transformResolver.cache,
+        finalManifestCache,
+        getBaseManifest: getBaseManifest2,
+        getTransformFn: () => transformResolver.getTransformFn({ warmup: true }),
+        onError: transformResolver.clearCachedCreateTransform,
+      }),
     resolveCached: (requestOpts) => resolveRequest(requestOpts, finalManifestCache),
-    resolveUncached: (requestOpts) => resolveRequest(requestOpts, void 0)
+    resolveUncached: (requestOpts) => resolveRequest(requestOpts, void 0),
   };
 }
 function getFinalManifestCacheKey(inlineCss) {
@@ -1091,42 +1217,65 @@ function getFinalManifestCacheKey(inlineCss) {
 }
 function cacheFinalManifestPromise(cachedFinalManifestPromises, cacheKey, promise) {
   const cachedFinalManifestPromise = promise.catch((error) => {
-    if (cachedFinalManifestPromises.get(cacheKey) === cachedFinalManifestPromise) cachedFinalManifestPromises.delete(cacheKey);
+    if (cachedFinalManifestPromises.get(cacheKey) === cachedFinalManifestPromise)
+      cachedFinalManifestPromises.delete(cacheKey);
     throw error;
   });
   cachedFinalManifestPromises.set(cacheKey, cachedFinalManifestPromise);
   return cachedFinalManifestPromise;
 }
-function getOrCreateCachedFinalManifestPromise(cachedFinalManifestPromises, cacheKey, computeFinalManifest) {
+function getOrCreateCachedFinalManifestPromise(
+  cachedFinalManifestPromises,
+  cacheKey,
+  computeFinalManifest,
+) {
   const cachedFinalManifestPromise = cachedFinalManifestPromises.get(cacheKey);
   if (cachedFinalManifestPromise) return cachedFinalManifestPromise;
-  return cacheFinalManifestPromise(cachedFinalManifestPromises, cacheKey, Promise.resolve().then(computeFinalManifest));
+  return cacheFinalManifestPromise(
+    cachedFinalManifestPromises,
+    cacheKey,
+    Promise.resolve().then(computeFinalManifest),
+  );
 }
 async function buildFinalManifest(opts) {
-  return opts.transformFn ? await transformManifestAssets(opts.base, opts.transformFn, { inlineCss: opts.inlineCss }) : buildManifest(opts.base, { inlineCss: opts.inlineCss });
+  return opts.transformFn
+    ? await transformManifestAssets(opts.base, opts.transformFn, { inlineCss: opts.inlineCss })
+    : buildManifest(opts.base, { inlineCss: opts.inlineCss });
 }
 async function resolveFinalManifest(opts) {
   const computeFinalManifest = async () => {
     return buildFinalManifest({
       base: await opts.getBaseManifest(),
       transformFn: opts.transformFn,
-      inlineCss: opts.inlineCss
+      inlineCss: opts.inlineCss,
     });
   };
-  if (opts.finalManifestCache && (!opts.transformFn || opts.cache)) return getOrCreateCachedFinalManifestPromise(opts.finalManifestCache, getFinalManifestCacheKey(opts.inlineCss), computeFinalManifest);
+  if (opts.finalManifestCache && (!opts.transformFn || opts.cache))
+    return getOrCreateCachedFinalManifestPromise(
+      opts.finalManifestCache,
+      getFinalManifestCacheKey(opts.inlineCss),
+      computeFinalManifest,
+    );
   return computeFinalManifest();
 }
 function warmupFinalManifest(opts) {
   if (!opts.enabled || opts.handlerDefaultInlineCss === void 0 || !opts.cache) return;
   const inlineCss = opts.handlerDefaultInlineCss;
-  const warmupPromise = getOrCreateCachedFinalManifestPromise(opts.finalManifestCache, getFinalManifestCacheKey(inlineCss), async () => {
-    const [base, transformFn] = await Promise.all([opts.getBaseManifest(), opts.getTransformFn()]);
-    return buildFinalManifest({
-      base,
-      transformFn,
-      inlineCss
-    });
-  });
+  const warmupPromise = getOrCreateCachedFinalManifestPromise(
+    opts.finalManifestCache,
+    getFinalManifestCacheKey(inlineCss),
+    async () => {
+      const [base, transformFn] = await Promise.all([
+        opts.getBaseManifest(),
+        opts.getTransformFn(),
+      ]);
+      return buildFinalManifest({
+        base,
+        transformFn,
+        inlineCss,
+      });
+    },
+  );
   if (opts.onError) warmupPromise.catch(opts.onError);
   return warmupPromise;
 }
@@ -1143,15 +1292,20 @@ var ServerFunctionSerializationAdapter = createSerializationAdapter({
       return (await (await getServerFnById(functionId))(opts ?? {}, signal)).result;
     };
     return fn;
-  }
+  },
 });
 function getStartResponseHeaders(opts) {
-  return mergeHeaders({ "Content-Type": "text/html; charset=utf-8" }, ...opts.router.stores.matches.get().map((match) => {
-    return match.headers;
-  }));
+  return mergeHeaders(
+    { "Content-Type": "text/html; charset=utf-8" },
+    ...opts.router.stores.matches.get().map((match) => {
+      return match.headers;
+    }),
+  );
 }
 var entriesPromise;
-var defaultCsrfMiddleware = createCsrfMiddleware({ filter: (ctx) => ctx.handlerType === "serverFn" });
+var defaultCsrfMiddleware = createCsrfMiddleware({
+  filter: (ctx) => ctx.handlerType === "serverFn",
+});
 var getCachedBaseManifest = createCachedBaseManifestLoader(() => getStartManifest());
 var getProdBaseManifest = () => getCachedBaseManifest();
 var getBaseManifest = getProdBaseManifest;
@@ -1160,12 +1314,12 @@ async function loadEntries() {
   const [routerEntry, startEntry, pluginAdapters] = await Promise.all([
     import("./router-BwjawD4q.mjs"),
     import("./start-36YFFuTB.mjs"),
-    import("./empty-plugin-adapters-BFgPZ6_d.mjs")
+    import("./empty-plugin-adapters-BFgPZ6_d.mjs"),
   ]);
   return {
     routerEntry,
     startEntry,
-    pluginAdapters
+    pluginAdapters,
   };
 }
 function getEntries() {
@@ -1207,7 +1361,13 @@ async function executeMiddleware(middlewares, ctx) {
     if (!response) return;
     streamResponse = void 0;
     const currentResponse = ctx.response;
-    if (currentResponse === response.response || currentResponse instanceof Response && response.response.body !== null && currentResponse.body === response.response.body) ctx.response = void 0;
+    if (
+      currentResponse === response.response ||
+      (currentResponse instanceof Response &&
+        response.response.body !== null &&
+        currentResponse.body === response.response.body)
+    )
+      ctx.response = void 0;
     await response.dispose(reason);
   };
   const getFinalResponse = async () => {
@@ -1215,18 +1375,20 @@ async function executeMiddleware(middlewares, ctx) {
     if (!response) throwRouteHandlerError();
     if (!streamResponse) return response;
     if (response === streamResponse.response) return streamResponse;
-    if (streamResponse.response.body !== null && response.body === streamResponse.response.body) return {
-      ...streamResponse,
-      response
-    };
+    if (streamResponse.response.body !== null && response.body === streamResponse.response.body)
+      return {
+        ...streamResponse,
+        response,
+      };
     await disposeStreamResponse("middleware response replaced");
     return response;
   };
   const next = async (nextCtx) => {
     if (nextCtx) {
       if (nextCtx.context) ctx.context = safeObjectMerge(ctx.context, nextCtx.context);
-      for (const key of Object.keys(nextCtx)) if (key === "response") setResponse(nextCtx.response);
-      else if (key !== "context") ctx[key] = nextCtx[key];
+      for (const key of Object.keys(nextCtx))
+        if (key === "response") setResponse(nextCtx.response);
+        else if (key !== "context") ctx[key] = nextCtx[key];
     }
     index++;
     const middleware = middlewares[index];
@@ -1235,7 +1397,7 @@ async function executeMiddleware(middlewares, ctx) {
     try {
       result = await middleware({
         ...ctx,
-        next
+        next,
       });
     } catch (err) {
       if (isSpecialResponse(err)) {
@@ -1255,7 +1417,7 @@ async function executeMiddleware(middlewares, ctx) {
   await next();
   return {
     ctx,
-    response: await getFinalResponse()
+    response: await getFinalResponse(),
   };
 }
 function handlerToMiddleware(handler, mayDefer = false) {
@@ -1263,7 +1425,7 @@ function handlerToMiddleware(handler, mayDefer = false) {
   return async (ctx) => {
     const response = await handler({
       ...ctx,
-      next: throwIfMayNotDefer
+      next: throwIfMayNotDefer,
     });
     if (!response) throwRouteHandlerError();
     return response;
@@ -1273,7 +1435,7 @@ function createStartHandler(cbOrOptions) {
   const handlerOptions = typeof cbOrOptions === "function" ? {} : cbOrOptions;
   const cb = typeof cbOrOptions === "function" ? cbOrOptions : cbOrOptions.handler;
   const finalManifestResolver = createFinalManifestResolver({
-    ...handlerOptions
+    ...handlerOptions,
   });
   const resolveManifestForRequest = finalManifestResolver.resolveCached;
   finalManifestResolver.warmup({ getBaseManifest: () => getBaseManifest() });
@@ -1287,25 +1449,30 @@ function createStartHandler(cbOrOptions) {
       if (handledProtocolRelativeURL) return Response.redirect(url, 308);
       const entries = await getEntries();
       const hasStartInstance = !!entries.startEntry.startInstance;
-      const startOptions = await entries.startEntry.startInstance?.getOptions() || {};
+      const startOptions = (await entries.startEntry.startInstance?.getOptions()) || {};
       const { hasPluginAdapters, pluginSerializationAdapters } = entries.pluginAdapters;
       const serializationAdapters = [
-        ...startOptions.serializationAdapters || [],
-        ...hasPluginAdapters ? pluginSerializationAdapters : [],
-        ServerFunctionSerializationAdapter
+        ...(startOptions.serializationAdapters || []),
+        ...(hasPluginAdapters ? pluginSerializationAdapters : []),
+        ServerFunctionSerializationAdapter,
       ];
       const requestStartOptions = {
         ...startOptions,
-        requestMiddleware: hasStartInstance ? startOptions.requestMiddleware : [defaultCsrfMiddleware],
-        serializationAdapters
+        requestMiddleware: hasStartInstance
+          ? startOptions.requestMiddleware
+          : [defaultCsrfMiddleware],
+        serializationAdapters,
       };
-      const flattenedRequestMiddlewares = requestStartOptions.requestMiddleware ? flattenMiddlewares(requestStartOptions.requestMiddleware) : [];
+      const flattenedRequestMiddlewares = requestStartOptions.requestMiddleware
+        ? flattenMiddlewares(requestStartOptions.requestMiddleware)
+        : [];
       const executedRequestMiddlewares = new Set(flattenedRequestMiddlewares);
       const getRouter = async () => {
         if (router) return router;
         router = await entries.routerEntry.getRouter();
         let isShell = IS_SHELL_ENV;
-        if (IS_PRERENDERING && !isShell) isShell = request.headers.get(HEADERS.TSS_SHELL) === "true";
+        if (IS_PRERENDERING && !isShell)
+          isShell = request.headers.get(HEADERS.TSS_SHELL) === "true";
         const history = createMemoryHistory({ initialEntries: [href] });
         router.update({
           history,
@@ -1313,105 +1480,131 @@ function createStartHandler(cbOrOptions) {
           isPrerendering: IS_PRERENDERING,
           origin: router.options.origin ?? origin,
           defaultSsr: requestStartOptions.defaultSsr,
-          serializationAdapters: [...requestStartOptions.serializationAdapters, ...router.options.serializationAdapters || []],
-          basepath: ROUTER_BASEPATH
+          serializationAdapters: [
+            ...requestStartOptions.serializationAdapters,
+            ...(router.options.serializationAdapters || []),
+          ],
+          basepath: ROUTER_BASEPATH,
         });
         return router;
       };
       if (SERVER_FN_BASE && url.pathname.startsWith(SERVER_FN_BASE)) {
-        if (false) ;
+        if (false);
         const serverFnId = url.pathname.slice(SERVER_FN_BASE.length).split("/")[0];
         if (!serverFnId) throw new Error("Invalid server action param for serverFnId");
         const serverFnHandler = async ({ context }) => {
-          return runWithStartContext({
-            getRouter,
-            startOptions: requestStartOptions,
-            contextAfterGlobalMiddlewares: context,
-            request,
-            executedRequestMiddlewares,
-            handlerType: "serverFn"
-          }, () => handleServerAction({
-            request,
-            context: requestOpts?.context,
-            serverFnId
-          }));
+          return runWithStartContext(
+            {
+              getRouter,
+              startOptions: requestStartOptions,
+              contextAfterGlobalMiddlewares: context,
+              request,
+              executedRequestMiddlewares,
+              handlerType: "serverFn",
+            },
+            () =>
+              handleServerAction({
+                request,
+                context: requestOpts?.context,
+                serverFnId,
+              }),
+          );
         };
-        const { response: middlewareResponse2 } = await executeMiddleware([...flattenedRequestMiddlewares.map((d) => d.options.server), serverFnHandler], {
-          request,
-          pathname: url.pathname,
-          handlerType: "serverFn",
-          context: createNullProtoObject(requestOpts?.context)
-        });
+        const { response: middlewareResponse2 } = await executeMiddleware(
+          [...flattenedRequestMiddlewares.map((d) => d.options.server), serverFnHandler],
+          {
+            request,
+            pathname: url.pathname,
+            handlerType: "serverFn",
+            context: createNullProtoObject(requestOpts?.context),
+          },
+        );
         const result = await handleRedirectResponse(middlewareResponse2, request, getRouter);
         responseOwnsCleanup = result.serverSsrCleanup === "stream";
         return result.response;
       }
       const executeRouter = async (serverContext, matchedRoutes) => {
         const acceptParts = (request.headers.get("Accept") || "*/*").split(",");
-        if (!["*/*", "text/html"].some((mimeType) => acceptParts.some((part) => part.trim().startsWith(mimeType)))) return normalizeSsrResponse(Response.json({ error: "Only HTML requests are supported here" }, { status: 500 }));
+        if (
+          !["*/*", "text/html"].some((mimeType) =>
+            acceptParts.some((part) => part.trim().startsWith(mimeType)),
+          )
+        )
+          return normalizeSsrResponse(
+            Response.json({ error: "Only HTML requests are supported here" }, { status: 500 }),
+          );
         const manifest2 = await resolveManifestForRequest({
           request,
           requestInlineCss: requestOpts?.inlineCss,
-          getBaseManifest: () => getBaseManifest(matchedRoutes)
+          getBaseManifest: () => getBaseManifest(matchedRoutes),
         });
         const earlyHints = createEarlyHintsForRequest({
           onEarlyHints: requestOpts?.onEarlyHints,
-          responseLinkHeader: requestOpts?.responseLinkHeader
+          responseLinkHeader: requestOpts?.responseLinkHeader,
         });
         earlyHints?.collectStatic({
           manifest: manifest2,
-          matchedRoutes
+          matchedRoutes,
         });
         const routerInstance = await getRouter();
         attachRouterServerSsrUtils({
           router: routerInstance,
           manifest: manifest2,
-          getRequestAssets: () => getStartContext({ throwIfNotFound: false })?.requestAssets
+          getRequestAssets: () => getStartContext({ throwIfNotFound: false })?.requestAssets,
         });
         routerInstance.update({ additionalContext: { serverContext } });
         await routerInstance.load();
-        if (routerInstance.state.redirect) return normalizeSsrResponse(routerInstance.state.redirect);
+        if (routerInstance.state.redirect)
+          return normalizeSsrResponse(routerInstance.state.redirect);
         earlyHints?.collectDynamic(routerInstance.stores.matches.get());
         const ctx = getStartContext({ throwIfNotFound: false });
         await routerInstance.serverSsr.dehydrate({ requestAssets: ctx?.requestAssets });
         const responseHeaders = getStartResponseHeaders({ router: routerInstance });
         earlyHints?.appendResponseHeaders(responseHeaders);
-        return normalizeSsrResponse(await cb({
-          request,
-          router: routerInstance,
-          responseHeaders
-        }));
+        return normalizeSsrResponse(
+          await cb({
+            request,
+            router: routerInstance,
+            responseHeaders,
+          }),
+        );
       };
       const requestHandlerMiddleware = async ({ context }) => {
-        return runWithStartContext({
-          getRouter,
-          startOptions: requestStartOptions,
-          contextAfterGlobalMiddlewares: context,
-          request,
-          executedRequestMiddlewares,
-          handlerType: "router"
-        }, async () => {
-          try {
-            return await handleServerRoutes({
-              getRouter,
-              request,
-              url,
-              executeRouter,
-              context,
-              executedRequestMiddlewares
-            });
-          } catch (err) {
-            if (err instanceof Response) return err;
-            throw err;
-          }
-        });
+        return runWithStartContext(
+          {
+            getRouter,
+            startOptions: requestStartOptions,
+            contextAfterGlobalMiddlewares: context,
+            request,
+            executedRequestMiddlewares,
+            handlerType: "router",
+          },
+          async () => {
+            try {
+              return await handleServerRoutes({
+                getRouter,
+                request,
+                url,
+                executeRouter,
+                context,
+                executedRequestMiddlewares,
+              });
+            } catch (err) {
+              if (err instanceof Response) return err;
+              throw err;
+            }
+          },
+        );
       };
-      const { response: middlewareResponse } = await executeMiddleware([...flattenedRequestMiddlewares.map((d) => d.options.server), requestHandlerMiddleware], {
-        request,
-        pathname: url.pathname,
-        handlerType: "router",
-        context: createNullProtoObject(requestOpts?.context)
-      });
+      const { response: middlewareResponse } = await executeMiddleware(
+        [...flattenedRequestMiddlewares.map((d) => d.options.server), requestHandlerMiddleware],
+        {
+          request,
+          pathname: url.pathname,
+          handlerType: "router",
+          context: createNullProtoObject(requestOpts?.context),
+        },
+      );
       const response = await handleRedirectResponse(middlewareResponse, request, getRouter);
       responseOwnsCleanup = response.serverSsrCleanup === "stream";
       return response.response;
@@ -1426,27 +1619,57 @@ async function handleRedirectResponse(response, request, getRouter) {
   const ssrResponse = normalizeSsrResponse(response);
   if (!isRedirect(ssrResponse.response)) return ssrResponse;
   if (isResolvedRedirect(ssrResponse.response)) {
-    if (request.headers.get("x-tsr-serverFn") === "true") return replaceSsrResponse(ssrResponse, Response.json({
-      ...ssrResponse.response.options,
-      isSerializedRedirect: true
-    }, { headers: ssrResponse.response.headers }), "redirect response replaced");
+    if (request.headers.get("x-tsr-serverFn") === "true")
+      return replaceSsrResponse(
+        ssrResponse,
+        Response.json(
+          {
+            ...ssrResponse.response.options,
+            isSerializedRedirect: true,
+          },
+          { headers: ssrResponse.response.headers },
+        ),
+        "redirect response replaced",
+      );
     return ssrResponse;
   }
   const opts = ssrResponse.response.options;
-  if (opts.to && typeof opts.to === "string" && !opts.to.startsWith("/")) throw new Error(`Server side redirects must use absolute paths via the 'href' or 'to' options. The redirect() method's "to" property accepts an internal path only. Use the "href" property to provide an external URL. Received: ${JSON.stringify(opts)}`);
-  if ([
-    "params",
-    "search",
-    "hash"
-  ].some((d) => typeof opts[d] === "function")) throw new Error(`Server side redirects must use static search, params, and hash values and do not support functional values. Received functional values for: ${Object.keys(opts).filter((d) => typeof opts[d] === "function").map((d) => `"${d}"`).join(", ")}`);
+  if (opts.to && typeof opts.to === "string" && !opts.to.startsWith("/"))
+    throw new Error(
+      `Server side redirects must use absolute paths via the 'href' or 'to' options. The redirect() method's "to" property accepts an internal path only. Use the "href" property to provide an external URL. Received: ${JSON.stringify(opts)}`,
+    );
+  if (["params", "search", "hash"].some((d) => typeof opts[d] === "function"))
+    throw new Error(
+      `Server side redirects must use static search, params, and hash values and do not support functional values. Received functional values for: ${Object.keys(
+        opts,
+      )
+        .filter((d) => typeof opts[d] === "function")
+        .map((d) => `"${d}"`)
+        .join(", ")}`,
+    );
   const redirect = (await getRouter()).resolveRedirect(ssrResponse.response);
-  if (request.headers.get("x-tsr-serverFn") === "true") return replaceSsrResponse(ssrResponse, Response.json({
-    ...ssrResponse.response.options,
-    isSerializedRedirect: true
-  }, { headers: ssrResponse.response.headers }), "redirect response replaced");
+  if (request.headers.get("x-tsr-serverFn") === "true")
+    return replaceSsrResponse(
+      ssrResponse,
+      Response.json(
+        {
+          ...ssrResponse.response.options,
+          isSerializedRedirect: true,
+        },
+        { headers: ssrResponse.response.headers },
+      ),
+      "redirect response replaced",
+    );
   return replaceSsrResponse(ssrResponse, redirect, "redirect response replaced");
 }
-async function handleServerRoutes({ getRouter, request, url, executeRouter, context, executedRequestMiddlewares }) {
+async function handleServerRoutes({
+  getRouter,
+  request,
+  url,
+  executeRouter,
+  context,
+  executedRequestMiddlewares,
+}) {
   const router = await getRouter();
   const pathname = executeRewriteInput(router.rewrite, url).pathname;
   const { matchedRoutes, foundRoute, routeParams } = router.getMatchedRoutes(pathname);
@@ -1456,19 +1679,27 @@ async function handleServerRoutes({ getRouter, request, url, executeRouter, cont
     const serverMiddleware = route.options.server?.middleware;
     if (serverMiddleware) {
       const flattened = flattenMiddlewares(serverMiddleware);
-      for (const m of flattened) if (!executedRequestMiddlewares.has(m)) routeMiddlewares.push(m.options.server);
+      for (const m of flattened)
+        if (!executedRequestMiddlewares.has(m)) routeMiddlewares.push(m.options.server);
     }
   }
   const server2 = foundRoute?.options.server;
   let isHeadFallback = false;
   if (server2?.handlers && isExactMatch) {
-    const handlers = typeof server2.handlers === "function" ? server2.handlers({ createHandlers: (d) => d }) : server2.handlers;
+    const handlers =
+      typeof server2.handlers === "function"
+        ? server2.handlers({ createHandlers: (d) => d })
+        : server2.handlers;
     const requestMethod = request.method.toUpperCase();
-    const handler = requestMethod === "HEAD" ? handlers["HEAD"] ?? handlers["GET"] ?? handlers["ANY"] : handlers[requestMethod] ?? handlers["ANY"];
+    const handler =
+      requestMethod === "HEAD"
+        ? (handlers["HEAD"] ?? handlers["GET"] ?? handlers["ANY"])
+        : (handlers[requestMethod] ?? handlers["ANY"]);
     isHeadFallback = requestMethod === "HEAD" && handler !== void 0 && !handlers["HEAD"];
     if (handler) {
       const mayDefer = !!foundRoute.options.component;
-      if (typeof handler === "function") routeMiddlewares.push(handlerToMiddleware(handler, mayDefer));
+      if (typeof handler === "function")
+        routeMiddlewares.push(handlerToMiddleware(handler, mayDefer));
       else {
         if (handler.middleware?.length) {
           const handlerMiddlewares = flattenMiddlewares(handler.middleware);
@@ -1478,33 +1709,41 @@ async function handleServerRoutes({ getRouter, request, url, executeRouter, cont
       }
     }
   }
-  routeMiddlewares.push(((ctx2) => executeRouter(ctx2.context, matchedRoutes)));
+  routeMiddlewares.push((ctx2) => executeRouter(ctx2.context, matchedRoutes));
   const { ctx, response } = await executeMiddleware(routeMiddlewares, {
     request,
     context,
     params: routeParams,
     pathname,
-    handlerType: "router"
+    handlerType: "router",
   });
   if (isHeadFallback) {
     if (!ctx.response) throwRouteHandlerError();
-    return stripSsrResponseBody(await handleRedirectResponse(response, request, getRouter), "HEAD body stripped");
+    return stripSsrResponseBody(
+      await handleRedirectResponse(response, request, getRouter),
+      "HEAD body stripped",
+    );
   }
   return normalizeSsrResponse(response);
 }
 var fetch = createStartHandler(defaultStreamHandler);
 function createServerEntry(entry) {
-  return { async fetch(...args) {
-    return await entry.fetch(...args);
-  } };
+  return {
+    async fetch(...args) {
+      return await entry.fetch(...args);
+    },
+  };
 }
 var server_default = createServerEntry({ fetch });
-const server = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  createServerEntry,
-  default: server_default
-}, Symbol.toStringTag, { value: "Module" }));
-export {
-  createMiddleware as c,
-  server as s
-};
+const server = /* @__PURE__ */ Object.freeze(
+  /* @__PURE__ */ Object.defineProperty(
+    {
+      __proto__: null,
+      createServerEntry,
+      default: server_default,
+    },
+    Symbol.toStringTag,
+    { value: "Module" },
+  ),
+);
+export { createMiddleware as c, server as s };

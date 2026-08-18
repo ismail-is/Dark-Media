@@ -77,27 +77,56 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
     meta: [
+      { name: "robots", content: "index, follow" },
+      { property: "og:type", content: "website" },
+      { name: "geo.region", content: "IN-KA" },
+      { name: "geo.placename", content: "Mangalore" },
+      { name: "geo.position", content: "12.9141;74.8560" },
+      { name: "ICBM", content: "12.9141, 74.8560" },
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Dark Media | Digital Marketing, Web & App Dev – Mangalore, Bangalore, Dubai" },
-      { name: "description", content: "Dark Media is a full-service digital agency offering SEO, web development, branding, videography & app development in Mangalore, Bangalore & Dubai." },
+      {
+        name: "description",
+        content:
+          "Dark Media is a full-service digital agency offering SEO, web development, branding, videography & app development in Mangalore, Bangalore & Dubai.",
+      },
       { name: "author", content: "Dark Media" },
       { property: "og:title", content: "Dark Media — Digital Marketing, Web, App & Brand Studio" },
-      { property: "og:description", content: "Full-stack digital growth partner: SEO, web & app development, branding, videography — trusted across Mangalore, Bangalore & Dubai." },
+      {
+        property: "og:description",
+        content:
+          "Full-stack digital growth partner: SEO, web & app development, branding, videography — trusted across Mangalore, Bangalore & Dubai.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@DarkMedia" },
       { name: "twitter:title", content: "Dark Media — Digital Marketing, Web, App & Brand Studio" },
-      { name: "twitter:description", content: "Full-stack digital growth partner: SEO, web & app development, branding, videography — trusted across Mangalore, Bangalore & Dubai." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/97979928-1e7f-4a22-b4cf-e7db2e95207b/id-preview-f1a7a5f9--67fbfdeb-ef3a-43b8-a184-79622d436225.lovable.app-1781074340903.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/97979928-1e7f-4a22-b4cf-e7db2e95207b/id-preview-f1a7a5f9--67fbfdeb-ef3a-43b8-a184-79622d436225.lovable.app-1781074340903.png" },
+      {
+        name: "twitter:description",
+        content:
+          "Full-stack digital growth partner: SEO, web & app development, branding, videography — trusted across Mangalore, Bangalore & Dubai.",
+      },
+      {
+        property: "og:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/97979928-1e7f-4a22-b4cf-e7db2e95207b/id-preview-f1a7a5f9--67fbfdeb-ef3a-43b8-a184-79622d436225.lovable.app-1781074340903.png",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/97979928-1e7f-4a22-b4cf-e7db2e95207b/id-preview-f1a7a5f9--67fbfdeb-ef3a-43b8-a184-79622d436225.lovable.app-1781074340903.png",
+      },
     ],
     links: [
       { rel: "icon", href: faviconUrl, type: "image/jpeg" },
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap",
+      },
     ],
   }),
   shellComponent: RootShell,

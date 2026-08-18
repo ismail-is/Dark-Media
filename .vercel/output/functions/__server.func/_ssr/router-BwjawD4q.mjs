@@ -1,6 +1,16 @@
 import { Q as QueryClient } from "../_libs/tanstack__query-core.mjs";
 import { Q as QueryClientProvider } from "../_libs/tanstack__react-query.mjs";
-import { c as createRouter, a as createRootRouteWithContext, u as useRouter, L as Link, O as Outlet, H as HeadContent, S as Scripts, b as createFileRoute, l as lazyRouteComponent } from "../_libs/tanstack__react-router.mjs";
+import {
+  c as createRouter,
+  a as createRootRouteWithContext,
+  u as useRouter,
+  L as Link,
+  O as Outlet,
+  H as HeadContent,
+  S as Scripts,
+  b as createFileRoute,
+  l as lazyRouteComponent,
+} from "../_libs/tanstack__react-router.mjs";
 import { r as reactExports, j as jsxRuntimeExports } from "../_libs/react.mjs";
 import { m as motion } from "../_libs/framer-motion.mjs";
 import "../_libs/tanstack__router-core.mjs";
@@ -27,29 +37,45 @@ function reportLovableError(error, context = {}) {
     {
       source: "react_error_boundary",
       route: window.location.pathname,
-      ...context
+      ...context,
     },
     {
       mechanism: "react_error_boundary",
       handled: false,
-      severity: "error"
-    }
+      severity: "error",
+    },
   );
 }
 function NotFoundComponent() {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex min-h-screen items-center justify-center bg-background px-4", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-md text-center", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-7xl font-bold text-foreground", children: "404" }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "mt-4 text-xl font-semibold text-foreground", children: "Page not found" }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-2 text-sm text-muted-foreground", children: "The page you're looking for doesn't exist or has been moved." }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-6", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-      Link,
-      {
-        to: "/",
-        className: "inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90",
-        children: "Go home"
-      }
-    ) })
-  ] }) });
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+    className: "flex min-h-screen items-center justify-center bg-background px-4",
+    children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+      className: "max-w-md text-center",
+      children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h1", {
+          className: "text-7xl font-bold text-foreground",
+          children: "404",
+        }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", {
+          className: "mt-4 text-xl font-semibold text-foreground",
+          children: "Page not found",
+        }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", {
+          className: "mt-2 text-sm text-muted-foreground",
+          children: "The page you're looking for doesn't exist or has been moved.",
+        }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+          className: "mt-6",
+          children: /* @__PURE__ */ jsxRuntimeExports.jsx(Link, {
+            to: "/",
+            className:
+              "inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90",
+            children: "Go home",
+          }),
+        }),
+      ],
+    }),
+  });
 }
 function ErrorComponent({ error, reset }) {
   console.error(error);
@@ -57,31 +83,42 @@ function ErrorComponent({ error, reset }) {
   reactExports.useEffect(() => {
     reportLovableError(error, { boundary: "tanstack_root_error_component" });
   }, [error]);
-  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex min-h-screen items-center justify-center bg-background px-4", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-md text-center", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-xl font-semibold tracking-tight text-foreground", children: "This page didn't load" }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-2 text-sm text-muted-foreground", children: "Something went wrong on our end. You can try refreshing or head back home." }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mt-6 flex flex-wrap justify-center gap-2", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(
-        "button",
-        {
-          onClick: () => {
-            router.invalidate();
-            reset();
-          },
-          className: "inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90",
-          children: "Try again"
-        }
-      ),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(
-        "a",
-        {
-          href: "/",
-          className: "inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent",
-          children: "Go home"
-        }
-      )
-    ] })
-  ] }) });
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", {
+    className: "flex min-h-screen items-center justify-center bg-background px-4",
+    children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+      className: "max-w-md text-center",
+      children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h1", {
+          className: "text-xl font-semibold tracking-tight text-foreground",
+          children: "This page didn't load",
+        }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", {
+          className: "mt-2 text-sm text-muted-foreground",
+          children: "Something went wrong on our end. You can try refreshing or head back home.",
+        }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", {
+          className: "mt-6 flex flex-wrap justify-center gap-2",
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("button", {
+              onClick: () => {
+                router.invalidate();
+                reset();
+              },
+              className:
+                "inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90",
+              children: "Try again",
+            }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("a", {
+              href: "/",
+              className:
+                "inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent",
+              children: "Go home",
+            }),
+          ],
+        }),
+      ],
+    }),
+  });
 }
 const Route$5 = createRootRouteWithContext()({
   head: () => ({
@@ -89,142 +126,193 @@ const Route$5 = createRootRouteWithContext()({
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Dark Media — Creative Studio for Modern Brands" },
-      { name: "description", content: "Dark Media is a monochrome creative studio crafting brand systems, digital products and motion for thoughtful companies." },
+      {
+        name: "description",
+        content:
+          "Dark Media is a monochrome creative studio crafting brand systems, digital products and motion for thoughtful companies.",
+      },
       { name: "author", content: "Dark Media" },
       { property: "og:title", content: "Dark Media — Creative Studio for Modern Brands" },
-      { property: "og:description", content: "Dark Media is a monochrome creative studio crafting brand systems, digital products and motion for thoughtful companies." },
+      {
+        property: "og:description",
+        content:
+          "Dark Media is a monochrome creative studio crafting brand systems, digital products and motion for thoughtful companies.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
       { name: "twitter:title", content: "Dark Media — Creative Studio for Modern Brands" },
-      { name: "twitter:description", content: "Dark Media is a monochrome creative studio crafting brand systems, digital products and motion for thoughtful companies." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/97979928-1e7f-4a22-b4cf-e7db2e95207b/id-preview-f1a7a5f9--67fbfdeb-ef3a-43b8-a184-79622d436225.lovable.app-1781074340903.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/97979928-1e7f-4a22-b4cf-e7db2e95207b/id-preview-f1a7a5f9--67fbfdeb-ef3a-43b8-a184-79622d436225.lovable.app-1781074340903.png" }
+      {
+        name: "twitter:description",
+        content:
+          "Dark Media is a monochrome creative studio crafting brand systems, digital products and motion for thoughtful companies.",
+      },
+      {
+        property: "og:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/97979928-1e7f-4a22-b4cf-e7db2e95207b/id-preview-f1a7a5f9--67fbfdeb-ef3a-43b8-a184-79622d436225.lovable.app-1781074340903.png",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/97979928-1e7f-4a22-b4cf-e7db2e95207b/id-preview-f1a7a5f9--67fbfdeb-ef3a-43b8-a184-79622d436225.lovable.app-1781074340903.png",
+      },
     ],
     links: [
       { rel: "icon", href: faviconUrl, type: "image/jpeg" },
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" }
-    ]
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap",
+      },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
-  errorComponent: ErrorComponent
+  errorComponent: ErrorComponent,
 });
 function RootShell({ children }) {
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("html", { lang: "en", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx("head", { children: /* @__PURE__ */ jsxRuntimeExports.jsx(HeadContent, {}) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("body", { children: [
-      children,
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Scripts, {})
-    ] })
-  ] });
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("html", {
+    lang: "en",
+    children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("head", {
+        children: /* @__PURE__ */ jsxRuntimeExports.jsx(HeadContent, {}),
+      }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("body", {
+        children: [children, /* @__PURE__ */ jsxRuntimeExports.jsx(Scripts, {})],
+      }),
+    ],
+  });
 }
 function RootComponent() {
   const { queryClient } = Route$5.useRouteContext();
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(QueryClientProvider, { client: queryClient, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Outlet, {}) });
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(QueryClientProvider, {
+    client: queryClient,
+    children: /* @__PURE__ */ jsxRuntimeExports.jsx(Outlet, {}),
+  });
 }
 const $$splitComponentImporter$4 = () => import("./portfolio-B3R65Pq3.mjs");
 const Route$4 = createFileRoute("/portfolio")({
   head: () => ({
-    meta: [{
-      title: "Our Works — Dark Media"
-    }, {
-      name: "description",
-      content: "Explore our premium portfolio of branding, web development, and digital experiences."
-    }]
+    meta: [
+      {
+        title: "Our Works — Dark Media",
+      },
+      {
+        name: "description",
+        content:
+          "Explore our premium portfolio of branding, web development, and digital experiences.",
+      },
+    ],
   }),
-  component: lazyRouteComponent($$splitComponentImporter$4, "component")
+  component: lazyRouteComponent($$splitComponentImporter$4, "component"),
 });
 const $$splitComponentImporter$3 = () => import("./contact-BEQ-_pkZ.mjs");
 const Route$3 = createFileRoute("/contact")({
   head: () => ({
-    meta: [{
-      title: "Contact — Dark Media"
-    }, {
-      name: "description",
-      content: "Let's talk. We reply within 24 hours."
-    }]
+    meta: [
+      {
+        title: "Contact — Dark Media",
+      },
+      {
+        name: "description",
+        content: "Let's talk. We reply within 24 hours.",
+      },
+    ],
   }),
-  component: lazyRouteComponent($$splitComponentImporter$3, "component")
+  component: lazyRouteComponent($$splitComponentImporter$3, "component"),
 });
 const $$splitComponentImporter$2 = () => import("./about-BHz7kcqg.mjs");
 const Route$2 = createFileRoute("/about")({
   head: () => ({
-    meta: [{
-      title: "About — Dark Media"
-    }, {
-      name: "description",
-      content: "We are Dark Media — a creative studio obsessed with craft, storytelling, and building brands that endure."
-    }]
+    meta: [
+      {
+        title: "About — Dark Media",
+      },
+      {
+        name: "description",
+        content:
+          "We are Dark Media — a creative studio obsessed with craft, storytelling, and building brands that endure.",
+      },
+    ],
   }),
-  component: lazyRouteComponent($$splitComponentImporter$2, "component")
+  component: lazyRouteComponent($$splitComponentImporter$2, "component"),
 });
 const $$splitComponentImporter$1 = () => import("./index-KmNCBHNi.mjs");
 const Route$1 = createFileRoute("/")({
   head: () => ({
-    meta: [{
-      title: "Dark Media — Build. Brand. Impact."
-    }, {
-      name: "description",
-      content: "Digital creative agency crafting premium websites, branding systems, graphic design, videography and digital experiences since 2016."
-    }, {
-      property: "og:title",
-      content: "Dark Media — Digital Creative Agency"
-    }, {
-      property: "og:description",
-      content: "Premium websites, branding systems, graphic design, and videography for ambitious brands."
-    }]
+    meta: [
+      {
+        title: "Dark Media — Build. Brand. Impact.",
+      },
+      {
+        name: "description",
+        content:
+          "Digital creative agency crafting premium websites, branding systems, graphic design, videography and digital experiences since 2016.",
+      },
+      {
+        property: "og:title",
+        content: "Dark Media — Digital Creative Agency",
+      },
+      {
+        property: "og:description",
+        content:
+          "Premium websites, branding systems, graphic design, and videography for ambitious brands.",
+      },
+    ],
   }),
-  component: lazyRouteComponent($$splitComponentImporter$1, "component")
+  component: lazyRouteComponent($$splitComponentImporter$1, "component"),
 });
 motion(Link);
 const $$splitComponentImporter = () => import("./al-masoudi-DTh0zT9t.mjs");
 const Route = createFileRoute("/work/al-masoudi")({
   head: () => ({
-    meta: [{
-      title: "Al Masoudi Company — Dark Media"
-    }, {
-      name: "description",
-      content: "AL MASOUDI Contracting and Trading branding and identity showcase by Dark Media."
-    }]
+    meta: [
+      {
+        title: "Al Masoudi Company — Dark Media",
+      },
+      {
+        name: "description",
+        content: "AL MASOUDI Contracting and Trading branding and identity showcase by Dark Media.",
+      },
+    ],
   }),
-  component: lazyRouteComponent($$splitComponentImporter, "component")
+  component: lazyRouteComponent($$splitComponentImporter, "component"),
 });
 const PortfolioRoute = Route$4.update({
   id: "/portfolio",
   path: "/portfolio",
-  getParentRoute: () => Route$5
+  getParentRoute: () => Route$5,
 });
 const ContactRoute = Route$3.update({
   id: "/contact",
   path: "/contact",
-  getParentRoute: () => Route$5
+  getParentRoute: () => Route$5,
 });
 const AboutRoute = Route$2.update({
   id: "/about",
   path: "/about",
-  getParentRoute: () => Route$5
+  getParentRoute: () => Route$5,
 });
 const IndexRoute = Route$1.update({
   id: "/",
   path: "/",
-  getParentRoute: () => Route$5
+  getParentRoute: () => Route$5,
 });
 const WorkAlMasoudiRoute = Route.update({
   id: "/work/al-masoudi",
   path: "/work/al-masoudi",
-  getParentRoute: () => Route$5
+  getParentRoute: () => Route$5,
 });
 const rootRouteChildren = {
   IndexRoute,
   AboutRoute,
   ContactRoute,
   PortfolioRoute,
-  WorkAlMasoudiRoute
+  WorkAlMasoudiRoute,
 };
 const routeTree = Route$5._addFileChildren(rootRouteChildren)._addFileTypes();
 const getRouter = () => {
@@ -233,10 +321,8 @@ const getRouter = () => {
     routeTree,
     context: { queryClient },
     scrollRestoration: true,
-    defaultPreloadStaleTime: 0
+    defaultPreloadStaleTime: 0,
   });
   return router;
 };
-export {
-  getRouter
-};
+export { getRouter };

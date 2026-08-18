@@ -72,7 +72,7 @@
     scroll-behavior: smooth;
   }
   body {
-    background-color: #F5F5F4;
+    background-color: #f5f5f4;
     color: #030304;
     font-family: var(--font-sans);
     font-feature-settings: "ss01", "cv11";
@@ -80,7 +80,7 @@
   }
   ::selection {
     background: #030304;
-    color: #F5F5F4;
+    color: #f5f5f4;
   }
 }
 
@@ -91,7 +91,7 @@
 }
 
 @utility font-dots {
-  font-family: 'Space Grotesk', monospace;
+  font-family: "Space Grotesk", monospace;
 }
 
 @utility marquee {
@@ -99,6 +99,10 @@
 }
 
 @keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
